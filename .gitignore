@@ -134,3 +134,9 @@ _NCrunch*
 
 .idea/
 .vscode/
+.vs/
+
+bin/
+obj/
+riderModule.iml
+/_ReSharper.Caches/
