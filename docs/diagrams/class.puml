@@ -1,0 +1,114 @@
+@startuml ProSoft - EasySave 1.0 - Class Diagram
+
+title "ProSoft - EasySave 1.0 - Class Diagram"
+
+class ViewModel {
+    + ViewModel()
+
+    + CreateSave() : void
+    + LoadSave() : void
+    + DeleteSave() : void
+    + EditSave() : void
+}
+
+class Program {
+    - {static} Main() : void
+}
+
+package Render <<Folder>> {
+
+    enum RenderMethod {
+        Home
+        ListAll
+    }
+
+    class View {
+        + View()
+
+        + Render(type : RenderMethod) : void
+    }
+
+}
+
+package Models <<Folder>> {
+
+    Interface Dir {
+        - path : string
+    }
+
+    class SrcDir {
+        - size : long
+        - nbFiles : long
+
+        + SrcDir(path : string)
+
+        + CalculateSize() : long
+        + CalculateNbFiles() : long
+    }
+
+    class DestDir {
+        + DestDir(path : string)
+    }
+
+    package Data <<Folder>> {
+
+        abstract class Save {
+            - {static} saves : Set<Save>
+            - uuid : Guid
+            - name : string
+
+            - Save()
+
+            + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + Rename(newName : string) : void
+            + {static} Delete(uuid : Guid) : void
+            + {static} {abstract} Run (uuid : Guid) : Job
+        }
+
+        class DifferentialSave {
+            - DifferentialSave(name : string, src: Dir, dest : Dir)
+            
+            + {static} Run (uuid : Guid) : Job
+        }
+
+        class FullSave {
+            - FullSave(name : string, src: Dir, dest : Dir)
+            
+            + {static} Run (uuid : Guid) : Job
+        }
+
+        class Job {
+            - uuid : Guid
+            - progress : int
+
+            # Job()
+        }
+
+        enum SaveType {
+            Full
+            Differential
+        }
+
+        enum JobStatus {
+            Running
+            Paused
+            Cancelled
+            Error
+        }
+        
+    }
+
+}
+
+View "1..*" o------ "1" ViewModel
+Save "*" *-- "1" SrcDir
+Save "*" *-- "1" DestDir
+Job "*" o------ "1" JobStatus
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+Save <|.. FullSave
+Save <|.. DifferentialSave
+
+@enduml
