@@ -1,0 +1,91 @@
+@startuml
+
+title "ProSoft - EasySave 1.0 - Class Diagram"
+
+class View {
+    + View()
+
+    + Render(type : RenderMethod) : void
+}
+
+class ViewModel {
+    + ViewModel()
+
+    + CreatSave() : void
+    + LoadSave() : void
+    + DeleteSave() : void
+    + EditSave() : void
+}
+
+class Program {
+    - {static} Main() : void
+}
+
+
+Interface Dir {
+    - path : String
+}
+
+class SrcDir {
+    - size : long
+    - nbFiles : long
+
+    + SrcDir(path : String)
+}
+
+class DestDir {
+    + DestDir(path : String)
+}
+
+
+enum RenderMethod {
+    Home
+    ListAll
+}
+
+enum BackupType {
+    Full
+    Differential
+}
+
+enum JobStatus {
+    Running
+    Paused
+    Cancelled
+    Error
+}
+
+package Data {
+    class Save {
+        - {static} save : Set<Save>
+        - uuid : UUID
+        - name : String
+
+        + Save()
+        - Save(name : String, src: Dir, dest : Dir, type : BackupType)
+
+        + {static} Create(name : String, src: Dir, dest : Dir, type : BackupType) : Save
+        + Rename(newName : String) : void
+        + {static} Delete(uuid : UUID) : void
+        + {static} Run (uuid : UUID) : void
+    }
+
+
+    class Job {
+        - uuid : UUID
+        - progress : int
+        - status : JobStatus
+
+
+        # Job()
+    }
+ }
+
+View "1..*" o------ "1" ViewModel
+Save "*" *------ "2" Dir
+Save "0..*" o------ "1" BackupType
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+@enduml
