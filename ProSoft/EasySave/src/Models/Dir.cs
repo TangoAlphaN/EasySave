@@ -4,8 +4,8 @@ using System.Text;
 
 namespace EasySave.src.Models
 {
-    public interface Dir
+    public interface IDir
     {
-        private string _path;
+        string path { get; }
     }
 }
