@@ -15,6 +15,15 @@ class Program {
     - {static} Main() : void
 }
 
+class LogUtils <<static>> {
+    - {static} logFile : string
+
+    + {static} LogError(message : string) : void
+    + {static} LogSave(save : Save) : void
+    + {static} LogTransfer(src : string, dest : string) : void
+    - {static} CalculateTransferTime() : int
+}
+
 package Render <<Folder>> {
 
     enum RenderMethod {
@@ -56,32 +65,31 @@ package Models <<Folder>> {
             - {static} saves : Set<Save>
             - uuid : Guid
             - name : string
+            - progress : int
 
             - Save()
 
             + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
             + Rename(newName : string) : void
             + {static} Delete(uuid : Guid) : void
-            + {static} {abstract} Run (uuid : Guid) : Job
+            + {static} {abstract} Run (uuid : Guid) : Save
+            + Pause() : void
+            + Resume() : void
+            + Cancel() : void
+            - CalculateProgress() : int
+            - CalculateRemainingTime() : int
         }
 
         class DifferentialSave {
             - DifferentialSave(name : string, src: Dir, dest : Dir)
             
-            + {static} Run (uuid : Guid) : Job
+            + {static} Run (uuid : Guid) : Save
         }
 
         class FullSave {
             - FullSave(name : string, src: Dir, dest : Dir)
             
-            + {static} Run (uuid : Guid) : Job
-        }
-
-        class Job {
-            - uuid : Guid
-            - progress : int
-
-            # Job()
+            + {static} Run (uuid : Guid) : Save
         }
 
         enum SaveType {
@@ -98,12 +106,17 @@ package Models <<Folder>> {
         
     }
 
+    class DirectoryUtils <<static>> {
+        + {static} CopyDirectory(src : string, dest : string) : void
+        + {static} CopyFile(src : string, dest : string) : void
+    }
+
 }
 
 View "1..*" o------ "1" ViewModel
 Save "*" *-- "1" SrcDir
 Save "*" *-- "1" DestDir
-Job "*" o------ "1" JobStatus
+Save "*" o------ "1" JobStatus
 
 Dir <|.. SrcDir
 Dir <|.. DestDir
