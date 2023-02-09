@@ -1,7 +1,11 @@
-﻿using Spectre.Console;
+﻿using EasySave.Properties;
+using EasySave.src.Utils;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using static System.Net.WebRequestMethods;
 
 namespace EasySave.src.Models
 {
@@ -12,13 +16,15 @@ namespace EasySave.src.Models
 
         private long _size;
 
-        private long _nbFiles;
+        public readonly long NbFiles;
 
         public SrcDir(string path)
         {
+            if(!DirectoryUtils.IsValidPath(path))
+                throw new DirectoryNotFoundException();
             this.path = path;
             this._size = 0;
-            this._nbFiles = 0;
+            this.NbFiles = 0;
         }
 
         public long CalculateSize()
@@ -26,10 +32,19 @@ namespace EasySave.src.Models
             throw new NotImplementedException();
         } 
 
-        public long CalculateNbFiles()
+        public long CalculateNbFiles(DirectoryInfo path = null)
         {
-            throw new NotImplementedException();
-        } 
+            if (path == null)
+                path = new DirectoryInfo(this.path);
+            long i = 0;
+            foreach (FileInfo file in path.GetFiles())
+                i++;
+            foreach (DirectoryInfo directory in path.GetDirectories())
+            {
+                CalculateNbFiles(directory);
+            }
+            return i;
+        }
 
     }
 }
