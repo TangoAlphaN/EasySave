@@ -232,6 +232,24 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save deleted successfully.
+        /// </summary>
+        public static string Save_Deleted {
+            get {
+                return ResourceManager.GetString("Save.Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save successfully renamed.
+        /// </summary>
+        public static string Save_Renamed {
+            get {
+                return ResourceManager.GetString("Save.Renamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your saves :.
         /// </summary>
         public static string SaveMenu_Title {
