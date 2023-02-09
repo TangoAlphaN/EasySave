@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using EasySave.Properties;
+using System;
 
 namespace EasySave.src.Models.Data
 {
@@ -11,6 +10,11 @@ namespace EasySave.src.Models.Data
         public override void Run()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return $"{name} - {uuid} | {Resource.CreateSave_Type_Full}";
         }
     }
 }

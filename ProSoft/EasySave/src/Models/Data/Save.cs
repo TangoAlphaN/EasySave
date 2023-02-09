@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace EasySave.src.Models.Data
 {
@@ -12,24 +11,24 @@ namespace EasySave.src.Models.Data
 
         private static HashSet<Save> saves = new HashSet<Save>();
 
-        private Guid uuid;
+        public readonly Guid uuid;
 
-        private string name;
+        protected string name;
 
-        private int progress;
+        private int _progress;
 
-        private JobStatus status;
+        private JobStatus _status;
 
-        private readonly SrcDir srcDir;
+        private readonly SrcDir _srcDir;
 
-        private readonly DestDir destDir;
+        private readonly DestDir _destDir;
 
         protected Save(string name, string src, string dest)
         {
             this.uuid = Guid.NewGuid();
             this.name = name;
-            this.srcDir = new SrcDir(src);
-            this.destDir = new DestDir(dest);
+            this._srcDir = new SrcDir(src);
+            this._destDir = new DestDir(dest);
         }
 
         public static HashSet<Save> GetSaves()
@@ -100,6 +99,8 @@ namespace EasySave.src.Models.Data
         {
             return (Save)Save.saves.Where(save => save.uuid == uuid);
         }
+
+        public override abstract string ToString();
 
     }
 }
