@@ -232,6 +232,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The save is already running.
+        /// </summary>
+        public static string Save_AlreadyRunning {
+            get {
+                return ResourceManager.GetString("Save.AlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save deleted successfully.
         /// </summary>
         public static string Save_Deleted {
@@ -246,6 +255,15 @@ namespace EasySave.Properties {
         public static string Save_Renamed {
             get {
                 return ResourceManager.GetString("Save.Renamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run the save ?.
+        /// </summary>
+        public static string Save_Run {
+            get {
+                return ResourceManager.GetString("Save.Run", resourceCulture);
             }
         }
         
