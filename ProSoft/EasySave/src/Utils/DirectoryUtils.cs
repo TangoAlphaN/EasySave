@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace EasySave.src.Utils
 {
@@ -15,5 +14,11 @@ namespace EasySave.src.Utils
         {
             throw new NotImplementedException();
         }
+
+        public static bool IsValidPath(String path)
+        {
+            return Directory.Exists(path);
+        }
+
     }
 }

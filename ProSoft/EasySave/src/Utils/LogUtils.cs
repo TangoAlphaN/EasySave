@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasySave.src.Models.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,6 @@ namespace EasySave.src.Utils
 {
     public static class LogUtils
     {
-        private static string _logFile;
-
         public static void LogError(String message)
         {
             throw new NotImplementedException();
