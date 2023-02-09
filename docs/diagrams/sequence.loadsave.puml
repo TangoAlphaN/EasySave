@@ -1,0 +1,44 @@
+@startuml ProSoft - EasySave 1.0 - Sequence Diagram - Run a save
+
+title "ProSoft - EasySave 1.0 - Sequence Diagram - Run a save"
+
+actor User as user
+participant "v : View" as v
+participant "p : Programme" as prog
+participant "vm : ViewModel" as vm
+participant "s : Save" as s
+
+activate prog
+prog -> v : Render()
+activate v
+v -> user : Display all saves
+user --> v : Select a save
+alt Save is not running
+    v -> user : Prompt for save run
+    user --> v : Choice
+    alt Choice == "Run"
+        v -> vm : RunSave()
+        activate vm
+        vm -> s : Run()
+        activate s
+        note right: "Please refer to the sequence diagram for the save details"
+        s --> vm : Save result
+        deactivate s
+        vm --> v : Save result
+        deactivate vm
+    end
+v -> user : Display menu
+user --> v
+else Save is running
+    v -> user : Display save state
+    user --> v
+else Save is finished
+    v -> user : Display save result
+    user --> v
+end
+v --> prog
+deactivate v
+prog --> user
+deactivate prog
+
+@enduml

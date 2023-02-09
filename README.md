@@ -1,11 +1,13 @@
 # EasySave
 ProSoft - EasySave
 
-# Members
-ARNOUX Guillaume
+## Table of Contents
 
-LEIDINGER Louison
+    
 
-PARISSE Nathalie
+## Team Members
 
-PERREUX Alexandre
+  * ARNOUX Guillaume
+  * LEIDINGER Louison
+  * PARISSE Nathalie 
+  * PERREUX Alexandre
