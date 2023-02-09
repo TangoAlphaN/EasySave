@@ -1,5 +1,6 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -42,5 +43,9 @@ namespace EasySave.src
             return Save.GetSaves().First(save => save.ToString() == name);
         }
 
+        internal void RunSave(Save save)
+        {
+            save.Run();
+        }
     }
 }

@@ -70,6 +70,7 @@ namespace EasySave.src.Utils
             data.name = s.Name;
             data.src = s.SrcDir.path;
             data.dest = s.DestDir.path;
+            data.state = JobStatus.Waiting;
             data.type = s.GetSaveType() == SaveType.Full ? Resource.CreateSave_Type_Full : Resource.CreateSave_Type_Differential;
             return data;
         }

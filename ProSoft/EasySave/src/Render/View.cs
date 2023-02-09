@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
@@ -51,7 +52,7 @@ namespace EasySave.src.Render
 
         private void RenderHome(string message = null)
         {
-            //AnsiConsole.Clear();
+            AnsiConsole.Clear();
             AnsiConsole.Write(new FigletText("EasySave").Centered().Color(Color.Red));
             if (message != null)
                 AnsiConsole.MarkupLine(message);
@@ -90,10 +91,9 @@ namespace EasySave.src.Render
                 src = ConsoleUtils.Ask(Resource.CreateSave_Src);
             }
             string dest = ConsoleUtils.Ask(Resource.CreateSave_Dest);
-            while (!DirectoryUtils.IsValidPath(dest))
+            if (!DirectoryUtils.IsValidPath(dest))
             {
-                ConsoleUtils.WriteError(Resource.Path_Invalid);
-                dest = ConsoleUtils.Ask(Resource.CreateSave_Dest);
+                new DirectoryInfo(dest).Create();
             }
             string type = ConsoleUtils.ChooseAction(Resource.CreateSave_Type, new HashSet<string>() { Resource.CreateSave_Type_Full, Resource.CreateSave_Type_Differential });
             dynamic data = new JObject();
@@ -115,7 +115,15 @@ namespace EasySave.src.Render
 
         private void RenderLoadSave(Save save)
         {
-            
+            if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
+                RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
+            ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
+            if (ConsoleUtils.AskConfirm())
+            {
+                vm.RunSave(save);
+            }
+            else
+                RenderHome();
         }
 
         private void RenderEditSave(Save s)

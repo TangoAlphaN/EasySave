@@ -32,6 +32,7 @@ namespace EasySave.src.Models.Data
             this.Name = name;
             this.SrcDir = new SrcDir(src);
             this.DestDir = new DestDir(dest);
+            this._status = JobStatus.Waiting;
         }
 
         public static HashSet<Save> GetSaves()
