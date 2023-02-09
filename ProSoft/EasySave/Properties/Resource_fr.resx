@@ -174,11 +174,17 @@
   <data name="Path.Invalid" xml:space="preserve">
     <value>Chemin incorrect !</value>
   </data>
+  <data name="Save.AlreadyRunning" xml:space="preserve">
+    <value>La sauvegarde est déjà lancée</value>
+  </data>
   <data name="Save.Deleted" xml:space="preserve">
     <value>Sauvegarde supprimée avec succès </value>
   </data>
   <data name="Save.Renamed" xml:space="preserve">
     <value>Sauvegarde renommée avec succès</value>
+  </data>
+  <data name="Save.Run" xml:space="preserve">
+    <value>Lancer la sauvegarde ?</value>
   </data>
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>Vos sauvegardes :</value>

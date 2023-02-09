@@ -1,4 +1,5 @@
 ﻿using EasySave.Properties;
+using EasySave.src.Utils;
 using System;
 
 namespace EasySave.src.Models.Data
@@ -14,7 +15,7 @@ namespace EasySave.src.Models.Data
 
         public override void Run()
         {
-            throw new NotImplementedException();
+            DirectoryUtils.CopyFilesAndFolders(this);
         }
 
         public override string ToString()

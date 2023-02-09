@@ -6,6 +6,7 @@
         Paused,
         Finished,
         Cancelled,
-        Error
+        Error,
+        Waiting
     }
 }

@@ -174,11 +174,17 @@
   <data name="Path.Invalid" xml:space="preserve">
     <value>Incorrect Path | </value>
   </data>
+  <data name="Save.AlreadyRunning" xml:space="preserve">
+    <value>The save is already running</value>
+  </data>
   <data name="Save.Deleted" xml:space="preserve">
     <value>Save deleted successfully</value>
   </data>
   <data name="Save.Renamed" xml:space="preserve">
     <value>Save successfully renamed</value>
+  </data>
+  <data name="Save.Run" xml:space="preserve">
+    <value>Run the save ?</value>
   </data>
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>Your saves :</value>

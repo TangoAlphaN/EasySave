@@ -2,12 +2,8 @@
 using EasySave.src.Models.Data;
 using Newtonsoft.Json.Linq;
 using Spectre.Console;
-using Spectre.Console.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using System.Text;
 
 namespace EasySave.src.Utils
 {
@@ -20,7 +16,7 @@ namespace EasySave.src.Utils
         {
             if (!DirectoryUtils.IsValidPath(_path))
             {
-                //AnsiConsole.Clear();
+                AnsiConsole.Clear();
                 Directory.CreateDirectory(_path);
             }
             if (File.Exists($"{_path}saves.json"))
@@ -74,6 +70,7 @@ namespace EasySave.src.Utils
             data.name = s.Name;
             data.src = s.SrcDir.path;
             data.dest = s.DestDir.path;
+            data.state = JobStatus.Waiting;
             data.type = s.GetSaveType() == SaveType.Full ? Resource.CreateSave_Type_Full : Resource.CreateSave_Type_Differential;
             return data;
         }
