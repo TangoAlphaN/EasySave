@@ -27,9 +27,18 @@ namespace EasySave.src.Models
             this.NbFiles = 0;
         }
 
-        public long CalculateSize()
+        public long CalculateSize(DirectoryInfo path = null)
         {
-            throw new NotImplementedException();
+            if (path == null)
+                path = new DirectoryInfo(this.path);
+            _size = 0;
+            foreach (FileInfo file in path.GetFiles())
+                _size += file.Length;
+            foreach (DirectoryInfo directory in path.GetDirectories())
+            {
+                CalculateSize(directory);
+            }
+            return _size; 
         } 
 
         public long CalculateNbFiles(DirectoryInfo path = null)
