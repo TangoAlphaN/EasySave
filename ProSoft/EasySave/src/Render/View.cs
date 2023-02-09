@@ -12,6 +12,13 @@ namespace EasySave.src.Render
     class View
     {
 
+        private readonly ViewModel vm;
+
+        public View()
+        {
+            vm = new ViewModel();
+        }
+
         public void Start()
         {
             Render();
@@ -28,12 +35,13 @@ namespace EasySave.src.Render
                     RenderCreateSave();
                     break;
                 case RenderMethod.LoadSave:
-                    PromptSave();
+                    RenderLoadSave(PromptSave());
                     break;
                 case RenderMethod.EditSave:
-                    PromptSave();
+                    RenderEditSave(PromptSave());
                     break;
                 case RenderMethod.DeleteSave:
+                    RenderDeleteSave(PromptSave());
                     break;
 
                 default:
@@ -43,7 +51,7 @@ namespace EasySave.src.Render
 
         private void RenderHome(string message = null)
         {
-            Console.Clear();
+            //AnsiConsole.Clear();
             AnsiConsole.Write(new FigletText("EasySave").Centered().Color(Color.Red));
             if (message != null)
                 AnsiConsole.MarkupLine(message);
@@ -60,7 +68,7 @@ namespace EasySave.src.Render
                     Render(RenderMethod.EditSave);
                     break;
                 case var value when value == Resource.HomeMenu_Delete:
-                    ///
+                    Render(RenderMethod.DeleteSave);
                     break;
                 default:
                     break;
@@ -93,19 +101,62 @@ namespace EasySave.src.Render
             data.src = src;
             data.dest = dest;
             data.type = type;
-            ConsoleUtils.WriteJson("test", new JsonText(data.ToString()));
+            ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(data.ToString()));
             if (ConsoleUtils.AskConfirm())
-                Save.CreateSave(name, src, dest, type == Resource.CreateSave_Type_Full ? SaveType.Full : SaveType.Differential);
-            RenderHome($"[green]{Resource.CreateSave_Success}[/]");
+            {
+                Save s = vm.CreateSave(name, src, dest, type == Resource.CreateSave_Type_Full ? SaveType.Full : SaveType.Differential);
+                RenderHome($"[green]{Resource.CreateSave_Success} ({s.uuid})[/]");
+            }
+            else
+            {
+                RenderHome();
+            }
         }
 
-        private void PromptSave()
+        private void RenderLoadSave(Save save)
         {
-            string save = ConsoleUtils.ChooseAction(Resource.SaveMenu_Title, ViewModel.GetSaves(), Resource.Forms_Back);
+            
+        }
+
+        private void RenderEditSave(Save s)
+        {
+            string oldName = s.Name;
+            string name = ConsoleUtils.Ask(Resource.CreateSave_Name);
+            vm.EditSave(s, name);
+            ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
+            if (ConsoleUtils.AskConfirm())
+            {
+                RenderHome($"[yellow]{Resource.Save_Renamed} ({s.uuid})[/]");
+            }
+            else
+            {
+                vm.EditSave(s, oldName);
+                RenderHome();
+            }
+        }
+
+        private void RenderDeleteSave(Save s)
+        {
+            ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
+            if (ConsoleUtils.AskConfirm())
+            {
+                vm.DeleteSave(s);
+                RenderHome($"[yellow]{Resource.Save_Deleted}[/]");
+            }
+            else
+            {
+                RenderHome();
+            }
+        }
+
+        private Save PromptSave()
+        {
+            string save = ConsoleUtils.ChooseAction(Resource.SaveMenu_Title, vm.GetSaves(), Resource.Forms_Back);
             if (save == Resource.Forms_Back)
                 Render();
             else
-                Render(RenderMethod.EditSave);
+                return vm.GetSaveByUuid(save);
+            return null;
         }
 
         

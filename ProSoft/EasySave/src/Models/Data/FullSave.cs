@@ -5,7 +5,12 @@ namespace EasySave.src.Models.Data
 {
     public class FullSave : Save
     {
-        protected internal FullSave(string name, string src, string dest) : base(name, src, dest) { }
+        protected internal FullSave(string name, string src, string dest, Guid guid) : base(name, src, dest, guid) { }
+
+        public override SaveType GetSaveType()
+        {
+            return SaveType.Full;
+        }
 
         public override void Run()
         {
@@ -14,7 +19,9 @@ namespace EasySave.src.Models.Data
 
         public override string ToString()
         {
-            return $"{name} - {uuid} | {Resource.CreateSave_Type_Full}";
+            return $"{Name} - {uuid} | {Resource.CreateSave_Type_Full}";
         }
+
+        
     }
 }

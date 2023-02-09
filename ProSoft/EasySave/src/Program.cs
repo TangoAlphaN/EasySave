@@ -1,5 +1,5 @@
-﻿using System;
-using EasySave.src.Render;
+﻿using EasySave.src.Render;
+using EasySave.src.Utils;
 
 namespace EasySave.src
 {
@@ -11,6 +11,7 @@ namespace EasySave.src
 
         protected static void Main(string[] args)
         {
+            LogUtils.Init();
             View v = new View();
             v.Start();
         }

@@ -1,18 +1,40 @@
-﻿using System;
+﻿using EasySave.Properties;
+using EasySave.src.Models;
+using EasySave.src.Models.Data;
+using System;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace EasySave.src.Utils
 {
     public static class DirectoryUtils
     {
-        public static void CopyDirectory(String src, String dest)
+        public static bool CopyFilesAndFolders(Save s)
         {
-            throw new NotImplementedException();
+            DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.path);
+            DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.path);
+            Parallel.Invoke(
+                () => ConsoleUtils.CreateProgressBar(s),
+                () => CopyAll(s, sourceDirectory, destinationDirectory)
+            );
+            return true;
         }
 
-        public static void CopyFile(String src, String dest)
+        private static void CopyAll(Save s, DirectoryInfo src, DirectoryInfo dest)
         {
-            throw new NotImplementedException();
+            foreach (FileInfo file in src.GetFiles())
+            {
+                Thread.Sleep(50);
+                file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
+                s.AddFileCopied();
+            }
+
+            foreach (DirectoryInfo directory in src.GetDirectories())
+            {
+                DirectoryInfo nextTarget = dest.CreateSubdirectory(directory.Name);
+                CopyAll(s, directory, nextTarget);
+            }
         }
 
         public static bool IsValidPath(String path)
@@ -20,5 +42,9 @@ namespace EasySave.src.Utils
             return Directory.Exists(path);
         }
 
+        public static void CreatePath(string path)
+        {
+            Directory.CreateDirectory(path);
+        }
     }
 }

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using EasySave.src.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using EasySave.src.Utils;
+using Newtonsoft.Json.Linq;
 
 namespace EasySave.src.Models.Data
 {
@@ -14,22 +16,22 @@ namespace EasySave.src.Models.Data
 
         public readonly Guid uuid;
 
-        protected string name;
+        public string Name;
 
-        private int _progress;
+        private long _filesCopied;
 
         private JobStatus _status;
 
-        private readonly SrcDir _srcDir;
+        public readonly SrcDir SrcDir;
 
-        private readonly DestDir _destDir;
+        public readonly DestDir DestDir;
 
-        protected Save(string name, string src, string dest)
+        protected Save(string name, string src, string dest, Guid guid)
         {
-            this.uuid = Guid.NewGuid();
-            this.name = name;
-            this._srcDir = new SrcDir(src);
-            this._destDir = new DestDir(dest);
+            this.uuid = guid;
+            this.Name = name;
+            this.SrcDir = new SrcDir(src);
+            this.DestDir = new DestDir(dest);
         }
 
         public static HashSet<Save> GetSaves()
@@ -47,10 +49,10 @@ namespace EasySave.src.Models.Data
             switch (type)
             {
                 case SaveType.Differential:
-                    s = new DifferentialSave(name, src, dest);
+                    s = new DifferentialSave(name, src, dest, Guid.NewGuid());
                     break;
                 case SaveType.Full:
-                    s = new FullSave(name, src, dest);
+                    s = new FullSave(name, src, dest, Guid.NewGuid());
                     break;
                 default:
                     throw new Exception("Save type not allowed");
@@ -60,9 +62,9 @@ namespace EasySave.src.Models.Data
             return s;
         }
 
-        private int CalculateProgress()
+        public int CalculateProgress()
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         private int CalculateRemainingTime()
@@ -72,7 +74,8 @@ namespace EasySave.src.Models.Data
 
         public void Rename(string newName)
         {
-            name = newName;
+            Name = newName;
+            UpdateState();
         }
 
         public void Pause()
@@ -91,22 +94,53 @@ namespace EasySave.src.Models.Data
 
         public static void Delete(Guid uuid)
         {
-            throw new NotImplementedException();
+            Save save = saves.First(save => save.uuid == uuid);
+            saves.Remove(save);
+            LogUtils.LogSaves();
         }
 
         public abstract void Run();
 
         public Save GetSaveByUuid(Guid uuid)
         {
-            return (Save)Save.saves.Where(save => save.uuid == uuid);
+            return (Save)saves.Where(save => save.uuid == uuid);
+        }
+
+        public long GetFilesCopied()
+        {
+            return _filesCopied;
+        }
+
+        public JobStatus GetStatus()
+        {
+            return _status;
         }
 
         public override abstract string ToString();
 
         private void UpdateState()
         {
-            LogUtils.LogSave(this);
+            LogUtils.LogSaves();
         }
 
+        public abstract SaveType GetSaveType();
+
+        public void AddFileCopied()
+        {
+            _filesCopied++;
+        }
+
+        public static void Init(JObject jObject)
+        {
+            foreach(JArray save in jObject)
+            {
+                Console.WriteLine(save[]);
+                /*if (save.type == "Full Save")
+                    saves.Add(new FullSave(save.name, save.src, save.dest));
+                else
+                    saves.Add(new DifferentialSave(save.name, save.src, save.dest));*/
+
+            }
+        }
     }
 }
