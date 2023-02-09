@@ -61,6 +61,105 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is it correct ?.
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string Confirm_No {
+            get {
+                return ResourceManager.GetString("Confirm.No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Confirm_Yes {
+            get {
+                return ResourceManager.GetString("Confirm.Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter save destination path :.
+        /// </summary>
+        public static string CreateSave_Dest {
+            get {
+                return ResourceManager.GetString("CreateSave.Dest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Too many backups have already been created.
+        /// </summary>
+        public static string CreateSave_MaxSaves {
+            get {
+                return ResourceManager.GetString("CreateSave.MaxSaves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter save name :.
+        /// </summary>
+        public static string CreateSave_Name {
+            get {
+                return ResourceManager.GetString("CreateSave.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter save source path :.
+        /// </summary>
+        public static string CreateSave_Src {
+            get {
+                return ResourceManager.GetString("CreateSave.Src", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save created successfully !.
+        /// </summary>
+        public static string CreateSave_Success {
+            get {
+                return ResourceManager.GetString("CreateSave.Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose save type :.
+        /// </summary>
+        public static string CreateSave_Type {
+            get {
+                return ResourceManager.GetString("CreateSave.Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Differential Save.
+        /// </summary>
+        public static string CreateSave_Type_Differential {
+            get {
+                return ResourceManager.GetString("CreateSave.Type.Differential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Save.
+        /// </summary>
+        public static string CreateSave_Type_Full {
+            get {
+                return ResourceManager.GetString("CreateSave.Type.Full", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return to menu.
         /// </summary>
         public static string Forms_Back {
@@ -115,11 +214,29 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose an action.
+        ///   Looks up a localized string similar to Choose an action :.
         /// </summary>
         public static string HomeMenu_Title {
             get {
                 return ResourceManager.GetString("HomeMenu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect Path | .
+        /// </summary>
+        public static string Path_Invalid {
+            get {
+                return ResourceManager.GetString("Path.Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your saves :.
+        /// </summary>
+        public static string SaveMenu_Title {
+            get {
+                return ResourceManager.GetString("SaveMenu.Title", resourceCulture);
             }
         }
     }
