@@ -9,6 +9,8 @@ class ViewModel {
     + LoadSave() : void
     + DeleteSave() : void
     + EditSave() : void
+    + GetSaves() : HashSet<Save>
+    + GetSaveBuUuid(name : String) : Save
 }
 
 class Program {
@@ -20,15 +22,20 @@ class LogUtils <<static>> {
 
     + {static} Init() : void
     + {static} LogSave(save : Save) : void
+    + {static} LogTransfer(data : JObject) : void
+    + {static} CalculateTransferTime() : long
     - {static} SavesToJson() : JObject
-    + {static} SaveToJson(s : Save) : dynamic
+    + {static} SaveToJson(s : Save) : JObject
 }
 
 package Render <<Folder>> {
 
     enum RenderMethod {
         Home
-        ListAll
+        CreateSave,
+        EditSave,
+        DeleteSave,
+        LoadSave
     }
 
     class View {
@@ -36,10 +43,13 @@ package Render <<Folder>> {
 
         + View()
 
+        + Start() : void
         + Render(type : RenderMethod) : void
         - RenderHome(message : string) : void
         - RenderCreateSave() : void
         - RenderEditSave() : void
+        - RenderLoadSave() : void
+        - PromptSave() : Save
         - RenderDeleteSave(s : Save) : void
     }
 
@@ -102,7 +112,7 @@ package Models <<Folder>> {
             # DifferentialSave(name : string, src: Dir, dest : Dir)
 
             + GetSaveType() : SaveType
-            + Run () : Save
+            + Run() : Save
             + ToString() : string
         }
 
@@ -110,7 +120,7 @@ package Models <<Folder>> {
             # {internal} FullSave(name : string, src: Dir, dest : Dir)
 
             + GetSaveType() : SaveType
-            + Run () : Save
+            + Run() : Save
             + ToString() : string
         }
 
@@ -124,7 +134,8 @@ package Models <<Folder>> {
             Paused
             Finished
             Cancelled
-            Error
+            Error,
+            Waiting
         }
         
     }
