@@ -16,12 +16,12 @@ class Program {
 }
 
 class LogUtils <<static>> {
-    - {static} logFile : string
+    - {static} path : string
 
-    + {static} LogError(message : string) : void
+    + {static} Init() : void
     + {static} LogSave(save : Save) : void
-    + {static} LogTransfer(src : string, dest : string) : void
-    - {static} CalculateTransferTime() : int
+    - {static} SavesToJson() : JObject
+    + {static} SaveToJson(s : Save) : dynamic
 }
 
 package Render <<Folder>> {
@@ -32,9 +32,15 @@ package Render <<Folder>> {
     }
 
     class View {
+        - {readonly} vm : ViewModel
+
         + View()
 
         + Render(type : RenderMethod) : void
+        - RenderHome(message : string) : void
+        - RenderCreateSave() : void
+        - RenderEditSave() : void
+        - RenderDeleteSave(s : Save) : void
     }
 
 }
@@ -62,34 +68,50 @@ package Models <<Folder>> {
     package Data <<Folder>> {
 
         abstract class Save {
+            + {const} MAX_SAVES = 5 : int
             - {static} saves : Set<Save>
-            - uuid : Guid
-            - name : string
-            - progress : int
+            + {readonly} uuid : Guid
+            + name : string
+            - filesCopied : long
+            - status : JobStatus
+            + {readonly} SrcDir : SrcDir
+            + {readonly} DestDir : DestDir
 
-            - Save()
+            # Save(name: string, src : string, dest : string, guid : Guid)
+
+            + {static} GetSaves() : HashSet<save>
 
             + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
             + Rename(newName : string) : void
             + {static} Delete(uuid : Guid) : void
-            + {static} {abstract} Run (uuid : Guid) : Save
-            + Pause() : void
+            + {abstract} Run (uuid : Guid) : void
+            /'+ Pause() : void
             + Resume() : void
-            + Cancel() : void
+            + Cancel() : void'/
             - CalculateProgress() : int
-            - CalculateRemainingTime() : int
+            /'- CalculateRemainingTime() : int'/
+            + GetFilesCopied() : long
+            + GetStatus() : JobStatus
+            + {abstract} ToString() : string
+            + {abstract} GetSaveType() : SaveType
+            + AddFileCopied() : void
+            + {static} Init(jObject : JObject) : void
         }
 
         class DifferentialSave {
-            - DifferentialSave(name : string, src: Dir, dest : Dir)
-            
-            + {static} Run (uuid : Guid) : Save
+            # DifferentialSave(name : string, src: Dir, dest : Dir)
+
+            + GetSaveType() : SaveType
+            + Run () : Save
+            + ToString() : string
         }
 
         class FullSave {
-            - FullSave(name : string, src: Dir, dest : Dir)
-            
-            + {static} Run (uuid : Guid) : Save
+            # {internal} FullSave(name : string, src: Dir, dest : Dir)
+
+            + GetSaveType() : SaveType
+            + Run () : Save
+            + ToString() : string
         }
 
         enum SaveType {
@@ -100,6 +122,7 @@ package Models <<Folder>> {
         enum JobStatus {
             Running
             Paused
+            Finished
             Cancelled
             Error
         }
@@ -107,8 +130,18 @@ package Models <<Folder>> {
     }
 
     class DirectoryUtils <<static>> {
-        + {static} CopyDirectory(src : string, dest : string) : void
-        + {static} CopyFile(src : string, dest : string) : void
+        + {static} CopyFilesAndFolders(s : Save) : boolean
+        + {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo) : void
+        + {static} IsValidPath(path : string) : boolean
+        + {static} CreatePath(path : string) : void
+    }
+
+    class ConsoleUtils <<static>> {
+        + {static} ChooseAction(title : string, choices : HashSet<string>, lastOption : string) : string
+        + {static} AskConfirm() : boolean
+        + {static} WriteJson(title : string, data : JsonText, color : Color) : void
+        + {static} WriteError(error : string) : void
+        +{static} CreateProgressBar(s : Save) : void
     }
 
 }
