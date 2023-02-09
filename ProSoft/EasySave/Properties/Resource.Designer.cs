@@ -178,6 +178,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change language.
+        /// </summary>
+        public static string HomeMenu_ChangeLanguage {
+            get {
+                return ResourceManager.GetString("HomeMenu.ChangeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a save.
         /// </summary>
         public static string HomeMenu_Create {

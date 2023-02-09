@@ -156,6 +156,9 @@
   <data name="Forms.Exit" xml:space="preserve">
     <value>Quitter</value>
   </data>
+  <data name="HomeMenu.ChangeLanguage" xml:space="preserve">
+    <value>Changer de langue</value>
+  </data>
   <data name="HomeMenu.Create" xml:space="preserve">
     <value>Créer une sauvegarde</value>
   </data>
