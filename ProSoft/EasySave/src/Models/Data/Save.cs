@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EasySave.src.Utils;
 
 namespace EasySave.src.Models.Data
 {
@@ -55,7 +56,7 @@ namespace EasySave.src.Models.Data
                     throw new Exception("Save type not allowed");
             }
             Save.saves.Add(s);
-            //TODO save in logs
+            s.UpdateState();
             return s;
         }
 
@@ -101,6 +102,11 @@ namespace EasySave.src.Models.Data
         }
 
         public override abstract string ToString();
+
+        private void UpdateState()
+        {
+            LogUtils.LogSave(this);
+        }
 
     }
 }
