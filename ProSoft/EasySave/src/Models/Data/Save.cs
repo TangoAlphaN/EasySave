@@ -132,13 +132,12 @@ namespace EasySave.src.Models.Data
 
         public static void Init(JObject jObject)
         {
-            foreach(JArray save in jObject)
+            foreach (var save in jObject)
             {
-                Console.WriteLine(save[]);
-                /*if (save.type == "Full Save")
-                    saves.Add(new FullSave(save.name, save.src, save.dest));
+                if (save.Value["type"].ToString() == "Full Save")
+                    saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
                 else
-                    saves.Add(new DifferentialSave(save.name, save.src, save.dest));*/
+                    saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
 
             }
         }
