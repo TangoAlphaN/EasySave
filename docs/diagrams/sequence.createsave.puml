@@ -1,0 +1,58 @@
+@startuml ProSoft - EasySave 1.0 - Sequence Diagram - Create a save
+
+title "ProSoft - EasySave 1.0 - Sequence Diagram - Create a save"
+
+autonumber
+
+actor User as u
+
+participant "p : Programme" as p
+
+
+participant View [
+    v : View
+]
+participant ViewModel [
+    vm : ViewModel
+]
+participant Save [
+    s : Save
+]
+participant LogUtil
+
+activate u
+u -> p : Run the programm
+activate p
+p -> View : Render()
+activate View
+View -> u : Prompt a name, source path, destination path, and a type
+u --> View : Name, source path, destination path, type
+View -> ViewModel : Create a new save
+activate ViewModel
+ViewModel -> Save : Create
+activate Save
+Save --> ViewModel : Return the new save
+deactivate Save
+ViewModel --> View : Return the new save
+deactivate ViewModel
+View -> u : Display the new save and ask for confirmation
+u --> View : Confirmation
+alt Confirmation
+    View -> ViewModel : Add the new save
+    activate ViewModel
+    ViewModel -> Save : Create
+    activate Save
+    Save -> LogUtil : Log the save
+    activate LogUtil
+    LogUtil --> Save
+    deactivate LogUtil
+    Save --> ViewModel
+    deactivate Save
+    ViewModel --> View
+end
+View --> p
+deactivate View
+p --> u
+deactivate p
+
+@enduml
