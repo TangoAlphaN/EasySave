@@ -225,7 +225,7 @@ namespace EasySave.src.Render
         
         private string CheckUpdate()
         {
-            bool upToDate = vm.IsUpdated();
+            bool upToDate = ViewModel.IsUpdated();
             return (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]");
         }
 
