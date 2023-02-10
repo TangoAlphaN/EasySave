@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading;
 using EasySave.Properties;
 using EasySave.src.Models.Data;
@@ -46,6 +47,9 @@ namespace EasySave.src.Render
                 case RenderMethod.DeleteSave:
                     RenderDeleteSave(PromptSave());
                     break;
+                case RenderMethod.ChangeLanguage:
+                    RenderChangeLanguage();
+                    break;
 
                 default:
                     throw new Exception("Render method not found");
@@ -74,11 +78,7 @@ namespace EasySave.src.Render
                     Render(RenderMethod.DeleteSave);
                     break;
                 case var value when value == Resource.HomeMenu_ChangeLanguage:
-                    string language = CultureInfo.CurrentCulture.ToString() == "fr-FR" ? "en-GB" : "fr-FR";
-                    CultureInfo culture = new CultureInfo(language);
-                    Thread.CurrentThread.CurrentUICulture = culture;
-                    Thread.CurrentThread.CurrentCulture = culture;
-                    RenderHome();
+                    Render(RenderMethod.ChangeLanguage);
                     break;
                 default:
                     break;
@@ -193,6 +193,25 @@ namespace EasySave.src.Render
         {
             vm.StopAllSaves();
             Environment.Exit(code);
+        }
+
+        private void RenderChangeLanguage()
+        {
+            string lang = ConsoleUtils.ChooseAction(Resource.ChangeLang, new HashSet<string> { Resource.Lang_fr_FR, Resource.Lang_en_US }, Resource.Forms_Back);
+            string culture = CultureInfo.CurrentCulture.ToString();
+            switch (lang)
+            {
+                case var value when value == Resource.Lang_fr_FR:
+                    culture = "fr-FR";
+                    break;
+                case var value when value == Resource.Lang_en_US:
+                    culture = "en-US";
+                    break;
+            }
+            CultureInfo cultureInfo = new CultureInfo(culture);
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            RenderHome();            
         }
     }
 }
