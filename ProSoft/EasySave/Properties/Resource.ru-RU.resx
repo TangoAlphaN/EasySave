@@ -222,4 +222,7 @@
   <data name="UpToDate" xml:space="preserve">
     <value>EasySave находится в актуальном состоянии.</value>
   </data>
+  <data name="AccesDenied" xml:space="preserve">
+    <value>Доступ запрещен блять</value>
+  </data>
 </root>

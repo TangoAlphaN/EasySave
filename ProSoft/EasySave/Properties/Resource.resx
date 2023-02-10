@@ -222,4 +222,7 @@
   <data name="UpToDate" xml:space="preserve">
     <value>EasySave is up-to-date.</value>
   </data>
+  <data name="AccesDenied" xml:space="preserve">
+    <value>Acces denied</value>
+  </data>
 </root>

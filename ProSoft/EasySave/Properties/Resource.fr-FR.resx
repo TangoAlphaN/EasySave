@@ -222,4 +222,7 @@
   <data name="UpToDate" xml:space="preserve">
     <value>Vous utilisez actuellement la dernière version disponible.</value>
   </data>
+  <data name="AccesDenied" xml:space="preserve">
+    <value>Accès refusé</value>
+  </data>
 </root>

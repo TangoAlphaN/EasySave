@@ -36,7 +36,14 @@ namespace EasySave.src.Utils
                     actualFile[1] = dest.FullName;
                     var watch = new System.Diagnostics.Stopwatch();
                     watch.Start();
-                    file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
+                    try
+                    {
+                        file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
+                    }
+                    catch
+                    {
+                        ConsoleUtils.WriteError($"{file.Name} | {Resource.AccesDenied}");
+                    }
                     watch.Stop();
                     LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds);
                 }

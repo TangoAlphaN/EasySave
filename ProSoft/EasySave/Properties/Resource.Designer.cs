@@ -61,6 +61,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acces denied.
+        /// </summary>
+        public static string AccesDenied {
+            get {
+                return ResourceManager.GetString("AccesDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select all.
         /// </summary>
         public static string All {
