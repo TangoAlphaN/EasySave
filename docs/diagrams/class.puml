@@ -143,7 +143,6 @@ package Models <<Folder>> {
         + {static} WriteError(error : string) : void
         +{static} CreateProgressBar(s : Save) : void
     }
-
 }
 
 View "1..*" o------ "1" ViewModel
