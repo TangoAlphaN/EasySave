@@ -225,4 +225,7 @@
   <data name="AccesDenied" xml:space="preserve">
     <value>Acces denied</value>
   </data>
+  <data name="Save.Info" xml:space="preserve">
+    <value>Backup summary:</value>
+  </data>
 </root>

@@ -349,6 +349,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backup summary:.
+        /// </summary>
+        public static string Save_Info {
+            get {
+                return ResourceManager.GetString("Save.Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save successfully renamed.
         /// </summary>
         public static string Save_Renamed {

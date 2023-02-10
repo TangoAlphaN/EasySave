@@ -225,4 +225,7 @@
   <data name="AccesDenied" xml:space="preserve">
     <value>Accès refusé</value>
   </data>
+  <data name="Save.Info" xml:space="preserve">
+    <value>Résumé de la sauvegarde :</value>
+  </data>
 </root>

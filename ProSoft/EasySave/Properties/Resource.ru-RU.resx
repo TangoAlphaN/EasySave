@@ -225,4 +225,7 @@
   <data name="AccesDenied" xml:space="preserve">
     <value>Доступ запрещен блять</value>
   </data>
+  <data name="Save.Info" xml:space="preserve">
+    <value>Резюме резервного копирования</value>
+  </data>
 </root>
