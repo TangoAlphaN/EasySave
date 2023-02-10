@@ -19,8 +19,10 @@ namespace EasySave.src.Models.Data
         public string Name;
 
         private long _filesCopied;
+        
+        private long _sizeCopied;
 
-        private JobStatus _status;
+        protected JobStatus Status;
 
         public readonly SrcDir SrcDir;
 
@@ -32,7 +34,7 @@ namespace EasySave.src.Models.Data
             this.Name = name;
             this.SrcDir = new SrcDir(src);
             this.DestDir = new DestDir(dest);
-            this._status = JobStatus.Waiting;
+            this.Status = JobStatus.Waiting;
         }
 
         public static HashSet<Save> GetSaves()
@@ -65,7 +67,7 @@ namespace EasySave.src.Models.Data
 
         public int CalculateProgress()
         {
-            return 0;
+            return (int)(_sizeCopied / SrcDir.GetSize() * 100);
         }
 
         private int CalculateRemainingTime()
@@ -81,16 +83,21 @@ namespace EasySave.src.Models.Data
 
         public void Pause()
         {
-            throw new NotImplementedException();
+            Status = JobStatus.Paused;
         }
 
         public void Resume()
         {
-            throw new NotImplementedException();
+            Status = JobStatus.Running;
         }
 
         public void Cancel() {
-            throw new NotImplementedException();
+            Status = JobStatus.Canceled;
+        }
+
+        public void Stop()
+        {
+            Status = JobStatus.Waiting;
         }
 
         public static void Delete(Guid uuid)
@@ -114,7 +121,7 @@ namespace EasySave.src.Models.Data
 
         public JobStatus GetStatus()
         {
-            return _status;
+            return Status;
         }
 
         public override abstract string ToString();
@@ -135,12 +142,27 @@ namespace EasySave.src.Models.Data
         {
             foreach (var save in jObject)
             {
-                if (save.Value["type"].ToString() == "Full Save")
+                if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
+                if (save.Value["type"].ToString() == "Full")
                     saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
                 else
                     saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
-
             }
+        }
+
+        internal long GetSizeCopied()
+        {
+            return _sizeCopied;
+        }
+
+        public string[] getActualTransfer()
+        {
+            return new string[] { "", "" };
+        }
+
+        internal void AddSizeCopied(long length)
+        {
+            _sizeCopied += length;
         }
     }
 }

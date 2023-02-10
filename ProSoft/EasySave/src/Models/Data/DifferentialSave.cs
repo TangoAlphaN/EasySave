@@ -15,7 +15,10 @@ namespace EasySave.src.Models.Data
 
         public override void Run()
         {
+            Status = JobStatus.Running;
             DirectoryUtils.CopyFilesAndFolders(this, SaveType.Differential);
+            Status = JobStatus.Finished;
+            LogUtils.LogSaves();
         }
 
         public override string ToString()

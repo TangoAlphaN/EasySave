@@ -5,7 +5,7 @@
         Running,
         Paused,
         Finished,
-        Cancelled,
+        Canceled,
         Error,
         Waiting
     }
