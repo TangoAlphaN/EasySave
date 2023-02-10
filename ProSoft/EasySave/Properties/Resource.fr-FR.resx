@@ -120,6 +120,9 @@
   <data name="ChangeLang" xml:space="preserve">
     <value>Choisir votre langue :</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Tout sélectionner</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Est-ce correct ?</value>
   </data>
@@ -217,6 +220,6 @@
     <value>Vos sauvegardes :</value>
   </data>
   <data name="UpToDate" xml:space="preserve">
-    <value>Vous utilisez actuellement la dernière version  disponible.</value>
+    <value>Vous utilisez actuellement la dernière version disponible.</value>
   </data>
 </root>

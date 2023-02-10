@@ -120,6 +120,9 @@
   <data name="ChangeLang" xml:space="preserve">
     <value>Изменение языка</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>выбрать все</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Подтвердить?</value>
   </data>
