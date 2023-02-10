@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using EasySave.Properties;
@@ -25,6 +26,7 @@ namespace EasySave.src.Render
 
         public void Start()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             RenderHome(CheckUpdate());
         }
 
@@ -203,7 +205,7 @@ namespace EasySave.src.Render
 
         private void RenderChangeLanguage()
         {
-            string lang = ConsoleUtils.ChooseAction(Resource.ChangeLang, new HashSet<string> { Resource.Lang_fr_FR, Resource.Lang_en_US }, Resource.Forms_Back);
+            string lang = ConsoleUtils.ChooseAction(Resource.ChangeLang, new HashSet<string> { Resource.Lang_fr_FR, Resource.Lang_en_US, Resource.Lang_ru_RU, Resource.Lang_it_IT }, Resource.Forms_Back);
             string culture = CultureInfo.CurrentCulture.ToString();
             switch (lang)
             {
@@ -212,6 +214,12 @@ namespace EasySave.src.Render
                     break;
                 case var value when value == Resource.Lang_en_US:
                     culture = "en-US";
+                    break;
+                case var value when value == Resource.Lang_ru_RU:
+                    culture = "ru-RU";
+                    break;
+                case var value when value == Resource.Lang_it_IT:
+                    culture = "it-IT";
                     break;
             }
             CultureInfo cultureInfo = new CultureInfo(culture);
