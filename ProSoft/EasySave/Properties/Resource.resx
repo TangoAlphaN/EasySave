@@ -199,7 +199,7 @@
     <value>Russian</value>
   </data>
   <data name="NoUpToDate" xml:space="preserve">
-    <value>A new version is available: </value>
+    <value>A new version is available:</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
     <value>Incorrect Path | </value>

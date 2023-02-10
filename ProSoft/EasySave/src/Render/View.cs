@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Linq;
-using System.Threading;
-using EasySave.Properties;
+﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
 using Newtonsoft.Json.Linq;
 using Spectre.Console;
 using Spectre.Console.Json;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
 
 namespace EasySave.src.Render
 {
@@ -35,9 +34,6 @@ namespace EasySave.src.Render
         {
             switch (method)
             {
-                case RenderMethod.Home:
-                    RenderHome();
-                    break;
                 case RenderMethod.CreateSave:
                     RenderCreateSave();
                     break;
@@ -53,9 +49,9 @@ namespace EasySave.src.Render
                 case RenderMethod.ChangeLanguage:
                     RenderChangeLanguage();
                     break;
-
                 default:
-                    throw new Exception("Render method not found");
+                    RenderHome();
+                    break;
             }
         }
 
@@ -90,7 +86,7 @@ namespace EasySave.src.Render
 
         private void RenderCreateSave()
         {
-            if(Save.GetSaves().Count >= Save.MAX_SAVES)
+            if (Save.GetSaves().Count >= Save.MAX_SAVES)
             {
                 AnsiConsole.MarkupLine(Resource.CreateSave_MaxSaves);
                 Render();
@@ -133,7 +129,8 @@ namespace EasySave.src.Render
             }
             else
             {
-                foreach (Save save in saves) { 
+                foreach (Save save in saves)
+                {
                     try
                     {
                         if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
@@ -149,7 +146,7 @@ namespace EasySave.src.Render
                                 RenderHome();
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         ConsoleUtils.WriteError($"{Resource.Exception}");
                         Console.WriteLine(ex);
@@ -166,7 +163,7 @@ namespace EasySave.src.Render
             if (saves.Count != 0)
             {
                 Save s = saves.Single();
-                string oldName = s.Name;
+                string oldName = s.GetName();
                 string name = ConsoleUtils.Ask(Resource.CreateSave_Name);
                 vm.EditSave(s, name);
                 ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
@@ -209,9 +206,10 @@ namespace EasySave.src.Render
             HashSet<string> saves = new HashSet<string>();
             if (multi)
                 saves = ConsoleUtils.ChooseMultiple(Resource.SaveMenu_Title, vm.GetSaves());
-            else {
+            else
+            {
                 string save = ConsoleUtils.ChooseAction(Resource.SaveMenu_Title, vm.GetSaves(), Resource.Forms_Back);
-                if(save != Resource.Forms_Back && save != Resource.Forms_Exit)
+                if (save != Resource.Forms_Back && save != Resource.Forms_Exit)
                     saves.Add(save);
             }
             return vm.GetSavesByUuid(saves);
@@ -222,11 +220,11 @@ namespace EasySave.src.Render
             vm.StopAllSaves();
             Environment.Exit(code);
         }
-        
+
         private string CheckUpdate()
         {
             bool upToDate = ViewModel.IsUpToDate();
-            return ("\r\n\r\n" + (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]") + "\r\n");
+            return ("\r\n\r\n" + (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate} [link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]") + "\r\n");
         }
 
         private void RenderChangeLanguage()
@@ -251,7 +249,8 @@ namespace EasySave.src.Render
             CultureInfo cultureInfo = new CultureInfo(culture);
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
             Thread.CurrentThread.CurrentCulture = cultureInfo;
-            RenderHome();            
+            RenderHome();
         }
+
     }
 }

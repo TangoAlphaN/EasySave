@@ -12,7 +12,7 @@ namespace EasySave.src.Models
     public class SrcDir : IDir
     {
 
-        public string path { get; }
+        public string Path { get; }
 
         private readonly double _size;
 
@@ -20,7 +20,7 @@ namespace EasySave.src.Models
 
         public SrcDir(string path)
         {
-            this.path = path;
+            this.Path = path;
             DirectoryInfo directory = new DirectoryInfo(path);
             this._size = DirectoryUtils.GetDirectorySize(directory);
             this.NbFiles = DirectoryUtils.GetDirectoryFiles(directory);
@@ -30,5 +30,6 @@ namespace EasySave.src.Models
         {
             return _size;
         }
+        
     }
 }

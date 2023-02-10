@@ -24,7 +24,7 @@ namespace EasySave.src.Utils
         public static int[] VersionFromStr(string version)
         {
             if (version.StartsWith("V"))
-                version = version.Substring(1);
+                version = version[1..];
             var versionParts = version.Split('.');
             return new int[] { int.Parse(versionParts[0]), int.Parse(versionParts[1]), (versionParts.Length > 2 ? int.Parse(versionParts[2]) : 0) };
         }

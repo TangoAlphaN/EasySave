@@ -313,7 +313,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A new version is available: .
+        ///   Looks up a localized string similar to A new version is available:.
         /// </summary>
         public static string NoUpToDate {
             get {

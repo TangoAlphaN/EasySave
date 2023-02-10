@@ -23,11 +23,17 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resource.fr-FR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resource.it-IT.resx">
+      <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resource.ru-RU.resx">
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
 

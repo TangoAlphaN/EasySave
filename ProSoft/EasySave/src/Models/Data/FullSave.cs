@@ -1,6 +1,5 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Utils;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
 
@@ -28,9 +27,8 @@ namespace EasySave.src.Models.Data
 
         public override string ToString()
         {
-            return $"{Name} - {uuid} | {Resource.CreateSave_Type_Full}";
+            return $"{GetName()} - {uuid} | {Resource.CreateSave_Type_Full}";
         }
 
-        
     }
 }

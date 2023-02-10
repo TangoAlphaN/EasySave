@@ -139,7 +139,7 @@
     <value>Saisir le chemin de destination de la sauvegarde :</value>
   </data>
   <data name="CreateSave.MaxSaves" xml:space="preserve">
-    <value>Trop de sauvegardes ont déjà été créés !</value>
+    <value>Trop de sauvegardes ont déjà été créés</value>
   </data>
   <data name="CreateSave.Name" xml:space="preserve">
     <value>Saisir le nom de la sauvegarde :</value>
@@ -199,16 +199,16 @@
     <value>Russe</value>
   </data>
   <data name="NoUpToDate" xml:space="preserve">
-    <value>Une nouvelle version est disponible : </value>
+    <value>Une nouvelle version est disponible :</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
-    <value>Chemin incorrect |</value>
+    <value>Chemin incorrect | </value>
   </data>
   <data name="Save.AlreadyRunning" xml:space="preserve">
     <value>La sauvegarde est déjà lancée</value>
   </data>
   <data name="Save.Deleted" xml:space="preserve">
-    <value>Sauvegarde supprimée avec succès </value>
+    <value>Sauvegarde supprimée avec succès</value>
   </data>
   <data name="Save.Renamed" xml:space="preserve">
     <value>Sauvegarde renommée avec succès</value>

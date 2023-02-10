@@ -1,9 +1,7 @@
 ﻿using EasySave.Properties;
-using EasySave.src.Models;
 using EasySave.src.Models.Data;
 using System;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace EasySave.src.Utils
@@ -11,12 +9,12 @@ namespace EasySave.src.Utils
     public static class DirectoryUtils
     {
 
-        private static string[] actualFile = new string[2];
+        private static readonly string[] actualFile = new string[2];
 
         public static bool CopyFilesAndFolders(Save s, SaveType type = SaveType.Full)
         {
-            DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.path);
-            DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.path);
+            DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
+            DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             Parallel.Invoke(
                 () => ConsoleUtils.CreateProgressBar(s),
                 () => CopyAll(s, sourceDirectory, destinationDirectory, type)

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChangeLang" xml:space="preserve">
-    <value>Изменение языка</value>
+    <value>Изменение языка :</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>выбрать все</value>
@@ -139,7 +139,7 @@
     <value>Введите путь к месту назначения резервного копирования:</value>
   </data>
   <data name="CreateSave.MaxSaves" xml:space="preserve">
-    <value>Слишком много резервных копий уже сохранено!</value>
+    <value>Слишком много резервных копий уже сохранено</value>
   </data>
   <data name="CreateSave.Name" xml:space="preserve">
     <value>Введите имя резервной копии :</value>
@@ -184,7 +184,7 @@
     <value>Загрузка резервной копии</value>
   </data>
   <data name="HomeMenu.Title" xml:space="preserve">
-    <value>Выберите действие</value>
+    <value>Выберите действие :</value>
   </data>
   <data name="Lang.en-US" xml:space="preserve">
     <value>Английский</value>
@@ -199,10 +199,10 @@
     <value>Русский</value>
   </data>
   <data name="NoUpToDate" xml:space="preserve">
-    <value>Доступна новая версия:</value>
+    <value>Доступна новая версия :</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
-    <value>Неправильный путь</value>
+    <value>Неправильный путь | </value>
   </data>
   <data name="Save.AlreadyRunning" xml:space="preserve">
     <value>Резервное копирование уже выполняется</value>
@@ -226,6 +226,6 @@
     <value>Доступ запрещен блять</value>
   </data>
   <data name="Save.Info" xml:space="preserve">
-    <value>Резюме резервного копирования</value>
+    <value>Резюме резервного копирования :</value>
   </data>
 </root>

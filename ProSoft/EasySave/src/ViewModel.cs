@@ -1,21 +1,12 @@
 ﻿using EasySave.src.Models.Data;
 using EasySave.src.Utils;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using EasySave.src.Models.Exceptions;
-using Octokit;
 
 namespace EasySave.src
 {
     public class ViewModel
     {
-
-        internal protected ViewModel()
-        {
-
-        }
 
         public HashSet<string> GetSaves()
         {
@@ -52,7 +43,7 @@ namespace EasySave.src
 
         internal void StopAllSaves()
         {
-            foreach(Save s in Save.GetSaves())
+            foreach (Save s in Save.GetSaves())
             {
                 s.Stop();
             }
@@ -64,6 +55,5 @@ namespace EasySave.src
             return !VersionUtils.CompareVersions();
         }
 
-        
     }
 }

@@ -1,5 +1,4 @@
-﻿using EasySave.Properties;
-using EasySave.src.Models.Data;
+﻿using EasySave.src.Models.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Spectre.Console;
@@ -11,8 +10,9 @@ namespace EasySave.src.Utils
     public static class LogUtils
     {
 
-        private static string _path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
-        private static string _date = DateTime.Now.ToString("yyyyMMdd");
+        private static readonly string _path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
+
+        private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
 
         public static void Init()
         {
@@ -27,21 +27,17 @@ namespace EasySave.src.Utils
                 {
                     Save.Init(JObject.Parse(File.ReadAllText($"{_path}saves.json")));
 
-                }catch
+                }
+                catch
                 {
                     LogSaves();
                 }
             }
         }
 
-        public static void LogError(String message)
-        {
-            throw new NotImplementedException();
-        }
-        
         public static void LogSaves()
         {
-           File.WriteAllText($"{_path}saves.json", SavesToJson().ToString());
+            File.WriteAllText($"{_path}saves.json", SavesToJson().ToString());
         }
 
         private static JObject SavesToJson()
@@ -55,23 +51,18 @@ namespace EasySave.src.Utils
             return data;
         }
 
-        public static void LogTransfer(String dest, String src)
-        {
-            throw new NotImplementedException();
-        }
-
         public static dynamic SaveToJson(Save s)
         {
             JobStatus status = s.GetStatus();
             dynamic data = new JObject();
-            data.name = s.Name;
-            data.src = s.SrcDir.path;
-            data.dest = s.DestDir.path;
+            data.name = s.GetName();
+            data.src = s.SrcDir.Path;
+            data.dest = s.DestDir.Path;
             data.state = status.ToString();
             data.type = s.GetSaveType() == SaveType.Full ? SaveType.Full.ToString() : SaveType.Differential.ToString();
             data.totalFiles = s.SrcDir.NbFiles;
             data.totalSize = s.SrcDir.GetSize();
-            if(status != JobStatus.Waiting)
+            if (status != JobStatus.Waiting)
             {
                 string[] actualFile = DirectoryUtils.GetActualFile();
                 data.filesLeft = s.SrcDir.NbFiles - s.GetFilesCopied();
@@ -82,10 +73,11 @@ namespace EasySave.src.Utils
             }
             return data;
         }
+
         public static void LogTransfer(Save s, string SourcePath, string DestinationPath, long FileSize, float FileTransferTime)
         {
             dynamic transferInfo = new JObject();
-            transferInfo.name = $"{s.Name} ({s.uuid})";
+            transferInfo.name = $"{s.GetName()} ({s.uuid})";
             transferInfo.fileSource = SourcePath;
             transferInfo.fileTarget = DestinationPath;
             transferInfo.fileSize = FileSize;
@@ -103,5 +95,6 @@ namespace EasySave.src.Utils
             }
             File.WriteAllText($"{_path}data-{_date}.json", arrayJson);
         }
+
     }
 }

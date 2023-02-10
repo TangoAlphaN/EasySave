@@ -1,11 +1,10 @@
-﻿using EasySave.src.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using EasySave.src.Models.Exceptions;
 using EasySave.src.Utils;
 using Newtonsoft.Json.Linq;
-using Spectre.Console;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace EasySave.src.Models.Data
 {
@@ -14,14 +13,14 @@ namespace EasySave.src.Models.Data
 
         public const int MAX_SAVES = 5;
 
-        private static HashSet<Save> saves = new HashSet<Save>();
+        private static readonly HashSet<Save> saves = new HashSet<Save>();
 
         public readonly Guid uuid;
 
-        public string Name;
+        private string _name;
 
         private long _filesCopied;
-        
+
         private long _sizeCopied;
 
         protected JobStatus Status;
@@ -33,7 +32,7 @@ namespace EasySave.src.Models.Data
         protected Save(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting)
         {
             this.uuid = guid;
-            this.Name = name;
+            this._name = name;
             this.SrcDir = new SrcDir(src);
             this.DestDir = new DestDir(dest);
             this.Status = status;
@@ -44,24 +43,23 @@ namespace EasySave.src.Models.Data
             return saves;
         }
 
+        public string GetName()
+        {
+            return _name;
+        }
+
         public static Save CreateSave(string name, string src, string dest, SaveType type)
         {
             if (saves.Count > MAX_SAVES)
             {
-                throw new Exception("Too Much Saves");
+                throw new TooMuchSavesException();
             }
-            Save s;
-            switch (type)
+            Save s = type switch
             {
-                case SaveType.Differential:
-                    s = new DifferentialSave(name, src, dest, Guid.NewGuid());
-                    break;
-                case SaveType.Full:
-                    s = new FullSave(name, src, dest, Guid.NewGuid());
-                    break;
-                default:
-                    throw new Exception("Save type not allowed");
-            }
+                SaveType.Differential => new DifferentialSave(name, src, dest, Guid.NewGuid()),
+                SaveType.Full => new FullSave(name, src, dest, Guid.NewGuid()),
+                _ => throw new Exception("Save type not allowed"),
+            };
             Save.saves.Add(s);
             s.UpdateState();
             return s;
@@ -72,14 +70,9 @@ namespace EasySave.src.Models.Data
             return (int)(_sizeCopied / SrcDir.GetSize() * 100);
         }
 
-        private int CalculateRemainingTime()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Rename(string newName)
         {
-            Name = newName;
+            _name = newName;
             UpdateState();
         }
 
@@ -93,7 +86,8 @@ namespace EasySave.src.Models.Data
             Status = JobStatus.Running;
         }
 
-        public void Cancel() {
+        public void Cancel()
+        {
             Status = JobStatus.Canceled;
         }
 
@@ -120,10 +114,10 @@ namespace EasySave.src.Models.Data
         {
             LogUtils.LogSaves();
             dynamic result = new JObject();
-            result.name = Name;
+            result.name = _name;
             result.status = Status.ToString();
             result.filesCopied = _filesCopied;
-            result.sizeCopied = $"{_sizeCopied / (1024*1024)} Mo";
+            result.sizeCopied = $"{_sizeCopied / (1024 * 1024)} Mo";
             result.duration = $"{(int)sw.Elapsed.TotalSeconds}s";
             return result.ToString();
         }
@@ -177,14 +171,15 @@ namespace EasySave.src.Models.Data
             }
         }
 
-        internal long GetSizeCopied()
+        public long GetSizeCopied()
         {
             return _sizeCopied;
         }
 
-        internal void AddSizeCopied(long length)
+        public void AddSizeCopied(long length)
         {
             _sizeCopied += length;
         }
+        
     }
 }

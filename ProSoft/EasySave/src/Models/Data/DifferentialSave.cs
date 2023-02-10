@@ -27,8 +27,8 @@ namespace EasySave.src.Models.Data
 
         public override string ToString()
         {
-            return $"{Name} - {uuid} | {Resource.CreateSave_Type_Differential}";
+            return $"{GetName()} - {uuid} | {Resource.CreateSave_Type_Differential}";
         }
-        
+
     }
 }
