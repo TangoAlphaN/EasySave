@@ -81,10 +81,10 @@ namespace EasySave.src.Utils
             }
             return data;
         }
-        public static void LogTransfer(string SaveName, string SourcePath, string DestinationPath, long FileSize, float FileTransferTime)
+        public static void LogTransfer(Save s, string SourcePath, string DestinationPath, long FileSize, float FileTransferTime)
         {
             dynamic transferInfo = new JObject();
-            transferInfo.name = SaveName;
+            transferInfo.name = $"{s.Name} ({s.uuid})";
             transferInfo.fileSource = SourcePath;
             transferInfo.fileTarget = DestinationPath;
             transferInfo.fileSize = FileSize;

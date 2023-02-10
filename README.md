@@ -1,13 +1,6 @@
 # EasySave
 ProSoft - EasySave
 
-<h2 id="table-contents">Table of contents</h2>
-    1. [Introduction](#intro) \
-    2. [Team Members](#team-members) \
-    3. [Technologies](#techno) \
-    4. [Documentation](#docs) \
-    5. [Preview](#img) 
-
 <h2 id="intro">Introduction</h2>
 
 EasySave is a backup software. It allows you to save your files on a local location. The version 1.0 is a console application that allows you to create, delete, and modify backups. 
