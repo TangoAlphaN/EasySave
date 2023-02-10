@@ -1,6 +1,5 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
-using Newtonsoft.Json.Linq;
 using Spectre.Console;
 using Spectre.Console.Json;
 using System;
@@ -58,19 +57,15 @@ namespace EasySave.src.Utils
         public static void CreateProgressBar(Save s)
         {
             AnsiConsole.Progress()
-            .Start(context =>
-            {
-                var progress = context.AddTask($"Save {s.Name}");
-
-                progress.MaxValue = s.SrcDir.CalculateNbFiles();
-                while (s.GetFilesCopied() != s.SrcDir.NbFiles)
+                .Columns(new TaskDescriptionColumn(), new ProgressBarColumn(), new PercentageColumn(), new RemainingTimeColumn(), new SpinnerColumn())
+                .Start(context =>
                 {
-                    progress.IsIndeterminate = s.SrcDir.CalculateNbFiles() == 0;
-                    progress.Value = s.SrcDir.CalculateNbFiles();
-                    Thread.Sleep(20);
-                }
-                progress.Value = s.SrcDir.NbFiles;
-            });
+                    var progress = context.AddTask($"{Resource.Copy}", maxValue: s.SrcDir.GetSize());
+                    while (!context.IsFinished)
+                    {
+                        progress.Value = s.GetSizeCopied();
+                    }
+                });
         }
     }
 }

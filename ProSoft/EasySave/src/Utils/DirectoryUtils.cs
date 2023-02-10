@@ -10,6 +10,9 @@ namespace EasySave.src.Utils
 {
     public static class DirectoryUtils
     {
+
+        private static string[] actualFile = new string[2];
+
         public static bool CopyFilesAndFolders(Save s, SaveType type = SaveType.Full)
         {
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.path);
@@ -26,11 +29,15 @@ namespace EasySave.src.Utils
             foreach (FileInfo file in src.GetFiles())
             {
                 Thread.Sleep(50);
+                LogUtils.LogSaves();
                 bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
                 if (type == SaveType.Full || !fileExists || (fileExists && DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
                 {
+                    actualFile[0] = src.FullName;
+                    actualFile[1] = dest.FullName;
                     file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
                     s.AddFileCopied();
+                    s.AddSizeCopied(file.Length);
                 }
             }
 
@@ -50,5 +57,31 @@ namespace EasySave.src.Utils
         {
             Directory.CreateDirectory(path);
         }
+
+        public static long GetDirectorySize(DirectoryInfo path)
+        {
+            long size = 0;
+            foreach (FileInfo file in path.GetFiles())
+                size += file.Length;
+            foreach (DirectoryInfo directory in path.GetDirectories())
+            {
+                GetDirectorySize(directory);
+            }
+            return size;
+        }
+
+        public static long GetDirectoryFiles(DirectoryInfo path)
+        {
+            long nbFiles = 0;
+            foreach (FileInfo file in path.GetFiles())
+                nbFiles++;
+            foreach (DirectoryInfo directory in path.GetDirectories())
+            {
+                GetDirectoryFiles(directory);
+            }
+            return nbFiles;
+        }
+
+
     }
 }
