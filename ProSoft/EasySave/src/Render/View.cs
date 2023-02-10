@@ -24,7 +24,7 @@ namespace EasySave.src.Render
 
         public void Start()
         {
-            Render();
+            RenderHome(CheckUpdate());
         }
 
         private void Render(RenderMethod method = RenderMethod.Home)
@@ -193,6 +193,12 @@ namespace EasySave.src.Render
         {
             vm.StopAllSaves();
             Environment.Exit(code);
+        }
+
+        private void CheckUpdate()
+        {
+            bool upToDate = vm.IsUpdated();
+            return (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[/]");
         }
     }
 }
