@@ -14,7 +14,7 @@ namespace EasySave.src.Models
 
         public string path { get; }
 
-        private long _size;
+        private readonly double _size;
 
         public readonly long NbFiles;
 
@@ -26,7 +26,7 @@ namespace EasySave.src.Models
             this.NbFiles = DirectoryUtils.GetDirectoryFiles(directory);
         }
 
-        public long GetSize()
+        public double GetSize()
         {
             return _size;
         }

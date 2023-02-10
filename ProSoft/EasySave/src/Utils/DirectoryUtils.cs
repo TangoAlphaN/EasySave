@@ -28,17 +28,16 @@ namespace EasySave.src.Utils
         {
             foreach (FileInfo file in src.GetFiles())
             {
-                Thread.Sleep(50);
                 LogUtils.LogSaves();
                 bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
-                if (type == SaveType.Full || !fileExists || (fileExists && DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
+                if (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
                 {
                     actualFile[0] = src.FullName;
                     actualFile[1] = dest.FullName;
                     file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
-                    s.AddFileCopied();
-                    s.AddSizeCopied(file.Length);
                 }
+                s.AddFileCopied();
+                s.AddSizeCopied(file.Length);
             }
 
             foreach (DirectoryInfo directory in src.GetDirectories())
@@ -58,15 +57,13 @@ namespace EasySave.src.Utils
             Directory.CreateDirectory(path);
         }
 
-        public static long GetDirectorySize(DirectoryInfo path)
+        public static double GetDirectorySize(DirectoryInfo path)
         {
-            long size = 0;
+            double size = 0;
             foreach (FileInfo file in path.GetFiles())
                 size += file.Length;
             foreach (DirectoryInfo directory in path.GetDirectories())
-            {
-                GetDirectorySize(directory);
-            }
+                size += GetDirectorySize(directory);
             return size;
         }
 
@@ -76,9 +73,7 @@ namespace EasySave.src.Utils
             foreach (FileInfo file in path.GetFiles())
                 nbFiles++;
             foreach (DirectoryInfo directory in path.GetDirectories())
-            {
-                GetDirectoryFiles(directory);
-            }
+                nbFiles += GetDirectoryFiles(directory);
             return nbFiles;
         }
 
