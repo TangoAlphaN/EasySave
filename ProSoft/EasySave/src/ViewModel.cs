@@ -1,4 +1,6 @@
 ﻿using EasySave.src.Models.Data;
+using EasySave.src.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,6 +45,15 @@ namespace EasySave.src
         internal void RunSave(Save save)
         {
             save.Run();
+        }
+
+        internal void StopAllSaves()
+        {
+            foreach(Save s in Save.GetSaves())
+            {
+                s.Stop();
+            }
+            LogUtils.LogSaves();
         }
     }
 }

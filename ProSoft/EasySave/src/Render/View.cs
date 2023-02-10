@@ -176,7 +176,10 @@ namespace EasySave.src.Render
             return null;
         }
 
-        
-
+        internal void Exit()
+        {
+            vm.StopAllSaves();
+            Environment.Exit(0);
+        }
     }
 }
