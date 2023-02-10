@@ -34,7 +34,11 @@ namespace EasySave.src.Utils
                 {
                     actualFile[0] = src.FullName;
                     actualFile[1] = dest.FullName;
+                    var watch = new System.Diagnostics.Stopwatch();
+                    watch.Start();
                     file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
+                    watch.Stop();
+                    LogUtils.LogTransfer(s.Name, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds);
                 }
                 s.AddFileCopied();
                 s.AddSizeCopied(file.Length);

@@ -1,5 +1,6 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Spectre.Console;
 using System;
@@ -11,6 +12,7 @@ namespace EasySave.src.Utils
     {
 
         private static string _path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
+        private static string _date = DateTime.Now.ToString("yyyyMMdd");
 
         public static void Init()
         {
@@ -78,6 +80,27 @@ namespace EasySave.src.Utils
                 data.progression = s.CalculateProgress();
             }
             return data;
+        }
+        public static void LogTransfer(string SaveName, string SourcePath, string DestinationPath, long FileSize, float FileTransferTime)
+        {
+            dynamic transferInfo = new JObject();
+            transferInfo.name = SaveName;
+            transferInfo.fileSource = SourcePath;
+            transferInfo.fileTarget = DestinationPath;
+            transferInfo.fileSize = FileSize;
+            transferInfo.transferTime = FileTransferTime;
+            transferInfo.date = DateTime.Now;
+
+            string json = JsonConvert.SerializeObject(transferInfo);
+            var arrayJson = JsonConvert.SerializeObject(new[] { transferInfo }, Formatting.Indented);
+
+            if (File.Exists($"{_path}data-{_date}.json"))
+            {
+                JArray newJSON = ((JArray)JsonConvert.DeserializeObject(File.ReadAllText($"{_path}data-{_date}.json")));
+                newJSON.Add(JsonConvert.DeserializeObject(json));
+                arrayJson = JsonConvert.SerializeObject(newJSON, Formatting.Indented);
+            }
+            File.WriteAllText($"{_path}data-{_date}.json", arrayJson);
         }
     }
 }
