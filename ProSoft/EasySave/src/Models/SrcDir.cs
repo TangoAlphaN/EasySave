@@ -14,46 +14,21 @@ namespace EasySave.src.Models
 
         public string path { get; }
 
-        private long _size;
+        private readonly double _size;
 
         public readonly long NbFiles;
 
         public SrcDir(string path)
         {
-            if(!DirectoryUtils.IsValidPath(path))
-                throw new DirectoryNotFoundException();
             this.path = path;
-            this._size = 0;
-            this.NbFiles = 0;
+            DirectoryInfo directory = new DirectoryInfo(path);
+            this._size = DirectoryUtils.GetDirectorySize(directory);
+            this.NbFiles = DirectoryUtils.GetDirectoryFiles(directory);
         }
 
-        public long CalculateSize(DirectoryInfo path = null)
+        public double GetSize()
         {
-            if (path == null)
-                path = new DirectoryInfo(this.path);
-            _size = 0;
-            foreach (FileInfo file in path.GetFiles())
-                _size += file.Length;
-            foreach (DirectoryInfo directory in path.GetDirectories())
-            {
-                CalculateSize(directory);
-            }
-            return _size; 
-        } 
-
-        public long CalculateNbFiles(DirectoryInfo path = null)
-        {
-            if (path == null)
-                path = new DirectoryInfo(this.path);
-            long i = 0;
-            foreach (FileInfo file in path.GetFiles())
-                i++;
-            foreach (DirectoryInfo directory in path.GetDirectories())
-            {
-                CalculateNbFiles(directory);
-            }
-            return i;
+            return _size;
         }
-
     }
 }

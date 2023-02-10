@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
@@ -56,7 +58,7 @@ namespace EasySave.src.Render
             AnsiConsole.Write(new FigletText("EasySave").Centered().Color(Color.Red));
             if (message != null)
                 AnsiConsole.MarkupLine(message);
-            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete }, Resource.Forms_Exit);
+            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete, Resource.HomeMenu_ChangeLanguage }, Resource.Forms_Exit);
             switch (action)
             {
                 case var value when value == Resource.HomeMenu_Create:
@@ -70,6 +72,13 @@ namespace EasySave.src.Render
                     break;
                 case var value when value == Resource.HomeMenu_Delete:
                     Render(RenderMethod.DeleteSave);
+                    break;
+                case var value when value == Resource.HomeMenu_ChangeLanguage:
+                    string language = CultureInfo.CurrentCulture.ToString() == "fr-FR" ? "en-GB" : "fr-FR";
+                    CultureInfo culture = new CultureInfo(language);
+                    Thread.CurrentThread.CurrentUICulture = culture;
+                    Thread.CurrentThread.CurrentCulture = culture;
+                    RenderHome();
                     break;
                 default:
                     break;
@@ -115,15 +124,28 @@ namespace EasySave.src.Render
 
         private void RenderLoadSave(Save save)
         {
-            if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
-                RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
-            ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
-            if (ConsoleUtils.AskConfirm())
+            try
             {
-                vm.RunSave(save);
+                Console.WriteLine(save.GetStatus());
+                if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
+                    RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
+                else
+                {
+                    ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
+                    if (ConsoleUtils.AskConfirm())
+                    {
+                        vm.RunSave(save);
+                    }
+                    else
+                        RenderHome();
+                }
             }
-            else
-                RenderHome();
+            catch
+            {
+                ConsoleUtils.WriteError($"{Resource.Exception}");
+                Exit(-1);
+            }
+            
         }
 
         private void RenderEditSave(Save s)
@@ -167,7 +189,10 @@ namespace EasySave.src.Render
             return null;
         }
 
-        
-
+        internal void Exit(int code = 0)
+        {
+            vm.StopAllSaves();
+            Environment.Exit(code);
+        }
     }
 }

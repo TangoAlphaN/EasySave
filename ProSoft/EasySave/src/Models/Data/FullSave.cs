@@ -6,7 +6,7 @@ namespace EasySave.src.Models.Data
 {
     public class FullSave : Save
     {
-        protected internal FullSave(string name, string src, string dest, Guid guid) : base(name, src, dest, guid) { }
+        protected internal FullSave(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting) : base(name, src, dest, guid, status) { }
 
         public override SaveType GetSaveType()
         {
@@ -15,7 +15,10 @@ namespace EasySave.src.Models.Data
 
         public override void Run()
         {
+            Status = JobStatus.Running;
             DirectoryUtils.CopyFilesAndFolders(this);
+            Status = JobStatus.Finished;
+            LogUtils.LogSaves();
         }
 
         public override string ToString()

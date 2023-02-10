@@ -14,6 +14,7 @@ namespace EasySave.src
             LogUtils.Init();
             View v = new View();
             v.Start();
+            v.Exit();
         }
     }
 }

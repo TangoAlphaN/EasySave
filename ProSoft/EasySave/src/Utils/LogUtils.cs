@@ -20,7 +20,16 @@ namespace EasySave.src.Utils
                 Directory.CreateDirectory(_path);
             }
             if (File.Exists($"{_path}saves.json"))
-                Save.Init(JObject.Parse(File.ReadAllText($"{_path}saves.json")));
+            {
+                try
+                {
+                    Save.Init(JObject.Parse(File.ReadAllText($"{_path}saves.json")));
+
+                }catch
+                {
+                    LogSaves();
+                }
+            }
         }
 
         public static void LogError(String message)
@@ -28,17 +37,9 @@ namespace EasySave.src.Utils
             throw new NotImplementedException();
         }
         
-        public static bool LogSaves()
+        public static void LogSaves()
         {
-            try
-            {
-                File.WriteAllText($"{_path}saves.json", SavesToJson().ToString());
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+           File.WriteAllText($"{_path}saves.json", SavesToJson().ToString());
         }
 
         private static JObject SavesToJson()
@@ -47,8 +48,6 @@ namespace EasySave.src.Utils
             foreach (Save s in Save.GetSaves())
             {
                 JObject saveData = SaveToJson(s);
-                saveData.Add("state", s.GetStatus().ToString());
-                saveData.Add("progression", s.CalculateProgress());
                 data.Add(s.uuid.ToString(), saveData);
             }
             return data;
@@ -59,19 +58,25 @@ namespace EasySave.src.Utils
             throw new NotImplementedException();
         }
 
-        private static int CalculateTransferTime()
-        {
-            throw new NotImplementedException();
-        }
-
         public static dynamic SaveToJson(Save s)
         {
+            JobStatus status = s.GetStatus();
             dynamic data = new JObject();
             data.name = s.Name;
             data.src = s.SrcDir.path;
             data.dest = s.DestDir.path;
-            data.state = JobStatus.Waiting;
-            data.type = s.GetSaveType() == SaveType.Full ? Resource.CreateSave_Type_Full : Resource.CreateSave_Type_Differential;
+            data.state = status.ToString();
+            data.type = s.GetSaveType() == SaveType.Full ? SaveType.Full.ToString() : SaveType.Differential.ToString();
+            data.totalFiles = s.SrcDir.NbFiles;
+            data.totalSize = s.SrcDir.GetSize();
+            if(status != JobStatus.Waiting)
+            {
+                data.filesLeft = s.SrcDir.NbFiles - s.GetFilesCopied();
+                data.sizeLeft = s.SrcDir.GetSize() - s.GetSizeCopied();
+                data.actualTransferSourcePath = s.getActualTransfer()[0];
+                data.actualTransferDestPath = s.getActualTransfer()[1];
+                data.progression = s.CalculateProgress();
+            }
             return data;
         }
     }

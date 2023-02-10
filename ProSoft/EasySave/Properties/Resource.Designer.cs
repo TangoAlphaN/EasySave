@@ -88,6 +88,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copying files ....
+        /// </summary>
+        public static string Copy {
+            get {
+                return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter save destination path :.
         /// </summary>
         public static string CreateSave_Dest {
@@ -160,6 +169,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occured, please restart app..
+        /// </summary>
+        public static string Exception {
+            get {
+                return ResourceManager.GetString("Exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return to menu.
         /// </summary>
         public static string Forms_Back {
@@ -174,6 +192,15 @@ namespace EasySave.Properties {
         public static string Forms_Exit {
             get {
                 return ResourceManager.GetString("Forms.Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change language.
+        /// </summary>
+        public static string HomeMenu_ChangeLanguage {
+            get {
+                return ResourceManager.GetString("HomeMenu.ChangeLanguage", resourceCulture);
             }
         }
         

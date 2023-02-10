@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EasySave.src.Utils;
 using Newtonsoft.Json.Linq;
+using Spectre.Console;
 
 namespace EasySave.src.Models.Data
 {
@@ -19,20 +20,22 @@ namespace EasySave.src.Models.Data
         public string Name;
 
         private long _filesCopied;
+        
+        private long _sizeCopied;
 
-        private JobStatus _status;
+        protected JobStatus Status;
 
         public readonly SrcDir SrcDir;
 
         public readonly DestDir DestDir;
 
-        protected Save(string name, string src, string dest, Guid guid)
+        protected Save(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting)
         {
             this.uuid = guid;
             this.Name = name;
             this.SrcDir = new SrcDir(src);
             this.DestDir = new DestDir(dest);
-            this._status = JobStatus.Waiting;
+            this.Status = status;
         }
 
         public static HashSet<Save> GetSaves()
@@ -65,7 +68,7 @@ namespace EasySave.src.Models.Data
 
         public int CalculateProgress()
         {
-            return 0;
+            return (int)(_sizeCopied / SrcDir.GetSize() * 100);
         }
 
         private int CalculateRemainingTime()
@@ -81,16 +84,21 @@ namespace EasySave.src.Models.Data
 
         public void Pause()
         {
-            throw new NotImplementedException();
+            Status = JobStatus.Paused;
         }
 
         public void Resume()
         {
-            throw new NotImplementedException();
+            Status = JobStatus.Running;
         }
 
         public void Cancel() {
-            throw new NotImplementedException();
+            Status = JobStatus.Canceled;
+        }
+
+        public void Stop()
+        {
+            Status = JobStatus.Waiting;
         }
 
         public static void Delete(Guid uuid)
@@ -114,7 +122,20 @@ namespace EasySave.src.Models.Data
 
         public JobStatus GetStatus()
         {
-            return _status;
+            return Status;
+        }
+
+        public static JobStatus GetStatus(string status)
+        {
+            return status switch
+            {
+                "Running" => JobStatus.Running,
+                "Paused" => JobStatus.Paused,
+                "Finished" => JobStatus.Finished,
+                "Canceled" => JobStatus.Canceled,
+                "Error" => JobStatus.Error,
+                _ => JobStatus.Waiting,
+            };
         }
 
         public override abstract string ToString();
@@ -135,12 +156,27 @@ namespace EasySave.src.Models.Data
         {
             foreach (var save in jObject)
             {
-                if (save.Value["type"].ToString() == "Full Save")
-                    saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
+                if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
+                if (save.Value["type"].ToString() == "Full")
+                    saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString()), Save.GetStatus(save.Value["state"].ToString())));
                 else
                     saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
-
             }
+        }
+
+        internal long GetSizeCopied()
+        {
+            return _sizeCopied;
+        }
+
+        public string[] getActualTransfer()
+        {
+            return new string[] { "", "" };
+        }
+
+        internal void AddSizeCopied(long length)
+        {
+            _sizeCopied += length;
         }
     }
 }
