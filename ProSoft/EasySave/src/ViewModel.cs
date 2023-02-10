@@ -37,9 +37,9 @@ namespace EasySave.src
             Save.Delete(s.uuid);
         }
 
-        public Save GetSaveByUuid(string name)
+        public HashSet<Save> GetSavesByUuid(HashSet<string> names)
         {
-            return Save.GetSaves().First(save => save.ToString() == name);
+            return new HashSet<Save>(Save.GetSaves().Where(save => names.Contains(save.ToString())).ToList());
         }
 
         internal void RunSave(Save save)
