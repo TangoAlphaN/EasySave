@@ -195,6 +195,9 @@
   <data name="Lang.ru-RU" xml:space="preserve">
     <value>Русский</value>
   </data>
+  <data name="NoUpToDate" xml:space="preserve">
+    <value>Доступна новая версия:</value>
+  </data>
   <data name="Path.Invalid" xml:space="preserve">
     <value>Неправильный путь</value>
   </data>
@@ -212,5 +215,8 @@
   </data>
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>Ваши резервные копии:</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>EasySave находится в актуальном состоянии.</value>
   </data>
 </root>

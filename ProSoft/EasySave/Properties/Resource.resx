@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChangeLang" xml:space="preserve">
-    <value>Choose your language :</value>
+    <value>Choose your language:</value>
   </data>
   <data name="Confirm" xml:space="preserve">
-    <value>Is it correct ?</value>
+    <value>Is it correct?</value>
   </data>
   <data name="Confirm.No" xml:space="preserve">
     <value>No</value>
@@ -130,25 +130,25 @@
     <value>Yes</value>
   </data>
   <data name="Copy" xml:space="preserve">
-    <value>Copying files ...</value>
+    <value>Copying files...</value>
   </data>
   <data name="CreateSave.Dest" xml:space="preserve">
-    <value>Enter save destination path :</value>
+    <value>Enter save destination path:</value>
   </data>
   <data name="CreateSave.MaxSaves" xml:space="preserve">
     <value>Too many backups have already been created</value>
   </data>
   <data name="CreateSave.Name" xml:space="preserve">
-    <value>Enter save name :</value>
+    <value>Enter save name:</value>
   </data>
   <data name="CreateSave.Src" xml:space="preserve">
-    <value>Enter save source path :</value>
+    <value>Enter save source path:</value>
   </data>
   <data name="CreateSave.Success" xml:space="preserve">
-    <value>Save created successfully !</value>
+    <value>Save created successfully!</value>
   </data>
   <data name="CreateSave.Type" xml:space="preserve">
-    <value>Choose save type :</value>
+    <value>Choose save type:</value>
   </data>
   <data name="CreateSave.Type.Differential" xml:space="preserve">
     <value>Differential Save</value>
@@ -181,7 +181,7 @@
     <value>Load a save</value>
   </data>
   <data name="HomeMenu.Title" xml:space="preserve">
-    <value>Choose an action :</value>
+    <value>Choose an action:</value>
   </data>
   <data name="Lang.en-US" xml:space="preserve">
     <value>English</value>
@@ -194,6 +194,9 @@
   </data>
   <data name="Lang.ru-RU" xml:space="preserve">
     <value>Russian</value>
+  </data>
+  <data name="NoUpToDate" xml:space="preserve">
+    <value>A new version is available: </value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
     <value>Incorrect Path | </value>
@@ -208,9 +211,12 @@
     <value>Save successfully renamed</value>
   </data>
   <data name="Save.Run" xml:space="preserve">
-    <value>Run the save ?</value>
+    <value>Run the save?</value>
   </data>
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>Your saves :</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>EasySave is up-to-date.</value>
   </data>
 </root>

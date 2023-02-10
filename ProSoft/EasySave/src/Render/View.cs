@@ -196,11 +196,11 @@ namespace EasySave.src.Render
             vm.StopAllSaves();
             Environment.Exit(code);
         }
-
-        private void CheckUpdate()
+        
+        private string CheckUpdate()
         {
             bool upToDate = vm.IsUpdated();
-            return (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[/]");
+            return (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]");
         }
 
         private void RenderChangeLanguage()
