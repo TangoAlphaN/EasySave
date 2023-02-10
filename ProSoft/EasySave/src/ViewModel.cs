@@ -3,6 +3,7 @@ using EasySave.src.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace EasySave.src
 {
@@ -54,6 +55,16 @@ namespace EasySave.src
                 s.Stop();
             }
             LogUtils.LogSaves();
+        }
+
+        public static bool IsUpdated()
+        {
+            string version = "V"+Assembly.GetExecutingAssembly().GetName().Version;
+           
+            //to be modified later
+            string latest = "V1.0";
+
+            return latest == version;
         }
     }
 }
