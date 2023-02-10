@@ -183,10 +183,10 @@
   <data name="HomeMenu.Title" xml:space="preserve">
     <value>Choisir une action :</value>
   </data>
-  <data name="Lang.en-US1" xml:space="preserve">
+  <data name="Lang.en-US" xml:space="preserve">
     <value>Anglais</value>
   </data>
-  <data name="Lang.fr-FR1" xml:space="preserve">
+  <data name="Lang.fr-FR" xml:space="preserve">
     <value>Français</value>
   </data>
   <data name="Lang.it-IT" xml:space="preserve">
