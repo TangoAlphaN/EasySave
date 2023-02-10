@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EasySave.src.Utils;
 using Newtonsoft.Json.Linq;
+using Spectre.Console;
 
 namespace EasySave.src.Models.Data
 {
@@ -28,13 +29,13 @@ namespace EasySave.src.Models.Data
 
         public readonly DestDir DestDir;
 
-        protected Save(string name, string src, string dest, Guid guid)
+        protected Save(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting)
         {
             this.uuid = guid;
             this.Name = name;
             this.SrcDir = new SrcDir(src);
             this.DestDir = new DestDir(dest);
-            this.Status = JobStatus.Waiting;
+            this.Status = status;
         }
 
         public static HashSet<Save> GetSaves()
@@ -124,6 +125,19 @@ namespace EasySave.src.Models.Data
             return Status;
         }
 
+        public static JobStatus GetStatus(string status)
+        {
+            return status switch
+            {
+                "Running" => JobStatus.Running,
+                "Paused" => JobStatus.Paused,
+                "Finished" => JobStatus.Finished,
+                "Canceled" => JobStatus.Canceled,
+                "Error" => JobStatus.Error,
+                _ => JobStatus.Waiting,
+            };
+        }
+
         public override abstract string ToString();
 
         private void UpdateState()
@@ -144,7 +158,7 @@ namespace EasySave.src.Models.Data
             {
                 if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
                 if (save.Value["type"].ToString() == "Full")
-                    saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
+                    saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString()), Save.GetStatus(save.Value["state"].ToString())));
                 else
                     saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
             }

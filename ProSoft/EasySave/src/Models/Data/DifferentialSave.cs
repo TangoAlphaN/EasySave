@@ -6,7 +6,7 @@ namespace EasySave.src.Models.Data
 {
     public class DifferentialSave : Save
     {
-        protected internal DifferentialSave(string name, string src, string dest, Guid guid) : base(name, src, dest, guid) { }
+        protected internal DifferentialSave(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting) : base(name, src, dest, guid, status) { }
 
         public override SaveType GetSaveType()
         {
