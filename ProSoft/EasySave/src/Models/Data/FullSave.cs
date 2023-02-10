@@ -1,6 +1,8 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Utils;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Diagnostics;
 
 namespace EasySave.src.Models.Data
 {
@@ -13,12 +15,15 @@ namespace EasySave.src.Models.Data
             return SaveType.Full;
         }
 
-        public override void Run()
+        public override string Run()
         {
             Status = JobStatus.Running;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             DirectoryUtils.CopyFilesAndFolders(this);
+            sw.Stop();
             Status = JobStatus.Finished;
-            LogUtils.LogSaves();
+            return ProcessResult(sw);
         }
 
         public override string ToString()

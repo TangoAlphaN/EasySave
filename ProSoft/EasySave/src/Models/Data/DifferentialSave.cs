@@ -1,6 +1,7 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Utils;
 using System;
+using System.Diagnostics;
 
 namespace EasySave.src.Models.Data
 {
@@ -13,17 +14,21 @@ namespace EasySave.src.Models.Data
             return SaveType.Differential;
         }
 
-        public override void Run()
+        public override string Run()
         {
             Status = JobStatus.Running;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             DirectoryUtils.CopyFilesAndFolders(this, SaveType.Differential);
+            sw.Stop();
             Status = JobStatus.Finished;
-            LogUtils.LogSaves();
+            return ProcessResult(sw);
         }
 
         public override string ToString()
         {
             return $"{Name} - {uuid} | {Resource.CreateSave_Type_Differential}";
         }
+        
     }
 }

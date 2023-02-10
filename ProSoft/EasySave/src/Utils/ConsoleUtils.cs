@@ -39,9 +39,12 @@ namespace EasySave.src.Utils
             );
         }
 
-        public static bool AskConfirm()
+        public static bool AskConfirm(bool withoutChoice = false)
         {
-            return ChooseAction(Resource.Confirm, new HashSet<string>() { Resource.Confirm_Yes, Resource.Confirm_No }) == Resource.Confirm_Yes;
+            if(withoutChoice)
+                return ChooseAction("", new HashSet<string>() { Resource.Forms_Back }) == Resource.Confirm_Yes;
+            else
+                return ChooseAction(Resource.Confirm, new HashSet<string>() { Resource.Confirm_Yes, Resource.Confirm_No }) == Resource.Confirm_Yes;
         }
 
         public static void WriteJson(string title, JsonText data, Color? color = null)

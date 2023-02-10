@@ -5,6 +5,7 @@ using System.Linq;
 using EasySave.src.Utils;
 using Newtonsoft.Json.Linq;
 using Spectre.Console;
+using System.Diagnostics;
 
 namespace EasySave.src.Models.Data
 {
@@ -45,7 +46,7 @@ namespace EasySave.src.Models.Data
 
         public static Save CreateSave(string name, string src, string dest, SaveType type)
         {
-            if (Save.saves.Count >= MAX_SAVES)
+            if (saves.Count > MAX_SAVES)
             {
                 throw new Exception("Too Much Saves");
             }
@@ -108,11 +109,23 @@ namespace EasySave.src.Models.Data
             LogUtils.LogSaves();
         }
 
-        public abstract void Run();
+        public abstract string Run();
 
         public Save GetSaveByUuid(Guid uuid)
         {
             return (Save)saves.Where(save => save.uuid == uuid);
+        }
+
+        protected string ProcessResult(Stopwatch sw)
+        {
+            LogUtils.LogSaves();
+            dynamic result = new JObject();
+            result.name = Name;
+            result.status = Status.ToString();
+            result.filesCopied = _filesCopied;
+            result.sizeCopied = $"{_sizeCopied / (1024*1024)} Mo";
+            result.duration = $"{(int)sw.Elapsed.TotalSeconds}s";
+            return result.ToString();
         }
 
         public long GetFilesCopied()
