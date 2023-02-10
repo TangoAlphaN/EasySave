@@ -81,6 +81,10 @@ namespace EasySave.src.Utils
             return nbFiles;
         }
 
+        public static string[] GetActualFile()
+        {
+            return actualFile;
+        }
 
     }
 }

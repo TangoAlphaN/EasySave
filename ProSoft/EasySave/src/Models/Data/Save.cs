@@ -169,11 +169,6 @@ namespace EasySave.src.Models.Data
             return _sizeCopied;
         }
 
-        public string[] getActualTransfer()
-        {
-            return new string[] { "", "" };
-        }
-
         internal void AddSizeCopied(long length)
         {
             _sizeCopied += length;

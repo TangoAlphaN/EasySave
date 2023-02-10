@@ -73,10 +73,11 @@ namespace EasySave.src.Utils
             data.totalSize = s.SrcDir.GetSize();
             if(status != JobStatus.Waiting)
             {
+                string[] actualFile = DirectoryUtils.GetActualFile();
                 data.filesLeft = s.SrcDir.NbFiles - s.GetFilesCopied();
                 data.sizeLeft = s.SrcDir.GetSize() - s.GetSizeCopied();
-                data.actualTransferSourcePath = s.getActualTransfer()[0];
-                data.actualTransferDestPath = s.getActualTransfer()[1];
+                data.actualTransferSourcePath = actualFile[0];
+                data.actualTransferDestPath = actualFile[1];
                 data.progression = s.CalculateProgress();
             }
             return data;
