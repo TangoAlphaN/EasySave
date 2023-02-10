@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using EasySave.src.Models.Exceptions;
+using Octokit;
 
 namespace EasySave.src
 {
@@ -43,9 +45,9 @@ namespace EasySave.src
             return new HashSet<Save>(Save.GetSaves().Where(save => names.Contains(save.ToString())).ToList());
         }
 
-        internal void RunSave(Save save)
+        public string RunSave(Save save)
         {
-            save.Run();
+            return save.Run();
         }
 
         internal void StopAllSaves()
@@ -57,14 +59,11 @@ namespace EasySave.src
             LogUtils.LogSaves();
         }
 
-        public static bool IsUpdated()
+        public static bool IsUpToDate()
         {
-            string version = "V"+Assembly.GetExecutingAssembly().GetName().Version;
-           
-            //to be modified later
-            string latest = "V1.0";
-
-            return latest == version;
+            return !VersionUtils.CompareVersions();
         }
+
+        
     }
 }

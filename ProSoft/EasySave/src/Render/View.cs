@@ -143,22 +143,22 @@ namespace EasySave.src.Render
                             ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
                             if (ConsoleUtils.AskConfirm())
                             {
-                                vm.RunSave(save);
+                                ConsoleUtils.WriteJson(Resource.Save_Info, new JsonText(vm.RunSave(save)));
                             }
                             else
                                 RenderHome();
                         }
                     }
-                    catch
+                    catch(Exception ex)
                     {
                         ConsoleUtils.WriteError($"{Resource.Exception}");
+                        Console.WriteLine(ex);
                         Exit(-1);
                     }
                 }
             }
-                
-            
-            
+            ConsoleUtils.AskConfirm(true);
+            Render();
         }
 
         private void RenderEditSave(HashSet<Save> saves)
@@ -225,8 +225,8 @@ namespace EasySave.src.Render
         
         private string CheckUpdate()
         {
-            bool upToDate = ViewModel.IsUpdated();
-            return (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]");
+            bool upToDate = ViewModel.IsUpToDate();
+            return ("\r\n\r\n" + (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate}[link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]") + "\r\n");
         }
 
         private void RenderChangeLanguage()
