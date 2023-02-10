@@ -124,15 +124,28 @@ namespace EasySave.src.Render
 
         private void RenderLoadSave(Save save)
         {
-            if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
-                RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
-            ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
-            if (ConsoleUtils.AskConfirm())
+            try
             {
-                vm.RunSave(save);
+                Console.WriteLine(save.GetStatus());
+                if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
+                    RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
+                else
+                {
+                    ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
+                    if (ConsoleUtils.AskConfirm())
+                    {
+                        vm.RunSave(save);
+                    }
+                    else
+                        RenderHome();
+                }
             }
-            else
-                RenderHome();
+            catch
+            {
+                ConsoleUtils.WriteError($"{Resource.Exception}");
+                Exit(-1);
+            }
+            
         }
 
         private void RenderEditSave(Save s)
@@ -176,10 +189,10 @@ namespace EasySave.src.Render
             return null;
         }
 
-        internal void Exit()
+        internal void Exit(int code = 0)
         {
             vm.StopAllSaves();
-            Environment.Exit(0);
+            Environment.Exit(code);
         }
     }
 }
