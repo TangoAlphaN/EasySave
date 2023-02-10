@@ -88,6 +88,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copying files ....
+        /// </summary>
+        public static string Copy {
+            get {
+                return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter save destination path :.
         /// </summary>
         public static string CreateSave_Dest {
@@ -156,6 +165,15 @@ namespace EasySave.Properties {
         public static string CreateSave_Type_Full {
             get {
                 return ResourceManager.GetString("CreateSave.Type.Full", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured, please restart app..
+        /// </summary>
+        public static string Exception {
+            get {
+                return ResourceManager.GetString("Exception", resourceCulture);
             }
         }
         

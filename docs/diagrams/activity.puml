@@ -1,0 +1,25 @@
+@startuml ProSoft - EasySave 1.0 - Activity Diagram
+
+title "ProSoft - EasySave 1.0 - Activity Diagram"
+
+start
+
+repeat :Display menu;
+    switch (User prompt)
+        case ( Create new save )
+            :Provide a name;
+            :Provide source path;
+            :Provide destination path;
+        case ( Load a save ) 
+            :List all saves;
+            :Select a save;
+            :Run the save;
+        case ( Edit a save )
+            :List all saves;
+            :Select a save;
+            :Rename the save;
+    endswitch
+repeat while
+stop
+
+@enduml

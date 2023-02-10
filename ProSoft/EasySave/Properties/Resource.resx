@@ -126,6 +126,9 @@
   <data name="Confirm.Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copying files ...</value>
+  </data>
   <data name="CreateSave.Dest" xml:space="preserve">
     <value>Enter save destination path :</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="CreateSave.Type.Full" xml:space="preserve">
     <value>Full Save</value>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>An error occured, please restart app.</value>
   </data>
   <data name="Forms.Back" xml:space="preserve">
     <value>Return to menu</value>
