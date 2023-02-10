@@ -22,6 +22,23 @@ namespace EasySave.src.Utils
             );
         }
 
+        public static HashSet<string> ChooseMultiple(string title, HashSet<string> choices, string lastOption = null)
+        {
+            if (lastOption != null)
+                choices.Add(lastOption);
+            return new HashSet<string>(AnsiConsole.Prompt(
+                new MultiSelectionPrompt<string>()
+                    .Title(title)
+                    .PageSize(10)
+                    .NotRequired()
+                    .InstructionsText(
+                        "[grey](Press [blue]<space>[/] to toggle a fruit, " +
+                        "[green]<enter>[/] to accept)[/]"
+                    )
+                    .AddChoiceGroup(Resource.All, choices))
+            );
+        }
+
         public static bool AskConfirm()
         {
             return ChooseAction(Resource.Confirm, new HashSet<string>() { Resource.Confirm_Yes, Resource.Confirm_No }) == Resource.Confirm_Yes;
@@ -63,9 +80,11 @@ namespace EasySave.src.Utils
                     var progress = context.AddTask($"{Resource.Copy}", maxValue: s.SrcDir.GetSize());
                     while (!context.IsFinished)
                     {
+                        Thread.Sleep(1000);
                         progress.Value = s.GetSizeCopied();
                     }
                 });
         }
+
     }
 }

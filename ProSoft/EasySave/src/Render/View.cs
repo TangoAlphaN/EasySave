@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Linq;
 using System.Threading;
 using EasySave.Properties;
 using EasySave.src.Models.Data;
@@ -41,7 +42,7 @@ namespace EasySave.src.Render
                     RenderCreateSave();
                     break;
                 case RenderMethod.LoadSave:
-                    RenderLoadSave(PromptSave());
+                    RenderLoadSave(PromptSave(true));
                     break;
                 case RenderMethod.EditSave:
                     RenderEditSave(PromptSave());
@@ -124,71 +125,96 @@ namespace EasySave.src.Render
             }
         }
 
-        private void RenderLoadSave(Save save)
+        private void RenderLoadSave(HashSet<Save> saves)
         {
-            try
+            if (saves.Count == 0)
             {
-                Console.WriteLine(save.GetStatus());
-                if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
-                    RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
-                else
-                {
-                    ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
-                    if (ConsoleUtils.AskConfirm())
+                RenderHome();
+            }
+            else
+            {
+                foreach (Save save in saves) { 
+                    try
                     {
-                        vm.RunSave(save);
+                        if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
+                            RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
+                        else
+                        {
+                            ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
+                            if (ConsoleUtils.AskConfirm())
+                            {
+                                vm.RunSave(save);
+                            }
+                            else
+                                RenderHome();
+                        }
                     }
-                    else
-                        RenderHome();
+                    catch
+                    {
+                        ConsoleUtils.WriteError($"{Resource.Exception}");
+                        Exit(-1);
+                    }
                 }
             }
-            catch
-            {
-                ConsoleUtils.WriteError($"{Resource.Exception}");
-                Exit(-1);
-            }
+                
+            
             
         }
 
-        private void RenderEditSave(Save s)
+        private void RenderEditSave(HashSet<Save> saves)
         {
-            string oldName = s.Name;
-            string name = ConsoleUtils.Ask(Resource.CreateSave_Name);
-            vm.EditSave(s, name);
-            ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
-            if (ConsoleUtils.AskConfirm())
+            if (saves.Count != 0)
             {
-                RenderHome($"[yellow]{Resource.Save_Renamed} ({s.uuid})[/]");
+                Save s = saves.Single();
+                string oldName = s.Name;
+                string name = ConsoleUtils.Ask(Resource.CreateSave_Name);
+                vm.EditSave(s, name);
+                ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
+                if (ConsoleUtils.AskConfirm())
+                {
+                    RenderHome($"[yellow]{Resource.Save_Renamed} ({s.uuid})[/]");
+                }
+                else
+                {
+                    vm.EditSave(s, oldName);
+                    RenderHome();
+                }
             }
             else
-            {
-                vm.EditSave(s, oldName);
-                RenderHome();
-            }
-        }
-
-        private void RenderDeleteSave(Save s)
-        {
-            ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
-            if (ConsoleUtils.AskConfirm())
-            {
-                vm.DeleteSave(s);
-                RenderHome($"[yellow]{Resource.Save_Deleted}[/]");
-            }
-            else
-            {
-                RenderHome();
-            }
-        }
-
-        private Save PromptSave()
-        {
-            string save = ConsoleUtils.ChooseAction(Resource.SaveMenu_Title, vm.GetSaves(), Resource.Forms_Back);
-            if (save == Resource.Forms_Back)
                 Render();
+        }
+
+        private void RenderDeleteSave(HashSet<Save> saves)
+        {
+            if (saves.Count != 0)
+            {
+                Save s = saves.Single();
+                ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
+                if (ConsoleUtils.AskConfirm())
+                {
+                    vm.DeleteSave(s);
+                    RenderHome($"[yellow]{Resource.Save_Deleted}[/]");
+                }
+                else
+                {
+                    Render();
+                }
+            }
             else
-                return vm.GetSaveByUuid(save);
-            return null;
+                Render();
+        }
+
+        private HashSet<Save> PromptSave(bool multi = false)
+        {
+            HashSet<string> saves = new HashSet<string>();
+            if (multi)
+                saves = ConsoleUtils.ChooseMultiple(Resource.SaveMenu_Title, vm.GetSaves());
+            else {
+                string save = ConsoleUtils.ChooseAction(Resource.SaveMenu_Title, vm.GetSaves(), Resource.Forms_Back);
+                if(save != Resource.Forms_Back && save != Resource.Forms_Exit)
+                    saves.Add(save);
+            }
+            return vm.GetSavesByUuid(saves);
         }
 
         internal void Exit(int code = 0)
