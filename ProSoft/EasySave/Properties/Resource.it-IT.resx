@@ -117,100 +117,100 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChangeLang" xml:space="preserve">
-    <value>Choose your language :</value>
+  <data name="Changelang" xml:space="preserve">
+    <value>Scegliere la lingua</value>
   </data>
   <data name="Confirm" xml:space="preserve">
-    <value>Is it correct ?</value>
+    <value>È corretto?</value>
   </data>
   <data name="Confirm.No" xml:space="preserve">
     <value>No</value>
   </data>
   <data name="Confirm.Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Sì</value>
   </data>
   <data name="Copy" xml:space="preserve">
-    <value>Copying files ...</value>
+    <value>Copia in corso ...</value>
   </data>
   <data name="CreateSave.Dest" xml:space="preserve">
-    <value>Enter save destination path :</value>
+    <value>Inserire il percorso di destinazione del backup :</value>
   </data>
   <data name="CreateSave.MaxSaves" xml:space="preserve">
-    <value>Too many backups have already been created</value>
+    <value>Troppi backup già salvati!</value>
   </data>
   <data name="CreateSave.Name" xml:space="preserve">
-    <value>Enter save name :</value>
+    <value>Inserire il nome del backup :</value>
   </data>
   <data name="CreateSave.Src" xml:space="preserve">
-    <value>Enter save source path :</value>
+    <value>Inserire il percorso dell'origine del backup:</value>
   </data>
   <data name="CreateSave.Success" xml:space="preserve">
-    <value>Save created successfully !</value>
+    <value>Il backup è stato creato con successo!</value>
   </data>
   <data name="CreateSave.Type" xml:space="preserve">
-    <value>Choose save type :</value>
+    <value>Scegliere il tipo di backup :</value>
   </data>
   <data name="CreateSave.Type.Differential" xml:space="preserve">
-    <value>Differential Save</value>
+    <value>Backup differenziale</value>
   </data>
   <data name="CreateSave.Type.Full" xml:space="preserve">
-    <value>Full Save</value>
+    <value>Backup completo</value>
   </data>
   <data name="Exception" xml:space="preserve">
-    <value>An error occured, please restart app.</value>
+    <value>Si è verificato un errore, riavviare l'applicazione.</value>
   </data>
   <data name="Forms.Back" xml:space="preserve">
-    <value>Return to menu</value>
+    <value>Torna al menu</value>
   </data>
   <data name="Forms.Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Uscita</value>
   </data>
   <data name="HomeMenu.ChangeLanguage" xml:space="preserve">
-    <value>Change language</value>
+    <value>Cambiare la lingua</value>
   </data>
   <data name="HomeMenu.Create" xml:space="preserve">
-    <value>Create a save</value>
+    <value>Creazione di un backup</value>
   </data>
   <data name="HomeMenu.Delete" xml:space="preserve">
-    <value>Delete a save</value>
+    <value>Eliminazione di un backup</value>
   </data>
   <data name="HomeMenu.Edit" xml:space="preserve">
-    <value>Edit a save</value>
+    <value>Modifica di un backup</value>
   </data>
   <data name="HomeMenu.Load" xml:space="preserve">
-    <value>Load a save</value>
+    <value>Caricamento di un backup</value>
   </data>
   <data name="HomeMenu.Title" xml:space="preserve">
-    <value>Choose an action :</value>
+    <value>Scegliere un'azione :</value>
   </data>
   <data name="Lang.en-US" xml:space="preserve">
-    <value>English</value>
+    <value>Inglese</value>
   </data>
   <data name="Lang.fr-FR" xml:space="preserve">
-    <value>French</value>
+    <value>Francese</value>
   </data>
   <data name="Lang.it-IT" xml:space="preserve">
-    <value>Italian</value>
+    <value>Italiano</value>
   </data>
   <data name="Lang.ru-RU" xml:space="preserve">
-    <value>Russian</value>
+    <value>Russo</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
-    <value>Incorrect Path | </value>
+    <value>Percorso non corretto  !</value>
   </data>
   <data name="Save.AlreadyRunning" xml:space="preserve">
-    <value>The save is already running</value>
+    <value>Il backup è già in corso</value>
   </data>
   <data name="Save.Deleted" xml:space="preserve">
-    <value>Save deleted successfully</value>
+    <value>Il backup è stato eliminato con successo</value>
   </data>
   <data name="Save.Renamed" xml:space="preserve">
-    <value>Save successfully renamed</value>
+    <value>Il backup è stato rinominato con successo</value>
   </data>
   <data name="Save.Run" xml:space="preserve">
-    <value>Run the save ?</value>
+    <value>Avviare il backup?</value>
   </data>
   <data name="SaveMenu.Title" xml:space="preserve">
-    <value>Your saves :</value>
+    <value>I vostri backup :</value>
   </data>
 </root>

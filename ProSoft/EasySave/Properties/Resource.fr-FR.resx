@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangeLang" xml:space="preserve">
+    <value>Choisir votre langue :</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Est-ce correct ?</value>
   </data>
@@ -154,7 +157,7 @@
     <value>Sauvegarde Complète</value>
   </data>
   <data name="Exception" xml:space="preserve">
-    <value>Une erreur est survenue, veuillez redémmarer l'application.</value>
+    <value>Une erreur est survenue, veuillez redémarrer l'application.</value>
   </data>
   <data name="Forms.Back" xml:space="preserve">
     <value>Retouner au menu</value>
@@ -179,6 +182,18 @@
   </data>
   <data name="HomeMenu.Title" xml:space="preserve">
     <value>Choisir une action :</value>
+  </data>
+  <data name="Lang.en-US1" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="Lang.fr-FR1" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="Lang.it-IT" xml:space="preserve">
+    <value>Italien</value>
+  </data>
+  <data name="Lang.ru-RU" xml:space="preserve">
+    <value>Russe</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
     <value>Chemin incorrect !</value>

@@ -6,6 +6,7 @@
         CreateSave,
         LoadSave,
         EditSave,
-        DeleteSave
+        DeleteSave,
+        ChangeLanguage
     }
 }

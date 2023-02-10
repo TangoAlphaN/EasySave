@@ -61,6 +61,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose your language :.
+        /// </summary>
+        public static string ChangeLang {
+            get {
+                return ResourceManager.GetString("ChangeLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is it correct ?.
         /// </summary>
         public static string Confirm {
@@ -246,6 +255,42 @@ namespace EasySave.Properties {
         public static string HomeMenu_Title {
             get {
                 return ResourceManager.GetString("HomeMenu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string Lang_en_US {
+            get {
+                return ResourceManager.GetString("Lang.en-US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to French.
+        /// </summary>
+        public static string Lang_fr_FR {
+            get {
+                return ResourceManager.GetString("Lang.fr-FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italian.
+        /// </summary>
+        public static string Lang_it_IT {
+            get {
+                return ResourceManager.GetString("Lang.it-IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Russian.
+        /// </summary>
+        public static string Lang_ru_RU {
+            get {
+                return ResourceManager.GetString("Lang.ru-RU", resourceCulture);
             }
         }
         
