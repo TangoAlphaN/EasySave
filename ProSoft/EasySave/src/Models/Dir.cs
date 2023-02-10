@@ -4,5 +4,5 @@
     {
         string Path { get; }
     }
-    
+
 }

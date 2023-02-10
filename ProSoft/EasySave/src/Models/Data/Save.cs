@@ -31,11 +31,11 @@ namespace EasySave.src.Models.Data
 
         protected Save(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting)
         {
-            this.uuid = guid;
-            this._name = name;
-            this.SrcDir = new SrcDir(src);
-            this.DestDir = new DestDir(dest);
-            this.Status = status;
+            uuid = guid;
+            _name = name;
+            SrcDir = new SrcDir(src);
+            DestDir = new DestDir(dest);
+            Status = status;
         }
 
         public static HashSet<Save> GetSaves()

@@ -20,16 +20,16 @@ namespace EasySave.src.Models
 
         public SrcDir(string path)
         {
-            this.Path = path;
+            Path = path;
             DirectoryInfo directory = new DirectoryInfo(path);
-            this._size = DirectoryUtils.GetDirectorySize(directory);
-            this.NbFiles = DirectoryUtils.GetDirectoryFiles(directory);
+            _size = DirectoryUtils.GetDirectorySize(directory);
+            NbFiles = DirectoryUtils.GetDirectoryFiles(directory);
         }
 
         public double GetSize()
         {
             return _size;
         }
-        
+
     }
 }

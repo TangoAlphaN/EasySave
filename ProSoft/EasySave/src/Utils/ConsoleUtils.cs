@@ -10,7 +10,7 @@ namespace EasySave.src.Utils
 {
     public static class ConsoleUtils
     {
-        
+
         public static string ChooseAction(string title, HashSet<string> choices, string lastOption = null)
         {
             if (lastOption != null)

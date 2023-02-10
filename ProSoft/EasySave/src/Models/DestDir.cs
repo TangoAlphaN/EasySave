@@ -11,7 +11,7 @@ namespace EasySave.src.Models
         {
             if (!DirectoryUtils.IsValidPath(path))
                 DirectoryUtils.CreatePath(path);
-            this.Path = path;
+            Path = path;
         }
 
     }
