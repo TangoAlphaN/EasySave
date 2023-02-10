@@ -195,8 +195,11 @@
   <data name="Lang.ru-RU" xml:space="preserve">
     <value>Russe</value>
   </data>
+  <data name="NoUpToDate" xml:space="preserve">
+    <value>Une nouvelle version est disponible : </value>
+  </data>
   <data name="Path.Invalid" xml:space="preserve">
-    <value>Chemin incorrect !</value>
+    <value>Chemin incorrect |</value>
   </data>
   <data name="Save.AlreadyRunning" xml:space="preserve">
     <value>La sauvegarde est déjà lancée</value>
@@ -212,5 +215,8 @@
   </data>
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>Vos sauvegardes :</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>Vous utilisez actuellement la dernière version  disponible.</value>
   </data>
 </root>
