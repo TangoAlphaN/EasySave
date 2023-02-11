@@ -5,7 +5,16 @@
     <AssemblyVersion>2.0.0</AssemblyVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject>EasySave.src.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Page Remove="src\Render\View.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="src\Render\View.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />

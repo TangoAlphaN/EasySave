@@ -1,5 +1,6 @@
 ﻿using EasySave.src.Render;
 using EasySave.src.Utils;
+using System;
 
 namespace EasySave.src
 {
@@ -12,6 +13,7 @@ namespace EasySave.src
         /// <summary>
         /// Main program entry point
         /// </summary>
+        [STAThread]
         public static void Main()
         {
             LogUtils.Init();

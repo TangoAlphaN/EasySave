@@ -27,10 +27,11 @@ namespace EasySave.src.Utils
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             //Parallel is used to display progress bar while data beeing copied
-            Parallel.Invoke(
+            //TODO Change
+            /*Parallel.Invoke(
                 () => ConsoleUtils.CreateProgressBar(s),
                 () => CopyAll(s, sourceDirectory, destinationDirectory, s.GetSaveType())
-            );
+            );*/
         }
 
         /// <summary>
@@ -63,7 +64,8 @@ namespace EasySave.src.Utils
                     catch
                     {
                         fileCopied = false;
-                        ConsoleUtils.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
+                        //TODO Change
+                        //ConsoleUtils.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
                     }
                     watch.Stop();
                     //Log transfer in json
