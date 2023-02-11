@@ -31,7 +31,7 @@ namespace EasySave.src.Utils
             if (!DirectoryUtils.IsValidPath(_path))
             {
                 //TODO
-                AnsiConsole.Clear();
+                //AnsiConsole.Clear();
                 Directory.CreateDirectory(_path);
             }
             //If file exists, load saves
