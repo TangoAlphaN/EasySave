@@ -61,7 +61,34 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is it correct ?.
+        ///   Looks up a localized string similar to Acces denied.
+        /// </summary>
+        public static string AccesDenied {
+            get {
+                return ResourceManager.GetString("AccesDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your language:.
+        /// </summary>
+        public static string ChangeLang {
+            get {
+                return ResourceManager.GetString("ChangeLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is it correct?.
         /// </summary>
         public static string Confirm {
             get {
@@ -88,7 +115,16 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter save destination path :.
+        ///   Looks up a localized string similar to Copying files....
+        /// </summary>
+        public static string Copy {
+            get {
+                return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter save destination path:.
         /// </summary>
         public static string CreateSave_Dest {
             get {
@@ -106,7 +142,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter save name :.
+        ///   Looks up a localized string similar to Enter save name:.
         /// </summary>
         public static string CreateSave_Name {
             get {
@@ -115,7 +151,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter save source path :.
+        ///   Looks up a localized string similar to Enter save source path:.
         /// </summary>
         public static string CreateSave_Src {
             get {
@@ -124,7 +160,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save created successfully !.
+        ///   Looks up a localized string similar to Save created successfully!.
         /// </summary>
         public static string CreateSave_Success {
             get {
@@ -133,7 +169,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose save type :.
+        ///   Looks up a localized string similar to Choose save type:.
         /// </summary>
         public static string CreateSave_Type {
             get {
@@ -156,6 +192,15 @@ namespace EasySave.Properties {
         public static string CreateSave_Type_Full {
             get {
                 return ResourceManager.GetString("CreateSave.Type.Full", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured, please restart app..
+        /// </summary>
+        public static string Exception {
+            get {
+                return ResourceManager.GetString("Exception", resourceCulture);
             }
         }
         
@@ -223,11 +268,56 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose an action :.
+        ///   Looks up a localized string similar to Choose an action:.
         /// </summary>
         public static string HomeMenu_Title {
             get {
                 return ResourceManager.GetString("HomeMenu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string Lang_en_US {
+            get {
+                return ResourceManager.GetString("Lang.en-US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to French.
+        /// </summary>
+        public static string Lang_fr_FR {
+            get {
+                return ResourceManager.GetString("Lang.fr-FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italian.
+        /// </summary>
+        public static string Lang_it_IT {
+            get {
+                return ResourceManager.GetString("Lang.it-IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Russian.
+        /// </summary>
+        public static string Lang_ru_RU {
+            get {
+                return ResourceManager.GetString("Lang.ru-RU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A new version is available:.
+        /// </summary>
+        public static string NoUpToDate {
+            get {
+                return ResourceManager.GetString("NoUpToDate", resourceCulture);
             }
         }
         
@@ -259,6 +349,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backup summary:.
+        /// </summary>
+        public static string Save_Info {
+            get {
+                return ResourceManager.GetString("Save.Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save successfully renamed.
         /// </summary>
         public static string Save_Renamed {
@@ -268,7 +367,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run the save ?.
+        ///   Looks up a localized string similar to Run the save?.
         /// </summary>
         public static string Save_Run {
             get {
@@ -282,6 +381,15 @@ namespace EasySave.Properties {
         public static string SaveMenu_Title {
             get {
                 return ResourceManager.GetString("SaveMenu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EasySave is up-to-date..
+        /// </summary>
+        public static string UpToDate {
+            get {
+                return ResourceManager.GetString("UpToDate", resourceCulture);
             }
         }
     }

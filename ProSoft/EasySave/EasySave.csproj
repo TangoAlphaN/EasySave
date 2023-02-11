@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Octokit" Version="5.0.0" />
     <PackageReference Include="Spectre.Console" Version="0.46.0" />
     <PackageReference Include="Spectre.Console.Json" Version="0.46.0" />
   </ItemGroup>
@@ -21,11 +23,17 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resource.fr-FR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resource.it-IT.resx">
+      <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resource.ru-RU.resx">
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
 

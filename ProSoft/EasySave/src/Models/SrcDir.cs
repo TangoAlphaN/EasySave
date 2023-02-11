@@ -1,58 +1,45 @@
-﻿using EasySave.Properties;
-using EasySave.src.Utils;
-using Spectre.Console;
-using System;
-using System.Collections.Generic;
+﻿using EasySave.src.Utils;
 using System.IO;
-using System.Text;
-using static System.Net.WebRequestMethods;
 
 namespace EasySave.src.Models
 {
+    /// <summary>
+    /// Source directory, implements IDir
+    /// </summary>
     public class SrcDir : IDir
     {
 
-        public string path { get; }
+        public string Path { get; }
 
-        private long _size;
+        /// <summary>
+        /// Size of the directory
+        /// </summary>
+        private readonly double _size;
 
+        /// <summary>
+        /// Number of files in the directory
+        /// </summary>
         public readonly long NbFiles;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="path">path of dir</param>
         public SrcDir(string path)
         {
-            if(!DirectoryUtils.IsValidPath(path))
-                throw new DirectoryNotFoundException();
-            this.path = path;
-            this._size = 0;
-            this.NbFiles = 0;
+            Path = path;
+            DirectoryInfo directory = new DirectoryInfo(path);
+            _size = DirectoryUtils.GetDirectorySize(directory);
+            NbFiles = DirectoryUtils.GetDirectoryFiles(directory);
         }
 
-        public long CalculateSize(DirectoryInfo path = null)
+        /// <summary>
+        /// Get the size of the directory
+        /// </summary>
+        /// <returns>size of the directory</returns>
+        public double GetSize()
         {
-            if (path == null)
-                path = new DirectoryInfo(this.path);
-            _size = 0;
-            foreach (FileInfo file in path.GetFiles())
-                _size += file.Length;
-            foreach (DirectoryInfo directory in path.GetDirectories())
-            {
-                CalculateSize(directory);
-            }
-            return _size; 
-        } 
-
-        public long CalculateNbFiles(DirectoryInfo path = null)
-        {
-            if (path == null)
-                path = new DirectoryInfo(this.path);
-            long i = 0;
-            foreach (FileInfo file in path.GetFiles())
-                i++;
-            foreach (DirectoryInfo directory in path.GetDirectories())
-            {
-                CalculateNbFiles(directory);
-            }
-            return i;
+            return _size;
         }
 
     }
