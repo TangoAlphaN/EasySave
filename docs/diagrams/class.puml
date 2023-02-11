@@ -1,45 +1,36 @@
-@startuml ProSoft - EasySave 1.0 - Class Diagram
+@startuml ProSoft - EasySave 1.0.1 - Class Diagram
 
-title "ProSoft - EasySave 1.0 - Class Diagram"
+title "ProSoft - EasySave 1.0.1 - Class Diagram"
 
 class ViewModel {
-    + ViewModel()
+    + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+    + EditSave(s : Save, newName : string) : void
+    + DeleteSave(s : Save) : void
+    + RunSave(s : Save) : string
+    # StopAllSaves() : void
+    + {static} IsUpToDate() : bool
 
-    + CreateSave() : void
-    + LoadSave() : void
-    + DeleteSave() : void
-    + EditSave() : void
-    + GetSaves() : HashSet<Save>
-    + GetSaveBuUuid(name : String) : Save
+    + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+    + GetSaves() : HashSet<string>
 }
 
-class Program {
+class Program <<static>> {
     - {static} Main() : void
-}
-
-class LogUtils <<static>> {
-    - {static} path : string
-
-    + {static} Init() : void
-    + {static} LogSave(save : Save) : void
-    + {static} LogTransfer(data : JObject) : void
-    + {static} CalculateTransferTime() : long
-    - {static} SavesToJson() : JObject
-    + {static} SaveToJson(s : Save) : JObject
 }
 
 package Render <<Folder>> {
 
     enum RenderMethod {
         Home
-        CreateSave,
-        EditSave,
-        DeleteSave,
+        CreateSave
         LoadSave
+        EditSave
+        DeleteSave
+        ChangeLanguage
     }
 
     class View {
-        - {readonly} vm : ViewModel
+        - vm : ViewModel
 
         + View()
 
@@ -47,10 +38,13 @@ package Render <<Folder>> {
         + Render(type : RenderMethod) : void
         - RenderHome(message : string) : void
         - RenderCreateSave() : void
-        - RenderEditSave() : void
-        - RenderLoadSave() : void
-        - PromptSave() : Save
-        - RenderDeleteSave(s : Save) : void
+        - RenderEditSave(save : HashSet<Save>) : void
+        - RenderLoadSave(save : HashSet<Save>) : void
+        - RenderDeleteSave(save : HashSet<Save>) : void
+        - RenderChangeLanguage() : void
+        - PromptSave(multi : bool) : HashSet<Save>
+        # Exit(code : int) : void
+        - CheckUpdate() : string
     }
 
 }
@@ -62,65 +56,92 @@ package Models <<Folder>> {
     }
 
     class SrcDir {
-        - size : long
-        - nbFiles : long
+        - size : double
+        + nbFiles : long
 
         + SrcDir(path : string)
 
-        + CalculateSize() : long
-        + CalculateNbFiles() : long
+        + GetSize() : double
     }
 
     class DestDir {
         + DestDir(path : string)
     }
 
+    package Exceptions <<Folder>> {
+    
+        class Exception {
+
+        }
+
+        class CantCheckUpdateException {
+
+            + CantCheckUpdateException()
+            + CantCheckUpdateException(message : string)
+            + CantCheckUpdateException(message : string, inner : Exception)
+            + CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class TooMuchSavesException {
+
+            + TooMuchSavesException()
+            + TooMuchSavesException(message : string)
+            + TooMuchSavesException(message : string, inner : Exception)
+            + TooMuchSavesException(info : SerializationInfo, context : StreamingContext)
+        }
+
+    }
+    
     package Data <<Folder>> {
 
         abstract class Save {
             + {const} MAX_SAVES = 5 : int
             - {static} saves : Set<Save>
-            + {readonly} uuid : Guid
-            + name : string
+            + uuid : Guid
+            - name : string
             - filesCopied : long
-            - status : JobStatus
-            + {readonly} SrcDir : SrcDir
-            + {readonly} DestDir : DestDir
+            - sizeCopied : long
+            # status : JobStatus
+            + SrcDir : SrcDir
+            + DestDir : DestDir
 
-            # Save(name: string, src : string, dest : string, guid : Guid)
-
-            + {static} GetSaves() : HashSet<save>
+            # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
 
             + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
             + Rename(newName : string) : void
-            + {static} Delete(uuid : Guid) : void
-            + {abstract} Run (uuid : Guid) : void
-            /'+ Pause() : void
+            + Pause() : void
             + Resume() : void
-            + Cancel() : void'/
-            - CalculateProgress() : int
-            /'- CalculateRemainingTime() : int'/
-            + GetFilesCopied() : long
-            + GetStatus() : JobStatus
+            + Cancel() : void
+            + Stop() : void
+            + {static} Delete(uuid : Guid) : void
+            + Run() : string
+            + CalculateProgress() : int
             + {abstract} ToString() : string
-            + {abstract} GetSaveType() : SaveType
-            + AddFileCopied() : void
             + {static} Init(jObject : JObject) : void
-        }
+            + AddFileCopied(nb : int) : void
+            + AddSizeCopied(length : long) : void
+            # ProcessResult(sw : StopWatch) : string
+            + {static} GetSaves() : HashSet<save>
+            + GetName() : string
+            + GetStatus() : JobStatus
+            + GetSizeCopied() : long
+            + GetFilesCopied() : long
+            + {abstract} GetSaveType() : SaveType
+            + {static} GetStatus(status : String) : JobStatus
+            - UpdateState() : void
+        }            
 
         class DifferentialSave {
-            # DifferentialSave(name : string, src: Dir, dest : Dir)
+            # DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
 
             + GetSaveType() : SaveType
-            + Run() : Save
             + ToString() : string
         }
 
         class FullSave {
-            # {internal} FullSave(name : string, src: Dir, dest : Dir)
+            # FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
 
             + GetSaveType() : SaveType
-            + Run() : Save
             + ToString() : string
         }
 
@@ -134,26 +155,54 @@ package Models <<Folder>> {
             Paused
             Finished
             Cancelled
-            Error,
+            Error
             Waiting
         }
         
     }
 
-    class DirectoryUtils <<static>> {
-        + {static} CopyFilesAndFolders(s : Save) : boolean
-        + {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo) : void
-        + {static} IsValidPath(path : string) : boolean
-        + {static} CreatePath(path : string) : void
+    package Utils <<Folder>> {
+
+        class DirectoryUtils <<static>> {
+            - {static} actualFile : string[]
+            + {static} CopyFilesAndFolders(s : Save) : void
+            - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
+            + {static} IsValidPath(path : string) : bool
+            + {static} CreatePath(path : string) : void
+            + {static} GetDirectorySize(dir : DirectoryInfo) : double
+            + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+            - {static} GetActualFile() : string[]
+        }
+
+        class LogUtils <<static>> {
+            - {static} path : string
+            - {static} date : string
+
+            + {static} Init() : void
+            + {static} LogSaves() : void
+            - {static} SavesToJson() : JObject
+            + {static} SaveToJson(s : Save) : JObject
+            + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+        }
+
+        class ConsoleUtils <<static>> {
+            + {static} ChooseAction(title : string, choices : HashSet<string>, lastOption : string) : string
+            + {static} ChooseMultiple(title : string, choices : HashSet<string>, lastOption : string) : string
+            + {static} AskConfirm(withoutChoice : bool) : bool
+            + {static} WriteJson(title : string, data : JsonText, color : Color) : void
+            + {static} Ask(title : string, errorMessage : string) : string
+            + {static} WriteError(error : string) : void
+            + {static} CreateProgressBar(s : Save) : void
+        }
+
+        class VersionUtils <<static>> {
+            + {static} GetVersionFromGit() : string
+            + {static} VersionFromStr(version : string) : int[]
+            + {static} CompareVersions() : bool
+        }
+    
     }
 
-    class ConsoleUtils <<static>> {
-        + {static} ChooseAction(title : string, choices : HashSet<string>, lastOption : string) : string
-        + {static} AskConfirm() : boolean
-        + {static} WriteJson(title : string, data : JsonText, color : Color) : void
-        + {static} WriteError(error : string) : void
-        +{static} CreateProgressBar(s : Save) : void
-    }
 }
 
 View "1..*" o------ "1" ViewModel
@@ -166,5 +215,12 @@ Dir <|.. DestDir
 
 Save <|.. FullSave
 Save <|.. DifferentialSave
+
+CantCheckUpdateException -up-|> Exception
+TooMuchSavesException -up-|> Exception
+
+/'Hidden links for organization'/
+FullSave -down[hidden]-> JobStatus
+
 
 @enduml
