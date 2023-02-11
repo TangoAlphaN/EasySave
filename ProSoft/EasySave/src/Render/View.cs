@@ -103,6 +103,7 @@ namespace EasySave.src.Render
                     Render(RenderMethod.ChangeLanguage);
                     break;
                 default:
+                    Exit();
                     break;
             }
         }
