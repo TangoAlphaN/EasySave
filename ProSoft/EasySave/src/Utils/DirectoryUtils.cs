@@ -46,6 +46,7 @@ namespace EasySave.src.Utils
             {
                 //Update json data
                 LogUtils.LogSaves();
+                bool fileCopied = true;
                 bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
                 //Proceed differential mode by comparing files data
                 if (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
@@ -61,13 +62,15 @@ namespace EasySave.src.Utils
                     }
                     catch
                     {
-                        ConsoleUtils.WriteError($"{file.Name} | {Resource.AccesDenied}");
+                        fileCopied = false;
+                        ConsoleUtils.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
                     }
                     watch.Stop();
                     //Log transfer in json
                     LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds);
                 }
-                s.AddFileCopied();
+                if(fileCopied)
+                    s.AddFileCopied();
                 s.AddSizeCopied(file.Length);
             }
 

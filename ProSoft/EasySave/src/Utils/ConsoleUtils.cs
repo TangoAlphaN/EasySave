@@ -97,7 +97,7 @@ namespace EasySave.src.Utils
         {
             return AnsiConsole.Prompt(
                 new TextPrompt<string>(title)
-                    .PromptStyle("green")
+                    .PromptStyle("blue")
                     .ValidationErrorMessage(errorMessage ?? "")
                     .Validate(prompt => !String.IsNullOrEmpty(prompt.Trim()))
             );

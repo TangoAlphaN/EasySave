@@ -174,7 +174,7 @@ namespace EasySave.src.Render
                             if (ConsoleUtils.AskConfirm())
                             {
                                 //Write result
-                                ConsoleUtils.WriteJson(Resource.Save_Info, new JsonText(vm.RunSave(save)));
+                                ConsoleUtils.WriteJson(Resource.Save_Info, new JsonText(vm.RunSave(save)), Color.Green);
                             }
                             else
                                 RenderHome();
