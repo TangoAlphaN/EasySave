@@ -1,7 +1,6 @@
 ﻿using EasySave.src.Models.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Spectre.Console;
 using System;
 using System.IO;
 
@@ -31,6 +30,7 @@ namespace EasySave.src.Utils
             //Create log file if not exists
             if (!DirectoryUtils.IsValidPath(_path))
             {
+                //TODO
                 AnsiConsole.Clear();
                 Directory.CreateDirectory(_path);
             }
