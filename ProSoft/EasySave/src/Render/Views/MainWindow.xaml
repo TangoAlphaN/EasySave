@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="650" Width="1000" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="CustomMenuButton" TargetType="Button">
+            <Setter Property="Background" Value="#4682B4" />
+            <Setter Property="Foreground" Value="#00008B" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Height" Value="75" />
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Background="#4682B4" Width="162.5" Height="Auto" VerticalAlignment="Stretch">
+            <TextBlock Text="Menu" Foreground="#00008B" FontSize="30" Margin="40 10" FontWeight="Bold" />
+            <Button Content="Create a save" Style="{StaticResource CustomMenuButton}" />
+            <!-- <Button Content="{DynamicResource HomeMenu.Load}" Style="{StaticResource CustomMenuButton}" /> how to set the button content in the good language? -->
+            <Button Content="Load a Save" Style="{StaticResource CustomMenuButton}" />
+            <Button Content="Edit a save" Style="{StaticResource CustomMenuButton}" />
+            <Button Content="Delete a save" Style="{StaticResource CustomMenuButton}" />
+            <Button Content="Change Language" Style="{StaticResource CustomMenuButton}" />
+            <Button Content="Exit" Style="{StaticResource CustomMenuButton}" />
+        </StackPanel>
+        <Grid Background="#4682B4">
 
-    </Grid>
+        </Grid>
+    </DockPanel>
 </Window>
