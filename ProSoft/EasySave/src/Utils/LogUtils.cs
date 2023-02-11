@@ -130,5 +130,11 @@ namespace EasySave.src.Utils
             File.WriteAllText($"{_path}data-{_date}.json", arrayJson);
         }
 
+        public static void JsonToXml(string json)
+        {
+            var xml = JsonConvert.DeserializeObject(json)!;
+            if (xml != null) File.WriteAllText($"{_path}data-{_date}.xml", xml.ToString());
+        }
+
     }
 }
