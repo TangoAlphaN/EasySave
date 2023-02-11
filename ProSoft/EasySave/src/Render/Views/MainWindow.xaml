@@ -22,7 +22,7 @@
             <TextBlock Text="Menu" Foreground="#00008B" FontSize="30" Margin="40 10" FontWeight="Bold" />
             <Button Content="Create a save" Style="{StaticResource CustomMenuButton}" />
             <!-- <Button Content="{DynamicResource HomeMenu.Load}" Style="{StaticResource CustomMenuButton}" /> how to set the button content in the good language? -->
-            <Button Content="Load a Save" Style="{StaticResource CustomMenuButton}" />
+            <Button Content="Load a Save" Style="{StaticResource CustomMenuButton}" MouseDown="Creat_MouseDown" />
             <Button Content="Edit a save" Style="{StaticResource CustomMenuButton}" />
             <Button Content="Delete a save" Style="{StaticResource CustomMenuButton}" />
             <Button Content="Change Language" Style="{StaticResource CustomMenuButton}" />

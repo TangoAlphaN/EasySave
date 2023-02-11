@@ -28,5 +28,10 @@ namespace EasySave
         {
             InitializeComponent();
         }
+
+        private void Creat_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
