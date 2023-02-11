@@ -8,9 +8,19 @@ using System.Threading;
 
 namespace EasySave.src.Utils
 {
+    /// <summary>
+    /// Static class to manage console input and output
+    /// </summary>
     public static class ConsoleUtils
     {
 
+        /// <summary>
+        /// Display a menu with unqiue choice
+        /// </summary>
+        /// <param name="title">question asked</param>
+        /// <param name="choices">list of choices</param>
+        /// <param name="lastOption">last option of the prompt (e.g. back to menu)</param>
+        /// <returns>choice selected</returns>
         public static string ChooseAction(string title, HashSet<string> choices, string lastOption = null)
         {
             if (lastOption != null)
@@ -23,6 +33,13 @@ namespace EasySave.src.Utils
             );
         }
 
+        /// <summary>
+        /// Display a menu with multiple choice
+        /// </summary>
+        /// <param name="title">question asked</param>
+        /// <param name="choices">list of choices</param>
+        /// <param name="lastOption">last option of the prompt (e.g. back to menu)</param>
+        /// <returns>choices selected</returns>
         public static HashSet<string> ChooseMultiple(string title, HashSet<string> choices, string lastOption = null)
         {
             if (lastOption != null)
@@ -40,6 +57,11 @@ namespace EasySave.src.Utils
             );
         }
 
+        /// <summary>
+        /// Display a confirmation message
+        /// </summary>
+        /// <param name="withoutChoice">just wait for entry if true</param>
+        /// <returns>yes or no, yes if param bool is true</returns>
         public static bool AskConfirm(bool withoutChoice = false)
         {
             if (withoutChoice)
@@ -48,6 +70,12 @@ namespace EasySave.src.Utils
                 return ChooseAction(Resource.Confirm, new HashSet<string>() { Resource.Confirm_Yes, Resource.Confirm_No }) == Resource.Confirm_Yes;
         }
 
+        /// <summary>
+        /// Display a json in a panel
+        /// </summary>
+        /// <param name="title">json title</param>
+        /// <param name="data">json data</param>
+        /// <param name="color">json color</param>
         public static void WriteJson(string title, JsonText data, Color? color = null)
         {
             AnsiConsole.Write(
@@ -59,6 +87,12 @@ namespace EasySave.src.Utils
             );
         }
 
+        /// <summary>
+        /// prompt user entry
+        /// </summary>
+        /// <param name="title">title for choice</param>
+        /// <param name="errorMessage">error message displayed before, default is null</param>
+        /// <returns>user entry</returns>
         public static string Ask(string title, string errorMessage = null)
         {
             return AnsiConsole.Prompt(
@@ -70,11 +104,19 @@ namespace EasySave.src.Utils
 
         }
 
+        /// <summary>
+        /// write error in red
+        /// </summary>
+        /// <param name="error">error to display</param>
         public static void WriteError(string error)
         {
             AnsiConsole.Markup($"[red]{error}[/]");
         }
 
+        /// <summary>
+        /// method to create progress bar
+        /// </summary>
+        /// <param name="s">save concerned by progress bar</param>
         public static void CreateProgressBar(Save s)
         {
             AnsiConsole.Progress()

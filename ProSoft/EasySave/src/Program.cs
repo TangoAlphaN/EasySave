@@ -3,19 +3,23 @@ using EasySave.src.Utils;
 
 namespace EasySave.src
 {
-    internal class Program
+    /// <summary>
+    /// Main program class
+    /// </summary>
+    static class Program
     {
-        protected Program()
-        {
-        }
 
-        protected static void Main(string[] args)
+        /// <summary>
+        /// Main program entry point
+        /// </summary>
+        public static void Main()
         {
             LogUtils.Init();
             View v = new View();
             v.Start();
             v.Exit();
         }
+
     }
 }
 

@@ -3,9 +3,15 @@
     using System;
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// Exception thrown when there is too much saves
+    /// </summary>
     [Serializable]
     public class TooMuchSavesException : Exception
     {
+
+        //All constructors are required by [Serializable]
+
         public TooMuchSavesException()
         {
         }

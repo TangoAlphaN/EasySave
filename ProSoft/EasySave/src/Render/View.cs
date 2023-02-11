@@ -14,22 +14,39 @@ using System.Threading;
 
 namespace EasySave.src.Render
 {
+    /// <summary>
+    /// View class, represented by console
+    /// </summary>
     class View
     {
 
+        /// <summary>
+        /// View model link
+        /// </summary>
         private readonly ViewModel vm;
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public View()
         {
             vm = new ViewModel();
         }
 
+        /// <summary>
+        /// Start the view
+        /// </summary>
         public void Start()
         {
+            //UTF-8 is forced
             Console.OutputEncoding = Encoding.UTF8;
             RenderHome(CheckUpdate());
         }
 
+        /// <summary>
+        /// Main render method, rendering view depending on the case
+        /// </summary>
+        /// <param name="method">Render method, default to render home</param>
         private void Render(RenderMethod method = RenderMethod.Home)
         {
             switch (method)
@@ -55,12 +72,18 @@ namespace EasySave.src.Render
             }
         }
 
+        /// <summary>
+        /// Render home method
+        /// </summary>
+        /// <param name="message">custom message</param>
         private void RenderHome(string message = null)
         {
+            //Write headers and custom message
             AnsiConsole.Clear();
             AnsiConsole.Write(new FigletText("EasySave").Centered().Color(Color.Red));
             if (message != null)
                 AnsiConsole.MarkupLine(message);
+            //Ask user for an action
             string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete, Resource.HomeMenu_ChangeLanguage }, Resource.Forms_Exit);
             switch (action)
             {
@@ -84,6 +107,9 @@ namespace EasySave.src.Render
             }
         }
 
+        /// <summary>
+        /// Render create save method
+        /// </summary>
         private void RenderCreateSave()
         {
             if (Save.GetSaves().Count >= Save.MAX_SAVES)
@@ -91,6 +117,7 @@ namespace EasySave.src.Render
                 AnsiConsole.MarkupLine(Resource.CreateSave_MaxSaves);
                 Render();
             }
+            //Ask for name, source, dest and type
             string name = ConsoleUtils.Ask(Resource.CreateSave_Name);
             string src = ConsoleUtils.Ask(Resource.CreateSave_Src);
             while (!DirectoryUtils.IsValidPath(src))
@@ -110,6 +137,7 @@ namespace EasySave.src.Render
             data.dest = dest;
             data.type = type;
             ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(data.ToString()));
+            //Ask for confirm
             if (ConsoleUtils.AskConfirm())
             {
                 Save s = vm.CreateSave(name, src, dest, type == Resource.CreateSave_Type_Full ? SaveType.Full : SaveType.Differential);
@@ -121,6 +149,10 @@ namespace EasySave.src.Render
             }
         }
 
+        /// <summary>
+        /// Render load save method
+        /// </summary>
+        /// <param name="saves">selected saves by prompt method</param>
         private void RenderLoadSave(HashSet<Save> saves)
         {
             if (saves.Count == 0)
@@ -137,42 +169,52 @@ namespace EasySave.src.Render
                             RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
                         else
                         {
+                            //Ask confirm to run save
                             ConsoleUtils.WriteJson(Resource.Save_Run, new JsonText(LogUtils.SaveToJson(save).ToString()));
                             if (ConsoleUtils.AskConfirm())
                             {
+                                //Write result
                                 ConsoleUtils.WriteJson(Resource.Save_Info, new JsonText(vm.RunSave(save)));
                             }
                             else
                                 RenderHome();
                         }
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         ConsoleUtils.WriteError($"{Resource.Exception}");
-                        Console.WriteLine(ex);
                         Exit(-1);
                     }
                 }
             }
+            //Wait for user entry
             ConsoleUtils.AskConfirm(true);
             Render();
         }
 
+        /// <summary>
+        /// Render edit save method
+        /// </summary>
+        /// <param name="saves">selected save</param>
         private void RenderEditSave(HashSet<Save> saves)
         {
             if (saves.Count != 0)
             {
+                //Get selected save
                 Save s = saves.Single();
                 string oldName = s.GetName();
+                //Ask for new name
                 string name = ConsoleUtils.Ask(Resource.CreateSave_Name);
                 vm.EditSave(s, name);
                 ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
+                //Ask to confirm
                 if (ConsoleUtils.AskConfirm())
                 {
                     RenderHome($"[yellow]{Resource.Save_Renamed} ({s.uuid})[/]");
                 }
                 else
                 {
+                    //Get back old name
                     vm.EditSave(s, oldName);
                     RenderHome();
                 }
@@ -181,12 +223,18 @@ namespace EasySave.src.Render
                 Render();
         }
 
+        /// <summary>
+        /// Render delete save method
+        /// </summary>
+        /// <param name="saves">selected save</param>
         private void RenderDeleteSave(HashSet<Save> saves)
         {
             if (saves.Count != 0)
             {
+                //Get selected save
                 Save s = saves.Single();
                 ConsoleUtils.WriteJson(Resource.Confirm, new JsonText(LogUtils.SaveToJson(s).ToString()));
+                //Ask confirm
                 if (ConsoleUtils.AskConfirm())
                 {
                     vm.DeleteSave(s);
@@ -201,9 +249,15 @@ namespace EasySave.src.Render
                 Render();
         }
 
+        /// <summary>
+        /// Prompt method for save selection
+        /// </summary>
+        /// <param name="multi">bool, allow mulitple selection if true</param>
+        /// <returns>List of selected saves</returns>
         private HashSet<Save> PromptSave(bool multi = false)
         {
             HashSet<string> saves = new HashSet<string>();
+            //Ask for multi or single save
             if (multi)
                 saves = ConsoleUtils.ChooseMultiple(Resource.SaveMenu_Title, vm.GetSaves());
             else
@@ -215,20 +269,32 @@ namespace EasySave.src.Render
             return vm.GetSavesByUuid(saves);
         }
 
+        /// <summary>
+        /// Exit method, stopping all saves
+        /// </summary>
+        /// <param name="code">exit code</param>
         internal void Exit(int code = 0)
         {
             vm.StopAllSaves();
             Environment.Exit(code);
         }
 
+        /// <summary>
+        /// Check for update view
+        /// </summary>
+        /// <returns>string resulting of check update method</returns>
         private string CheckUpdate()
         {
             bool upToDate = ViewModel.IsUpToDate();
             return ("\r\n\r\n" + (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate} [link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]") + "\r\n");
         }
 
+        /// <summary>
+        /// Render change language method
+        /// </summary>
         private void RenderChangeLanguage()
         {
+            //Ask for lang
             string lang = ConsoleUtils.ChooseAction(Resource.ChangeLang, new HashSet<string> { Resource.Lang_fr_FR, Resource.Lang_en_US, Resource.Lang_ru_RU, Resource.Lang_it_IT }, Resource.Forms_Back);
             string culture = CultureInfo.CurrentCulture.ToString();
             switch (lang)
