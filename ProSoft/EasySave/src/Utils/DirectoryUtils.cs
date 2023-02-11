@@ -69,7 +69,7 @@ namespace EasySave.src.Utils
                     //Log transfer in json
                     LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds);
                 }
-                if(fileCopied)
+                if (fileCopied)
                     s.AddFileCopied();
                 s.AddSizeCopied(file.Length);
             }

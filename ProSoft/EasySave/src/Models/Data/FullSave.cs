@@ -10,7 +10,7 @@ namespace EasySave.src.Models.Data
     /// </summary>
     public class FullSave : Save
     {
-        
+
         protected internal FullSave(string name, string src, string dest, Guid guid, JobStatus status = JobStatus.Waiting) : base(name, src, dest, guid, status) { }
 
         public override SaveType GetSaveType()

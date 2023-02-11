@@ -167,7 +167,8 @@ namespace EasySave.src.Models.Data
         /// A stopwatch is created, save is launched and stopwatch is stopped
         /// </summary>
         /// <returns>result of the save job</returns>
-        public string Run() {
+        public string Run()
+        {
             Status = JobStatus.Running;
             Stopwatch sw = new Stopwatch();
             sw.Start();
