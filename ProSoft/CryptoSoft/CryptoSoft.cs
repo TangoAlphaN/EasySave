@@ -1,5 +1,9 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProSoft.CryptoSoft
 {
@@ -26,6 +30,11 @@ namespace ProSoft.CryptoSoft
         private readonly Stopwatch _stopwatch;
 
         /// <summary>
+        /// Extensions of the files that can be encrypted or decrypted
+        /// </summary>
+        private readonly HashSet<string> _extensions;
+
+        /// <summary>
         /// Private constructor of the CryptoSoft class
         /// Used to prevent instanciation
         /// </summary>
@@ -42,19 +51,36 @@ namespace ProSoft.CryptoSoft
         {
             _key = key;
             _stopwatch = new Stopwatch();
+            _extensions = new HashSet<string>();
+        }
+
+        /// <summary>
+        /// Private constructor of the CryptoSoft class
+        /// </summary>
+        /// <param name="key">algorithm key, 64 bits minimum</param>
+        /// <param name="extensions">extensions of files</param>
+        private CryptoSoft(string key, HashSet<string> extensions)
+        {
+            _key = key;
+            _stopwatch = new Stopwatch();
+            _extensions = extensions;
         }
 
         /// <summary>
         /// Initialize the CryptoSoft class
         /// </summary>
         /// <param name="key">algorithm key, 64 bits minimum</param>
+        /// <param name="extensions">extensions of files</param>
         /// <returns></returns>
         /// <exception cref="InvalidDataException">throwed if key is less than 64 bits</exception>
-        public static CryptoSoft Init(string key)
+        public static CryptoSoft Init(string key, string[] extensions = null)
         {
             if (key.Length < 8)
                 throw new InvalidDataException("Key must be at least 64 bits long");
-            _instance ??= new CryptoSoft(key);
+            if(extensions != null)
+                _instance ??= new CryptoSoft(key, extensions.ToHashSet());
+            else
+                _instance ??= new CryptoSoft(key);
             return _instance;
         }
 
@@ -63,12 +89,13 @@ namespace ProSoft.CryptoSoft
         /// </summary>
         /// <param name="inputFile">input file path</param>
         /// <param name="outputFile">output file path, can be null (inputFile.enc)</param>
+        /// <param name="largeFile">if set to true, file will be cutted for a faster process</param>
         /// <returns>time to encrypt file. -1 if error</returns>
-        public long ProcessFile(string inputFile, string outputFile = null)
+        public long ProcessFile(string inputFile, string outputFile = null, bool largeFile = false)
         {
             try
             {
-                _stopwatch.Start();
+                //Create output filename automatically if no specified
                 if(outputFile == null)
                 {
                     outputFile = inputFile;
@@ -77,26 +104,95 @@ namespace ProSoft.CryptoSoft
                     else
                         outputFile += ".enc";
                 }
+                //create filestrams
+                _stopwatch.Start();
                 using var fin = new FileStream(inputFile, FileMode.Open);
                 using var fout = new FileStream(outputFile, FileMode.Create);
-                var buffer = new byte[4096];
-                while (true)
+                //if file is larger than 500mb
+                if (largeFile)
                 {
-                    var bytesRead = fin.Read(buffer);
-                    if (bytesRead == 0)
-                        break;
-                    for (var i = 0; i < bytesRead; ++i)
-                        buffer[i] = (byte)(buffer[i] ^ _key[i % _key.Length]);
-                    fout.Write(buffer, 0, bytesRead);
+                    //file is cutted depending of thread numbers
+                    var fileLength = fin.Length;
+                    var numberOfThreads = Environment.ProcessorCount;
+                    var partLength = (int)(fileLength / numberOfThreads);
+                    //each part is crypted in parallel
+                    var tasks = new List<Task>();
+                    for (var i = 0; i < numberOfThreads; i++)
+                    {
+                        var buffer = new byte[partLength];
+                        fin.Read(buffer, 0, partLength);
+                        tasks.Add(Task.Run(() =>
+                        {
+                            for (var j = 0; j < buffer.Length; j++)
+                                buffer[j] = (byte)(buffer[j] ^ _key[j % _key.Length]);
+                            fout.Write(buffer, 0, buffer.Length);
+                        }));
+                    }
+                    //total time is returned
+                    Task.WaitAll(tasks.ToArray());
+                    _stopwatch.Stop();
+                    return _stopwatch.ElapsedMilliseconds;
                 }
-                _stopwatch.Stop();
-                return _stopwatch.ElapsedMilliseconds;
+                else
+                {
+                    var buffer = new byte[4096];
+                    while (true)
+                    {
+                        var bytesRead = fin.Read(buffer);
+                        if (bytesRead == 0)
+                            break;
+                        for (var i = 0; i < bytesRead; ++i)
+                            buffer[i] = (byte)(buffer[i] ^ _key[i % _key.Length]);
+                        fout.Write(buffer, 0, bytesRead);
+                    }
+                    _stopwatch.Stop();
+                    return _stopwatch.ElapsedMilliseconds;
+                }
             }
             catch
             {
                 return -1;
             }
-            
+        }
+
+        public Dictionary<string, long> ProcessFiles(string[] inputFiles, string outputDir = null)
+        {
+            Dictionary<string, long> result = new Dictionary<string, long>();
+            List<Task> tasks = new List<Task>();
+            foreach(string file in inputFiles)
+            {
+                string outputFile;
+                if (outputDir == null)
+                {
+                    outputFile = file;
+                    if (file.EndsWith(".enc"))
+                        outputFile = file[..file.IndexOf('.')] + "_2." + file[(file.IndexOf('.') + 1)..].Replace(".enc", "");
+                    else
+                        outputFile += ".enc";
+                }
+                else
+                    outputFile = outputDir + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(file) + ".enc";
+                if (_extensions.Count == 0 || _extensions.Contains(Path.GetExtension(file)))
+                {
+                    
+                    try
+                    {
+                    
+                        tasks.Add(Task.Run(() =>
+                        {
+                            long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (500*1024*1024));
+                            result.Add(outputFile, time);
+                        }));
+                    }
+                    catch
+                    {
+                        result.Add(outputFile, -1);
+                    }
+                }else
+                    result.Add(outputFile, -2);
+            }
+            Task.WaitAll(tasks.ToArray());
+            return result;
         }
 
     }
