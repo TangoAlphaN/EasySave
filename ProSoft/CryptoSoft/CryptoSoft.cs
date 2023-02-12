@@ -108,7 +108,8 @@ namespace ProSoft.CryptoSoft
                 _stopwatch.Start();
                 using var fin = new FileStream(inputFile, FileMode.Open);
                 using var fout = new FileStream(outputFile, FileMode.Create);
-                //if file is larger than 500mb
+                //TODO Not Working
+                /*//if file is larger than 500mb
                 if (largeFile)
                 {
                     //file is cutted depending of thread numbers
@@ -134,7 +135,7 @@ namespace ProSoft.CryptoSoft
                     return _stopwatch.ElapsedMilliseconds;
                 }
                 else
-                {
+                {*/
                     var buffer = new byte[4096];
                     while (true)
                     {
@@ -147,7 +148,7 @@ namespace ProSoft.CryptoSoft
                     }
                     _stopwatch.Stop();
                     return _stopwatch.ElapsedMilliseconds;
-                }
+                //}
             }
             catch
             {
@@ -180,8 +181,15 @@ namespace ProSoft.CryptoSoft
                     
                         tasks.Add(Task.Run(() =>
                         {
-                            long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (500*1024*1024));
-                            result.Add(outputFile, time);
+                            try
+                            {
+                                long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (200*1024*1024));
+                                result.Add(outputFile, time);
+                            }
+                            catch
+                            {
+                                result.Add(outputFile, -1);
+                            }
                         }));
                     }
                     catch
