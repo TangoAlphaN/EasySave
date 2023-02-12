@@ -203,6 +203,30 @@ namespace ProSoft.CryptoSoft
             return result;
         }
 
+        public static void Main(string[] args)
+        {
+            if (args.Length < 2 || args.Length > 3)
+            {
+                Console.WriteLine("Usage : CryptoSoft.exe source [dest] [secret_key]");
+                return;
+            }
+            string secret;
+            if (args.Length == 3)
+                secret = args[2];
+            else
+            {
+                var random = new Random();
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var keyData = new char[64];
+                for (int i = 0; i < 64; i++)
+                    keyData[i] = chars[random.Next(chars.Length)];
+                secret = keyData.ToString();
+                Console.WriteLine($"Your secret is : {secret}");
+            }
+            CryptoSoft cs = CryptoSoft.Init(secret);
+            cs.ProcessFile(args[0], args[1]);
+        }
+
     }
 
 }
