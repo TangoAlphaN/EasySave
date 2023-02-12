@@ -2,6 +2,9 @@
 using EasySave.src.Utils;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
+using Microsoft.Toolkit.Mvvm.Input;
+
 
 namespace EasySave.src
 {
@@ -10,6 +13,20 @@ namespace EasySave.src
     /// </summary>
     public class ViewModel
     {
+        
+        private ICommand GoToPageHomeCommand { get; set; }
+        
+        private object CurrentPage { get; set; }
+
+        public ViewModel()
+        {
+            GoToPageHomeCommand = new RelayCommand(GoToHomePage);
+        }
+
+        private void GoToHomePage()
+        {
+            CurrentPage = new HomePage();
+        }
 
         /// <summary>
         /// Create save method

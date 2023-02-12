@@ -1,4 +1,5 @@
-﻿<Application x:Class="EasySave.src.Render.View"
+﻿<!--
+<Application x:Class="EasySave.src.Render.View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:EasySave"
@@ -7,3 +8,12 @@
          
     </Application.Resources>
 </Application>
+-->
+<UserControl x:Class="EasySave.HomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:easySave="clr-namespace:EasySave">
+    <Grid>
+        <TextBlock Text="EasySave" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" FontStyle="Italic" Foreground="White"/>
+    </Grid>
+</UserControl>

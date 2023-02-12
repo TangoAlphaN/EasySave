@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EasySave.src;
 
 namespace EasySave
 {
@@ -27,6 +28,7 @@ namespace EasySave
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
         }
 
         private void Creat_MouseDown(object sender, MouseButtonEventArgs e)
