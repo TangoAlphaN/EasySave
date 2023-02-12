@@ -1,6 +1,6 @@
-@startuml ProSoft - EasySave 1.0.1 - Class Diagram
+@startuml ProSoft - EasySave 1.1.0 - Class Diagram
 
-title "ProSoft - EasySave 1.0.1 - Class Diagram"
+title "ProSoft - EasySave 1.1.0 - Class Diagram"
 
 class ViewModel {
     + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
@@ -27,6 +27,8 @@ package Render <<Folder>> {
         EditSave
         DeleteSave
         ChangeLanguage
+        Settings,
+        ChangeLogsFormat
     }
 
     class View {
@@ -42,6 +44,8 @@ package Render <<Folder>> {
         - RenderLoadSave(save : HashSet<Save>) : void
         - RenderDeleteSave(save : HashSet<Save>) : void
         - RenderChangeLanguage() : void
+        - RenderChangeLogsFormat() : void
+        - RenderSettings() : void
         - PromptSave(multi : bool) : HashSet<Save>
         # Exit(code : int) : void
         - CheckUpdate() : string
@@ -74,6 +78,14 @@ package Models <<Folder>> {
 
         }
 
+        class UnknownLogFormatException {
+
+            + UnknownLogFormatException()
+            + UnknownLogFormatException(message : string)
+            + UnknownLogFormatException(message : string, inner : Exception)
+            + UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)
+        } 
+
         class CantCheckUpdateException {
 
             + CantCheckUpdateException()
@@ -95,7 +107,7 @@ package Models <<Folder>> {
     package Data <<Folder>> {
 
         abstract class Save {
-            + {const} MAX_SAVES = 5 : int
+            + {const} MAX_SAVES : int
             - {static} saves : Set<Save>
             + uuid : Guid
             - name : string
@@ -117,7 +129,7 @@ package Models <<Folder>> {
             + Run() : string
             + CalculateProgress() : int
             + {abstract} ToString() : string
-            + {static} Init(jObject : JObject) : void
+            + {static} Init(data : dynamic) : void
             + AddFileCopied(nb : int) : void
             + AddSizeCopied(length : long) : void
             # ProcessResult(sw : StopWatch) : string
@@ -163,6 +175,11 @@ package Models <<Folder>> {
 
     package Utils <<Folder>> {
 
+        enum LogsFormat {
+            JSON
+            XML
+        }
+
         class DirectoryUtils <<static>> {
             - {static} actualFile : string[]
             + {static} CopyFilesAndFolders(s : Save) : void
@@ -177,12 +194,17 @@ package Models <<Folder>> {
         class LogUtils <<static>> {
             - {static} path : string
             - {static} date : string
+            - {static} format : LogsFormat
 
             + {static} Init() : void
             + {static} LogSaves() : void
             - {static} SavesToJson() : JObject
+            - {static} SavesToXml() : XElement
             + {static} SaveToJson(s : Save) : JObject
+            + {static} SaveToXml(s : Save) : XElement
             + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+            + {static} ChangeFormat(format : LogsFormat) : void
+            + {static} GetFormat() : LogsFormat
         }
 
         class ConsoleUtils <<static>> {

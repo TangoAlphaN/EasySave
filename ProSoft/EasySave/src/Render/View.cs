@@ -66,6 +66,12 @@ namespace EasySave.src.Render
                 case RenderMethod.ChangeLanguage:
                     RenderChangeLanguage();
                     break;
+                case RenderMethod.ChangeLogsFormat:
+                    RenderChangeLogsFormat();
+                    break;
+                case RenderMethod.Settings:
+                    RenderSettings();
+                    break;
                 default:
                     RenderHome();
                     break;
@@ -84,7 +90,7 @@ namespace EasySave.src.Render
             if (message != null)
                 AnsiConsole.MarkupLine(message);
             //Ask user for an action
-            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete, Resource.HomeMenu_ChangeLanguage }, Resource.Forms_Exit);
+            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete, Resource.HomeMenu_Settings}, Resource.Forms_Exit);
             switch (action)
             {
                 case var value when value == Resource.HomeMenu_Create:
@@ -99,8 +105,8 @@ namespace EasySave.src.Render
                 case var value when value == Resource.HomeMenu_Delete:
                     Render(RenderMethod.DeleteSave);
                     break;
-                case var value when value == Resource.HomeMenu_ChangeLanguage:
-                    Render(RenderMethod.ChangeLanguage);
+                case var value when value == Resource.HomeMenu_Settings:
+                    Render(RenderMethod.Settings);
                     break;
                 default:
                     Exit();
@@ -142,7 +148,7 @@ namespace EasySave.src.Render
             if (ConsoleUtils.AskConfirm())
             {
                 Save s = vm.CreateSave(name, src, dest, type == Resource.CreateSave_Type_Full ? SaveType.Full : SaveType.Differential);
-                RenderHome($"[green]{Resource.CreateSave_Success} ({s.uuid})[/]");
+                RenderHome($"[green]{Resource.Header_CreateSaveSuccess} ({s.uuid})[/]");
             }
             else
             {
@@ -167,7 +173,7 @@ namespace EasySave.src.Render
                     try
                     {
                         if (save.GetStatus() != JobStatus.Waiting && save.GetStatus() != JobStatus.Finished)
-                            RenderHome($"[red]{Resource.Save_AlreadyRunning}[/]");
+                            RenderHome($"[red]{Resource.Header_SaveAlreadyRunning}[/]");
                         else
                         {
                             //Ask confirm to run save
@@ -211,7 +217,7 @@ namespace EasySave.src.Render
                 //Ask to confirm
                 if (ConsoleUtils.AskConfirm())
                 {
-                    RenderHome($"[yellow]{Resource.Save_Renamed} ({s.uuid})[/]");
+                    RenderHome($"[yellow]{Resource.Header_SaveRenamed} ({s.uuid})[/]");
                 }
                 else
                 {
@@ -239,7 +245,7 @@ namespace EasySave.src.Render
                 if (ConsoleUtils.AskConfirm())
                 {
                     vm.DeleteSave(s);
-                    RenderHome($"[yellow]{Resource.Save_Deleted}[/]");
+                    RenderHome($"[yellow]{Resource.Header_SaveDeleted}[/]");
                 }
                 else
                 {
@@ -248,6 +254,80 @@ namespace EasySave.src.Render
             }
             else
                 Render();
+        }
+
+        private void RenderSettings()
+        {
+            //Ask for action
+            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Settings, new HashSet<string> { Resource.SettingsMenu_ChangeLanguage, Resource.SettingsMenu_LogsFormat }, Resource.Forms_Back);
+            switch (action)
+            {
+                case var value when value == Resource.SettingsMenu_ChangeLanguage:
+                    Render(RenderMethod.ChangeLanguage);
+                    break;
+                case var value when value == Resource.SettingsMenu_LogsFormat:
+                    Render(RenderMethod.ChangeLogsFormat);
+                    break;
+                default:
+                    Render();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Render change language method
+        /// </summary>
+        private void RenderChangeLanguage()
+        {
+            //Ask for lang
+            string lang = ConsoleUtils.ChooseAction(Resource.ChangeLang, new HashSet<string> { Resource.Lang_fr_FR, Resource.Lang_en_US, Resource.Lang_ru_RU, Resource.Lang_it_IT }, Resource.Forms_Back);
+            if (lang == Resource.Forms_Back)
+                Render(RenderMethod.Settings);
+            else
+            {
+                string culture = CultureInfo.CurrentCulture.ToString();
+                switch (lang)
+                {
+                    case var value when value == Resource.Lang_fr_FR:
+                        culture = "fr-FR";
+                        break;
+                    case var value when value == Resource.Lang_en_US:
+                        culture = "en-US";
+                        break;
+                    case var value when value == Resource.Lang_ru_RU:
+                        culture = "ru-RU";
+                        break;
+                    case var value when value == Resource.Lang_it_IT:
+                        culture = "it-IT";
+                        break;
+                }
+                CultureInfo cultureInfo = new CultureInfo(culture);
+                Thread.CurrentThread.CurrentUICulture = cultureInfo;
+                Thread.CurrentThread.CurrentCulture = cultureInfo;
+                RenderHome();
+            }
+        }
+
+        /// <summary>
+        /// Render change logs format method
+        /// </summary>
+        private void RenderChangeLogsFormat()
+        {
+            //Ask for format
+            string format = ConsoleUtils.ChooseAction($"{Resource.ChangeLogsFormat} [blue]({Resource.ChangeLogsFormat_Actual} {LogUtils.GetFormat()})[/]", new HashSet<string> { "JSON", "XML" }, Resource.Forms_Back);
+            switch (format)
+            {
+                case "JSON":
+                    LogUtils.ChangeFormat(LogsFormat.JSON);
+                    break;
+                case "XML":
+                    LogUtils.ChangeFormat(LogsFormat.XML);
+                    break;
+                case var value when value == Resource.Forms_Back:
+                    Render(RenderMethod.Settings);
+                    break;
+            }
+            RenderHome($"[green]{Resource.Header_SettingsSaved}[/]");
         }
 
         /// <summary>
@@ -287,36 +367,7 @@ namespace EasySave.src.Render
         private string CheckUpdate()
         {
             bool upToDate = ViewModel.IsUpToDate();
-            return ("\r\n\r\n" + (upToDate ? $"[green]{Resource.UpToDate}[/]" : $"[orange3]{Resource.NoUpToDate} [link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]") + "\r\n");
-        }
-
-        /// <summary>
-        /// Render change language method
-        /// </summary>
-        private void RenderChangeLanguage()
-        {
-            //Ask for lang
-            string lang = ConsoleUtils.ChooseAction(Resource.ChangeLang, new HashSet<string> { Resource.Lang_fr_FR, Resource.Lang_en_US, Resource.Lang_ru_RU, Resource.Lang_it_IT }, Resource.Forms_Back);
-            string culture = CultureInfo.CurrentCulture.ToString();
-            switch (lang)
-            {
-                case var value when value == Resource.Lang_fr_FR:
-                    culture = "fr-FR";
-                    break;
-                case var value when value == Resource.Lang_en_US:
-                    culture = "en-US";
-                    break;
-                case var value when value == Resource.Lang_ru_RU:
-                    culture = "ru-RU";
-                    break;
-                case var value when value == Resource.Lang_it_IT:
-                    culture = "it-IT";
-                    break;
-            }
-            CultureInfo cultureInfo = new CultureInfo(culture);
-            Thread.CurrentThread.CurrentUICulture = cultureInfo;
-            Thread.CurrentThread.CurrentCulture = cultureInfo;
-            RenderHome();
+            return ("\r\n\r\n" + (upToDate ? $"[green]{Resource.Header_UpToDate}[/]" : $"[orange3]{Resource.Header_NoUpToDate} [link]https://github.com/arnoux23u-CESI/EasySave/releases/latest[/][/]") + "\r\n");
         }
 
     }

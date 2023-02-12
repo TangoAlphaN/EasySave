@@ -147,7 +147,7 @@
   <data name="CreateSave.Src" xml:space="preserve">
     <value>Введите путь к источнику резервного копирования:</value>
   </data>
-  <data name="CreateSave.Success" xml:space="preserve">
+  <data name="Header.CreateSaveSuccess" xml:space="preserve">
     <value>Резервная копия успешно добавлена!</value>
   </data>
   <data name="CreateSave.Type" xml:space="preserve">
@@ -168,7 +168,7 @@
   <data name="Forms.Exit" xml:space="preserve">
     <value>Выход</value>
   </data>
-  <data name="HomeMenu.ChangeLanguage" xml:space="preserve">
+  <data name="SettingsMenu.ChangeLanguage" xml:space="preserve">
     <value>Изменение языка</value>
   </data>
   <data name="HomeMenu.Create" xml:space="preserve">
@@ -198,19 +198,19 @@
   <data name="Lang.ru-RU" xml:space="preserve">
     <value>Русский</value>
   </data>
-  <data name="NoUpToDate" xml:space="preserve">
+  <data name="Header.NoUpToDate" xml:space="preserve">
     <value>Доступна новая версия :</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
     <value>Неправильный путь | </value>
   </data>
-  <data name="Save.AlreadyRunning" xml:space="preserve">
+  <data name="Header.SaveAlreadyRunning" xml:space="preserve">
     <value>Резервное копирование уже выполняется</value>
   </data>
-  <data name="Save.Deleted" xml:space="preserve">
+  <data name="Header.SaveDeleted" xml:space="preserve">
     <value>Успешное удаление резервной копии</value>
   </data>
-  <data name="Save.Renamed" xml:space="preserve">
+  <data name="Header.SaveRenamed" xml:space="preserve">
     <value>Успешное переименование резервной копии</value>
   </data>
   <data name="Save.Run" xml:space="preserve">
@@ -219,7 +219,7 @@
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>Ваши резервные копии:</value>
   </data>
-  <data name="UpToDate" xml:space="preserve">
+  <data name="Header.UpToDate" xml:space="preserve">
     <value>EasySave находится в актуальном состоянии.</value>
   </data>
   <data name="AccesDenied" xml:space="preserve">
@@ -227,5 +227,20 @@
   </data>
   <data name="Save.Info" xml:space="preserve">
     <value>Резюме резервного копирования :</value>
+  </data>
+  <data name="HomeMenu.Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SettingsMenu.LogsFormat" xml:space="preserve">
+    <value>Формат файла журнала</value>
+  </data>
+  <data name="ChangeLogsFormat" xml:space="preserve">
+    <value>Выберите тип файла :</value>
+  </data>
+  <data name="Header.SettingsSaved" xml:space="preserve">
+    <value>Параметры успешно сохранены</value>
+  </data>
+  <data name="ChangeLogsFormat.Actual" xml:space="preserve">
+    <value>Текущий тип :</value>
   </data>
 </root>
