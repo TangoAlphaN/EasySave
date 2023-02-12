@@ -20,17 +20,16 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Background="#4682B4" Width="162.5" Height="Auto" VerticalAlignment="Stretch">
             <TextBlock Text="Menu" Foreground="#00008B" FontSize="30" Margin="40 10" FontWeight="Bold" />
-            <Button Content="Home" Style="{StaticResource CustomMenuButton}" Command="{Binding GoToPageHomeCommand}" />
             <Button Content="Create a save" Style="{StaticResource CustomMenuButton}" />
             <!-- <Button Content="{DynamicResource HomeMenu.Load}" Style="{StaticResource CustomMenuButton}" /> how to set the button content in the good language? -->
             <Button Content="Load a Save" Style="{StaticResource CustomMenuButton}" MouseDown="Creat_MouseDown" />
             <Button Content="Edit a save" Style="{StaticResource CustomMenuButton}" />
             <Button Content="Delete a save" Style="{StaticResource CustomMenuButton}" />
-            <Button Content="Settings" Style="{StaticResource CustomMenuButton}" />
+            <Button Content="Change Language" Style="{StaticResource CustomMenuButton}" />
             <Button Content="Exit" Style="{StaticResource CustomMenuButton}" />
         </StackPanel>
         <Grid Background="#4682B4">
-            <ContentControl Content="{Binding CurrentPage}" />
+
         </Grid>
     </DockPanel>
 </Window>
