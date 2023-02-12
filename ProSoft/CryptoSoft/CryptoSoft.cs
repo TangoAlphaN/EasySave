@@ -220,10 +220,10 @@ namespace ProSoft.CryptoSoft
                 var keyData = new char[64];
                 for (int i = 0; i < 64; i++)
                     keyData[i] = chars[random.Next(chars.Length)];
-                secret = keyData.ToString();
+                secret = new string(keyData);
                 Console.WriteLine($"Your secret is : {secret}");
             }
-            CryptoSoft cs = CryptoSoft.Init(secret);
+            CryptoSoft cs = Init(secret);
             cs.ProcessFile(args[0], args[1]);
         }
 
