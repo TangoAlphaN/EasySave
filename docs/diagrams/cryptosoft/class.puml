@@ -6,12 +6,15 @@ class CryptoSoft {
     - key : string
     - instance : CryptoSoft
     - stopwatch : Stopwatch
+    - extensions : HashSet<String>
 
     - CryptoSoft()
     - CryptoSoft(key : string)
+    - CryptoSoft(key : string, extensions : HashSet<String>)
 
-    + {static} Init(key : string) : CryptoSoft
-    + ProcessFile(inpuitFile : string, outputFile : string) : long
+    + {static} Init(key : string, extensions : string[]) : CryptoSoft
+    + ProcessFile(inputFile : string, outputFile : string, largeFile : bool) : long
+    + ProcessFiles(inputFiles : string[], outputDir : string) : Dictionnary<string, long>
 }
 
 @enduml
