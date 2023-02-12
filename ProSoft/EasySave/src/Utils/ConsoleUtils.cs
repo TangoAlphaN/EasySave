@@ -99,7 +99,7 @@ namespace EasySave.src.Utils
                 new TextPrompt<string>(title)
                     .PromptStyle("blue")
                     .ValidationErrorMessage(errorMessage ?? "")
-                    .Validate(prompt => !String.IsNullOrEmpty(prompt.Trim()))
+                    .Validate(prompt => !string.IsNullOrEmpty(prompt.Trim()))
             );
 
         }

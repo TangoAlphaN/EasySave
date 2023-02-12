@@ -33,6 +33,16 @@
         /// <summary>
         /// Render change language
         /// </summary>
-        ChangeLanguage
+        ChangeLanguage,
+
+        /// <summary>
+        /// Render settings
+        /// </summary>
+        Settings,
+
+        /// <summary>
+        /// Render change logs format
+        /// </summary>
+        ChangeLogsFormat
     }
 }
