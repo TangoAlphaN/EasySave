@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1582px" preserveAspectRatio="none" style="width:4407px;height:1582px;background:#FFFFFF;" version="1.1" viewBox="0 0 4407 1582" width="4407px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="27.6094" id="_title" style="stroke:none;stroke-width:1.0;" width="290" x="2051.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="280" x="2056.5" y="24.5332">ProSoft - EasySave 1.1.0 - Class Diagram</text><!--MD5=[4b19051f20d898cc3a48e0dc03e874c1]
+cluster Render--><g id="cluster_Render"><path d="M3736.5,238.1094 L3789.5,238.1094 A3.75,3.75 0 0 1 3792,240.6094 L3799,261.7188 L4274.5,261.7188 A2.5,2.5 0 0 1 4277,264.2188 L4277,617.6094 A2.5,2.5 0 0 1 4274.5,620.1094 L3736.5,620.1094 A2.5,2.5 0 0 1 3734,617.6094 L3734,240.6094 A2.5,2.5 0 0 1 3736.5,238.1094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3734" x2="3799" y1="261.7188" y2="261.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="52" x="3738" y="254.6426">Render</text></g><!--MD5=[027ebfd53c01aea08f474edbf35d0797]
+cluster Models--><g id="cluster_Models"><path d="M8.5,44.6094 L61.5,44.6094 A3.75,3.75 0 0 1 64,47.1094 L71,68.2188 L3648.5,68.2188 A2.5,2.5 0 0 1 3651,70.7188 L3651,1573.1094 A2.5,2.5 0 0 1 3648.5,1575.6094 L8.5,1575.6094 A2.5,2.5 0 0 1 6,1573.1094 L6,47.1094 A2.5,2.5 0 0 1 8.5,44.6094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="71" y1="68.2188" y2="68.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="52" x="10" y="61.1426">Models</text></g><!--MD5=[e5f667b5311306cc91fbdfbce3163ce7]
+cluster Exceptions--><g id="cluster_Exceptions"><path d="M2532.5,344.1094 L2611.5,344.1094 A3.75,3.75 0 0 1 2614,346.6094 L2621,367.7188 L3624.5,367.7188 A2.5,2.5 0 0 1 3627,370.2188 L3627,977.1094 A2.5,2.5 0 0 1 3624.5,979.6094 L2532.5,979.6094 A2.5,2.5 0 0 1 2530,977.1094 L2530,346.6094 A2.5,2.5 0 0 1 2532.5,344.1094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2530" x2="2621" y1="367.7188" y2="367.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="78" x="2534" y="360.6426">Exceptions</text></g><!--MD5=[f21b1f164e99c6b37934f23ad048ad54]
+cluster Data--><g id="cluster_Data"><path d="M1834.5,88.6094 L1866.5,88.6094 A3.75,3.75 0 0 1 1869,91.1094 L1876,112.2188 L2503.5,112.2188 A2.5,2.5 0 0 1 2506,114.7188 L2506,1549.1094 A2.5,2.5 0 0 1 2503.5,1551.6094 L1834.5,1551.6094 A2.5,2.5 0 0 1 1832,1549.1094 L1832,91.1094 A2.5,2.5 0 0 1 1834.5,88.6094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1832" x2="1876" y1="112.2188" y2="112.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="31" x="1836" y="105.1426">Data</text></g><!--MD5=[7e40339c58605559321960399585b560]
+cluster Utils--><g id="cluster_Utils"><path d="M32.5,268.1094 L64.5,268.1094 A3.75,3.75 0 0 1 67,270.6094 L74,291.7188 L1451.5,291.7188 A2.5,2.5 0 0 1 1454,294.2188 L1454,1009.1094 A2.5,2.5 0 0 1 1451.5,1011.6094 L32.5,1011.6094 A2.5,2.5 0 0 1 30,1009.1094 L30,270.6094 A2.5,2.5 0 0 1 32.5,268.1094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="30" x2="74" y1="291.7188" y2="291.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="31" x="34" y="284.6426">Utils</text></g><!--MD5=[68f14ae0c5a36c0e9e57d3cda3687ea6]
+class RenderMethod--><g id="elem_RenderMethod"><rect codeLine="22" fill="#F1F1F1" height="188.875" id="RenderMethod" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="4123" y="344.6094"/><ellipse cx="4143.4" cy="360.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M4142.2594,361.4063 L4142.2594,363.9063 L4146.5875,363.9063 L4146.5875,362.9844 Q4146.5875,362.375 4146.8219,362.1094 Q4147.0719,361.8438 4147.4469,361.8438 Q4147.8219,361.8438 4148.0563,362.1094 Q4148.2906,362.375 4148.2906,362.9844 L4148.2906,365.6094 L4140.2906,365.6094 Q4139.6656,365.6094 4139.4,365.375 Q4139.15,365.1406 4139.15,364.75 Q4139.15,364.375 4139.4156,364.1406 Q4139.6813,363.9063 4140.2906,363.9063 L4140.5563,363.9063 L4140.5563,357.25 L4140.2906,357.25 Q4139.6656,357.25 4139.4,357.0156 Q4139.15,356.7813 4139.15,356.3906 Q4139.15,356.0156 4139.4,355.7813 Q4139.6656,355.5469 4140.2906,355.5469 L4147.9156,355.5469 L4147.9156,358.1406 Q4147.9156,358.75 4147.6813,359.0156 Q4147.4625,359.2656 4147.0719,359.2656 Q4146.6969,359.2656 4146.4625,359.0156 Q4146.2281,358.75 4146.2281,358.1406 L4146.2281,357.25 L4142.2594,357.25 L4142.2594,359.7031 L4143.7438,359.7031 Q4143.7438,359.0469 4143.8688,358.8594 Q4144.1344,358.4531 4144.6031,358.4531 Q4144.9781,358.4531 4145.2125,358.7188 Q4145.4469,358.9688 4145.4469,359.5781 L4145.4469,361.5469 Q4145.4469,362.0938 4145.3219,362.2813 Q4145.0563,362.6719 4144.6031,362.6719 Q4144.1344,362.6719 4143.8688,362.2656 Q4143.7438,362.0781 4143.7438,361.4063 L4142.2594,361.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="4158.6" y="366.3379">RenderMethod</text><line style="stroke:#181818;stroke-width:0.5;" x1="4124" x2="4260" y1="376.6094" y2="376.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="4129" y="395.1426">Home</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="4129" y="412.752">CreateSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="4129" y="430.3613">LoadSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="4129" y="447.9707">EditSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="4129" y="465.5801">DeleteSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="4129" y="483.1895">ChangeLanguage</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="4129" y="500.7988">Settings,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="4129" y="518.4082">ChangeLogsFormat</text><line style="stroke:#181818;stroke-width:0.5;" x1="4124" x2="4260" y1="525.4844" y2="525.4844"/></g><!--MD5=[c045e12321b83266d36d22b9096c24ea]
+class View--><g id="elem_View"><rect codeLine="33" fill="#F1F1F1" height="329.75" id="View" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="337" x="3750.5" y="274.1094"/><ellipse cx="3900.25" cy="290.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3903.0156,285.9844 Q3903.1719,285.7656 3903.3594,285.6563 Q3903.5469,285.5469 3903.7656,285.5469 Q3904.1406,285.5469 3904.375,285.8125 Q3904.6094,286.0625 3904.6094,286.6719 L3904.6094,288.125 Q3904.6094,288.7344 3904.375,289 Q3904.1406,289.2656 3903.7656,289.2656 Q3903.4219,289.2656 3903.2188,289.0625 Q3903.0156,288.875 3902.9063,288.3594 Q3902.8594,288 3902.6719,287.8125 Q3902.3438,287.4375 3901.7344,287.2188 Q3901.125,287 3900.5,287 Q3899.7344,287 3899.0938,287.3281 Q3898.4688,287.6563 3897.9688,288.4063 Q3897.4844,289.1563 3897.4844,290.1875 L3897.4844,291.2813 Q3897.4844,292.5156 3898.375,293.3438 Q3899.2656,294.1563 3900.8594,294.1563 Q3901.7969,294.1563 3902.4531,293.9063 Q3902.8438,293.75 3903.2656,293.3125 Q3903.5313,293.0469 3903.6719,292.9688 Q3903.8281,292.8906 3904.0313,292.8906 Q3904.3594,292.8906 3904.6094,293.1563 Q3904.875,293.4063 3904.875,293.75 Q3904.875,294.0938 3904.5313,294.5 Q3904.0313,295.0781 3903.2344,295.4063 Q3902.1563,295.8594 3900.8594,295.8594 Q3899.3438,295.8594 3898.1406,295.2344 Q3897.1563,294.7344 3896.4688,293.6719 Q3895.7813,292.5938 3895.7813,291.3125 L3895.7813,290.1563 Q3895.7813,288.8281 3896.3906,287.6875 Q3897.0156,286.5313 3898.1094,285.9219 Q3899.2031,285.2969 3900.4375,285.2969 Q3901.1719,285.2969 3901.8125,285.4688 Q3902.4688,285.625 3903.0156,285.9844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="3920.75" y="295.8379">View</text><line style="stroke:#181818;stroke-width:0.5;" x1="3751.5" x2="4086.5" y1="306.1094" y2="306.1094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="317.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="3770.5" y="324.6426">vm : ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3751.5" x2="4086.5" y1="331.7188" y2="331.7188"/><ellipse cx="3761.5" cy="346.0234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="3770.5" y="350.252">View()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3770.5" y="367.8613"> </text><ellipse cx="3761.5" cy="381.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="3770.5" y="385.4707">Start() : void</text><ellipse cx="3761.5" cy="398.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="3770.5" y="403.0801">Render(type : RenderMethod) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="413.4609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="235" x="3770.5" y="420.6895">RenderHome(message : string) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="431.0703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="3770.5" y="438.2988">RenderCreateSave() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="448.6797"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="294" x="3770.5" y="455.9082">RenderEditSave(save : HashSet&lt;Save&gt;) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="466.2891"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="302" x="3770.5" y="473.5176">RenderLoadSave(save : HashSet&lt;Save&gt;) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="483.8984"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="311" x="3770.5" y="491.127">RenderDeleteSave(save : HashSet&lt;Save&gt;) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="501.5078"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="3770.5" y="508.7363">RenderChangeLanguage() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="519.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="3770.5" y="526.3457">RenderChangeLogsFormat() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="536.7266"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="3770.5" y="543.9551">RenderSettings() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="554.3359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="268" x="3770.5" y="561.5645">PromptSave(multi : bool) : HashSet&lt;Save&gt;</text><polygon fill="#FFFF44" points="3761.5,569.9453,3765.5,573.9453,3761.5,577.9453,3757.5,573.9453" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="3770.5" y="579.1738">Exit(code : int) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3758.5" y="589.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="3770.5" y="596.7832">CheckUpdate() : string</text></g><!--MD5=[90922f658520d8ed9d5b8ceadba035bb]
+class Dir--><g id="elem_Dir"><rect codeLine="57" fill="#F1F1F1" height="65.6094" id="Dir" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="1588.5" y="406.1094"/><ellipse cx="1626.45" cy="422.1094" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1627.4031,418.75 L1627.4031,425.4063 L1629.1219,425.4063 Q1629.7313,425.4063 1629.9969,425.6406 Q1630.2625,425.875 1630.2625,426.2656 Q1630.2625,426.6406 1629.9969,426.875 Q1629.7313,427.1094 1629.1219,427.1094 L1623.9813,427.1094 Q1623.3719,427.1094 1623.1063,426.875 Q1622.8406,426.6406 1622.8406,426.25 Q1622.8406,425.875 1623.1063,425.6406 Q1623.3719,425.4063 1623.9813,425.4063 L1625.7,425.4063 L1625.7,418.75 L1623.9813,418.75 Q1623.3719,418.75 1623.1063,418.5156 Q1622.8406,418.2813 1622.8406,417.8906 Q1622.8406,417.5156 1623.1063,417.2813 Q1623.3719,417.0469 1623.9813,417.0469 L1629.1219,417.0469 Q1629.7313,417.0469 1629.9969,417.2813 Q1630.2625,417.5156 1630.2625,417.8906 Q1630.2625,418.2813 1629.9969,418.5156 Q1629.7313,418.75 1629.1219,418.75 L1627.4031,418.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="18" x="1645.55" y="427.8379">Dir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1589.5" x2="1688.5" y1="438.1094" y2="438.1094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1596.5" y="449.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="1608.5" y="456.6426">path : string</text><line style="stroke:#181818;stroke-width:0.5;" x1="1589.5" x2="1688.5" y1="463.7188" y2="463.7188"/></g><!--MD5=[6f1896452ae3ca596785da35ab6a2d5e]
+class SrcDir--><g id="elem_SrcDir"><rect codeLine="61" fill="#F1F1F1" height="136.0469" id="SrcDir" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="150" x="1470" y="836.6094"/><ellipse cx="1521.25" cy="852.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1524.0156,848.4844 Q1524.1719,848.2656 1524.3594,848.1563 Q1524.5469,848.0469 1524.7656,848.0469 Q1525.1406,848.0469 1525.375,848.3125 Q1525.6094,848.5625 1525.6094,849.1719 L1525.6094,850.625 Q1525.6094,851.2344 1525.375,851.5 Q1525.1406,851.7656 1524.7656,851.7656 Q1524.4219,851.7656 1524.2188,851.5625 Q1524.0156,851.375 1523.9063,850.8594 Q1523.8594,850.5 1523.6719,850.3125 Q1523.3438,849.9375 1522.7344,849.7188 Q1522.125,849.5 1521.5,849.5 Q1520.7344,849.5 1520.0938,849.8281 Q1519.4688,850.1563 1518.9688,850.9063 Q1518.4844,851.6563 1518.4844,852.6875 L1518.4844,853.7813 Q1518.4844,855.0156 1519.375,855.8438 Q1520.2656,856.6563 1521.8594,856.6563 Q1522.7969,856.6563 1523.4531,856.4063 Q1523.8438,856.25 1524.2656,855.8125 Q1524.5313,855.5469 1524.6719,855.4688 Q1524.8281,855.3906 1525.0313,855.3906 Q1525.3594,855.3906 1525.6094,855.6563 Q1525.875,855.9063 1525.875,856.25 Q1525.875,856.5938 1525.5313,857 Q1525.0313,857.5781 1524.2344,857.9063 Q1523.1563,858.3594 1521.8594,858.3594 Q1520.3438,858.3594 1519.1406,857.7344 Q1518.1563,857.2344 1517.4688,856.1719 Q1516.7813,855.0938 1516.7813,853.8125 L1516.7813,852.6563 Q1516.7813,851.3281 1517.3906,850.1875 Q1518.0156,849.0313 1519.1094,848.4219 Q1520.2031,847.7969 1521.4375,847.7969 Q1522.1719,847.7969 1522.8125,847.9688 Q1523.4688,848.125 1524.0156,848.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="1541.75" y="858.3379">SrcDir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1471" x2="1619" y1="868.6094" y2="868.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1478" y="879.9141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="1490" y="887.1426">size : double</text><ellipse cx="1481" cy="900.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="1490" y="904.752">nbFiles : long</text><line style="stroke:#181818;stroke-width:0.5;" x1="1471" x2="1619" y1="911.8281" y2="911.8281"/><ellipse cx="1481" cy="926.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1490" y="930.3613">SrcDir(path : string)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1490" y="947.9707"> </text><ellipse cx="1481" cy="961.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1490" y="965.5801">GetSize() : double</text></g><!--MD5=[18f4a07bf1057755867414c177c5bb4c]
+class DestDir--><g id="elem_DestDir"><rect codeLine="70" fill="#F1F1F1" height="65.6094" id="DestDir" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="1655" y="871.6094"/><ellipse cx="1706.25" cy="887.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1709.0156,883.4844 Q1709.1719,883.2656 1709.3594,883.1563 Q1709.5469,883.0469 1709.7656,883.0469 Q1710.1406,883.0469 1710.375,883.3125 Q1710.6094,883.5625 1710.6094,884.1719 L1710.6094,885.625 Q1710.6094,886.2344 1710.375,886.5 Q1710.1406,886.7656 1709.7656,886.7656 Q1709.4219,886.7656 1709.2188,886.5625 Q1709.0156,886.375 1708.9063,885.8594 Q1708.8594,885.5 1708.6719,885.3125 Q1708.3438,884.9375 1707.7344,884.7188 Q1707.125,884.5 1706.5,884.5 Q1705.7344,884.5 1705.0938,884.8281 Q1704.4688,885.1563 1703.9688,885.9063 Q1703.4844,886.6563 1703.4844,887.6875 L1703.4844,888.7813 Q1703.4844,890.0156 1704.375,890.8438 Q1705.2656,891.6563 1706.8594,891.6563 Q1707.7969,891.6563 1708.4531,891.4063 Q1708.8438,891.25 1709.2656,890.8125 Q1709.5313,890.5469 1709.6719,890.4688 Q1709.8281,890.3906 1710.0313,890.3906 Q1710.3594,890.3906 1710.6094,890.6563 Q1710.875,890.9063 1710.875,891.25 Q1710.875,891.5938 1710.5313,892 Q1710.0313,892.5781 1709.2344,892.9063 Q1708.1563,893.3594 1706.8594,893.3594 Q1705.3438,893.3594 1704.1406,892.7344 Q1703.1563,892.2344 1702.4688,891.1719 Q1701.7813,890.0938 1701.7813,888.8125 L1701.7813,887.6563 Q1701.7813,886.3281 1702.3906,885.1875 Q1703.0156,884.0313 1704.1094,883.4219 Q1705.2031,882.7969 1706.4375,882.7969 Q1707.1719,882.7969 1707.8125,882.9688 Q1708.4688,883.125 1709.0156,883.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="1726.75" y="893.3379">DestDir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1656" x2="1812" y1="903.6094" y2="903.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="1656" x2="1812" y1="911.6094" y2="911.6094"/><ellipse cx="1666" cy="925.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="1675" y="930.1426">DestDir(path : string)</text></g><!--MD5=[8db60afef7a3447bbe27c5ed187fdac2]
+class Exception--><g id="elem_Exception"><rect codeLine="76" fill="#F1F1F1" height="48" id="Exception" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="93" x="3262.5" y="415.1094"/><ellipse cx="3277.5" cy="431.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3280.2656,426.9844 Q3280.4219,426.7656 3280.6094,426.6563 Q3280.7969,426.5469 3281.0156,426.5469 Q3281.3906,426.5469 3281.625,426.8125 Q3281.8594,427.0625 3281.8594,427.6719 L3281.8594,429.125 Q3281.8594,429.7344 3281.625,430 Q3281.3906,430.2656 3281.0156,430.2656 Q3280.6719,430.2656 3280.4688,430.0625 Q3280.2656,429.875 3280.1563,429.3594 Q3280.1094,429 3279.9219,428.8125 Q3279.5938,428.4375 3278.9844,428.2188 Q3278.375,428 3277.75,428 Q3276.9844,428 3276.3438,428.3281 Q3275.7188,428.6563 3275.2188,429.4063 Q3274.7344,430.1563 3274.7344,431.1875 L3274.7344,432.2813 Q3274.7344,433.5156 3275.625,434.3438 Q3276.5156,435.1563 3278.1094,435.1563 Q3279.0469,435.1563 3279.7031,434.9063 Q3280.0938,434.75 3280.5156,434.3125 Q3280.7813,434.0469 3280.9219,433.9688 Q3281.0781,433.8906 3281.2813,433.8906 Q3281.6094,433.8906 3281.8594,434.1563 Q3282.125,434.4063 3282.125,434.75 Q3282.125,435.0938 3281.7813,435.5 Q3281.2813,436.0781 3280.4844,436.4063 Q3279.4063,436.8594 3278.1094,436.8594 Q3276.5938,436.8594 3275.3906,436.2344 Q3274.4063,435.7344 3273.7188,434.6719 Q3273.0313,433.5938 3273.0313,432.3125 L3273.0313,431.1563 Q3273.0313,429.8281 3273.6406,428.6875 Q3274.2656,427.5313 3275.3594,426.9219 Q3276.4531,426.2969 3277.6875,426.2969 Q3278.4219,426.2969 3279.0625,426.4688 Q3279.7188,426.625 3280.2656,426.9844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="3291.5" y="436.8379">Exception</text><line style="stroke:#181818;stroke-width:0.5;" x1="3263.5" x2="3354.5" y1="447.1094" y2="447.1094"/><line style="stroke:#181818;stroke-width:0.5;" x1="3263.5" x2="3354.5" y1="455.1094" y2="455.1094"/></g><!--MD5=[31cdff02fb75ba3ddd19c2b31d91d5dc]
+class UnknownLogFormatException--><g id="elem_UnknownLogFormatException"><rect codeLine="80" fill="#F1F1F1" height="118.4375" id="UnknownLogFormatException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="534" x="2644" y="380.1094"/><ellipse cx="2813.25" cy="396.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2816.0156,391.9844 Q2816.1719,391.7656 2816.3594,391.6563 Q2816.5469,391.5469 2816.7656,391.5469 Q2817.1406,391.5469 2817.375,391.8125 Q2817.6094,392.0625 2817.6094,392.6719 L2817.6094,394.125 Q2817.6094,394.7344 2817.375,395 Q2817.1406,395.2656 2816.7656,395.2656 Q2816.4219,395.2656 2816.2188,395.0625 Q2816.0156,394.875 2815.9063,394.3594 Q2815.8594,394 2815.6719,393.8125 Q2815.3438,393.4375 2814.7344,393.2188 Q2814.125,393 2813.5,393 Q2812.7344,393 2812.0938,393.3281 Q2811.4688,393.6563 2810.9688,394.4063 Q2810.4844,395.1563 2810.4844,396.1875 L2810.4844,397.2813 Q2810.4844,398.5156 2811.375,399.3438 Q2812.2656,400.1563 2813.8594,400.1563 Q2814.7969,400.1563 2815.4531,399.9063 Q2815.8438,399.75 2816.2656,399.3125 Q2816.5313,399.0469 2816.6719,398.9688 Q2816.8281,398.8906 2817.0313,398.8906 Q2817.3594,398.8906 2817.6094,399.1563 Q2817.875,399.4063 2817.875,399.75 Q2817.875,400.0938 2817.5313,400.5 Q2817.0313,401.0781 2816.2344,401.4063 Q2815.1563,401.8594 2813.8594,401.8594 Q2812.3438,401.8594 2811.1406,401.2344 Q2810.1563,400.7344 2809.4688,399.6719 Q2808.7813,398.5938 2808.7813,397.3125 L2808.7813,396.1563 Q2808.7813,394.8281 2809.3906,393.6875 Q2810.0156,392.5313 2811.1094,391.9219 Q2812.2031,391.2969 2813.4375,391.2969 Q2814.1719,391.2969 2814.8125,391.4688 Q2815.4688,391.625 2816.0156,391.9844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="2833.75" y="401.8379">UnknownLogFormatException</text><line style="stroke:#181818;stroke-width:0.5;" x1="2645" x2="3177" y1="412.1094" y2="412.1094"/><line style="stroke:#181818;stroke-width:0.5;" x1="2645" x2="3177" y1="420.1094" y2="420.1094"/><ellipse cx="2655" cy="434.4141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="2664" y="438.6426">UnknownLogFormatException()</text><ellipse cx="2655" cy="452.0234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="301" x="2664" y="456.252">UnknownLogFormatException(message : string)</text><ellipse cx="2655" cy="469.6328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="414" x="2664" y="473.8613">UnknownLogFormatException(message : string, inner : Exception)</text><ellipse cx="2655" cy="487.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="508" x="2664" y="491.4707">UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)</text></g><!--MD5=[4271e197f146b364f9bd1c82b0331e6e]
+class CantCheckUpdateException--><g id="elem_CantCheckUpdateException"><rect codeLine="88" fill="#F1F1F1" height="118.4375" id="CantCheckUpdateException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="523" x="2546.5" y="845.6094"/><ellipse cx="2715.75" cy="861.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2718.5156,857.4844 Q2718.6719,857.2656 2718.8594,857.1563 Q2719.0469,857.0469 2719.2656,857.0469 Q2719.6406,857.0469 2719.875,857.3125 Q2720.1094,857.5625 2720.1094,858.1719 L2720.1094,859.625 Q2720.1094,860.2344 2719.875,860.5 Q2719.6406,860.7656 2719.2656,860.7656 Q2718.9219,860.7656 2718.7188,860.5625 Q2718.5156,860.375 2718.4063,859.8594 Q2718.3594,859.5 2718.1719,859.3125 Q2717.8438,858.9375 2717.2344,858.7188 Q2716.625,858.5 2716,858.5 Q2715.2344,858.5 2714.5938,858.8281 Q2713.9688,859.1563 2713.4688,859.9063 Q2712.9844,860.6563 2712.9844,861.6875 L2712.9844,862.7813 Q2712.9844,864.0156 2713.875,864.8438 Q2714.7656,865.6563 2716.3594,865.6563 Q2717.2969,865.6563 2717.9531,865.4063 Q2718.3438,865.25 2718.7656,864.8125 Q2719.0313,864.5469 2719.1719,864.4688 Q2719.3281,864.3906 2719.5313,864.3906 Q2719.8594,864.3906 2720.1094,864.6563 Q2720.375,864.9063 2720.375,865.25 Q2720.375,865.5938 2720.0313,866 Q2719.5313,866.5781 2718.7344,866.9063 Q2717.6563,867.3594 2716.3594,867.3594 Q2714.8438,867.3594 2713.6406,866.7344 Q2712.6563,866.2344 2711.9688,865.1719 Q2711.2813,864.0938 2711.2813,862.8125 L2711.2813,861.6563 Q2711.2813,860.3281 2711.8906,859.1875 Q2712.5156,858.0313 2713.6094,857.4219 Q2714.7031,856.7969 2715.9375,856.7969 Q2716.6719,856.7969 2717.3125,856.9688 Q2717.9688,857.125 2718.5156,857.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="2736.25" y="867.3379">CantCheckUpdateException</text><line style="stroke:#181818;stroke-width:0.5;" x1="2547.5" x2="3068.5" y1="877.6094" y2="877.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="2547.5" x2="3068.5" y1="885.6094" y2="885.6094"/><ellipse cx="2557.5" cy="899.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="2566.5" y="904.1426">CantCheckUpdateException()</text><ellipse cx="2557.5" cy="917.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="290" x="2566.5" y="921.752">CantCheckUpdateException(message : string)</text><ellipse cx="2557.5" cy="935.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="2566.5" y="939.3613">CantCheckUpdateException(message : string, inner : Exception)</text><ellipse cx="2557.5" cy="952.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="497" x="2566.5" y="956.9707">CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)</text></g><!--MD5=[d02e4140780dc23066aaaac23b3f00c0]
+class TooMuchSavesException--><g id="elem_TooMuchSavesException"><rect codeLine="96" fill="#F1F1F1" height="118.4375" id="TooMuchSavesException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="506" x="3105" y="845.6094"/><ellipse cx="3274.25" cy="861.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3277.0156,857.4844 Q3277.1719,857.2656 3277.3594,857.1563 Q3277.5469,857.0469 3277.7656,857.0469 Q3278.1406,857.0469 3278.375,857.3125 Q3278.6094,857.5625 3278.6094,858.1719 L3278.6094,859.625 Q3278.6094,860.2344 3278.375,860.5 Q3278.1406,860.7656 3277.7656,860.7656 Q3277.4219,860.7656 3277.2188,860.5625 Q3277.0156,860.375 3276.9063,859.8594 Q3276.8594,859.5 3276.6719,859.3125 Q3276.3438,858.9375 3275.7344,858.7188 Q3275.125,858.5 3274.5,858.5 Q3273.7344,858.5 3273.0938,858.8281 Q3272.4688,859.1563 3271.9688,859.9063 Q3271.4844,860.6563 3271.4844,861.6875 L3271.4844,862.7813 Q3271.4844,864.0156 3272.375,864.8438 Q3273.2656,865.6563 3274.8594,865.6563 Q3275.7969,865.6563 3276.4531,865.4063 Q3276.8438,865.25 3277.2656,864.8125 Q3277.5313,864.5469 3277.6719,864.4688 Q3277.8281,864.3906 3278.0313,864.3906 Q3278.3594,864.3906 3278.6094,864.6563 Q3278.875,864.9063 3278.875,865.25 Q3278.875,865.5938 3278.5313,866 Q3278.0313,866.5781 3277.2344,866.9063 Q3276.1563,867.3594 3274.8594,867.3594 Q3273.3438,867.3594 3272.1406,866.7344 Q3271.1563,866.2344 3270.4688,865.1719 Q3269.7813,864.0938 3269.7813,862.8125 L3269.7813,861.6563 Q3269.7813,860.3281 3270.3906,859.1875 Q3271.0156,858.0313 3272.1094,857.4219 Q3273.2031,856.7969 3274.4375,856.7969 Q3275.1719,856.7969 3275.8125,856.9688 Q3276.4688,857.125 3277.0156,857.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="3294.75" y="867.3379">TooMuchSavesException</text><line style="stroke:#181818;stroke-width:0.5;" x1="3106" x2="3610" y1="877.6094" y2="877.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="3106" x2="3610" y1="885.6094" y2="885.6094"/><ellipse cx="3116" cy="899.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="3125" y="904.1426">TooMuchSavesException()</text><ellipse cx="3116" cy="917.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="3125" y="921.752">TooMuchSavesException(message : string)</text><ellipse cx="3116" cy="935.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="386" x="3125" y="939.3613">TooMuchSavesException(message : string, inner : Exception)</text><ellipse cx="3116" cy="952.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="480" x="3125" y="956.9707">TooMuchSavesException(info : SerializationInfo, context : StreamingContext)</text></g><!--MD5=[63349c2b1e3781ea70623bd904e0e8ca]
+class Save--><g id="elem_Save"><rect codeLine="108" fill="#F1F1F1" height="629.1094" id="Save" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="499" x="1979.5" y="124.6094"/><ellipse cx="2209.25" cy="140.6094" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2211.4375,142.375 L2207.2969,142.375 L2206.875,143.4063 L2207.2969,143.4063 Q2207.9063,143.4063 2208.1719,143.6406 Q2208.4375,143.875 2208.4375,144.2656 Q2208.4375,144.6406 2208.1719,144.875 Q2207.9063,145.1094 2207.2969,145.1094 L2205,145.1094 Q2204.3906,145.1094 2204.1406,144.875 Q2203.875,144.6406 2203.875,144.25 Q2203.875,143.875 2204.1563,143.6406 Q2204.4219,143.3906 2205.0469,143.4063 L2207.7188,136.75 L2206.6094,136.75 Q2206,136.75 2205.7344,136.5156 Q2205.4688,136.2813 2205.4688,135.8906 Q2205.4688,135.5156 2205.7344,135.2813 Q2206,135.0469 2206.6094,135.0469 L2210.2813,135.0469 L2213.6719,143.4063 Q2214.2656,143.4063 2214.4531,143.5469 Q2214.8438,143.8125 2214.8438,144.2656 Q2214.8438,144.6406 2214.5781,144.875 Q2214.3281,145.1094 2213.7188,145.1094 L2211.4219,145.1094 Q2210.8125,145.1094 2210.5469,144.875 Q2210.2813,144.6406 2210.2813,144.25 Q2210.2813,143.875 2210.5469,143.6406 Q2210.8125,143.4063 2211.4219,143.4063 L2211.8438,143.4063 L2211.4375,142.375 Z M2210.7188,140.6719 L2209.3594,137.2969 L2207.9844,140.6719 L2210.7188,140.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="31" x="2229.75" y="146.3379">Save</text><line style="stroke:#181818;stroke-width:0.5;" x1="1980.5" x2="2477.5" y1="156.6094" y2="156.6094"/><ellipse cx="1990.5" cy="170.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1999.5" y="175.1426">{const} MAX_SAVES : int</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1987.5" y="185.5234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="118" x="1999.5" y="192.752">saves : Set&lt;Save&gt;</text><ellipse cx="1990.5" cy="206.1328" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="1999.5" y="210.3613">uuid : Guid</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1987.5" y="220.7422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="1999.5" y="227.9707">name : string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1987.5" y="238.3516"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="1999.5" y="245.5801">filesCopied : long</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1987.5" y="255.9609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1999.5" y="263.1895">sizeCopied : long</text><polygon fill="none" points="1990.5,271.5703,1994.5,275.5703,1990.5,279.5703,1986.5,275.5703" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1999.5" y="280.7988">status : JobStatus</text><ellipse cx="1990.5" cy="294.1797" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="1999.5" y="298.4082">SrcDir : SrcDir</text><ellipse cx="1990.5" cy="311.7891" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="1999.5" y="316.0176">DestDir : DestDir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1980.5" x2="2477.5" y1="323.0938" y2="323.0938"/><polygon fill="#FFFF44" points="1990.5,332.3984,1994.5,336.3984,1990.5,340.3984,1986.5,336.3984" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="473" x="1999.5" y="341.627">Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1999.5" y="359.2363"> </text><ellipse cx="1990.5" cy="372.6172" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="408" x="1999.5" y="376.8457">Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save</text><ellipse cx="1990.5" cy="390.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="1999.5" y="394.4551">Rename(newName : string) : void</text><ellipse cx="1990.5" cy="407.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1999.5" y="412.0645">Pause() : void</text><ellipse cx="1990.5" cy="425.4453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="1999.5" y="429.6738">Resume() : void</text><ellipse cx="1990.5" cy="443.0547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="1999.5" y="447.2832">Cancel() : void</text><ellipse cx="1990.5" cy="460.6641" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="1999.5" y="464.8926">Stop() : void</text><ellipse cx="1990.5" cy="478.2734" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="158" x="1999.5" y="482.502">Delete(uuid : Guid) : void</text><ellipse cx="1990.5" cy="495.8828" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="1999.5" y="500.1113">Run() : string</text><ellipse cx="1990.5" cy="513.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="1999.5" y="517.7207">CalculateProgress() : int</text><ellipse cx="1990.5" cy="531.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="111" x="1999.5" y="535.3301">ToString() : string</text><ellipse cx="1990.5" cy="548.7109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="158" x="1999.5" y="552.9395">Init(data : dynamic) : void</text><ellipse cx="1990.5" cy="566.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="1999.5" y="570.5488">AddFileCopied(nb : int) : void</text><ellipse cx="1990.5" cy="583.9297" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="1999.5" y="588.1582">AddSizeCopied(length : long) : void</text><polygon fill="#FFFF44" points="1990.5,596.5391,1994.5,600.5391,1990.5,604.5391,1986.5,600.5391" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="245" x="1999.5" y="605.7676">ProcessResult(sw : StopWatch) : string</text><ellipse cx="1990.5" cy="619.1484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="183" x="1999.5" y="623.377">GetSaves() : HashSet&lt;save&gt;</text><ellipse cx="1990.5" cy="636.7578" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="1999.5" y="640.9863">GetName() : string</text><ellipse cx="1990.5" cy="654.3672" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1999.5" y="658.5957">GetStatus() : JobStatus</text><ellipse cx="1990.5" cy="671.9766" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="1999.5" y="676.2051">GetSizeCopied() : long</text><ellipse cx="1990.5" cy="689.5859" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1999.5" y="693.8145">GetFilesCopied() : long</text><ellipse cx="1990.5" cy="707.1953" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="171" x="1999.5" y="711.4238">GetSaveType() : SaveType</text><ellipse cx="1990.5" cy="724.8047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="234" x="1999.5" y="729.0332">GetStatus(status : String) : JobStatus</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1987.5" y="739.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="1999.5" y="746.6426">UpdateState() : void</text></g><!--MD5=[b3aa3c6b91715097506b17996fd666f5]
+class DifferentialSave--><g id="elem_DifferentialSave"><rect codeLine="145" fill="#F1F1F1" height="118.4375" id="DifferentialSave" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="567" x="1885.5" y="845.6094"/><ellipse cx="2114.75" cy="861.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2117.5156,857.4844 Q2117.6719,857.2656 2117.8594,857.1563 Q2118.0469,857.0469 2118.2656,857.0469 Q2118.6406,857.0469 2118.875,857.3125 Q2119.1094,857.5625 2119.1094,858.1719 L2119.1094,859.625 Q2119.1094,860.2344 2118.875,860.5 Q2118.6406,860.7656 2118.2656,860.7656 Q2117.9219,860.7656 2117.7188,860.5625 Q2117.5156,860.375 2117.4063,859.8594 Q2117.3594,859.5 2117.1719,859.3125 Q2116.8438,858.9375 2116.2344,858.7188 Q2115.625,858.5 2115,858.5 Q2114.2344,858.5 2113.5938,858.8281 Q2112.9688,859.1563 2112.4688,859.9063 Q2111.9844,860.6563 2111.9844,861.6875 L2111.9844,862.7813 Q2111.9844,864.0156 2112.875,864.8438 Q2113.7656,865.6563 2115.3594,865.6563 Q2116.2969,865.6563 2116.9531,865.4063 Q2117.3438,865.25 2117.7656,864.8125 Q2118.0313,864.5469 2118.1719,864.4688 Q2118.3281,864.3906 2118.5313,864.3906 Q2118.8594,864.3906 2119.1094,864.6563 Q2119.375,864.9063 2119.375,865.25 Q2119.375,865.5938 2119.0313,866 Q2118.5313,866.5781 2117.7344,866.9063 Q2116.6563,867.3594 2115.3594,867.3594 Q2113.8438,867.3594 2112.6406,866.7344 Q2111.6563,866.2344 2110.9688,865.1719 Q2110.2813,864.0938 2110.2813,862.8125 L2110.2813,861.6563 Q2110.2813,860.3281 2110.8906,859.1875 Q2111.5156,858.0313 2112.6094,857.4219 Q2113.7031,856.7969 2114.9375,856.7969 Q2115.6719,856.7969 2116.3125,856.9688 Q2116.9688,857.125 2117.5156,857.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="2135.25" y="867.3379">DifferentialSave</text><line style="stroke:#181818;stroke-width:0.5;" x1="1886.5" x2="2451.5" y1="877.6094" y2="877.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="1886.5" x2="2451.5" y1="885.6094" y2="885.6094"/><polygon fill="#FFFF44" points="1896.5,894.9141,1900.5,898.9141,1896.5,902.9141,1892.5,898.9141" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="541" x="1905.5" y="904.1426">DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1905.5" y="921.752"> </text><ellipse cx="1896.5" cy="935.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1905.5" y="939.3613">GetSaveType() : SaveType</text><ellipse cx="1896.5" cy="952.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1905.5" y="956.9707">ToString() : string</text></g><!--MD5=[3f002bb007c4c5ab323fd5a755cf1088]
+class FullSave--><g id="elem_FullSave"><rect codeLine="152" fill="#F1F1F1" height="118.4375" id="FullSave" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="522" x="1890" y="1055.6094"/><ellipse cx="2119.25" cy="1071.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2122.0156,1067.4844 Q2122.1719,1067.2656 2122.3594,1067.1563 Q2122.5469,1067.0469 2122.7656,1067.0469 Q2123.1406,1067.0469 2123.375,1067.3125 Q2123.6094,1067.5625 2123.6094,1068.1719 L2123.6094,1069.625 Q2123.6094,1070.2344 2123.375,1070.5 Q2123.1406,1070.7656 2122.7656,1070.7656 Q2122.4219,1070.7656 2122.2188,1070.5625 Q2122.0156,1070.375 2121.9063,1069.8594 Q2121.8594,1069.5 2121.6719,1069.3125 Q2121.3438,1068.9375 2120.7344,1068.7188 Q2120.125,1068.5 2119.5,1068.5 Q2118.7344,1068.5 2118.0938,1068.8281 Q2117.4688,1069.1563 2116.9688,1069.9063 Q2116.4844,1070.6563 2116.4844,1071.6875 L2116.4844,1072.7813 Q2116.4844,1074.0156 2117.375,1074.8438 Q2118.2656,1075.6563 2119.8594,1075.6563 Q2120.7969,1075.6563 2121.4531,1075.4063 Q2121.8438,1075.25 2122.2656,1074.8125 Q2122.5313,1074.5469 2122.6719,1074.4688 Q2122.8281,1074.3906 2123.0313,1074.3906 Q2123.3594,1074.3906 2123.6094,1074.6563 Q2123.875,1074.9063 2123.875,1075.25 Q2123.875,1075.5938 2123.5313,1076 Q2123.0313,1076.5781 2122.2344,1076.9063 Q2121.1563,1077.3594 2119.8594,1077.3594 Q2118.3438,1077.3594 2117.1406,1076.7344 Q2116.1563,1076.2344 2115.4688,1075.1719 Q2114.7813,1074.0938 2114.7813,1072.8125 L2114.7813,1071.6563 Q2114.7813,1070.3281 2115.3906,1069.1875 Q2116.0156,1068.0313 2117.1094,1067.4219 Q2118.2031,1066.7969 2119.4375,1066.7969 Q2120.1719,1066.7969 2120.8125,1066.9688 Q2121.4688,1067.125 2122.0156,1067.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="2139.75" y="1077.3379">FullSave</text><line style="stroke:#181818;stroke-width:0.5;" x1="1891" x2="2411" y1="1087.6094" y2="1087.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="1891" x2="2411" y1="1095.6094" y2="1095.6094"/><polygon fill="#FFFF44" points="1901,1104.9141,1905,1108.9141,1901,1112.9141,1897,1108.9141" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="496" x="1910" y="1114.1426">FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1910" y="1131.752"> </text><ellipse cx="1901" cy="1145.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1910" y="1149.3613">GetSaveType() : SaveType</text><ellipse cx="1901" cy="1162.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1910" y="1166.9707">ToString() : string</text></g><!--MD5=[924f0520738fdbce5f27119fca9a4750]
+class SaveType--><g id="elem_SaveType"><rect codeLine="159" fill="#F1F1F1" height="83.2188" id="SaveType" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="96" x="1848" y="397.6094"/><ellipse cx="1863" cy="413.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1861.8594,414.4063 L1861.8594,416.9063 L1866.1875,416.9063 L1866.1875,415.9844 Q1866.1875,415.375 1866.4219,415.1094 Q1866.6719,414.8438 1867.0469,414.8438 Q1867.4219,414.8438 1867.6563,415.1094 Q1867.8906,415.375 1867.8906,415.9844 L1867.8906,418.6094 L1859.8906,418.6094 Q1859.2656,418.6094 1859,418.375 Q1858.75,418.1406 1858.75,417.75 Q1858.75,417.375 1859.0156,417.1406 Q1859.2813,416.9063 1859.8906,416.9063 L1860.1563,416.9063 L1860.1563,410.25 L1859.8906,410.25 Q1859.2656,410.25 1859,410.0156 Q1858.75,409.7813 1858.75,409.3906 Q1858.75,409.0156 1859,408.7813 Q1859.2656,408.5469 1859.8906,408.5469 L1867.5156,408.5469 L1867.5156,411.1406 Q1867.5156,411.75 1867.2813,412.0156 Q1867.0625,412.2656 1866.6719,412.2656 Q1866.2969,412.2656 1866.0625,412.0156 Q1865.8281,411.75 1865.8281,411.1406 L1865.8281,410.25 L1861.8594,410.25 L1861.8594,412.7031 L1863.3438,412.7031 Q1863.3438,412.0469 1863.4688,411.8594 Q1863.7344,411.4531 1864.2031,411.4531 Q1864.5781,411.4531 1864.8125,411.7188 Q1865.0469,411.9688 1865.0469,412.5781 L1865.0469,414.5469 Q1865.0469,415.0938 1864.9219,415.2813 Q1864.6563,415.6719 1864.2031,415.6719 Q1863.7344,415.6719 1863.4688,415.2656 Q1863.3438,415.0781 1863.3438,414.4063 L1861.8594,414.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1877" y="419.3379">SaveType</text><line style="stroke:#181818;stroke-width:0.5;" x1="1849" x2="1943" y1="429.6094" y2="429.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="23" x="1854" y="448.1426">Full</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="1854" y="465.752">Differential</text><line style="stroke:#181818;stroke-width:0.5;" x1="1849" x2="1943" y1="472.8281" y2="472.8281"/></g><!--MD5=[9193257c4e679857599a9d012188711b]
+class JobStatus--><g id="elem_JobStatus"><rect codeLine="164" fill="#F1F1F1" height="153.6563" id="JobStatus" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="94" x="2250" y="1381.6094"/><ellipse cx="2265" cy="1397.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2263.8594,1398.4063 L2263.8594,1400.9063 L2268.1875,1400.9063 L2268.1875,1399.9844 Q2268.1875,1399.375 2268.4219,1399.1094 Q2268.6719,1398.8438 2269.0469,1398.8438 Q2269.4219,1398.8438 2269.6563,1399.1094 Q2269.8906,1399.375 2269.8906,1399.9844 L2269.8906,1402.6094 L2261.8906,1402.6094 Q2261.2656,1402.6094 2261,1402.375 Q2260.75,1402.1406 2260.75,1401.75 Q2260.75,1401.375 2261.0156,1401.1406 Q2261.2813,1400.9063 2261.8906,1400.9063 L2262.1563,1400.9063 L2262.1563,1394.25 L2261.8906,1394.25 Q2261.2656,1394.25 2261,1394.0156 Q2260.75,1393.7813 2260.75,1393.3906 Q2260.75,1393.0156 2261,1392.7813 Q2261.2656,1392.5469 2261.8906,1392.5469 L2269.5156,1392.5469 L2269.5156,1395.1406 Q2269.5156,1395.75 2269.2813,1396.0156 Q2269.0625,1396.2656 2268.6719,1396.2656 Q2268.2969,1396.2656 2268.0625,1396.0156 Q2267.8281,1395.75 2267.8281,1395.1406 L2267.8281,1394.25 L2263.8594,1394.25 L2263.8594,1396.7031 L2265.3438,1396.7031 Q2265.3438,1396.0469 2265.4688,1395.8594 Q2265.7344,1395.4531 2266.2031,1395.4531 Q2266.5781,1395.4531 2266.8125,1395.7188 Q2267.0469,1395.9688 2267.0469,1396.5781 L2267.0469,1398.5469 Q2267.0469,1399.0938 2266.9219,1399.2813 Q2266.6563,1399.6719 2266.2031,1399.6719 Q2265.7344,1399.6719 2265.4688,1399.2656 Q2265.3438,1399.0781 2265.3438,1398.4063 L2263.8594,1398.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="2279" y="1403.3379">JobStatus</text><line style="stroke:#181818;stroke-width:0.5;" x1="2251" x2="2343" y1="1413.6094" y2="1413.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="2256" y="1432.1426">Running</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="2256" y="1449.752">Paused</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="2256" y="1467.3613">Finished</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="2256" y="1484.9707">Cancelled</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="2256" y="1502.5801">Error</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="2256" y="1520.1895">Waiting</text><line style="stroke:#181818;stroke-width:0.5;" x1="2251" x2="2343" y1="1527.2656" y2="1527.2656"/></g><!--MD5=[1542b077a1eb18cbf04d284c282cc6e6]
+class LogsFormat--><g id="elem_LogsFormat"><rect codeLine="177" fill="#F1F1F1" height="83.2188" id="LogsFormat" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="108" x="46" y="397.6094"/><ellipse cx="61" cy="413.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M59.8594,414.4063 L59.8594,416.9063 L64.1875,416.9063 L64.1875,415.9844 Q64.1875,415.375 64.4219,415.1094 Q64.6719,414.8438 65.0469,414.8438 Q65.4219,414.8438 65.6563,415.1094 Q65.8906,415.375 65.8906,415.9844 L65.8906,418.6094 L57.8906,418.6094 Q57.2656,418.6094 57,418.375 Q56.75,418.1406 56.75,417.75 Q56.75,417.375 57.0156,417.1406 Q57.2813,416.9063 57.8906,416.9063 L58.1563,416.9063 L58.1563,410.25 L57.8906,410.25 Q57.2656,410.25 57,410.0156 Q56.75,409.7813 56.75,409.3906 Q56.75,409.0156 57,408.7813 Q57.2656,408.5469 57.8906,408.5469 L65.5156,408.5469 L65.5156,411.1406 Q65.5156,411.75 65.2813,412.0156 Q65.0625,412.2656 64.6719,412.2656 Q64.2969,412.2656 64.0625,412.0156 Q63.8281,411.75 63.8281,411.1406 L63.8281,410.25 L59.8594,410.25 L59.8594,412.7031 L61.3438,412.7031 Q61.3438,412.0469 61.4688,411.8594 Q61.7344,411.4531 62.2031,411.4531 Q62.5781,411.4531 62.8125,411.7188 Q63.0469,411.9688 63.0469,412.5781 L63.0469,414.5469 Q63.0469,415.0938 62.9219,415.2813 Q62.6563,415.6719 62.2031,415.6719 Q61.7344,415.6719 61.4688,415.2656 Q61.3438,415.0781 61.3438,414.4063 L59.8594,414.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="75" y="419.3379">LogsFormat</text><line style="stroke:#181818;stroke-width:0.5;" x1="47" x2="153" y1="429.6094" y2="429.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="52" y="448.1426">JSON</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="52" y="465.752">XML</text><line style="stroke:#181818;stroke-width:0.5;" x1="47" x2="153" y1="472.8281" y2="472.8281"/></g><!--MD5=[0ae186b829e8c536129944e439e973a1]
+class DirectoryUtils--><g id="elem_DirectoryUtils"><rect codeLine="182" fill="#F1F1F1" height="199.5781" id="DirectoryUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="530" x="189" y="339.1094"/><ellipse cx="408.25" cy="360.4609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M411.0156,356.3359 Q411.1719,356.1172 411.3594,356.0078 Q411.5469,355.8984 411.7656,355.8984 Q412.1406,355.8984 412.375,356.1641 Q412.6094,356.4141 412.6094,357.0234 L412.6094,358.4766 Q412.6094,359.0859 412.375,359.3516 Q412.1406,359.6172 411.7656,359.6172 Q411.4219,359.6172 411.2188,359.4141 Q411.0156,359.2266 410.9063,358.7109 Q410.8594,358.3516 410.6719,358.1641 Q410.3438,357.7891 409.7344,357.5703 Q409.125,357.3516 408.5,357.3516 Q407.7344,357.3516 407.0938,357.6797 Q406.4688,358.0078 405.9688,358.7578 Q405.4844,359.5078 405.4844,360.5391 L405.4844,361.6328 Q405.4844,362.8672 406.375,363.6953 Q407.2656,364.5078 408.8594,364.5078 Q409.7969,364.5078 410.4531,364.2578 Q410.8438,364.1016 411.2656,363.6641 Q411.5313,363.3984 411.6719,363.3203 Q411.8281,363.2422 412.0313,363.2422 Q412.3594,363.2422 412.6094,363.5078 Q412.875,363.7578 412.875,364.1016 Q412.875,364.4453 412.5313,364.8516 Q412.0313,365.4297 411.2344,365.7578 Q410.1563,366.2109 408.8594,366.2109 Q407.3438,366.2109 406.1406,365.5859 Q405.1563,365.0859 404.4688,364.0234 Q403.7813,362.9453 403.7813,361.6641 L403.7813,360.5078 Q403.7813,359.1797 404.3906,358.0391 Q405.0156,356.8828 406.1094,356.2734 Q407.2031,355.6484 408.4375,355.6484 Q409.1719,355.6484 409.8125,355.8203 Q410.4688,355.9766 411.0156,356.3359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="449.25" y="356.5664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="428.75" y="373.7363">DirectoryUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="190" x2="718" y1="381.8125" y2="381.8125"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="197" y="393.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="116" x="209" y="400.3457">actualFile : string[]</text><line style="stroke:#181818;stroke-width:0.5;" x1="190" x2="718" y1="407.4219" y2="407.4219"/><ellipse cx="200" cy="421.7266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="235" x="209" y="425.9551">CopyFilesAndFolders(s : Save) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="197" y="436.3359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="504" x="209" y="443.5645">CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void</text><ellipse cx="200" cy="456.9453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="194" x="209" y="461.1738">IsValidPath(path : string) : bool</text><ellipse cx="200" cy="474.5547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="195" x="209" y="478.7832">CreatePath(path : string) : void</text><ellipse cx="200" cy="492.1641" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="279" x="209" y="496.3926">GetDirectorySize(dir : DirectoryInfo) : double</text><ellipse cx="200" cy="509.7734" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="267" x="209" y="514.002">GetDirectoryFiles(dir : DirectoryInfo) : long</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="197" y="524.3828"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="150" x="209" y="531.6113">GetActualFile() : string[]</text></g><!--MD5=[95065420017a358c6a6a2ed951794e54]
+class LogUtils--><g id="elem_LogUtils"><rect codeLine="193" fill="#F1F1F1" height="270.0156" id="LogUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="684" x="754" y="304.1094"/><ellipse cx="1066.75" cy="325.4609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1069.5156,321.3359 Q1069.6719,321.1172 1069.8594,321.0078 Q1070.0469,320.8984 1070.2656,320.8984 Q1070.6406,320.8984 1070.875,321.1641 Q1071.1094,321.4141 1071.1094,322.0234 L1071.1094,323.4766 Q1071.1094,324.0859 1070.875,324.3516 Q1070.6406,324.6172 1070.2656,324.6172 Q1069.9219,324.6172 1069.7188,324.4141 Q1069.5156,324.2266 1069.4063,323.7109 Q1069.3594,323.3516 1069.1719,323.1641 Q1068.8438,322.7891 1068.2344,322.5703 Q1067.625,322.3516 1067,322.3516 Q1066.2344,322.3516 1065.5938,322.6797 Q1064.9688,323.0078 1064.4688,323.7578 Q1063.9844,324.5078 1063.9844,325.5391 L1063.9844,326.6328 Q1063.9844,327.8672 1064.875,328.6953 Q1065.7656,329.5078 1067.3594,329.5078 Q1068.2969,329.5078 1068.9531,329.2578 Q1069.3438,329.1016 1069.7656,328.6641 Q1070.0313,328.3984 1070.1719,328.3203 Q1070.3281,328.2422 1070.5313,328.2422 Q1070.8594,328.2422 1071.1094,328.5078 Q1071.375,328.7578 1071.375,329.1016 Q1071.375,329.4453 1071.0313,329.8516 Q1070.5313,330.4297 1069.7344,330.7578 Q1068.6563,331.2109 1067.3594,331.2109 Q1065.8438,331.2109 1064.6406,330.5859 Q1063.6563,330.0859 1062.9688,329.0234 Q1062.2813,327.9453 1062.2813,326.6641 L1062.2813,325.5078 Q1062.2813,324.1797 1062.8906,323.0391 Q1063.5156,321.8828 1064.6094,321.2734 Q1065.7031,320.6484 1066.9375,320.6484 Q1067.6719,320.6484 1068.3125,320.8203 Q1068.9688,320.9766 1069.5156,321.3359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="1091.25" y="321.5664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="1087.25" y="338.7363">LogUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="755" x2="1437" y1="346.8125" y2="346.8125"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="762" y="358.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="75" x="774" y="365.3457">path : string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="762" y="375.7266"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="75" x="774" y="382.9551">date : string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="762" y="393.3359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="128" x="774" y="400.5645">format : LogsFormat</text><line style="stroke:#181818;stroke-width:0.5;" x1="755" x2="1437" y1="407.6406" y2="407.6406"/><ellipse cx="765" cy="421.9453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="66" x="774" y="426.1738">Init() : void</text><ellipse cx="765" cy="439.5547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="111" x="774" y="443.7832">LogSaves() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="762" y="454.1641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="154" x="774" y="461.3926">SavesToJson() : JObject</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="762" y="471.7734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="159" x="774" y="479.002">SavesToXml() : XElement</text><ellipse cx="765" cy="492.3828" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="198" x="774" y="496.6113">SaveToJson(s : Save) : JObject</text><ellipse cx="765" cy="509.9922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="203" x="774" y="514.2207">SaveToXml(s : Save) : XElement</text><ellipse cx="765" cy="527.6016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="658" x="774" y="531.8301">LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void</text><ellipse cx="765" cy="545.2109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="271" x="774" y="549.4395">ChangeFormat(format : LogsFormat) : void</text><ellipse cx="765" cy="562.8203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="166" x="774" y="567.0488">GetFormat() : LogsFormat</text></g><!--MD5=[a06f440911206b400882121578a25711]
+class ConsoleUtils--><g id="elem_ConsoleUtils"><rect codeLine="209" fill="#F1F1F1" height="181.9688" id="ConsoleUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="540" x="46" y="813.6094"/><ellipse cx="272.75" cy="834.9609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M275.5156,830.8359 Q275.6719,830.6172 275.8594,830.5078 Q276.0469,830.3984 276.2656,830.3984 Q276.6406,830.3984 276.875,830.6641 Q277.1094,830.9141 277.1094,831.5234 L277.1094,832.9766 Q277.1094,833.5859 276.875,833.8516 Q276.6406,834.1172 276.2656,834.1172 Q275.9219,834.1172 275.7188,833.9141 Q275.5156,833.7266 275.4063,833.2109 Q275.3594,832.8516 275.1719,832.6641 Q274.8438,832.2891 274.2344,832.0703 Q273.625,831.8516 273,831.8516 Q272.2344,831.8516 271.5938,832.1797 Q270.9688,832.5078 270.4688,833.2578 Q269.9844,834.0078 269.9844,835.0391 L269.9844,836.1328 Q269.9844,837.3672 270.875,838.1953 Q271.7656,839.0078 273.3594,839.0078 Q274.2969,839.0078 274.9531,838.7578 Q275.3438,838.6016 275.7656,838.1641 Q276.0313,837.8984 276.1719,837.8203 Q276.3281,837.7422 276.5313,837.7422 Q276.8594,837.7422 277.1094,838.0078 Q277.375,838.2578 277.375,838.6016 Q277.375,838.9453 277.0313,839.3516 Q276.5313,839.9297 275.7344,840.2578 Q274.6563,840.7109 273.3594,840.7109 Q271.8438,840.7109 270.6406,840.0859 Q269.6563,839.5859 268.9688,838.5234 Q268.2813,837.4453 268.2813,836.1641 L268.2813,835.0078 Q268.2813,833.6797 268.8906,832.5391 Q269.5156,831.3828 270.6094,830.7734 Q271.7031,830.1484 272.9375,830.1484 Q273.6719,830.1484 274.3125,830.3203 Q274.9688,830.4766 275.5156,830.8359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="311.25" y="831.0664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="293.25" y="848.2363">ConsoleUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="47" x2="585" y1="856.3125" y2="856.3125"/><line style="stroke:#181818;stroke-width:0.5;" x1="47" x2="585" y1="864.3125" y2="864.3125"/><ellipse cx="57" cy="878.6172" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="505" x="66" y="882.8457">ChooseAction(title : string, choices : HashSet&lt;string&gt;, lastOption : string) : string</text><ellipse cx="57" cy="896.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="514" x="66" y="900.4551">ChooseMultiple(title : string, choices : HashSet&lt;string&gt;, lastOption : string) : string</text><ellipse cx="57" cy="913.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="248" x="66" y="918.0645">AskConfirm(withoutChoice : bool) : bool</text><ellipse cx="57" cy="931.4453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="368" x="66" y="935.6738">WriteJson(title : string, data : JsonText, color : Color) : void</text><ellipse cx="57" cy="949.0547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="292" x="66" y="953.2832">Ask(title : string, errorMessage : string) : string</text><ellipse cx="57" cy="966.6641" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="191" x="66" y="970.8926">WriteError(error : string) : void</text><ellipse cx="57" cy="984.2734" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="221" x="66" y="988.502">CreateProgressBar(s : Save) : void</text></g><!--MD5=[a2c6409ba669831248d5bb83f2828155]
+class VersionUtils--><g id="elem_VersionUtils"><rect codeLine="219" fill="#F1F1F1" height="111.5313" id="VersionUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="263" x="621.5" y="848.6094"/><ellipse cx="711.75" cy="869.9609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M714.5156,865.8359 Q714.6719,865.6172 714.8594,865.5078 Q715.0469,865.3984 715.2656,865.3984 Q715.6406,865.3984 715.875,865.6641 Q716.1094,865.9141 716.1094,866.5234 L716.1094,867.9766 Q716.1094,868.5859 715.875,868.8516 Q715.6406,869.1172 715.2656,869.1172 Q714.9219,869.1172 714.7188,868.9141 Q714.5156,868.7266 714.4063,868.2109 Q714.3594,867.8516 714.1719,867.6641 Q713.8438,867.2891 713.2344,867.0703 Q712.625,866.8516 712,866.8516 Q711.2344,866.8516 710.5938,867.1797 Q709.9688,867.5078 709.4688,868.2578 Q708.9844,869.0078 708.9844,870.0391 L708.9844,871.1328 Q708.9844,872.3672 709.875,873.1953 Q710.7656,874.0078 712.3594,874.0078 Q713.2969,874.0078 713.9531,873.7578 Q714.3438,873.6016 714.7656,873.1641 Q715.0313,872.8984 715.1719,872.8203 Q715.3281,872.7422 715.5313,872.7422 Q715.8594,872.7422 716.1094,873.0078 Q716.375,873.2578 716.375,873.6016 Q716.375,873.9453 716.0313,874.3516 Q715.5313,874.9297 714.7344,875.2578 Q713.6563,875.7109 712.3594,875.7109 Q710.8438,875.7109 709.6406,875.0859 Q708.6563,874.5859 707.9688,873.5234 Q707.2813,872.4453 707.2813,871.1641 L707.2813,870.0078 Q707.2813,868.6797 707.8906,867.5391 Q708.5156,866.3828 709.6094,865.7734 Q710.7031,865.1484 711.9375,865.1484 Q712.6719,865.1484 713.3125,865.3203 Q713.9688,865.4766 714.5156,865.8359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="748.25" y="866.0664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="732.25" y="883.2363">VersionUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="622.5" x2="883.5" y1="891.3125" y2="891.3125"/><line style="stroke:#181818;stroke-width:0.5;" x1="622.5" x2="883.5" y1="899.3125" y2="899.3125"/><ellipse cx="632.5" cy="913.6172" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="179" x="641.5" y="917.8457">GetVersionFromGit() : string</text><ellipse cx="632.5" cy="931.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="237" x="641.5" y="935.4551">VersionFromStr(version : string) : int[]</text><ellipse cx="632.5" cy="948.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="162" x="641.5" y="953.0645">CompareVersions() : bool</text></g><!--MD5=[b1d46488418bc0cd55cf54b5fc017696]
+class ViewModel--><g id="elem_ViewModel"><rect codeLine="4" fill="#F1F1F1" height="206.4844" id="ViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="504" x="3667" y="1355.6094"/><ellipse cx="3881.25" cy="1371.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3884.0156,1367.4844 Q3884.1719,1367.2656 3884.3594,1367.1563 Q3884.5469,1367.0469 3884.7656,1367.0469 Q3885.1406,1367.0469 3885.375,1367.3125 Q3885.6094,1367.5625 3885.6094,1368.1719 L3885.6094,1369.625 Q3885.6094,1370.2344 3885.375,1370.5 Q3885.1406,1370.7656 3884.7656,1370.7656 Q3884.4219,1370.7656 3884.2188,1370.5625 Q3884.0156,1370.375 3883.9063,1369.8594 Q3883.8594,1369.5 3883.6719,1369.3125 Q3883.3438,1368.9375 3882.7344,1368.7188 Q3882.125,1368.5 3881.5,1368.5 Q3880.7344,1368.5 3880.0938,1368.8281 Q3879.4688,1369.1563 3878.9688,1369.9063 Q3878.4844,1370.6563 3878.4844,1371.6875 L3878.4844,1372.7813 Q3878.4844,1374.0156 3879.375,1374.8438 Q3880.2656,1375.6563 3881.8594,1375.6563 Q3882.7969,1375.6563 3883.4531,1375.4063 Q3883.8438,1375.25 3884.2656,1374.8125 Q3884.5313,1374.5469 3884.6719,1374.4688 Q3884.8281,1374.3906 3885.0313,1374.3906 Q3885.3594,1374.3906 3885.6094,1374.6563 Q3885.875,1374.9063 3885.875,1375.25 Q3885.875,1375.5938 3885.5313,1376 Q3885.0313,1376.5781 3884.2344,1376.9063 Q3883.1563,1377.3594 3881.8594,1377.3594 Q3880.3438,1377.3594 3879.1406,1376.7344 Q3878.1563,1376.2344 3877.4688,1375.1719 Q3876.7813,1374.0938 3876.7813,1372.8125 L3876.7813,1371.6563 Q3876.7813,1370.3281 3877.3906,1369.1875 Q3878.0156,1368.0313 3879.1094,1367.4219 Q3880.2031,1366.7969 3881.4375,1366.7969 Q3882.1719,1366.7969 3882.8125,1366.9688 Q3883.4688,1367.125 3884.0156,1367.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="3901.75" y="1377.3379">ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3668" x2="4170" y1="1387.6094" y2="1387.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="3668" x2="4170" y1="1395.6094" y2="1395.6094"/><ellipse cx="3678" cy="1409.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="478" x="3687" y="1414.1426">CreateSave(name : string, src : string, dest : string, type : SaveType) : Save</text><ellipse cx="3678" cy="1427.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="271" x="3687" y="1431.752">EditSave(s : Save, newName : string) : void</text><ellipse cx="3678" cy="1445.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="3687" y="1449.3613">DeleteSave(s : Save) : void</text><ellipse cx="3678" cy="1462.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="3687" y="1466.9707">RunSave(s : Save) : string</text><polygon fill="#FFFF44" points="3678,1475.3516,3682,1479.3516,3678,1483.3516,3674,1479.3516" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="3687" y="1484.5801">StopAllSaves() : void</text><ellipse cx="3678" cy="1497.9609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="123" x="3687" y="1502.1895">IsUpToDate() : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3687" y="1519.7988"> </text><ellipse cx="3678" cy="1533.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="389" x="3687" y="1537.4082">GetSavesByUuid(names : HashSet&lt;String&gt;) : HashSet&lt;Save&gt;</text><ellipse cx="3678" cy="1550.7891" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="3687" y="1555.0176">GetSaves() : HashSet&lt;string&gt;</text></g><!--MD5=[175f95e045c1a44aed0b30df3abe0e5c]
+class Program--><g id="elem_Program"><rect codeLine="16" fill="#F1F1F1" height="76.3125" id="Program" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104" x="4296" y="401.1094"/><ellipse cx="4319.1" cy="422.4609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M4321.8656,418.3359 Q4322.0219,418.1172 4322.2094,418.0078 Q4322.3969,417.8984 4322.6156,417.8984 Q4322.9906,417.8984 4323.225,418.1641 Q4323.4594,418.4141 4323.4594,419.0234 L4323.4594,420.4766 Q4323.4594,421.0859 4323.225,421.3516 Q4322.9906,421.6172 4322.6156,421.6172 Q4322.2719,421.6172 4322.0688,421.4141 Q4321.8656,421.2266 4321.7563,420.7109 Q4321.7094,420.3516 4321.5219,420.1641 Q4321.1938,419.7891 4320.5844,419.5703 Q4319.975,419.3516 4319.35,419.3516 Q4318.5844,419.3516 4317.9438,419.6797 Q4317.3188,420.0078 4316.8188,420.7578 Q4316.3344,421.5078 4316.3344,422.5391 L4316.3344,423.6328 Q4316.3344,424.8672 4317.225,425.6953 Q4318.1156,426.5078 4319.7094,426.5078 Q4320.6469,426.5078 4321.3031,426.2578 Q4321.6938,426.1016 4322.1156,425.6641 Q4322.3813,425.3984 4322.5219,425.3203 Q4322.6781,425.2422 4322.8813,425.2422 Q4323.2094,425.2422 4323.4594,425.5078 Q4323.725,425.7578 4323.725,426.1016 Q4323.725,426.4453 4323.3813,426.8516 Q4322.8813,427.4297 4322.0844,427.7578 Q4321.0063,428.2109 4319.7094,428.2109 Q4318.1938,428.2109 4316.9906,427.5859 Q4316.0063,427.0859 4315.3188,426.0234 Q4314.6313,424.9453 4314.6313,423.6641 L4314.6313,422.5078 Q4314.6313,421.1797 4315.2406,420.0391 Q4315.8656,418.8828 4316.9594,418.2734 Q4318.0531,417.6484 4319.2875,417.6484 Q4320.0219,417.6484 4320.6625,417.8203 Q4321.3188,417.9766 4321.8656,418.3359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="4340.9" y="418.5664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="4334.9" y="435.7363">Program</text><line style="stroke:#181818;stroke-width:0.5;" x1="4297" x2="4399" y1="443.8125" y2="443.8125"/><line style="stroke:#181818;stroke-width:0.5;" x1="4297" x2="4399" y1="451.8125" y2="451.8125"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="4304" y="463.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="78" x="4316" y="470.3457">Main() : void</text></g><!--MD5=[73cfb69b8bcc06f09fde2e3051d4bf57]
+reverse link View to ViewModel--><g id="link_View_ViewModel"><path codeLine="229" d="M3919,617.4894 C3919,753.2994 3919,945.2894 3919,1113.6094 C3919,1113.6094 3919,1113.6094 3919,1234.6094 C3919,1274.0994 3919,1317.5194 3919,1355.4794 " fill="none" id="View-backto-ViewModel" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="3919,604.1094,3915,610.1094,3919,616.1094,3923,610.1094,3919,604.1094" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="3898.5469" y="625.4572">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="3911.743" y="1344.8085">1</text></g><!--MD5=[f1977668a0d4902379d701cbb54da806]
+reverse link Save to SrcDir--><g id="link_Save_SrcDir"><path codeLine="230" d="M1968.23,749.3294 C1965.83,750.7794 1963.42,752.2094 1961,753.6094 C1834.15,826.7994 1766.98,746.1394 1637,813.6094 C1625.3,819.6794 1614.11,827.7394 1603.81,836.5394 " fill="none" id="Save-backto-SrcDir" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1979.38,742.2994,1972.171,742.1235,1969.236,748.7103,1976.445,748.8862,1979.38,742.2994" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="1966.1073" y="766.0094">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1602.8595" y="825.731">1</text></g><!--MD5=[85907110e97e66d9c65e49318b1ae453]
+reverse link Save to DestDir--><g id="link_Save_DestDir"><path codeLine="231" d="M1969.02,747.4094 C1966.36,749.5094 1963.68,751.5694 1961,753.6094 C1910.64,791.8494 1884.57,778.4794 1832,813.6094 C1807.22,830.1694 1782.53,852.8894 1764.13,871.3594 " fill="none" id="Save-backto-DestDir" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1979.26,739.1794,1972.0781,739.8275,1969.9141,746.7062,1977.096,746.0581,1979.26,739.1794" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="1966.7716" y="745.3489">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1762.3728" y="860.8065">1</text></g><!--MD5=[e8dab679573d0d14c2418cba53102b8e]
+reverse link Save to JobStatus--><g id="link_Save_JobStatus"><path codeLine="232" d="M2451.83,765.7894 C2458.62,781.6394 2464.73,797.6194 2470,813.6094 C2511.79,940.5094 2489,980.0094 2489,1113.6094 C2489,1113.6094 2489,1113.6094 2489,1234.6094 C2489,1322.9894 2401.32,1393.7594 2344.46,1430.3594 " fill="none" id="Save-backto-JobStatus" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="2446.51,753.6994,2445.2615,760.8016,2451.3371,764.6857,2452.5857,757.5835,2446.51,753.6994" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="2446.5493" y="774.758">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="2351.9448" y="1422.5813">1</text></g><!--MD5=[b320bf836a005f07cd8b73f09e3a3ed6]
+reverse link Dir to SrcDir--><g id="link_Dir_SrcDir"><path codeLine="234" d="M1628.44,492.1594 C1611.34,576.5194 1577.56,743.0694 1558.65,836.3194 " fill="none" id="Dir-backto-SrcDir" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1621.63,490.5394,1632.46,472.3294,1635.35,493.3294,1621.63,490.5394" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[60a0330826d1039500b4d0ff7fcb4e99]
+reverse link Dir to DestDir--><g id="link_Dir_DestDir"><path codeLine="235" d="M1649.64,491.9994 C1669.41,588.4594 1711.27,792.7294 1727.44,871.5994 " fill="none" id="Dir-backto-DestDir" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1642.76,493.3294,1645.6,472.3294,1656.48,490.5194,1642.76,493.3294" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6d77c61459a13101d3a49e0cac2fd3a7]
+reverse link Save to FullSave--><g id="link_Save_FullSave"><path codeLine="237" d="M1964.13,750.8594 C1963.08,751.7794 1962.04,752.6994 1961,753.6094 C1923.96,785.9794 1891.54,770.4194 1868,813.6094 C1846.1,853.8094 1841.21,982.4894 1868,1019.6094 C1878,1033.4594 1890.12,1045.3094 1903.65,1055.4294 " fill="none" id="Save-backto-FullSave" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1959.6,745.5194,1979.14,737.3094,1968.98,755.9094,1959.6,745.5194" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[da84a1213a55b534a5714fd5ba3d1879]
+reverse link Save to DifferentialSave--><g id="link_Save_DifferentialSave"><path codeLine="238" d="M2185.82,773.6394 C2182.36,800.4294 2179.18,824.9494 2176.55,845.2994 " fill="none" id="Save-backto-DifferentialSave" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2178.89,772.6994,2188.4,753.7594,2192.77,774.4994,2178.89,772.6994" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bcb18f9f551421e31c32debcef489dc9]
+reverse link Exception to CantCheckUpdateException--><g id="link_Exception_CantCheckUpdateException"><path codeLine="240" d="M3304.61,483.2694 C3295.62,549.8294 3269.26,677.7694 3195,753.6094 C3165.51,783.7294 3082.14,817.6494 3000.3,845.5994 " fill="none" id="Exception-backto-CantCheckUpdateException" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="3297.68,482.2294,3307.03,463.2094,3311.58,483.9094,3297.68,482.2294" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3d1f87e207ac506f9ff60b24d1371347]
+reverse link Exception to TooMuchSavesException--><g id="link_Exception_TooMuchSavesException"><path codeLine="241" d="M3313.59,483.5494 C3322.44,567.2494 3341.86,750.9494 3351.83,845.2394 " fill="none" id="Exception-backto-TooMuchSavesException" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="3306.61,484.0394,3311.46,463.4094,3320.53,482.5694,3306.61,484.0394" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d9d2a8e5760e8554b17f6920dcf2b4a0]
+link FullSave to JobStatus--><!--MD5=[c2a1d157b07eddcf585fae2b39165bc3]
+@startuml ProSoft - EasySave 1.1.0 - Class Diagram
+
+title "ProSoft - EasySave 1.1.0 - Class Diagram"
+
+class ViewModel {
+    + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+    + EditSave(s : Save, newName : string) : void
+    + DeleteSave(s : Save) : void
+    + RunSave(s : Save) : string
+    # StopAllSaves() : void
+    + {static} IsUpToDate() : bool
+
+    + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+    + GetSaves() : HashSet<string>
+}
+
+class Program <<static>> {
+    - {static} Main() : void
+}
+
+package Render <<Folder>> {
+
+    enum RenderMethod {
+        Home
+        CreateSave
+        LoadSave
+        EditSave
+        DeleteSave
+        ChangeLanguage
+        Settings,
+        ChangeLogsFormat
+    }
+
+    class View {
+        - vm : ViewModel
+
+        + View()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderHome(message : string) : void
+        - RenderCreateSave() : void
+        - RenderEditSave(save : HashSet<Save>) : void
+        - RenderLoadSave(save : HashSet<Save>) : void
+        - RenderDeleteSave(save : HashSet<Save>) : void
+        - RenderChangeLanguage() : void
+        - RenderChangeLogsFormat() : void
+        - RenderSettings() : void
+        - PromptSave(multi : bool) : HashSet<Save>
+        # Exit(code : int) : void
+        - CheckUpdate() : string
+    }
+
+}
+
+package Models <<Folder>> {
+
+    Interface Dir {
+        - path : string
+    }
+
+    class SrcDir {
+        - size : double
+        + nbFiles : long
+
+        + SrcDir(path : string)
+
+        + GetSize() : double
+    }
+
+    class DestDir {
+        + DestDir(path : string)
+    }
+
+    package Exceptions <<Folder>> {
+    
+        class Exception {
+
+        }
+
+        class UnknownLogFormatException {
+
+            + UnknownLogFormatException()
+            + UnknownLogFormatException(message : string)
+            + UnknownLogFormatException(message : string, inner : Exception)
+            + UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class CantCheckUpdateException {
+
+            + CantCheckUpdateException()
+            + CantCheckUpdateException(message : string)
+            + CantCheckUpdateException(message : string, inner : Exception)
+            + CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class TooMuchSavesException {
+
+            + TooMuchSavesException()
+            + TooMuchSavesException(message : string)
+            + TooMuchSavesException(message : string, inner : Exception)
+            + TooMuchSavesException(info : SerializationInfo, context : StreamingContext)
+        }
+
+    }
+    
+    package Data <<Folder>> {
+
+        abstract class Save {
+            + {const} MAX_SAVES : int
+            - {static} saves : Set<Save>
+            + uuid : Guid
+            - name : string
+            - filesCopied : long
+            - sizeCopied : long
+            # status : JobStatus
+            + SrcDir : SrcDir
+            + DestDir : DestDir
+
+            # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
+
+            + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + Rename(newName : string) : void
+            + Pause() : void
+            + Resume() : void
+            + Cancel() : void
+            + Stop() : void
+            + {static} Delete(uuid : Guid) : void
+            + Run() : string
+            + CalculateProgress() : int
+            + {abstract} ToString() : string
+            + {static} Init(data : dynamic) : void
+            + AddFileCopied(nb : int) : void
+            + AddSizeCopied(length : long) : void
+            # ProcessResult(sw : StopWatch) : string
+            + {static} GetSaves() : HashSet<save>
+            + GetName() : string
+            + GetStatus() : JobStatus
+            + GetSizeCopied() : long
+            + GetFilesCopied() : long
+            + {abstract} GetSaveType() : SaveType
+            + {static} GetStatus(status : String) : JobStatus
+            - UpdateState() : void
+        }            
+
+        class DifferentialSave {
+            # DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        class FullSave {
+            # FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        enum SaveType {
+            Full
+            Differential
+        }
+
+        enum JobStatus {
+            Running
+            Paused
+            Finished
+            Cancelled
+            Error
+            Waiting
+        }
+        
+    }
+
+    package Utils <<Folder>> {
+
+        enum LogsFormat {
+            JSON
+            XML
+        }
+
+        class DirectoryUtils <<static>> {
+            - {static} actualFile : string[]
+            + {static} CopyFilesAndFolders(s : Save) : void
+            - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
+            + {static} IsValidPath(path : string) : bool
+            + {static} CreatePath(path : string) : void
+            + {static} GetDirectorySize(dir : DirectoryInfo) : double
+            + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+            - {static} GetActualFile() : string[]
+        }
+
+        class LogUtils <<static>> {
+            - {static} path : string
+            - {static} date : string
+            - {static} format : LogsFormat
+
+            + {static} Init() : void
+            + {static} LogSaves() : void
+            - {static} SavesToJson() : JObject
+            - {static} SavesToXml() : XElement
+            + {static} SaveToJson(s : Save) : JObject
+            + {static} SaveToXml(s : Save) : XElement
+            + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+            + {static} ChangeFormat(format : LogsFormat) : void
+            + {static} GetFormat() : LogsFormat
+        }
+
+        class ConsoleUtils <<static>> {
+            + {static} ChooseAction(title : string, choices : HashSet<string>, lastOption : string) : string
+            + {static} ChooseMultiple(title : string, choices : HashSet<string>, lastOption : string) : string
+            + {static} AskConfirm(withoutChoice : bool) : bool
+            + {static} WriteJson(title : string, data : JsonText, color : Color) : void
+            + {static} Ask(title : string, errorMessage : string) : string
+            + {static} WriteError(error : string) : void
+            + {static} CreateProgressBar(s : Save) : void
+        }
+
+        class VersionUtils <<static>> {
+            + {static} GetVersionFromGit() : string
+            + {static} VersionFromStr(version : string) : int[]
+            + {static} CompareVersions() : bool
+        }
+    
+    }
+
+}
+
+View "1..*" o- - - - - - "1" ViewModel
+Save "*" *- - "1" SrcDir
+Save "*" *- - "1" DestDir
+Save "*" o- - - - - - "1" JobStatus
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+Save <|.. FullSave
+Save <|.. DifferentialSave
+
+CantCheckUpdateException -up-|> Exception
+TooMuchSavesException -up-|> Exception
+
+/'Hidden links for organization'/
+FullSave -down[hidden]-> JobStatus
+
+
+@enduml
+
+@startuml ProSoft - EasySave 1.1.0 - Class Diagram
+
+title "ProSoft - EasySave 1.1.0 - Class Diagram"
+
+class ViewModel {
+    + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+    + EditSave(s : Save, newName : string) : void
+    + DeleteSave(s : Save) : void
+    + RunSave(s : Save) : string
+    # StopAllSaves() : void
+    + {static} IsUpToDate() : bool
+
+    + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+    + GetSaves() : HashSet<string>
+}
+
+class Program <<static>> {
+    - {static} Main() : void
+}
+
+package Render <<Folder>> {
+
+    enum RenderMethod {
+        Home
+        CreateSave
+        LoadSave
+        EditSave
+        DeleteSave
+        ChangeLanguage
+        Settings,
+        ChangeLogsFormat
+    }
+
+    class View {
+        - vm : ViewModel
+
+        + View()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderHome(message : string) : void
+        - RenderCreateSave() : void
+        - RenderEditSave(save : HashSet<Save>) : void
+        - RenderLoadSave(save : HashSet<Save>) : void
+        - RenderDeleteSave(save : HashSet<Save>) : void
+        - RenderChangeLanguage() : void
+        - RenderChangeLogsFormat() : void
+        - RenderSettings() : void
+        - PromptSave(multi : bool) : HashSet<Save>
+        # Exit(code : int) : void
+        - CheckUpdate() : string
+    }
+
+}
+
+package Models <<Folder>> {
+
+    Interface Dir {
+        - path : string
+    }
+
+    class SrcDir {
+        - size : double
+        + nbFiles : long
+
+        + SrcDir(path : string)
+
+        + GetSize() : double
+    }
+
+    class DestDir {
+        + DestDir(path : string)
+    }
+
+    package Exceptions <<Folder>> {
+    
+        class Exception {
+
+        }
+
+        class UnknownLogFormatException {
+
+            + UnknownLogFormatException()
+            + UnknownLogFormatException(message : string)
+            + UnknownLogFormatException(message : string, inner : Exception)
+            + UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class CantCheckUpdateException {
+
+            + CantCheckUpdateException()
+            + CantCheckUpdateException(message : string)
+            + CantCheckUpdateException(message : string, inner : Exception)
+            + CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class TooMuchSavesException {
+
+            + TooMuchSavesException()
+            + TooMuchSavesException(message : string)
+            + TooMuchSavesException(message : string, inner : Exception)
+            + TooMuchSavesException(info : SerializationInfo, context : StreamingContext)
+        }
+
+    }
+    
+    package Data <<Folder>> {
+
+        abstract class Save {
+            + {const} MAX_SAVES : int
+            - {static} saves : Set<Save>
+            + uuid : Guid
+            - name : string
+            - filesCopied : long
+            - sizeCopied : long
+            # status : JobStatus
+            + SrcDir : SrcDir
+            + DestDir : DestDir
+
+            # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
+
+            + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + Rename(newName : string) : void
+            + Pause() : void
+            + Resume() : void
+            + Cancel() : void
+            + Stop() : void
+            + {static} Delete(uuid : Guid) : void
+            + Run() : string
+            + CalculateProgress() : int
+            + {abstract} ToString() : string
+            + {static} Init(data : dynamic) : void
+            + AddFileCopied(nb : int) : void
+            + AddSizeCopied(length : long) : void
+            # ProcessResult(sw : StopWatch) : string
+            + {static} GetSaves() : HashSet<save>
+            + GetName() : string
+            + GetStatus() : JobStatus
+            + GetSizeCopied() : long
+            + GetFilesCopied() : long
+            + {abstract} GetSaveType() : SaveType
+            + {static} GetStatus(status : String) : JobStatus
+            - UpdateState() : void
+        }            
+
+        class DifferentialSave {
+            # DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        class FullSave {
+            # FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        enum SaveType {
+            Full
+            Differential
+        }
+
+        enum JobStatus {
+            Running
+            Paused
+            Finished
+            Cancelled
+            Error
+            Waiting
+        }
+        
+    }
+
+    package Utils <<Folder>> {
+
+        enum LogsFormat {
+            JSON
+            XML
+        }
+
+        class DirectoryUtils <<static>> {
+            - {static} actualFile : string[]
+            + {static} CopyFilesAndFolders(s : Save) : void
+            - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
+            + {static} IsValidPath(path : string) : bool
+            + {static} CreatePath(path : string) : void
+            + {static} GetDirectorySize(dir : DirectoryInfo) : double
+            + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+            - {static} GetActualFile() : string[]
+        }
+
+        class LogUtils <<static>> {
+            - {static} path : string
+            - {static} date : string
+            - {static} format : LogsFormat
+
+            + {static} Init() : void
+            + {static} LogSaves() : void
+            - {static} SavesToJson() : JObject
+            - {static} SavesToXml() : XElement
+            + {static} SaveToJson(s : Save) : JObject
+            + {static} SaveToXml(s : Save) : XElement
+            + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+            + {static} ChangeFormat(format : LogsFormat) : void
+            + {static} GetFormat() : LogsFormat
+        }
+
+        class ConsoleUtils <<static>> {
+            + {static} ChooseAction(title : string, choices : HashSet<string>, lastOption : string) : string
+            + {static} ChooseMultiple(title : string, choices : HashSet<string>, lastOption : string) : string
+            + {static} AskConfirm(withoutChoice : bool) : bool
+            + {static} WriteJson(title : string, data : JsonText, color : Color) : void
+            + {static} Ask(title : string, errorMessage : string) : string
+            + {static} WriteError(error : string) : void
+            + {static} CreateProgressBar(s : Save) : void
+        }
+
+        class VersionUtils <<static>> {
+            + {static} GetVersionFromGit() : string
+            + {static} VersionFromStr(version : string) : int[]
+            + {static} CompareVersions() : bool
+        }
+    
+    }
+
+}
+
+View "1..*" o- - - - - - "1" ViewModel
+Save "*" *- - "1" SrcDir
+Save "*" *- - "1" DestDir
+Save "*" o- - - - - - "1" JobStatus
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+Save <|.. FullSave
+Save <|.. DifferentialSave
+
+CantCheckUpdateException -up-|> Exception
+TooMuchSavesException -up-|> Exception
+
+FullSave -down[hidden]-> JobStatus
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>
