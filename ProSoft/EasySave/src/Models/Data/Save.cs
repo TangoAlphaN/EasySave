@@ -216,18 +216,32 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Static method to init save class
         /// </summary>
-        /// <param name="jObject">json data from file</param>
-        public static void Init(JObject jObject)
+        /// <param name="data">json or xml data from log file</param>
+        public static void Init(dynamic data)
         {
             //Data is read from json file and then saves are created
-            foreach (var save in jObject)
+            if(LogUtils.GetFormat() == LogsFormat.XML)
             {
-                if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
-                if (save.Value["type"].ToString() == "Full")
-                    saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString()), Save.GetStatus(save.Value["state"].ToString())));
-                else
-                    saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
+                foreach (var save in data.Root.Elements())
+                {
+                    if (!DirectoryUtils.IsValidPath(save.Element("src").Value.ToString())) return;
+                    if (save.Element("type").Value.ToString() == "Full")
+                        saves.Add(new FullSave(save.Element("name").Value.ToString(), save.Element("src").Value.ToString(), save.Element("dest").Value.ToString(), Guid.Parse(save.Attribute("id").Value.ToString()), Save.GetStatus(save.Element("state").Value.ToString())));
+                    else
+                        saves.Add(new DifferentialSave(save.Element("name").Value.ToString(), save.Element("src").Value.ToString(), save.Element("dest").Value.ToString(), Guid.Parse(save.Attribute("id").Value.ToString())));
+                }
             }
+            else
+            {
+                foreach (var save in data) {
+                    if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
+                    if (save.Value["type"].ToString() == "Full")
+                        saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString()), Save.GetStatus(save.Value["state"].ToString())));
+                    else
+                        saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
+                }
+            }
+           
         }
 
         /// <summary>
