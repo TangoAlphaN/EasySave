@@ -27,12 +27,12 @@ namespace EasySave.src.Render
 
         public void Start()
         {
-            InitializeComponent();
+            //InitializeComponent();
             Run();
             //RenderHome(CheckUpdate());
         }
 
-        private void Render(RenderMethod method = RenderMethod.Home)
+        /*private void Render(RenderMethod method = RenderMethod.Home)
         {
             switch (method)
             {
@@ -101,7 +101,7 @@ namespace EasySave.src.Render
         private void RenderChangeLanguage()
         {
             throw new NotImplementedException();
-        }
+        }*/
 
     }
 }
