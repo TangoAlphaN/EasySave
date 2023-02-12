@@ -1,0 +1,17 @@
+@startuml ProSoft - CryptoSoft 1.0.0 - Class Diagram
+
+title "ProSoft - CryptoSoft 1.0.0 - Class Diagram"
+
+class CryptoSoft {
+    - key : string
+    - instance : CryptoSoft
+    - stopwatch : Stopwatch
+
+    - CryptoSoft()
+    - CryptoSoft(key : string)
+
+    + {static} Init(key : string) : CryptoSoft
+    + ProcessFile(inpuitFile : string, outputFile : string) : long
+}
+
+@enduml
