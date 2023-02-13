@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading.Tasks;
 using ProSoft.CryptoSoft;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace EasySave.src.Utils
 {
@@ -15,9 +17,9 @@ namespace EasySave.src.Utils
     public static class DirectoryUtils
     {
 
-        private static HashSet<string> extensions = new HashSet<string>();
+        private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
 
-        private static string key;
+        private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
         
         /// <summary>
         /// Array to store the actual file being copied
@@ -162,5 +164,14 @@ namespace EasySave.src.Utils
             key = newSecret;
         }
 
+        public static string GetSecret()
+        {
+            return key;
+        }
+
+        public static HashSet<string> GetExtensions()
+        {
+            return extensions;
+        }
     }
 }
