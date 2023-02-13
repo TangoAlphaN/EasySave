@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resources="clr-namespace:EasySave.Properties"
              xmlns:local="clr-namespace:EasySave.src.Render.Views"
              xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             d:DesignWidth="650">   
-   
+             d:DesignWidth="650">
+
     <UserControl.Style>
         <Style>
             <Style.Triggers>
@@ -28,41 +29,38 @@
 
     <Grid Background="#303030">
 
-        <TextBlock Text="Home"
-                   FontSize="24"
+        <TextBlock Text="{x:Static resources:Resource.HomeWelcome}"
+                   FontSize="48"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   TextWrapping="Wrap"
+                   Margin="0,12,0,0" Height="108" Width="463" />
+
+        <TextBlock FontSize="20" 
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                   Foreground="#DDDDDD"
+                   Text="{x:Static resources:Resource.HomeSubtitle}" 
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   Margin="5,12,0,0" />
+                   TextWrapping="Wrap"
+                   Margin="116,168,0,0" Height="72" Width="188" FontWeight="Bold"/>
 
+        <TextBlock FontSize="12" 
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                   Foreground="#DDDDDD"
+                   Text="{x:Static resources:Resource.HomePresentation}" 
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   TextWrapping="Wrap"
+                   Margin="116,245,0,0" Height="91" Width="266"/>
 
-        <ItemsControl ItemsSource="{Binding HomeSourceCollection}"
-                      Height="350"
-                      Width="650"
-                      HorizontalAlignment="Center"
-                      Margin="0,40,0,0">
-
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <RadioButton Content="{Binding HomeName}"
-                                 CommandParameter="{Binding HomeName}"
-                                 Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.ThisPCCommand}"
-                                 Tag="{Binding HomeImage}"
-                                 Style="{StaticResource GridButtonStyle}"
-                                 GroupName="HomeGroup" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="5"
-                                 Rows="3" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-
-        </ItemsControl>
-     
-
+        <Image HorizontalAlignment="Left" 
+               Height="219" Margin="412,230,0,0" 
+               VerticalAlignment="Top" 
+               Width="228" 
+               Source="..\Assets\Logo.png"/>
     </Grid>
 
 </UserControl>

@@ -349,6 +349,33 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome to EasySave, the easiest to use backup application. To save data, simply go to the &quot;Create Save&quot; selection. If you have any problems please contact us at easysave.help@outlook.com.
+        /// </summary>
+        public static string HomePresentation {
+            get {
+                return ResourceManager.GetString("HomePresentation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The most practical backup application.
+        /// </summary>
+        public static string HomeSubtitle {
+            get {
+                return ResourceManager.GetString("HomeSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to EasySave.
+        /// </summary>
+        public static string HomeWelcome {
+            get {
+                return ResourceManager.GetString("HomeWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         public static string Lang_en_US {

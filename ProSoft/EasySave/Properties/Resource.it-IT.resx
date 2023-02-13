@@ -243,4 +243,13 @@
   <data name="ChangeLogsFormat.Actual" xml:space="preserve">
     <value>Tipo corrente :</value>
   </data>
+  <data name="HomePresentation" xml:space="preserve">
+    <value>Benvenuti in EasySave, l'applicazione di backup più semplice da usare. Per salvare i dati è sufficiente accedere alla selezione "Crea salvataggio". In caso di problemi, contattateci all'indirizzo easysave.help@outlook.com.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>L'applicazione di backup più pratica</value>
+  </data>
+  <data name="HomeWelcome" xml:space="preserve">
+    <value>Benvenuti a EasySave</value>
+  </data>
 </root>
