@@ -5,6 +5,7 @@
 /// all modifications made to the Model data.
 /// </summary>
 
+using EasySave.Properties;
 using EasySave.src.Models;
 using EasySave.src.Render;
 using EasySave.src.Render.Views;
@@ -31,7 +32,11 @@ namespace EasySave.src.ViewModels
             // get added, removed, or when the whole list is refreshed.
             ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                new MenuItems { MenuName = "Home", MenuImage = @"Assets/Home_Icon.png" },
+                new MenuItems { MenuName = $"{Resource.HomeMenu_Create}", MenuImage = @"Assets/Home_Icon.png" },
+                new MenuItems { MenuName = $"{Resource.HomeMenu_Load}", MenuImage = @"Assets/Drive_Icon.png" },
+                new MenuItems { MenuName = $"{Resource.HomeMenu_Edit}", MenuImage = @"Assets/order_icon.png" },
+                new MenuItems { MenuName = $"{Resource.HomeMenu_Delete}", MenuImage = @"Assets/Trash_Icon.png" },
+                new MenuItems { MenuName = $"{Resource.HomeMenu_Settings}", MenuImage = @"Assets/services_icon.png" },
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
@@ -56,12 +61,27 @@ namespace EasySave.src.ViewModels
         }
 
         // Switch Views
-        public void SwitchViews(object parameter)
+        public void SwitchViews(string parameter)
         {
             switch (parameter)
             {
                 case "Home":
                     SelectedViewModel = new HomeViewModel();
+                    break;
+                case var value when value == Resource.HomeMenu_Create:
+                    SelectedViewModel = new SaveViewModel(RenderMethod.CreateSave);
+                    break;
+                case var value when value == Resource.HomeMenu_Edit:
+                    SelectedViewModel = new SaveViewModel(RenderMethod.EditSave);
+                    break;
+                case var value when value == Resource.HomeMenu_Load:
+                    SelectedViewModel = new SaveViewModel(RenderMethod.LoadSave);
+                    break;
+                case var value when value == Resource.HomeMenu_Delete:
+                    SelectedViewModel = new SaveViewModel(RenderMethod.DeleteSave);
+                    break;
+                case var value when value == Resource.HomeMenu_Settings:
+                    SelectedViewModel = new SettingsViewModel();
                     break;
             }
         }
@@ -74,7 +94,7 @@ namespace EasySave.src.ViewModels
             {
                 if (_menucommand == null)
                 {
-                    _menucommand = new RelayCommand(param => SwitchViews(param));
+                    _menucommand = new RelayCommand(param => SwitchViews((string)param));
                 }
                 return _menucommand;
             }

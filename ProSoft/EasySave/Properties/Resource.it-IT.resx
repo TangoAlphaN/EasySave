@@ -144,7 +144,7 @@
   <data name="CreateSave.Src" xml:space="preserve">
     <value>Inserire il percorso dell'origine del backup:</value>
   </data>
-  <data name="CreateSave.Success" xml:space="preserve">
+  <data name="Header.CreateSaveSuccess" xml:space="preserve">
     <value>Il backup è stato creato con successo!</value>
   </data>
   <data name="CreateSave.Type" xml:space="preserve">
@@ -165,7 +165,7 @@
   <data name="Forms.Exit" xml:space="preserve">
     <value>Uscita</value>
   </data>
-  <data name="HomeMenu.ChangeLanguage" xml:space="preserve">
+  <data name="SettingsMenu.ChangeLanguage" xml:space="preserve">
     <value>Cambiare la lingua</value>
   </data>
   <data name="HomeMenu.Create" xml:space="preserve">
@@ -195,19 +195,19 @@
   <data name="Lang.ru-RU" xml:space="preserve">
     <value>Russo</value>
   </data>
-  <data name="NoUpToDate" xml:space="preserve">
+  <data name="Header.NoUpToDate" xml:space="preserve">
     <value>È disponibile una nuova versione :</value>
   </data>
   <data name="Path.Invalid" xml:space="preserve">
     <value>Percorso non corretto  | </value>
   </data>
-  <data name="Save.AlreadyRunning" xml:space="preserve">
+  <data name="Header.SaveAlreadyRunning" xml:space="preserve">
     <value>Il backup è già in corso</value>
   </data>
-  <data name="Save.Deleted" xml:space="preserve">
+  <data name="Header.SaveDeleted" xml:space="preserve">
     <value>Il backup è stato eliminato con successo</value>
   </data>
-  <data name="Save.Renamed" xml:space="preserve">
+  <data name="Header.SaveRenamed" xml:space="preserve">
     <value>Il backup è stato rinominato con successo</value>
   </data>
   <data name="Save.Run" xml:space="preserve">
@@ -216,7 +216,7 @@
   <data name="SaveMenu.Title" xml:space="preserve">
     <value>I vostri backup :</value>
   </data>
-  <data name="UpToDate" xml:space="preserve">
+  <data name="Header.UpToDate" xml:space="preserve">
     <value>EasySave è aggiornato.</value>
   </data>
   <data name="AccesDenied" xml:space="preserve">
@@ -227,5 +227,20 @@
   </data>
   <data name="ChangeLang" xml:space="preserve">
     <value>Scegliere la lingua :</value>
+  </data>
+  <data name="HomeMenu.Settings" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="SettingsMenu.LogsFormat" xml:space="preserve">
+    <value>Format du fichier de logs</value>
+  </data>
+  <data name="ChangeLogsFormat" xml:space="preserve">
+    <value>Выберите тип файла :</value>
+  </data>
+  <data name="Header.SettingsSaved" xml:space="preserve">
+    <value>Parametri salvati con successo</value>
+  </data>
+  <data name="ChangeLogsFormat.Actual" xml:space="preserve">
+    <value>Tipo corrente :</value>
   </data>
 </root>

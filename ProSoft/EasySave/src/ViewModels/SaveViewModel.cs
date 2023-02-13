@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using EasySave.src.Models;
+using EasySave.src.Render;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace EasySave.src.ViewModels
 {
@@ -16,6 +20,10 @@ namespace EasySave.src.ViewModels
         public SaveViewModel()
         {
             ObservableCollection<SaveItems> saveItems = new ObservableCollection<SaveItems>
+
+        public SaveViewModel(RenderMethod renderMethod)
+        {
+            ObservableCollection<HomeItems> saveItems = new ObservableCollection<HomeItems>
             {
 
             };
