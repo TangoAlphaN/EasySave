@@ -27,8 +27,12 @@
         <view:SaveDeleteView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:SettingsViewModel}">
-        <view:SettingsView/>
+    <DataTemplate DataType="{x:Type viewmodel:SettingsChangeLanguageViewModel}">
+        <view:SettingsChangeLanguageView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:SettingsChangeLogsFormatViewModel}">
+        <view:SettingsChangeLogsFormatView/>
     </DataTemplate>
 
 </ResourceDictionary>
