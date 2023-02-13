@@ -56,7 +56,4 @@
     <Resource Include="src\Render\Assets\vsc_icon.png" />
     <Resource Include="src\Render\Assets\vs_icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Render\Views\" />
-  </ItemGroup>
 </Project>
