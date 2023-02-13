@@ -45,7 +45,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    TextWrapping="Wrap"
-                   Margin="116,168,0,0" Height="72" Width="188" FontWeight="Bold"/>
+                   Margin="116,164,0,0" Height="72" Width="188" FontWeight="Bold"/>
 
         <TextBlock FontSize="12" 
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
@@ -54,7 +54,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    TextWrapping="Wrap"
-                   Margin="116,245,0,0" Height="91" Width="266"/>
+                   Margin="116,249,0,0" Height="91" Width="266"/>
 
         <Image HorizontalAlignment="Left" 
                Height="219" Margin="412,230,0,0" 
