@@ -18,12 +18,10 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveCreateView : UserControl
     {
+        SaveType _type;
+        ViewModel _vm = new ViewModel();
         private void SelectFilePathCommand(object sender, RoutedEventArgs e)
         {
-            /*OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == true)
-                TxtSrc.Text = File.ReadAllText(openFileDialog.FileName);*/
-            
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\";
             dialog.IsFolderPicker = true;
@@ -40,30 +38,20 @@ namespace EasySave.src.Render.Views
                 TxtDest.Text = dialog.FileName;
         }
 
-        /*private SaveType RadioCheck()
+        private void RadioCheck(Object sender, EventArgs e)
         {
-            if(btnFull.IsChecked != null && (bool)btnFull.IsChecked)
-                return Full;
-            else
-                return Differential;
-        }*/
+            if(btnFull.IsChecked == true)
+                _type = Full;
+            if(btnDiff.IsChecked == true)
+                _type = Differential;
+        }
 
-        public void CreateSave(Object sender, EventArgs e)
+        public void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-            CreateNewSave();
+            _vm.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
         }
         
-        public Save CreateNewSave()
-        {
-            SaveType type;
-            if(btnFull.IsChecked != null && (bool)btnFull.IsChecked)
-                type = Full;
-            else
-                type = Differential;
-            return Save.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, type);
-        }
-        
-        public SaveCreateView(Save newSave)
+        public SaveCreateView()
         {
             InitializeComponent();
         }
