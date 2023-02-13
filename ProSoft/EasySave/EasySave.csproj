@@ -58,4 +58,11 @@
   <ItemGroup>
     <Folder Include="src\Render\Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <Page Update="src\Render\Views\SaveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>
