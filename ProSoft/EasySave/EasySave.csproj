@@ -58,5 +58,11 @@
     <Resource Include="src\Render\Assets\vs_icon.png" />
     <Resource Include="src\Render\Assets\LogoEasySave.png" />
     <Resource Include="src\Render\Assets\Logo.png" />
+    <Resource Include="src\Render\Assets\fr_FR.png" />
+    <Resource Include="src\Render\Assets\en_US.png" />
+    <Resource Include="src\Render\Assets\it_IT.png" />
+    <Resource Include="src\Render\Assets\ru_RU.png" />
+    <Resource Include="src\Render\Assets\json.png" />
+    <Resource Include="src\Render\Assets\xml.png" />
   </ItemGroup>
 </Project>

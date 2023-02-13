@@ -29,7 +29,7 @@
 
     <Grid Background="#303030">
 
-        <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings}"
+        <TextBlock Text="{x:Static resources:Resource.ChangeLang}"
                    FontSize="24"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
@@ -38,7 +38,7 @@
                    Margin="5,12,0,0" />
 
 
-        <ItemsControl ItemsSource="{Binding HomeSourceCollection}"
+        <ItemsControl ItemsSource="{Binding LangSourceCollection}"
                       Height="350"
                       Width="650"
                       HorizontalAlignment="Center"
@@ -46,12 +46,12 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <RadioButton Content="{Binding HomeName}"
-                                 CommandParameter="{Binding HomeName}"
-                                 Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.ThisSettingsLanguageCommand}"
-                                 Tag="{Binding HomeImage}"
+                    <RadioButton Content="{Binding LangName}"
+                                 CommandParameter="{Binding LangParam}"
+                                 Command="{Binding ChangeLanguage}"
+                                 Tag="{Binding LangImage}"
                                  Style="{StaticResource GridButtonStyle}"
-                                 GroupName="HomeGroup" />
+                                 GroupName="LangGroup" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>

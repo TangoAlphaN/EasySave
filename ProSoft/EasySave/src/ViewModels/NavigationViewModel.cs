@@ -108,19 +108,19 @@ namespace EasySave.src.ViewModels
         }
 
         // This Settings button Command
-        private ICommand _settingsLanguageCommand;
-        public ICommand ThisSettingsLanguageCommand
+        private ICommand _settingsLangCommand;
+        public ICommand ThisSettingsLangCommand
         {
             get
             {
-                if (_settingsLanguageCommand == null)
+                if (_settingsLangCommand == null)
                 {
-                    _settingsLanguageCommand = new RelayCommand(param =>
+                    _settingsLangCommand = new RelayCommand(param =>
                     {
                         SelectedViewModel = new SettingsChangeLanguageViewModel();
                     });
                 }
-                return _settingsLanguageCommand;
+                return _settingsLangCommand;
             }
         }
 

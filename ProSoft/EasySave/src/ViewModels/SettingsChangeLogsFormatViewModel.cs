@@ -11,19 +11,17 @@ namespace EasySave.src.ViewModels
     public class SettingsChangeLogsFormatViewModel : INotifyPropertyChanged
     {
         private CollectionViewSource SettingsItemsCollection;
-        public ICollectionView HomeSourceCollection => SettingsItemsCollection.View;
+        public ICollectionView LogsSourceCollection => SettingsItemsCollection.View;
 
         public SettingsChangeLogsFormatViewModel()
         {
-            ObservableCollection<HomeItems> homeItems = new ObservableCollection<HomeItems>
+            ObservableCollection<LogsItems> logsItems = new ObservableCollection<LogsItems>
             {
-                 new HomeItems { HomeName = $"{Resource.Lang_fr_FR}", HomeImage = @"Assets/Lang_Icon.png" },
-                 new HomeItems { HomeName = $"{Resource.Lang_en_US}", HomeImage = @"Assets/notepad_icon.png" },
-                 new HomeItems { HomeName = $"{Resource.Lang_it_IT}", HomeImage = @"Assets/notepad_icon.png" },
-                 new HomeItems { HomeName = $"{Resource.Lang_ru_RU}", HomeImage = @"Assets/notepad_icon.png" },
+                new LogsItems { LogName = "JSON", LogImage = @"Assets/json.png", ChangeLogs = new RelayCommand(ViewModel.ChangeLogsFormat) },
+                new LogsItems { LogName = "XML", LogImage = @"Assets/xml.png", ChangeLogs = new RelayCommand(ViewModel.ChangeLogsFormat) },
             };
 
-            SettingsItemsCollection = new CollectionViewSource { Source = homeItems };
+            SettingsItemsCollection = new CollectionViewSource { Source = logsItems };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

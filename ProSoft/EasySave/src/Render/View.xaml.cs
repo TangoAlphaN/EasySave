@@ -1,13 +1,6 @@
-﻿using EasySave.Properties;
-using EasySave.src.Models.Data;
-using EasySave.src.Utils;
-using Newtonsoft.Json.Linq;
+﻿using EasySave.src.Models.Data;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows;
 
 namespace EasySave.src.Render
