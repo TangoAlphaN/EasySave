@@ -14,18 +14,19 @@ namespace EasySave.src.ViewModels
 {
     public class SaveCreateViewModel : INotifyPropertyChanged
     {
-        private CollectionViewSource SaveItemsCollection;
-        public ICollectionView HomeSourceCollection => SaveItemsCollection.View;
+        private CollectionViewSource CreateSaveItemsCollection;
+        public ICollectionView CreateSaveSourceCollection => CreateSaveItemsCollection.View;
         public event PropertyChangedEventHandler PropertyChanged;
         
         public SaveCreateViewModel()
         {
-            ObservableCollection<HomeItems> saveItems = new ObservableCollection<HomeItems>
+            ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                
+                new MenuItems {MenuName = $"{Resource.CreateSave_Type_Full}", MenuImage = "0"},
+                new MenuItems {MenuName = $"{Resource.CreateSave_Type_Differential}", MenuImage = "1"},
             };
 
-            SaveItemsCollection = new CollectionViewSource { Source = saveItems };
+            CreateSaveItemsCollection = new CollectionViewSource { Source = menuItems };
         }
 
 

@@ -37,6 +37,9 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -81,23 +84,15 @@
         <Button Grid.Column="1" 
                 Grid.Row="4"
                 Name="btnOpenFile"
-                Width="100"
-                Height="50"
+                Width="250"
+                Height="25"
                 HorizontalAlignment="left"
-                Background="Transparent" 
+                Background="#DDDDDD" 
                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
                 Click="SelectFilePathCommand"
-                BorderThickness="0">
-            <Button.Content>
-                <TextBox TextWrapping="Wrap"
-                         Text="{x:Static resources:Resource.CreateSave_SrcPath}"
-                         Background="#DDDDDD"
-                         Margin="0"
-                         Foreground="#303030"
-                         MouseLeftButtonDown="SelectFilePathCommand"/>
-            </Button.Content>
-
-        </Button>
+                BorderThickness="0"
+                Content="{x:Static resources:Resource.CreateSave_SrcPath}"
+                Foreground="#303030" />
         
         <Label Grid.Row="5" 
                Grid.Column="0"
@@ -114,22 +109,48 @@
         <Button Grid.Column="1" 
                 Grid.Row="6"
                 Name="btnOpenFileDest"
-                Width="100"
-                Height="50"
+                Width="250"
+                Height="25"
                 HorizontalAlignment="left"
                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
                 Click="SelectFilePathCommandDest" 
-                Background="Transparent"
-                BorderThickness="0">
-            <Button.Content>
-                <TextBox TextWrapping="Wrap"
-                         Text="{x:Static resources:Resource.CreateSave_DestPath}"
-                         Background="#DDDDDD"
-                         Margin="0"
-                         Foreground="#303030"/>
-            </Button.Content>
-        </Button>
+                BorderThickness="0"
+                Content="{x:Static resources:Resource.CreateSave_DestPath}"
+                Background="#DDDDDD"
+                Foreground="#303030" />
         
+        <Label Grid.Column="0"
+               Grid.Row="7"
+               Content="{x:Static resources:Resource.CreateSave_Type}"
+               Foreground="#DDDDDD"
+               FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+        <RadioButton Grid.Row="8" 
+                     Grid.Column="0"
+                     x:Name="btnFull"
+                     Content="{x:Static resources:Resource.CreateSave_Type_Full}"
+                     CommandParameter="{x:Static resources:Resource.CreateSave_Type_Full}"
+                     HorizontalAlignment="Left"
+                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                     GroupName="TypeGroup"
+                     Foreground="#DDDDDD"/>
+        <RadioButton Grid.Row="8" 
+                     Grid.Column="1"
+                     x:Name="btnDiff"
+                     Content="{x:Static resources:Resource.CreateSave_Type_Differential}"
+                     CommandParameter="{x:Static resources:Resource.CreateSave_Type_Differential}"
+                     HorizontalAlignment="Left"
+                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                     GroupName="TypeGroup"
+                     Foreground="#DDDDDD"/>
+        <Button Grid.Row="9"
+                Grid.Column="0" 
+                Content="{x:Static resources:Resource.HomeMenu_Create}"
+                FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                Foreground="#303030" 
+                Width="150"
+                Height="50"
+                VerticalAlignment="Bottom"
+                Click="CreateSave"/>
         
     </Grid>
 

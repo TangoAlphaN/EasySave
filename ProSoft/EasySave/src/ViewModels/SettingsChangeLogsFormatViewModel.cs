@@ -1,8 +1,4 @@
-<<<<<<< HEAD:ProSoft/EasySave/src/ViewModels/SettingsViewModel.cs
-=======
-﻿
 using EasySave.Properties;
->>>>>>> 9e90b2f17979489cdcfbd9ece7cb56a5dff0e5d9:ProSoft/EasySave/src/ViewModels/SettingsChangeLogsFormatViewModel.cs
 using EasySave.src.Models;
 using EasySave.src.Render;
 using System.Collections.ObjectModel;

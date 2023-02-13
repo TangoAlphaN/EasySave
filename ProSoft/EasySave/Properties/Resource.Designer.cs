@@ -150,7 +150,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select destination path.
+        ///   Looks up a localized string similar to Welcome to EasySave, the easiest to use backup application. To save data, simply go to the &quot;Create Save&quot; selection. If you have any problems please contact us at easysave.help@outlook.com.
         /// </summary>
         public static string CreateSave_DestPath {
             get {
@@ -384,7 +384,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to EasySave.
+        ///   Looks up a localized string similar to  Welcome to EasySave.
         /// </summary>
         public static string HomeWelcome {
             get {
