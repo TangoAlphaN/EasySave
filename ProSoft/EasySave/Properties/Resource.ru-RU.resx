@@ -243,6 +243,13 @@
   <data name="ChangeLogsFormat.Actual" xml:space="preserve">
     <value>Текущий тип :</value>
   </data>
+<<<<<<< HEAD
+  <data name="CreateSave.DestPath" xml:space="preserve">
+    <value>Выберите путь назначения</value>
+  </data>
+  <data name="CreateSave.SrcPath" xml:space="preserve">
+    <value>выберите исходный путь</value>
+=======
   <data name="HomePresentation" xml:space="preserve">
     <value>Добро пожаловать в EasySave, самое простое в использовании приложение для резервного копирования. Чтобы сохранить данные, просто перейдите к выбору "Создать сохранение". Если у вас возникли какие-либо проблемы, пожалуйста, свяжитесь с нами по адресу easysave.help@outlook.com.</value>
   </data>
@@ -251,5 +258,6 @@
   </data>
   <data name="HomeWelcome" xml:space="preserve">
     <value>Добро пожаловать в EasySave</value>
+>>>>>>> 9e90b2f17979489cdcfbd9ece7cb56a5dff0e5d9
   </data>
 </root>
