@@ -8,8 +8,8 @@
              xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             d:DesignWidth="650">   
-   
+             d:DesignWidth="650">
+
     <UserControl.Style>
         <Style>
             <Style.Triggers>
@@ -50,7 +50,6 @@
                                  CommandParameter="{Binding HomeName}"
                                  Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.ThisPCCommand}"
                                  Tag="{Binding HomeImage}"
-                                 Style="{StaticResource GridButtonStyle}"
                                  GroupName="HomeGroup" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
@@ -62,7 +61,16 @@
             </ItemsControl.ItemsPanel>
 
         </ItemsControl>
-     
+        <ListBox x:Name="MyListBox" Margin="0,58,0,280" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="EditButton" Content="Get Selected Value" HorizontalAlignment="Left" Margin="255,238,0,0" VerticalAlignment="Top" Width="198" Click="EditButton_Click" Height="32"/>
+        <TextBox x:Name="EditTextBox" HorizontalAlignment="Left" Margin="0,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" Height="32"/>
+
 
     </Grid>
 

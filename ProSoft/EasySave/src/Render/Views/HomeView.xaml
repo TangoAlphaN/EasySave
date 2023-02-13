@@ -54,7 +54,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    TextWrapping="Wrap"
-                   Margin="116,249,0,0" Height="91" Width="266"/>
+                   Margin="116,249,0,0" Height="124" Width="266"/>
 
         <Image HorizontalAlignment="Left" 
                Height="219" Margin="412,230,0,0" 
