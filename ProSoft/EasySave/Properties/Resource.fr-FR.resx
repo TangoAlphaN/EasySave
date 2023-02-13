@@ -243,10 +243,21 @@
   <data name="ChangeLogsFormat.Actual" xml:space="preserve">
     <value>Type actuel :</value>
   </data>
+<<<<<<< HEAD
   <data name="CreateSave.DestPath" xml:space="preserve">
     <value>Sélectionner le chemin de destination</value>
   </data>
   <data name="CreateSave.SrcPath" xml:space="preserve">
     <value>Sélectionner le chemin source</value>
+=======
+  <data name="HomePresentation" xml:space="preserve">
+    <value>Bienvenue sur EasySave, l'application de sauvegarde la plus facile à utiliser. Pour sauvegarder des données, il suffit d'aller dans la sélection "Créer une sauvegarde". Si vous rencontrez des problèmes, veuillez nous contacter à l'adresse easysave.help@outlook.com.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>L'application de sauvegarde la plus pratique</value>
+  </data>
+  <data name="HomeWelcome" xml:space="preserve">
+    <value>Bienvenue sur EasySave</value>
+>>>>>>> 9e90b2f17979489cdcfbd9ece7cb56a5dff0e5d9
   </data>
 </root>

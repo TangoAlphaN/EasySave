@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EasySave.src.Render.Views.HomeView"
+﻿<UserControl x:Class="EasySave.src.Render.Views.SettingsChangeLanguageView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,8 +8,8 @@
              xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             d:DesignWidth="650">
-
+             d:DesignWidth="650">   
+   
     <UserControl.Style>
         <Style>
             <Style.Triggers>
@@ -29,38 +29,41 @@
 
     <Grid Background="#303030">
 
-        <TextBlock Text="{x:Static resources:Resource.HomeWelcome}"
-                   FontSize="48"
+        <TextBlock Text="{x:Static resources:Resource.ChangeLang}"
+                   FontSize="24"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   TextWrapping="Wrap"
-                   Margin="0,12,0,0" Height="108" Width="463" />
-
-        <TextBlock FontSize="20" 
-                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
-                   Foreground="#DDDDDD"
-                   Text="{x:Static resources:Resource.HomeSubtitle}" 
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   TextWrapping="Wrap"
-                   Margin="116,164,0,0" Height="72" Width="188" FontWeight="Bold"/>
+                   Margin="5,12,0,0" />
 
-        <TextBlock FontSize="12" 
-                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
-                   Foreground="#DDDDDD"
-                   Text="{x:Static resources:Resource.HomePresentation}" 
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   TextWrapping="Wrap"
-                   Margin="116,249,0,0" Height="91" Width="266"/>
 
-        <Image HorizontalAlignment="Left" 
-               Height="219" Margin="412,230,0,0" 
-               VerticalAlignment="Top" 
-               Width="228" 
-               Source="..\Assets\Logo.png"/>
+        <ItemsControl ItemsSource="{Binding LangSourceCollection}"
+                      Height="350"
+                      Width="650"
+                      HorizontalAlignment="Center"
+                      Margin="0,40,0,0">
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Content="{Binding LangName}"
+                                 CommandParameter="{Binding LangParam}"
+                                 Command="{Binding ChangeLanguage}"
+                                 Tag="{Binding LangImage}"
+                                 Style="{StaticResource GridButtonStyle}"
+                                 GroupName="LangGroup" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"
+                                 Rows="3" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+        </ItemsControl>
+     
+
     </Grid>
 
 </UserControl>

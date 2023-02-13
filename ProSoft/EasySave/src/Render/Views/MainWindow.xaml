@@ -36,7 +36,7 @@
                 Height="80"
                 Width="850">
 
-            <TextBlock Text="EasySave V3.0"
+            <TextBlock Text="EasySave V2.0"
                        Style="{StaticResource HeaderStyle}"/>
 
         </Border>
