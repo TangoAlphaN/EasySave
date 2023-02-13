@@ -246,14 +246,8 @@
   <data name="CreateSave.DestPath" xml:space="preserve">
     <value>Sélectionner le chemin de destination</value>
   </data>
-<<<<<<< HEAD
   <data name="CreateSave.SrcPath" xml:space="preserve"><value>Sélectionner le chemin source</value></data>
   <value>Sélectionner le chemin source</value>
-=======
-  <data name="CreateSave.SrcPath" xml:space="preserve">
-    <value>Sélectionner le chemin source</value>
-  </data>
->>>>>>> b7ef0bf728eaf828999647cebe767aa18add482f
   <data name="HomePresentation" xml:space="preserve">
     <value>Bienvenue sur EasySave, l'application de sauvegarde la plus facile à utiliser. Pour sauvegarder des données, il suffit d'aller dans la sélection "Créer une sauvegarde". Si vous rencontrez des problèmes, veuillez nous contacter à l'adresse easysave.help@outlook.com</value>
   </data>
@@ -262,8 +256,6 @@
   </data>
   <data name="HomeWelcome" xml:space="preserve">
     <value>Bienvenue sur EasySave</value>
-<<<<<<< HEAD
-=======
   </data>
   <data name="HomeMenu.Settings.CryptoSoft" xml:space="preserve">
     <value>Paramètres CryptoSoft :</value>
@@ -273,6 +265,5 @@
   </data>
   <data name="Settings.Extensions" xml:space="preserve">
     <value>Extensions CryptoSoft :</value>
->>>>>>> b7ef0bf728eaf828999647cebe767aa18add482f
   </data>
 </root>

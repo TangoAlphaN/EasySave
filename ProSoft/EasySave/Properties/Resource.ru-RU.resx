@@ -257,8 +257,6 @@
   </data>
   <data name="HomeWelcome" xml:space="preserve">
     <value>Добро пожаловать в EasySave</value>
-<<<<<<< HEAD
-=======
   </data>
   <data name="HomeMenu.Settings.CryptoSoft" xml:space="preserve">
     <value>Настройки CryptoSoft:</value>
@@ -268,6 +266,5 @@
   </data>
   <data name="Settings.Secret" xml:space="preserve">
     <value>секретный ключ криптософт:</value>
->>>>>>> b7ef0bf728eaf828999647cebe767aa18add482f
   </data>
 </root>
