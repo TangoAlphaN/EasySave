@@ -55,7 +55,6 @@ namespace EasySave.src.Render.Views
                     MessageBox.Show("Please enter a new name.");
                     return;
                 }
-                //MessageBox.Show("Selected Value: " + selectedItem.ToString());
 
                 HashSet<Save> saves = new ViewModel().GetSavesByUuid(new HashSet<string>() { selectedItem.ToString() });
 
@@ -63,7 +62,6 @@ namespace EasySave.src.Render.Views
                 {
                     new ViewModel().EditSave(save, EditTextBox.Text.ToString());
                     updateSaves();
-                    MessageBox.Show(save.ToString());
                 }
             }
             else

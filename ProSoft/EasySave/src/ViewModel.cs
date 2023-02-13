@@ -3,6 +3,7 @@ using EasySave.src.Models.Data;
 using EasySave.src.Render;
 using EasySave.src.Render.Views;
 using EasySave.src.Utils;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -143,6 +144,10 @@ namespace EasySave.src
             Application.Current.MainWindow.Show();
         }
 
+        internal static void ChangeKey(object obj)
+        {
+            DirectoryUtils.ChangeKey((string)obj);
+        }
     }
 
     public class MenuItems
@@ -176,6 +181,7 @@ namespace EasySave.src
     public class CryptoSoftSettingsItem
     {
         public string SettingsName { get; set; }
+        public string SettingsValue { get; set; }
         public ICommand ChangeSettings { get; set; }
     }
 

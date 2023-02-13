@@ -48,7 +48,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="button1" Content="Get Selected Value" HorizontalAlignment="Left" Margin="313,21,0,0" VerticalAlignment="Top" Width="200" Click="Button1_Click"/>
             <Button x:Name="DeleteButton" 
                 Content="{x:Static resources:Resource.Delete}" 
                 HorizontalAlignment="Left" 
