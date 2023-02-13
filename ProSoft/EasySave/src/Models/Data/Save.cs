@@ -236,9 +236,9 @@ namespace EasySave.src.Models.Data
                 foreach (var save in data) {
                     if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
                     if (save.Value["type"].ToString() == "Full")
-                        saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString()), Save.GetStatus(save.Value["state"].ToString())));
+                        saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString()), Save.GetStatus(save.Value["state"].ToString())));
                     else
-                        saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
+                        saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString())));
                 }
             }
            
