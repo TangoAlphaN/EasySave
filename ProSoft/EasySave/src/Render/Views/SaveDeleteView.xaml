@@ -8,8 +8,8 @@
              xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             d:DesignWidth="650">   
-   
+             d:DesignWidth="650">
+
     <UserControl.Style>
         <Style>
             <Style.Triggers>
@@ -28,6 +28,10 @@
     </UserControl.Style>
 
     <Grid Background="#303030">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="169*"/>
+        </Grid.RowDefinitions>
 
         <TextBlock Text="{x:Static resources:Resource.HomeMenu_Delete}"
                    FontSize="24"
@@ -37,33 +41,14 @@
                    VerticalAlignment="Top"
                    Margin="5,12,0,0" />
 
-
-        <ItemsControl ItemsSource="{Binding HomeSourceCollection}"
-                      Height="350"
-                      Width="650"
-                      HorizontalAlignment="Center"
-                      Margin="0,40,0,0">
-
-            <ItemsControl.ItemTemplate>
+        <ListBox x:Name="MyListBox" Margin="0,58,0,280" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <RadioButton Content="{Binding HomeName}"
-                                 CommandParameter="{Binding HomeName}"
-                                 Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.ThisPCCommand}"
-                                 Tag="{Binding HomeImage}"
-                                 Style="{StaticResource GridButtonStyle}"
-                                 GroupName="HomeGroup" />
+                    <TextBlock Text="{Binding}" />
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="5"
-                                 Rows="3" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-
-        </ItemsControl>
-     
-
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="button1" Content="Get Selected Value" HorizontalAlignment="Left" Margin="313,21,0,0" VerticalAlignment="Top" Width="200" Click="Button1_Click"/>
     </Grid>
 
 </UserControl>

@@ -29,7 +29,7 @@
 
     <Grid Background="#303030">
 
-        <TextBlock Text="CryptoSoft"
+        <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_CryptoSoft}"
                    FontSize="24"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
@@ -38,7 +38,7 @@
                    Margin="5,12,0,0" />
 
 
-        <ItemsControl ItemsSource="{Binding LangSourceCollection}"
+        <ItemsControl ItemsSource="{Binding SettingsSourceCollection}"
                       Height="350"
                       Width="650"
                       HorizontalAlignment="Center"
@@ -46,10 +46,19 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <RadioButton Content="{Binding SettingsName}"
-                                 CommandParameter="{Binding SettingsParam}"
-                                 Command="{Binding ChangeSettings}"
-                                 GroupName="LangGroup" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" 
+                           Grid.Column="0"
+                           Content="{Binding SettingsName}" 
+                           Foreground="#DDDDDD"
+                           FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+                        <TextBox Grid.Row="1" 
+                           Grid.Column="0" Text="{Binding SettingsValue}" Tag="{Binding SettingsName}" />
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>

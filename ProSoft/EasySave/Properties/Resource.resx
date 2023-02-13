@@ -259,7 +259,7 @@
     <value>Welcome to EasySave</value>
   </data>
   <data name="HomeMenu.Settings.CryptoSoft" xml:space="preserve">
-    <value>CryptoSoft Settings:</value>
+    <value>CryptoSoft Settings</value>
   </data>
   <data name="Settings.Secret" xml:space="preserve">
     <value>CryptoSoft Secret:</value>

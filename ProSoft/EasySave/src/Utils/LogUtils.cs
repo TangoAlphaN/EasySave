@@ -17,7 +17,7 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Path to the log file
         /// </summary>
-        private static readonly string _path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
+        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
 
         private static LogsFormat _format;
 
@@ -32,25 +32,25 @@ namespace EasySave.src.Utils
         public static void Init()
         {
             //Create easysave dir if not exists
-            if (!DirectoryUtils.IsValidPath(_path))
+            if (!DirectoryUtils.IsValidPath(path))
             {
                 //AnsiConsole.Clear();
-                Directory.CreateDirectory(_path);
+                Directory.CreateDirectory(path);
             }
             //If XML file exists, load saves and set XML as default
             dynamic data;
-            if (File.Exists($"{_path}saves.json") || File.Exists($"{_path}saves.xml"))
+            if (File.Exists($"{path}saves.json") || File.Exists($"{path}saves.xml"))
             {
-                if (File.Exists($"{_path}saves.xml"))
+                if (File.Exists($"{path}saves.xml"))
                 {
                     _format = LogsFormat.XML;
-                    data = XDocument.Load($"{_path}saves.xml");
+                    data = XDocument.Load($"{path}saves.xml");
                 }
                 //else use JSON
                 else
                 {
                     _format = LogsFormat.JSON;
-                    data = JObject.Parse(File.ReadAllText($"{_path}saves.json"));
+                    data = JObject.Parse(File.ReadAllText($"{path}saves.json"));
                 }
                 try
                 {
@@ -69,9 +69,9 @@ namespace EasySave.src.Utils
         public static void LogSaves()
         {
             if(_format == LogsFormat.XML)
-                new XDocument(SavesToXml()).Save($"{_path}saves.xml");
+                new XDocument(SavesToXml()).Save($"{path}saves.xml");
             else
-                File.WriteAllText($"{_path}saves.json", SavesToJson().ToString());
+                File.WriteAllText($"{path}saves.json", SavesToJson().ToString());
         }
 
         /// <summary>
@@ -188,12 +188,12 @@ namespace EasySave.src.Utils
                     new XElement("date", DateTime.Now)
                 );
                 dynamic data;
-                if (File.Exists($"{_path}data-{_date}.xml"))
-                    data = XDocument.Load($"{_path}data-{_date}.xml");
+                if (File.Exists($"{path}data-{_date}.xml"))
+                    data = XDocument.Load($"{path}data-{_date}.xml");
                 else
                     data = new XDocument(new XElement("transfers"));
                 data.Element("transfers").Add(transferInfo);
-                data.Save($"{_path}data-{_date}.xml");
+                data.Save($"{path}data-{_date}.xml");
             }
             else {
                 transferInfo = new JObject();
@@ -207,13 +207,13 @@ namespace EasySave.src.Utils
 
                 string json = JsonConvert.SerializeObject(transferInfo);
                 var arrayJson = JsonConvert.SerializeObject(new[] { transferInfo }, Formatting.Indented);
-                if (File.Exists($"{_path}data-{_date}.json"))
+                if (File.Exists($"{path}data-{_date}.json"))
                 {
-                    JArray newJSON = ((JArray)JsonConvert.DeserializeObject(File.ReadAllText($"{_path}data-{_date}.json")));
+                    JArray newJSON = ((JArray)JsonConvert.DeserializeObject(File.ReadAllText($"{path}data-{_date}.json")));
                     newJSON.Add(JsonConvert.DeserializeObject(json));
                     arrayJson = JsonConvert.SerializeObject(newJSON, Formatting.Indented);
                 }
-                File.WriteAllText($"{_path}data-{_date}.json", arrayJson);
+                File.WriteAllText($"{path}data-{_date}.json", arrayJson);
             }
         }
 
@@ -230,12 +230,12 @@ namespace EasySave.src.Utils
             switch (format)
             {
                 case LogsFormat.JSON:
-                    if (File.Exists($"{_path}saves.xml"))
-                        File.Delete($"{_path}saves.xml");
+                    if (File.Exists($"{path}saves.xml"))
+                        File.Delete($"{path}saves.xml");
                     break;
                 case LogsFormat.XML:
-                    if (File.Exists($"{_path}saves.json"))
-                        File.Delete($"{_path}saves.json");
+                    if (File.Exists($"{path}saves.json"))
+                        File.Delete($"{path}saves.json");
                     break;
                 default:
                     throw new UnknownLogFormatException();
