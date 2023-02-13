@@ -18,4 +18,4 @@ The Crypto Key must be 64 bytes long minimum.
 
 -2 : File is ignored by user settings.
 
-> 0 : The value returned is the encryption time of the file in milliseconds.
+\> 0 : The value returned is the encryption time of the file in milliseconds.
