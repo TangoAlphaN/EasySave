@@ -17,7 +17,7 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Maximum number of saves
         /// </summary>
-        public const int MAX_SAVES = 5;
+        public const int MAX_SAVES = int.MaxValue;
 
         /// <summary>
         /// List of saves

@@ -10,5 +10,29 @@
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <view:HomeView/>
     </DataTemplate>
-    
+
+    <DataTemplate DataType="{x:Type viewmodel:SaveCreateViewModel}">
+        <view:SaveCreateView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:SaveEditViewModel}">
+        <view:SaveEditView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:SaveLoadViewModel}">
+        <view:SaveLoadView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:SaveDeleteViewModel}">
+        <view:SaveDeleteView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:SettingsChangeLanguageViewModel}">
+        <view:SettingsChangeLanguageView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:SettingsChangeLogsFormatViewModel}">
+        <view:SettingsChangeLogsFormatView/>
+    </DataTemplate>
+
 </ResourceDictionary>

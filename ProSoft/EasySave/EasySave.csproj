@@ -52,13 +52,11 @@
     <Resource Include="src\Render\Assets\print_icon.png" />
     <Resource Include="src\Render\Assets\services_icon.png" />
     <Resource Include="src\Render\Assets\Trash_Icon.png" />
+    <Resource Include="src\Render\Assets\Lang_Icon.png" />
     <Resource Include="src\Render\Assets\usb_icon.png" />
     <Resource Include="src\Render\Assets\vsc_icon.png" />
     <Resource Include="src\Render\Assets\vs_icon.png" />
     <Resource Include="src\Render\Assets\LogoEasySave.png" />
     <Resource Include="src\Render\Assets\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Render\Views\" />
   </ItemGroup>
 </Project>

@@ -36,7 +36,8 @@ namespace EasySave.src.ViewModels
                 new MenuItems { MenuName = $"{Resource.HomeMenu_Load}", MenuImage = @"Assets/Drive_Icon.png" },
                 new MenuItems { MenuName = $"{Resource.HomeMenu_Edit}", MenuImage = @"Assets/order_icon.png" },
                 new MenuItems { MenuName = $"{Resource.HomeMenu_Delete}", MenuImage = @"Assets/Trash_Icon.png" },
-                new MenuItems { MenuName = $"{Resource.HomeMenu_Settings}", MenuImage = @"Assets/services_icon.png" },
+                new MenuItems { MenuName = $"{Resource.SettingsMenu_LogsFormat}", MenuImage = @"Assets/notepad_icon.png" },
+                new MenuItems { MenuName = $"{Resource.SettingsMenu_ChangeLanguage}", MenuImage = @"Assets/Lang_icon.png" },
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
@@ -69,20 +70,57 @@ namespace EasySave.src.ViewModels
                     SelectedViewModel = new HomeViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Create:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.CreateSave);
+                    SelectedViewModel = new SaveCreateViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Edit:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.EditSave);
+                    SelectedViewModel = new SaveEditViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Load:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.LoadSave);
+                    SelectedViewModel = new SaveLoadViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Delete:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.DeleteSave);
+                    SelectedViewModel = new SaveDeleteViewModel();
                     break;
-                case var value when value == Resource.HomeMenu_Settings:
-                    SelectedViewModel = new SettingsViewModel();
+                case var value when value == Resource.SettingsMenu_ChangeLanguage:
+                    SelectedViewModel = new SettingsChangeLanguageViewModel();
                     break;
+                case var value when value == Resource.SettingsMenu_LogsFormat:
+                    SelectedViewModel = new SettingsChangeLogsFormatViewModel();
+                    break;
+            }
+        }
+
+        // This Settings button Command
+        private ICommand _settingsLogsCommand;
+        public ICommand ThisSettingsLogsCommand
+        {
+            get
+            {
+                if (_settingsLogsCommand == null)
+                {
+                    _settingsLogsCommand = new RelayCommand(param =>
+                    {
+                        SelectedViewModel = new SettingsChangeLogsFormatViewModel();
+                    });
+                }
+                return _settingsLogsCommand;
+            }
+        }
+
+        // This Settings button Command
+        private ICommand _settingsLanguageCommand;
+        public ICommand ThisSettingsLanguageCommand
+        {
+            get
+            {
+                if (_settingsLanguageCommand == null)
+                {
+                    _settingsLanguageCommand = new RelayCommand(param =>
+                    {
+                        SelectedViewModel = new SettingsChangeLanguageViewModel();
+                    });
+                }
+                return _settingsLanguageCommand;
             }
         }
 
