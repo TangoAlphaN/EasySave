@@ -94,7 +94,7 @@ namespace EasySave.src.ViewModels
             {
                 if (_menucommand == null)
                 {
-                    _menucommand = new RelayCommand(param => SwitchViews(param));
+                    _menucommand = new RelayCommand(param => SwitchViews((string)param));
                 }
                 return _menucommand;
             }
