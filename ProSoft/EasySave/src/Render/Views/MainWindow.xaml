@@ -6,8 +6,8 @@
         xmlns:vm="clr-namespace:EasySave.src.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="580" 
-        Width="930"
+        Height="800" 
+        Width="1400"
         x:Name="DashboardWindow"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -59,8 +59,7 @@
         <Border Background="#303030"
                 BorderBrush="#FFFFFF"
                 BorderThickness="0,5,0,5"
-                Height="480"
-                Margin="0,10,0,0"
+                Margin="0,85,0,80"
                 CornerRadius="25"/>
 
         <!--Content Grid-->
@@ -70,7 +69,7 @@
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="25"/>
-                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="280"/>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="660"/>
                 <ColumnDefinition Width="25"/>
@@ -118,7 +117,7 @@
                   Background="Transparent">
 
                 <ContentControl x:Name="Pages"
-                                Content="{Binding SelectedViewModel}"/>
+                                Content="{Binding SelectedViewModel}" Margin="182,45,-182,-45"/>
 
             </Grid>
 
