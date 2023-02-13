@@ -187,7 +187,7 @@
     <value>Выберите действие :</value>
   </data>
   <data name="Lang.en-US" xml:space="preserve">
-    <value>Английский</value>
+    <value>Английский (USA)</value>
   </data>
   <data name="Lang.fr-FR" xml:space="preserve">
     <value>Французский</value>
@@ -266,5 +266,17 @@
   </data>
   <data name="Settings.Secret" xml:space="preserve">
     <value>секретный ключ криптософт:</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Загрузка</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Переименовать</value>
   </data>
 </root>

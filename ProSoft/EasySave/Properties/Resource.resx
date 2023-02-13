@@ -187,7 +187,7 @@
     <value>Choose an action:</value>
   </data>
   <data name="Lang.en-US" xml:space="preserve">
-    <value>English</value>
+    <value>English (USA)</value>
   </data>
   <data name="Lang.fr-FR" xml:space="preserve">
     <value>French</value>
@@ -266,5 +266,17 @@
   </data>
   <data name="Settings.Extensions" xml:space="preserve">
     <value>CryptoSoft Extensions:</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
   </data>
 </root>

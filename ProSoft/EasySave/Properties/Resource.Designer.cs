@@ -142,6 +142,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter save destination path:.
         /// </summary>
         public static string CreateSave_Dest {
@@ -219,6 +228,15 @@ namespace EasySave.Properties {
         public static string CreateSave_Type_Full {
             get {
                 return ResourceManager.GetString("CreateSave.Type.Full", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -403,7 +421,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English.
+        ///   Looks up a localized string similar to English (USA).
         /// </summary>
         public static string Lang_en_US {
             get {
@@ -439,11 +457,29 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        public static string Load {
+            get {
+                return ResourceManager.GetString("Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect Path | .
         /// </summary>
         public static string Path_Invalid {
             get {
                 return ResourceManager.GetString("Path.Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string Rename {
+            get {
+                return ResourceManager.GetString("Rename", resourceCulture);
             }
         }
         
