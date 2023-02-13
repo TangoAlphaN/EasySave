@@ -1,12 +1,11 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Render;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using ProSoft.CryptoSoft;
-using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using ProSoft.CryptoSoft;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace EasySave.src.Utils
@@ -20,7 +19,7 @@ namespace EasySave.src.Utils
         private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
 
         private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
-        
+
         /// <summary>
         /// Array to store the actual file being copied
         /// </summary>
@@ -36,11 +35,7 @@ namespace EasySave.src.Utils
             CryptoSoft cs = CryptoSoft.Init(key);
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
-            //Parallel is used to display progress bar while data beeing copied
-            Parallel.Invoke(
-                () => View.CreateProgressBar(s),
-                () => CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType())
-            );
+            CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType());
         }
 
         /// <summary>
@@ -71,7 +66,7 @@ namespace EasySave.src.Utils
                     try
                     {
                         if (extensions.Contains(file.Extension))
-                            encryptionTime = cs.ProcessFile(Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name, ".enc"));
+                            encryptionTime = cs.ProcessFile(Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, $"{file.Name}.enc"));
                         else
                             file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
                     }
@@ -170,7 +165,8 @@ namespace EasySave.src.Utils
             {
                 return key;
             }
-            catch {
+            catch
+            {
                 return $"Please set a key in {LogUtils.path}config.json";
             }
         }
