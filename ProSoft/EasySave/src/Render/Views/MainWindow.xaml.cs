@@ -11,5 +11,10 @@ namespace EasySave.src.Render.Views
         {
             InitializeComponent();
         }
+        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.MouseLeftButtonDown += (s, args) => this.DragMove();
+        }
     }
 }
