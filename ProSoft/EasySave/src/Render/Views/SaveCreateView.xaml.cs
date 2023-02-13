@@ -38,11 +38,11 @@ namespace EasySave.src.Render.Views
                 TxtDest.Text = dialog.FileName;
         }
 
-        private void RadioCheck(Object sender, EventArgs e)
+        public void RadioCheck(Object sender, EventArgs e)
         {
             if (btnFull.IsChecked == true)
                 _type = Full;
-            if (btnDiff.IsChecked == true)
+            else if (btnDiff.IsChecked == true)
                 _type = Differential;
         }
 

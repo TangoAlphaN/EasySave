@@ -133,7 +133,7 @@
                      FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                      GroupName="TypeGroup"
                      Foreground="#DDDDDD"
-                     />
+                     Checked="RadioCheck"/>
         <RadioButton Grid.Row="8" 
                      Grid.Column="1"
                      Name="btnDiff"
@@ -143,7 +143,7 @@
                      FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                      GroupName="TypeGroup"
                      Foreground="#DDDDDD"
-                     />
+                     Checked="RadioCheck"/>
         <Button Grid.Row="9"
                 Grid.Column="0" 
                 Content="{x:Static resources:Resource.HomeMenu_Create}"
