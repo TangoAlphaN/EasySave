@@ -9,14 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Page Remove="src\Render\View.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ApplicationDefinition Include="src\Render\View.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Octokit" Version="5.0.0" />
   </ItemGroup>
@@ -44,5 +36,26 @@
       <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
-
+  <ItemGroup>
+    <Resource Include="src\Render\Assets\book_icon.png" />
+    <Resource Include="src\Render\Assets\close_icon.png" />
+    <Resource Include="src\Render\Assets\close_mo_icon.png" />
+    <Resource Include="src\Render\Assets\Document_Icon.png" />
+    <Resource Include="src\Render\Assets\drive_icon.png" />
+    <Resource Include="src\Render\Assets\export_icon.png" />
+    <Resource Include="src\Render\Assets\file_icon.png" />
+    <Resource Include="src\Render\Assets\Home_Icon.png" />
+    <Resource Include="src\Render\Assets\notepad_icon.png" />
+    <Resource Include="src\Render\Assets\order_icon.png" />
+    <Resource Include="src\Render\Assets\password_icon.png" />
+    <Resource Include="src\Render\Assets\pc_icon.png" />
+    <Resource Include="src\Render\Assets\print_icon.png" />
+    <Resource Include="src\Render\Assets\services_icon.png" />
+    <Resource Include="src\Render\Assets\usb_icon.png" />
+    <Resource Include="src\Render\Assets\vsc_icon.png" />
+    <Resource Include="src\Render\Assets\vs_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Render\Views\" />
+  </ItemGroup>
 </Project>
