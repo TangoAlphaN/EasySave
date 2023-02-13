@@ -88,6 +88,24 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select file type:.
+        /// </summary>
+        public static string ChangeLogsFormat {
+            get {
+                return ResourceManager.GetString("ChangeLogsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Type:.
+        /// </summary>
+        public static string ChangeLogsFormat_Actual {
+            get {
+                return ResourceManager.GetString("ChangeLogsFormat.Actual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is it correct?.
         /// </summary>
         public static string Confirm {
@@ -160,15 +178,6 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save created successfully!.
-        /// </summary>
-        public static string CreateSave_Success {
-            get {
-                return ResourceManager.GetString("CreateSave.Success", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Choose save type:.
         /// </summary>
         public static string CreateSave_Type {
@@ -223,11 +232,65 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change language.
+        ///   Looks up a localized string similar to Save created successfully!.
         /// </summary>
-        public static string HomeMenu_ChangeLanguage {
+        public static string Header_CreateSaveSuccess {
             get {
-                return ResourceManager.GetString("HomeMenu.ChangeLanguage", resourceCulture);
+                return ResourceManager.GetString("Header.CreateSaveSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A new version is available:.
+        /// </summary>
+        public static string Header_NoUpToDate {
+            get {
+                return ResourceManager.GetString("Header.NoUpToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The save is already running.
+        /// </summary>
+        public static string Header_SaveAlreadyRunning {
+            get {
+                return ResourceManager.GetString("Header.SaveAlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save deleted successfully.
+        /// </summary>
+        public static string Header_SaveDeleted {
+            get {
+                return ResourceManager.GetString("Header.SaveDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save successfully renamed.
+        /// </summary>
+        public static string Header_SaveRenamed {
+            get {
+                return ResourceManager.GetString("Header.SaveRenamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameters saved successfully.
+        /// </summary>
+        public static string Header_SettingsSaved {
+            get {
+                return ResourceManager.GetString("Header.SettingsSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EasySave is up-to-date..
+        /// </summary>
+        public static string Header_UpToDate {
+            get {
+                return ResourceManager.GetString("Header.UpToDate", resourceCulture);
             }
         }
         
@@ -264,6 +327,15 @@ namespace EasySave.Properties {
         public static string HomeMenu_Load {
             get {
                 return ResourceManager.GetString("HomeMenu.Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string HomeMenu_Settings {
+            get {
+                return ResourceManager.GetString("HomeMenu.Settings", resourceCulture);
             }
         }
         
@@ -313,15 +385,6 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A new version is available:.
-        /// </summary>
-        public static string NoUpToDate {
-            get {
-                return ResourceManager.GetString("NoUpToDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Incorrect Path | .
         /// </summary>
         public static string Path_Invalid {
@@ -331,38 +394,11 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The save is already running.
-        /// </summary>
-        public static string Save_AlreadyRunning {
-            get {
-                return ResourceManager.GetString("Save.AlreadyRunning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save deleted successfully.
-        /// </summary>
-        public static string Save_Deleted {
-            get {
-                return ResourceManager.GetString("Save.Deleted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Backup summary:.
         /// </summary>
         public static string Save_Info {
             get {
                 return ResourceManager.GetString("Save.Info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save successfully renamed.
-        /// </summary>
-        public static string Save_Renamed {
-            get {
-                return ResourceManager.GetString("Save.Renamed", resourceCulture);
             }
         }
         
@@ -385,11 +421,20 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EasySave is up-to-date..
+        ///   Looks up a localized string similar to Change language.
         /// </summary>
-        public static string UpToDate {
+        public static string SettingsMenu_ChangeLanguage {
             get {
-                return ResourceManager.GetString("UpToDate", resourceCulture);
+                return ResourceManager.GetString("SettingsMenu.ChangeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log file format.
+        /// </summary>
+        public static string SettingsMenu_LogsFormat {
+            get {
+                return ResourceManager.GetString("SettingsMenu.LogsFormat", resourceCulture);
             }
         }
     }
