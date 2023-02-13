@@ -41,14 +41,19 @@
                    VerticalAlignment="Top"
                    Margin="5,12,0,0" />
 
-        <ListBox x:Name="MyListBox" Margin="0,58,0,280" Grid.RowSpan="2">
+        <ListBox x:Name="DeleteListBox" Margin="10,58,10,250" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="button1" Content="Get Selected Value" HorizontalAlignment="Left" Margin="313,21,0,0" VerticalAlignment="Top" Width="200" Click="Button1_Click"/>
+        <Button x:Name="DeleteButton" 
+                Content="{x:Static resources:Resource.Delete}" 
+                HorizontalAlignment="Left" 
+                Margin="422,115,0,0" 
+                VerticalAlignment="Top" 
+                Width="200" Click="DeleteButton_Click" Grid.Row="1"/>
     </Grid>
 
 </UserControl>

@@ -14,10 +14,10 @@ namespace EasySave.src.Render.Views
     {
         private void updateSaves()
         {
-            MyListBox.Items.Clear();
+            DeleteListBox.Items.Clear();
             foreach (Save s in Save.GetSaves())
             {
-                MyListBox.Items.Add(s.ToString());
+                DeleteListBox.Items.Add(s.ToString());
             }
         }
         public SaveDeleteView()
@@ -26,16 +26,14 @@ namespace EasySave.src.Render.Views
             updateSaves();
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            object selectedItem = MyListBox.SelectedItem;
+            object selectedItem = DeleteListBox.SelectedItem;
             if (selectedItem != null)
             {
-                //MessageBox.Show("Selected Value: " + selectedItem.ToString());
                 string uuid = selectedItem.ToString().Split(" - ")[1].Split(" | ")[0];
                 Save.Delete(Guid.Parse(uuid));
                 updateSaves();
-                //UpdateLayout();
             }
             else
             {
