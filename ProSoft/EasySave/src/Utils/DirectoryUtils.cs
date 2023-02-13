@@ -1,8 +1,11 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
+using EasySave.src.Render;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using ProSoft.CryptoSoft;
+using System.Collections.Generic;
 
 namespace EasySave.src.Utils
 {
@@ -12,6 +15,10 @@ namespace EasySave.src.Utils
     public static class DirectoryUtils
     {
 
+        private static HashSet<string> extensions = new HashSet<string>();
+
+        private static string key;
+        
         /// <summary>
         /// Array to store the actual file being copied
         /// </summary>
@@ -24,24 +31,25 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
+            CryptoSoft cs = CryptoSoft.Init(key);
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             //Parallel is used to display progress bar while data beeing copied
-            //TODO Change
-            /*Parallel.Invoke(
-                () => ConsoleUtils.CreateProgressBar(s),
-                () => CopyAll(s, sourceDirectory, destinationDirectory, s.GetSaveType())
-            );*/
+            Parallel.Invoke(
+                () => View.CreateProgressBar(s),
+                () => CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType())
+            );
         }
 
         /// <summary>
         /// Method to copy all files and folders from a source directory to a destination directory
         /// </summary>
+        /// <param name="cs">cryptosofct instance</param>
         /// <param name="s">concerned save</param>
         /// <param name="src">source dir</param>
         /// <param name="dest">destination dir</param>
         /// <param name="type">type of save</param>
-        private static void CopyAll(Save s, DirectoryInfo src, DirectoryInfo dest, SaveType type)
+        private static void CopyAll(CryptoSoft cs, Save s, DirectoryInfo src, DirectoryInfo dest, SaveType type)
         {
             foreach (FileInfo file in src.GetFiles())
             {
@@ -56,20 +64,23 @@ namespace EasySave.src.Utils
                     actualFile[1] = dest.FullName;
                     //Stopwatch to mesure transfer time
                     var watch = new System.Diagnostics.Stopwatch();
+                    long encryptionTime = -2;
                     watch.Start();
                     try
                     {
-                        file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
+                        if (extensions.Contains(file.Extension))
+                            encryptionTime = cs.ProcessFile(Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name, ".enc"));
+                        else
+                            file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
                     }
                     catch
                     {
                         fileCopied = false;
-                        //TODO Change
-                        //ConsoleUtils.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
+                        View.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
                     }
                     watch.Stop();
                     //Log transfer in json
-                    LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds);
+                    LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
                 }
                 if (fileCopied)
                     s.AddFileCopied();
@@ -80,7 +91,7 @@ namespace EasySave.src.Utils
             foreach (DirectoryInfo directory in src.GetDirectories())
             {
                 DirectoryInfo nextTarget = dest.CreateSubdirectory(directory.Name);
-                CopyAll(s, directory, nextTarget, type);
+                CopyAll(cs, s, directory, nextTarget, type);
             }
         }
 
@@ -140,6 +151,15 @@ namespace EasySave.src.Utils
         public static string[] GetActualFile()
         {
             return actualFile;
+        }
+
+        /// <summary>
+        /// methode to update secret key
+        /// </summary>
+        /// <param name="newSecret">secret key</param>
+        public static void ChangeKey(string newSecret)
+        {
+            key = newSecret;
         }
 
     }

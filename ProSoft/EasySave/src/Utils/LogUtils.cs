@@ -171,7 +171,8 @@ namespace EasySave.src.Utils
         /// <param name="destinationPath">destination path</param>
         /// <param name="fileSize">file size</param>
         /// <param name="fileTransferTime">file transfer time</param>
-        public static void LogTransfer(Save s, string sourcePath, string destinationPath, long fileSize, float fileTransferTime)
+        /// <param name="encryptionTime">file encryption time</param>
+        public static void LogTransfer(Save s, string sourcePath, string destinationPath, long fileSize, float fileTransferTime, float encryptionTime)
         {
             dynamic transferInfo;
             if (_format == LogsFormat.XML)
@@ -183,6 +184,7 @@ namespace EasySave.src.Utils
                     new XElement("fileTarget", destinationPath),
                     new XElement("fileSize", fileSize),
                     new XElement("transferTime", fileTransferTime),
+                    new XElement("encryptionTime", encryptionTime),
                     new XElement("date", DateTime.Now)
                 );
                 dynamic data;
@@ -200,6 +202,7 @@ namespace EasySave.src.Utils
                 transferInfo.fileTarget = destinationPath;
                 transferInfo.fileSize = fileSize;
                 transferInfo.transferTime = fileTransferTime;
+                transferInfo.encryptionTime = encryptionTime;
                 transferInfo.date = DateTime.Now;
 
                 string json = JsonConvert.SerializeObject(transferInfo);
