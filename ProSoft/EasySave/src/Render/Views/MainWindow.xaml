@@ -70,7 +70,7 @@
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="25"/>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="380"/>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="660"/>
                 <ColumnDefinition Width="25"/>
