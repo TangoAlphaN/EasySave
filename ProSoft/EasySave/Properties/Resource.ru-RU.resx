@@ -250,12 +250,24 @@
     <value>выберите исходный путь</value>
   </data>
   <data name="HomePresentation" xml:space="preserve">
-    <value>Добро пожаловать в EasySave, самое простое в использовании приложение для резервного копирования. Чтобы сохранить данные, просто перейдите к выбору "Создать сохранение". Если у вас возникли какие-либо проблемы, пожалуйста, свяжитесь с нами по адресу easysave.help@outlook.com.</value>
+    <value>Добро пожаловать в EasySave, самое простое в использовании приложение для резервного копирования. Чтобы сохранить данные, просто перейдите к выбору "Создать сохранение". Если у вас возникли какие-либо проблемы, пожалуйста, свяжитесь с нами по адресу easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>Самое практичное приложение для резервного </value>
   </data>
   <data name="HomeWelcome" xml:space="preserve">
     <value>Добро пожаловать в EasySave</value>
+<<<<<<< HEAD
+=======
+  </data>
+  <data name="HomeMenu.Settings.CryptoSoft" xml:space="preserve">
+    <value>Настройки CryptoSoft:</value>
+  </data>
+  <data name="Settings.Extensions" xml:space="preserve">
+    <value>Расширения криптософт:</value>
+  </data>
+  <data name="Settings.Secret" xml:space="preserve">
+    <value>секретный ключ криптософт:</value>
+>>>>>>> b7ef0bf728eaf828999647cebe767aa18add482f
   </data>
 </root>

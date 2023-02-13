@@ -7,6 +7,10 @@
     
     <!--Home Page-->
 
+    <DataTemplate DataType="{x:Type viewmodel:CryptoSoftSettingsViewModel}">
+        <view:CryptoSoftSettingsView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <view:HomeView/>
     </DataTemplate>

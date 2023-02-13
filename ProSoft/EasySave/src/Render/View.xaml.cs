@@ -96,5 +96,14 @@ namespace EasySave.src.Render
             throw new NotImplementedException();
         }
 
+        public static object CreateProgressBar(Save s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void WriteError(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

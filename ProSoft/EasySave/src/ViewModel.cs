@@ -115,6 +115,17 @@ namespace EasySave.src
             Application.Current.MainWindow.Show();
         }
 
+        public static void ChangeSettings(object culture)
+        {
+            CultureInfo cultureInfo = new CultureInfo(culture.ToString());
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            var windows = Application.Current.MainWindow;
+            Application.Current.MainWindow = new MainWindow();
+            windows.Close();
+            Application.Current.MainWindow.Show();
+        }
+
         public static void ChangeLogsFormat(object format)
         {
             switch ((string)format)
@@ -160,6 +171,12 @@ namespace EasySave.src
         public string LogName { get; set; }
         public string LogImage { get; set; }
         public ICommand ChangeLogs { get; set; }
+    }
+
+    public class CryptoSoftSettingsItem
+    {
+        public string SettingsName { get; set; }
+        public ICommand ChangeSettings { get; set; }
     }
 
 }
