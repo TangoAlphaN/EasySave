@@ -243,4 +243,10 @@
   <data name="ChangeLogsFormat.Actual" xml:space="preserve">
     <value>Tipo corrente :</value>
   </data>
+  <data name="CreateSave.DestPath" xml:space="preserve">
+    <value>Seleziona il percorso di destinazione</value>
+  </data>
+  <data name="CreateSave.SrcPath" xml:space="preserve">
+    <value>Selezionare il percorso di origine</value>
+  </data>
 </root>

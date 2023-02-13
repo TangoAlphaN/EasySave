@@ -8,6 +8,7 @@ using EasySave.src.Render;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
+using EasySave.Properties;
 
 namespace EasySave.src.ViewModels
 {
@@ -17,15 +18,11 @@ namespace EasySave.src.ViewModels
         public ICollectionView HomeSourceCollection => SaveItemsCollection.View;
         public event PropertyChangedEventHandler PropertyChanged;
         
-        public SaveViewModel()
-        {
-            ObservableCollection<SaveItems> saveItems = new ObservableCollection<SaveItems>
-
         public SaveCreateViewModel()
         {
             ObservableCollection<HomeItems> saveItems = new ObservableCollection<HomeItems>
             {
-
+                
             };
 
             SaveItemsCollection = new CollectionViewSource { Source = saveItems };
