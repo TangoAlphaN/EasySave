@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1692px" preserveAspectRatio="none" style="width:4429px;height:1692px;background:#FFFFFF;" version="1.1" viewBox="0 0 4429 1692" width="4429px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="27.6094" id="_title" style="stroke:none;stroke-width:1.0;" width="290" x="2062.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="280" x="2067.5" y="24.5332">ProSoft - EasySave 2.0.0 - Class Diagram</text><!--MD5=[4b19051f20d898cc3a48e0dc03e874c1]
+cluster Render--><g id="cluster_Render"><path d="M3271.5,308.6094 L3324.5,308.6094 A3.75,3.75 0 0 1 3327,311.1094 L3334,332.2188 L4130.5,332.2188 A2.5,2.5 0 0 1 4133,334.7188 L4133,1065.1094 A2.5,2.5 0 0 1 4130.5,1067.6094 L3271.5,1067.6094 A2.5,2.5 0 0 1 3269,1065.1094 L3269,311.1094 A2.5,2.5 0 0 1 3271.5,308.6094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3269" x2="3334" y1="332.2188" y2="332.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="52" x="3273" y="325.1426">Render</text></g><!--MD5=[027ebfd53c01aea08f474edbf35d0797]
+cluster Models--><g id="cluster_Models"><path d="M8.5,44.6094 L61.5,44.6094 A3.75,3.75 0 0 1 64,47.1094 L71,68.2188 L3242.5,68.2188 A2.5,2.5 0 0 1 3245,70.7188 L3245,1679.1094 A2.5,2.5 0 0 1 3242.5,1681.6094 L8.5,1681.6094 A2.5,2.5 0 0 1 6,1679.1094 L6,47.1094 A2.5,2.5 0 0 1 8.5,44.6094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="71" y1="68.2188" y2="68.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="52" x="10" y="61.1426">Models</text></g><!--MD5=[e5f667b5311306cc91fbdfbce3163ce7]
+cluster Exceptions--><g id="cluster_Exceptions"><path d="M2126.5,344.1094 L2205.5,344.1094 A3.75,3.75 0 0 1 2208,346.6094 L2215,367.7188 L3218.5,367.7188 A2.5,2.5 0 0 1 3221,370.2188 L3221,1021.1094 A2.5,2.5 0 0 1 3218.5,1023.6094 L2126.5,1023.6094 A2.5,2.5 0 0 1 2124,1021.1094 L2124,346.6094 A2.5,2.5 0 0 1 2126.5,344.1094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2124" x2="2215" y1="367.7188" y2="367.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="78" x="2128" y="360.6426">Exceptions</text></g><!--MD5=[f21b1f164e99c6b37934f23ad048ad54]
+cluster Data--><g id="cluster_Data"><path d="M1428.5,88.6094 L1460.5,88.6094 A3.75,3.75 0 0 1 1463,91.1094 L1470,112.2188 L2097.5,112.2188 A2.5,2.5 0 0 1 2100,114.7188 L2100,1655.1094 A2.5,2.5 0 0 1 2097.5,1657.6094 L1428.5,1657.6094 A2.5,2.5 0 0 1 1426,1655.1094 L1426,91.1094 A2.5,2.5 0 0 1 1428.5,88.6094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1426" x2="1470" y1="112.2188" y2="112.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="31" x="1430" y="105.1426">Data</text></g><!--MD5=[7e40339c58605559321960399585b560]
+cluster Utils--><g id="cluster_Utils"><path d="M32.5,303.1094 L64.5,303.1094 A3.75,3.75 0 0 1 67,305.6094 L74,326.7188 L1042.5,326.7188 A2.5,2.5 0 0 1 1045,329.2188 L1045,1097.1094 A2.5,2.5 0 0 1 1042.5,1099.6094 L32.5,1099.6094 A2.5,2.5 0 0 1 30,1097.1094 L30,305.6094 A2.5,2.5 0 0 1 32.5,303.1094 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="30" x2="74" y1="326.7188" y2="326.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="31" x="34" y="319.6426">Utils</text></g><!--MD5=[874877035222f5bcc888af269290427c]
+class IView--><g id="elem_IView"><rect codeLine="24" fill="#F1F1F1" height="83.2188" id="IView" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="3463" y="397.6094"/><ellipse cx="3569.25" cy="413.6094" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3570.2031,410.25 L3570.2031,416.9063 L3571.9219,416.9063 Q3572.5313,416.9063 3572.7969,417.1406 Q3573.0625,417.375 3573.0625,417.7656 Q3573.0625,418.1406 3572.7969,418.375 Q3572.5313,418.6094 3571.9219,418.6094 L3566.7813,418.6094 Q3566.1719,418.6094 3565.9063,418.375 Q3565.6406,418.1406 3565.6406,417.75 Q3565.6406,417.375 3565.9063,417.1406 Q3566.1719,416.9063 3566.7813,416.9063 L3568.5,416.9063 L3568.5,410.25 L3566.7813,410.25 Q3566.1719,410.25 3565.9063,410.0156 Q3565.6406,409.7813 3565.6406,409.3906 Q3565.6406,409.0156 3565.9063,408.7813 Q3566.1719,408.5469 3566.7813,408.5469 L3571.9219,408.5469 Q3572.5313,408.5469 3572.7969,408.7813 Q3573.0625,409.0156 3573.0625,409.3906 Q3573.0625,409.7813 3572.7969,410.0156 Q3572.5313,410.25 3571.9219,410.25 L3570.2031,410.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="33" x="3589.75" y="419.3379">IView</text><line style="stroke:#181818;stroke-width:0.5;" x1="3464" x2="3716" y1="429.6094" y2="429.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="3464" x2="3716" y1="437.6094" y2="437.6094"/><ellipse cx="3474" cy="451.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="3483" y="456.1426">Start() : void</text><ellipse cx="3474" cy="469.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="3483" y="473.752">Render(type : RenderMethod) : void</text></g><!--MD5=[68f14ae0c5a36c0e9e57d3cda3687ea6]
+class RenderMethod--><g id="elem_RenderMethod"><rect codeLine="29" fill="#F1F1F1" height="188.875" id="RenderMethod" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="3752" y="344.6094"/><ellipse cx="3772.4" cy="360.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3771.2594,361.4063 L3771.2594,363.9063 L3775.5875,363.9063 L3775.5875,362.9844 Q3775.5875,362.375 3775.8219,362.1094 Q3776.0719,361.8438 3776.4469,361.8438 Q3776.8219,361.8438 3777.0563,362.1094 Q3777.2906,362.375 3777.2906,362.9844 L3777.2906,365.6094 L3769.2906,365.6094 Q3768.6656,365.6094 3768.4,365.375 Q3768.15,365.1406 3768.15,364.75 Q3768.15,364.375 3768.4156,364.1406 Q3768.6813,363.9063 3769.2906,363.9063 L3769.5563,363.9063 L3769.5563,357.25 L3769.2906,357.25 Q3768.6656,357.25 3768.4,357.0156 Q3768.15,356.7813 3768.15,356.3906 Q3768.15,356.0156 3768.4,355.7813 Q3768.6656,355.5469 3769.2906,355.5469 L3776.9156,355.5469 L3776.9156,358.1406 Q3776.9156,358.75 3776.6813,359.0156 Q3776.4625,359.2656 3776.0719,359.2656 Q3775.6969,359.2656 3775.4625,359.0156 Q3775.2281,358.75 3775.2281,358.1406 L3775.2281,357.25 L3771.2594,357.25 L3771.2594,359.7031 L3772.7438,359.7031 Q3772.7438,359.0469 3772.8688,358.8594 Q3773.1344,358.4531 3773.6031,358.4531 Q3773.9781,358.4531 3774.2125,358.7188 Q3774.4469,358.9688 3774.4469,359.5781 L3774.4469,361.5469 Q3774.4469,362.0938 3774.3219,362.2813 Q3774.0563,362.6719 3773.6031,362.6719 Q3773.1344,362.6719 3772.8688,362.2656 Q3772.7438,362.0781 3772.7438,361.4063 L3771.2594,361.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="3787.6" y="366.3379">RenderMethod</text><line style="stroke:#181818;stroke-width:0.5;" x1="3753" x2="3889" y1="376.6094" y2="376.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="3758" y="395.1426">Home</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="3758" y="412.752">CreateSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="3758" y="430.3613">LoadSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="3758" y="447.9707">EditSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="3758" y="465.5801">DeleteSave</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="3758" y="483.1895">ChangeLanguage</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="3758" y="500.7988">Settings,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="3758" y="518.4082">ChangeLogsFormat</text><line style="stroke:#181818;stroke-width:0.5;" x1="3753" x2="3889" y1="525.4844" y2="525.4844"/></g><!--MD5=[c045e12321b83266d36d22b9096c24ea]
+class View--><g id="elem_View"><rect codeLine="40" fill="#F1F1F1" height="171.2656" id="View" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="192" x="3925" y="353.6094"/><ellipse cx="4002.25" cy="369.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M4005.0156,365.4844 Q4005.1719,365.2656 4005.3594,365.1563 Q4005.5469,365.0469 4005.7656,365.0469 Q4006.1406,365.0469 4006.375,365.3125 Q4006.6094,365.5625 4006.6094,366.1719 L4006.6094,367.625 Q4006.6094,368.2344 4006.375,368.5 Q4006.1406,368.7656 4005.7656,368.7656 Q4005.4219,368.7656 4005.2188,368.5625 Q4005.0156,368.375 4004.9063,367.8594 Q4004.8594,367.5 4004.6719,367.3125 Q4004.3438,366.9375 4003.7344,366.7188 Q4003.125,366.5 4002.5,366.5 Q4001.7344,366.5 4001.0938,366.8281 Q4000.4688,367.1563 3999.9688,367.9063 Q3999.4844,368.6563 3999.4844,369.6875 L3999.4844,370.7813 Q3999.4844,372.0156 4000.375,372.8438 Q4001.2656,373.6563 4002.8594,373.6563 Q4003.7969,373.6563 4004.4531,373.4063 Q4004.8438,373.25 4005.2656,372.8125 Q4005.5313,372.5469 4005.6719,372.4688 Q4005.8281,372.3906 4006.0313,372.3906 Q4006.3594,372.3906 4006.6094,372.6563 Q4006.875,372.9063 4006.875,373.25 Q4006.875,373.5938 4006.5313,374 Q4006.0313,374.5781 4005.2344,374.9063 Q4004.1563,375.3594 4002.8594,375.3594 Q4001.3438,375.3594 4000.1406,374.7344 Q3999.1563,374.2344 3998.4688,373.1719 Q3997.7813,372.0938 3997.7813,370.8125 L3997.7813,369.6563 Q3997.7813,368.3281 3998.3906,367.1875 Q3999.0156,366.0313 4000.1094,365.4219 Q4001.2031,364.7969 4002.4375,364.7969 Q4003.1719,364.7969 4003.8125,364.9688 Q4004.4688,365.125 4005.0156,365.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="4022.75" y="375.3379">View</text><line style="stroke:#181818;stroke-width:0.5;" x1="3926" x2="4116" y1="385.6094" y2="385.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3933" y="396.9141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="3945" y="404.1426">vm : ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3926" x2="4116" y1="411.2188" y2="411.2188"/><ellipse cx="3936" cy="425.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="3945" y="429.752">View()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3945" y="447.3613"> </text><ellipse cx="3936" cy="460.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="3945" y="464.9707">Start() : void</text><ellipse cx="3936" cy="478.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="3945" y="482.5801">Render(view : IView) : void</text><polygon fill="#FFFF44" points="3936,490.9609,3940,494.9609,3936,498.9609,3932,494.9609" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="3945" y="500.1895">Exit(code : int) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3933" y="510.5703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="3945" y="517.7988">CheckUpdate() : string</text></g><!--MD5=[638d2833c1deeea8266eb58e4e049321]
+class HomeView--><g id="elem_HomeView"><rect codeLine="51" fill="#F1F1F1" height="136.0469" id="HomeView" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="3574" y="880.6094"/><ellipse cx="3664.25" cy="896.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3667.0156,892.4844 Q3667.1719,892.2656 3667.3594,892.1563 Q3667.5469,892.0469 3667.7656,892.0469 Q3668.1406,892.0469 3668.375,892.3125 Q3668.6094,892.5625 3668.6094,893.1719 L3668.6094,894.625 Q3668.6094,895.2344 3668.375,895.5 Q3668.1406,895.7656 3667.7656,895.7656 Q3667.4219,895.7656 3667.2188,895.5625 Q3667.0156,895.375 3666.9063,894.8594 Q3666.8594,894.5 3666.6719,894.3125 Q3666.3438,893.9375 3665.7344,893.7188 Q3665.125,893.5 3664.5,893.5 Q3663.7344,893.5 3663.0938,893.8281 Q3662.4688,894.1563 3661.9688,894.9063 Q3661.4844,895.6563 3661.4844,896.6875 L3661.4844,897.7813 Q3661.4844,899.0156 3662.375,899.8438 Q3663.2656,900.6563 3664.8594,900.6563 Q3665.7969,900.6563 3666.4531,900.4063 Q3666.8438,900.25 3667.2656,899.8125 Q3667.5313,899.5469 3667.6719,899.4688 Q3667.8281,899.3906 3668.0313,899.3906 Q3668.3594,899.3906 3668.6094,899.6563 Q3668.875,899.9063 3668.875,900.25 Q3668.875,900.5938 3668.5313,901 Q3668.0313,901.5781 3667.2344,901.9063 Q3666.1563,902.3594 3664.8594,902.3594 Q3663.3438,902.3594 3662.1406,901.7344 Q3661.1563,901.2344 3660.4688,900.1719 Q3659.7813,899.0938 3659.7813,897.8125 L3659.7813,896.6563 Q3659.7813,895.3281 3660.3906,894.1875 Q3661.0156,893.0313 3662.1094,892.4219 Q3663.2031,891.7969 3664.4375,891.7969 Q3665.1719,891.7969 3665.8125,891.9688 Q3666.4688,892.125 3667.0156,892.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="3684.75" y="902.3379">HomeView</text><line style="stroke:#181818;stroke-width:0.5;" x1="3575" x2="3827" y1="912.6094" y2="912.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3582" y="923.9141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="3594" y="931.1426">vm : ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3575" x2="3827" y1="938.2188" y2="938.2188"/><ellipse cx="3585" cy="952.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="3594" y="956.752">HomeView()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3594" y="974.3613"> </text><ellipse cx="3585" cy="987.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="3594" y="991.9707">Start() : void</text><ellipse cx="3585" cy="1005.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="3594" y="1009.5801">Render(type : RenderMethod) : void</text></g><!--MD5=[3d7aa35fb7ed95ad4af92255c5d10a84]
+class SaveView--><g id="elem_SaveView"><rect codeLine="60" fill="#F1F1F1" height="206.4844" id="SaveView" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="3863" y="845.6094"/><ellipse cx="3955.25" cy="861.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3958.0156,857.4844 Q3958.1719,857.2656 3958.3594,857.1563 Q3958.5469,857.0469 3958.7656,857.0469 Q3959.1406,857.0469 3959.375,857.3125 Q3959.6094,857.5625 3959.6094,858.1719 L3959.6094,859.625 Q3959.6094,860.2344 3959.375,860.5 Q3959.1406,860.7656 3958.7656,860.7656 Q3958.4219,860.7656 3958.2188,860.5625 Q3958.0156,860.375 3957.9063,859.8594 Q3957.8594,859.5 3957.6719,859.3125 Q3957.3438,858.9375 3956.7344,858.7188 Q3956.125,858.5 3955.5,858.5 Q3954.7344,858.5 3954.0938,858.8281 Q3953.4688,859.1563 3952.9688,859.9063 Q3952.4844,860.6563 3952.4844,861.6875 L3952.4844,862.7813 Q3952.4844,864.0156 3953.375,864.8438 Q3954.2656,865.6563 3955.8594,865.6563 Q3956.7969,865.6563 3957.4531,865.4063 Q3957.8438,865.25 3958.2656,864.8125 Q3958.5313,864.5469 3958.6719,864.4688 Q3958.8281,864.3906 3959.0313,864.3906 Q3959.3594,864.3906 3959.6094,864.6563 Q3959.875,864.9063 3959.875,865.25 Q3959.875,865.5938 3959.5313,866 Q3959.0313,866.5781 3958.2344,866.9063 Q3957.1563,867.3594 3955.8594,867.3594 Q3954.3438,867.3594 3953.1406,866.7344 Q3952.1563,866.2344 3951.4688,865.1719 Q3950.7813,864.0938 3950.7813,862.8125 L3950.7813,861.6563 Q3950.7813,860.3281 3951.3906,859.1875 Q3952.0156,858.0313 3953.1094,857.4219 Q3954.2031,856.7969 3955.4375,856.7969 Q3956.1719,856.7969 3956.8125,856.9688 Q3957.4688,857.125 3958.0156,857.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="3975.75" y="867.3379">SaveView</text><line style="stroke:#181818;stroke-width:0.5;" x1="3864" x2="4116" y1="877.6094" y2="877.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3871" y="888.9141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="3883" y="896.1426">vm : ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3864" x2="4116" y1="903.2188" y2="903.2188"/><ellipse cx="3874" cy="917.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="3883" y="921.752">SaveView()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3883" y="939.3613"> </text><ellipse cx="3874" cy="952.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="3883" y="956.9707">Start() : void</text><ellipse cx="3874" cy="970.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="3883" y="974.5801">Render(type : RenderMethod) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3871" y="984.9609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="3883" y="992.1895">RenderCreate() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3871" y="1002.5703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="3883" y="1009.7988">RenderEdit() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3871" y="1020.1797"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="3883" y="1027.4082">RenderDelete() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3871" y="1037.7891"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="3883" y="1045.0176">RenderLoad() : void</text></g><!--MD5=[154f8de619e5ac345981c4cddc1b03e5]
+class SettingsView--><g id="elem_SettingsView"><rect codeLine="73" fill="#F1F1F1" height="171.2656" id="SettingsView" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="3285" y="863.1094"/><ellipse cx="3367.75" cy="879.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3370.5156,874.9844 Q3370.6719,874.7656 3370.8594,874.6563 Q3371.0469,874.5469 3371.2656,874.5469 Q3371.6406,874.5469 3371.875,874.8125 Q3372.1094,875.0625 3372.1094,875.6719 L3372.1094,877.125 Q3372.1094,877.7344 3371.875,878 Q3371.6406,878.2656 3371.2656,878.2656 Q3370.9219,878.2656 3370.7188,878.0625 Q3370.5156,877.875 3370.4063,877.3594 Q3370.3594,877 3370.1719,876.8125 Q3369.8438,876.4375 3369.2344,876.2188 Q3368.625,876 3368,876 Q3367.2344,876 3366.5938,876.3281 Q3365.9688,876.6563 3365.4688,877.4063 Q3364.9844,878.1563 3364.9844,879.1875 L3364.9844,880.2813 Q3364.9844,881.5156 3365.875,882.3438 Q3366.7656,883.1563 3368.3594,883.1563 Q3369.2969,883.1563 3369.9531,882.9063 Q3370.3438,882.75 3370.7656,882.3125 Q3371.0313,882.0469 3371.1719,881.9688 Q3371.3281,881.8906 3371.5313,881.8906 Q3371.8594,881.8906 3372.1094,882.1563 Q3372.375,882.4063 3372.375,882.75 Q3372.375,883.0938 3372.0313,883.5 Q3371.5313,884.0781 3370.7344,884.4063 Q3369.6563,884.8594 3368.3594,884.8594 Q3366.8438,884.8594 3365.6406,884.2344 Q3364.6563,883.7344 3363.9688,882.6719 Q3363.2813,881.5938 3363.2813,880.3125 L3363.2813,879.1563 Q3363.2813,877.8281 3363.8906,876.6875 Q3364.5156,875.5313 3365.6094,874.9219 Q3366.7031,874.2969 3367.9375,874.2969 Q3368.6719,874.2969 3369.3125,874.4688 Q3369.9688,874.625 3370.5156,874.9844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="3388.25" y="884.8379">SettingsView</text><line style="stroke:#181818;stroke-width:0.5;" x1="3286" x2="3538" y1="895.1094" y2="895.1094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3293" y="906.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="3305" y="913.6426">vm : ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3286" x2="3538" y1="920.7188" y2="920.7188"/><ellipse cx="3296" cy="935.0234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="3305" y="939.252">SettingsView()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3305" y="956.8613"> </text><ellipse cx="3296" cy="970.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="3305" y="974.4707">Start() : void</text><ellipse cx="3296" cy="987.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="3305" y="992.0801">Render(type : RenderMethod) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3293" y="1002.4609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="3305" y="1009.6895">RenderChangeLanguage() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3293" y="1020.0703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="3305" y="1027.2988">RenderChangeLogsFormat() : void</text></g><!--MD5=[90922f658520d8ed9d5b8ceadba035bb]
+class Dir--><g id="elem_Dir"><rect codeLine="88" fill="#F1F1F1" height="65.6094" id="Dir" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="1182.5" y="406.1094"/><ellipse cx="1220.45" cy="422.1094" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1221.4031,418.75 L1221.4031,425.4063 L1223.1219,425.4063 Q1223.7313,425.4063 1223.9969,425.6406 Q1224.2625,425.875 1224.2625,426.2656 Q1224.2625,426.6406 1223.9969,426.875 Q1223.7313,427.1094 1223.1219,427.1094 L1217.9813,427.1094 Q1217.3719,427.1094 1217.1063,426.875 Q1216.8406,426.6406 1216.8406,426.25 Q1216.8406,425.875 1217.1063,425.6406 Q1217.3719,425.4063 1217.9813,425.4063 L1219.7,425.4063 L1219.7,418.75 L1217.9813,418.75 Q1217.3719,418.75 1217.1063,418.5156 Q1216.8406,418.2813 1216.8406,417.8906 Q1216.8406,417.5156 1217.1063,417.2813 Q1217.3719,417.0469 1217.9813,417.0469 L1223.1219,417.0469 Q1223.7313,417.0469 1223.9969,417.2813 Q1224.2625,417.5156 1224.2625,417.8906 Q1224.2625,418.2813 1223.9969,418.5156 Q1223.7313,418.75 1223.1219,418.75 L1221.4031,418.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="18" x="1239.55" y="427.8379">Dir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1183.5" x2="1282.5" y1="438.1094" y2="438.1094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1190.5" y="449.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="1202.5" y="456.6426">path : string</text><line style="stroke:#181818;stroke-width:0.5;" x1="1183.5" x2="1282.5" y1="463.7188" y2="463.7188"/></g><!--MD5=[6f1896452ae3ca596785da35ab6a2d5e]
+class SrcDir--><g id="elem_SrcDir"><rect codeLine="92" fill="#F1F1F1" height="136.0469" id="SrcDir" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="150" x="1064" y="880.6094"/><ellipse cx="1115.25" cy="896.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1118.0156,892.4844 Q1118.1719,892.2656 1118.3594,892.1563 Q1118.5469,892.0469 1118.7656,892.0469 Q1119.1406,892.0469 1119.375,892.3125 Q1119.6094,892.5625 1119.6094,893.1719 L1119.6094,894.625 Q1119.6094,895.2344 1119.375,895.5 Q1119.1406,895.7656 1118.7656,895.7656 Q1118.4219,895.7656 1118.2188,895.5625 Q1118.0156,895.375 1117.9063,894.8594 Q1117.8594,894.5 1117.6719,894.3125 Q1117.3438,893.9375 1116.7344,893.7188 Q1116.125,893.5 1115.5,893.5 Q1114.7344,893.5 1114.0938,893.8281 Q1113.4688,894.1563 1112.9688,894.9063 Q1112.4844,895.6563 1112.4844,896.6875 L1112.4844,897.7813 Q1112.4844,899.0156 1113.375,899.8438 Q1114.2656,900.6563 1115.8594,900.6563 Q1116.7969,900.6563 1117.4531,900.4063 Q1117.8438,900.25 1118.2656,899.8125 Q1118.5313,899.5469 1118.6719,899.4688 Q1118.8281,899.3906 1119.0313,899.3906 Q1119.3594,899.3906 1119.6094,899.6563 Q1119.875,899.9063 1119.875,900.25 Q1119.875,900.5938 1119.5313,901 Q1119.0313,901.5781 1118.2344,901.9063 Q1117.1563,902.3594 1115.8594,902.3594 Q1114.3438,902.3594 1113.1406,901.7344 Q1112.1563,901.2344 1111.4688,900.1719 Q1110.7813,899.0938 1110.7813,897.8125 L1110.7813,896.6563 Q1110.7813,895.3281 1111.3906,894.1875 Q1112.0156,893.0313 1113.1094,892.4219 Q1114.2031,891.7969 1115.4375,891.7969 Q1116.1719,891.7969 1116.8125,891.9688 Q1117.4688,892.125 1118.0156,892.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="1135.75" y="902.3379">SrcDir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1065" x2="1213" y1="912.6094" y2="912.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1072" y="923.9141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="1084" y="931.1426">size : double</text><ellipse cx="1075" cy="944.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="1084" y="948.752">nbFiles : long</text><line style="stroke:#181818;stroke-width:0.5;" x1="1065" x2="1213" y1="955.8281" y2="955.8281"/><ellipse cx="1075" cy="970.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1084" y="974.3613">SrcDir(path : string)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1084" y="991.9707"> </text><ellipse cx="1075" cy="1005.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1084" y="1009.5801">GetSize() : double</text></g><!--MD5=[18f4a07bf1057755867414c177c5bb4c]
+class DestDir--><g id="elem_DestDir"><rect codeLine="101" fill="#F1F1F1" height="65.6094" id="DestDir" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="1249" y="915.6094"/><ellipse cx="1300.25" cy="931.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1303.0156,927.4844 Q1303.1719,927.2656 1303.3594,927.1563 Q1303.5469,927.0469 1303.7656,927.0469 Q1304.1406,927.0469 1304.375,927.3125 Q1304.6094,927.5625 1304.6094,928.1719 L1304.6094,929.625 Q1304.6094,930.2344 1304.375,930.5 Q1304.1406,930.7656 1303.7656,930.7656 Q1303.4219,930.7656 1303.2188,930.5625 Q1303.0156,930.375 1302.9063,929.8594 Q1302.8594,929.5 1302.6719,929.3125 Q1302.3438,928.9375 1301.7344,928.7188 Q1301.125,928.5 1300.5,928.5 Q1299.7344,928.5 1299.0938,928.8281 Q1298.4688,929.1563 1297.9688,929.9063 Q1297.4844,930.6563 1297.4844,931.6875 L1297.4844,932.7813 Q1297.4844,934.0156 1298.375,934.8438 Q1299.2656,935.6563 1300.8594,935.6563 Q1301.7969,935.6563 1302.4531,935.4063 Q1302.8438,935.25 1303.2656,934.8125 Q1303.5313,934.5469 1303.6719,934.4688 Q1303.8281,934.3906 1304.0313,934.3906 Q1304.3594,934.3906 1304.6094,934.6563 Q1304.875,934.9063 1304.875,935.25 Q1304.875,935.5938 1304.5313,936 Q1304.0313,936.5781 1303.2344,936.9063 Q1302.1563,937.3594 1300.8594,937.3594 Q1299.3438,937.3594 1298.1406,936.7344 Q1297.1563,936.2344 1296.4688,935.1719 Q1295.7813,934.0938 1295.7813,932.8125 L1295.7813,931.6563 Q1295.7813,930.3281 1296.3906,929.1875 Q1297.0156,928.0313 1298.1094,927.4219 Q1299.2031,926.7969 1300.4375,926.7969 Q1301.1719,926.7969 1301.8125,926.9688 Q1302.4688,927.125 1303.0156,927.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="1320.75" y="937.3379">DestDir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1250" x2="1406" y1="947.6094" y2="947.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="1250" x2="1406" y1="955.6094" y2="955.6094"/><ellipse cx="1260" cy="969.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="1269" y="974.1426">DestDir(path : string)</text></g><!--MD5=[8db60afef7a3447bbe27c5ed187fdac2]
+class Exception--><g id="elem_Exception"><rect codeLine="107" fill="#F1F1F1" height="48" id="Exception" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="93" x="2856.5" y="415.1094"/><ellipse cx="2871.5" cy="431.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2874.2656,426.9844 Q2874.4219,426.7656 2874.6094,426.6563 Q2874.7969,426.5469 2875.0156,426.5469 Q2875.3906,426.5469 2875.625,426.8125 Q2875.8594,427.0625 2875.8594,427.6719 L2875.8594,429.125 Q2875.8594,429.7344 2875.625,430 Q2875.3906,430.2656 2875.0156,430.2656 Q2874.6719,430.2656 2874.4688,430.0625 Q2874.2656,429.875 2874.1563,429.3594 Q2874.1094,429 2873.9219,428.8125 Q2873.5938,428.4375 2872.9844,428.2188 Q2872.375,428 2871.75,428 Q2870.9844,428 2870.3438,428.3281 Q2869.7188,428.6563 2869.2188,429.4063 Q2868.7344,430.1563 2868.7344,431.1875 L2868.7344,432.2813 Q2868.7344,433.5156 2869.625,434.3438 Q2870.5156,435.1563 2872.1094,435.1563 Q2873.0469,435.1563 2873.7031,434.9063 Q2874.0938,434.75 2874.5156,434.3125 Q2874.7813,434.0469 2874.9219,433.9688 Q2875.0781,433.8906 2875.2813,433.8906 Q2875.6094,433.8906 2875.8594,434.1563 Q2876.125,434.4063 2876.125,434.75 Q2876.125,435.0938 2875.7813,435.5 Q2875.2813,436.0781 2874.4844,436.4063 Q2873.4063,436.8594 2872.1094,436.8594 Q2870.5938,436.8594 2869.3906,436.2344 Q2868.4063,435.7344 2867.7188,434.6719 Q2867.0313,433.5938 2867.0313,432.3125 L2867.0313,431.1563 Q2867.0313,429.8281 2867.6406,428.6875 Q2868.2656,427.5313 2869.3594,426.9219 Q2870.4531,426.2969 2871.6875,426.2969 Q2872.4219,426.2969 2873.0625,426.4688 Q2873.7188,426.625 2874.2656,426.9844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="2885.5" y="436.8379">Exception</text><line style="stroke:#181818;stroke-width:0.5;" x1="2857.5" x2="2948.5" y1="447.1094" y2="447.1094"/><line style="stroke:#181818;stroke-width:0.5;" x1="2857.5" x2="2948.5" y1="455.1094" y2="455.1094"/></g><!--MD5=[31cdff02fb75ba3ddd19c2b31d91d5dc]
+class UnknownLogFormatException--><g id="elem_UnknownLogFormatException"><rect codeLine="111" fill="#F1F1F1" height="118.4375" id="UnknownLogFormatException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="534" x="2238" y="380.1094"/><ellipse cx="2407.25" cy="396.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2410.0156,391.9844 Q2410.1719,391.7656 2410.3594,391.6563 Q2410.5469,391.5469 2410.7656,391.5469 Q2411.1406,391.5469 2411.375,391.8125 Q2411.6094,392.0625 2411.6094,392.6719 L2411.6094,394.125 Q2411.6094,394.7344 2411.375,395 Q2411.1406,395.2656 2410.7656,395.2656 Q2410.4219,395.2656 2410.2188,395.0625 Q2410.0156,394.875 2409.9063,394.3594 Q2409.8594,394 2409.6719,393.8125 Q2409.3438,393.4375 2408.7344,393.2188 Q2408.125,393 2407.5,393 Q2406.7344,393 2406.0938,393.3281 Q2405.4688,393.6563 2404.9688,394.4063 Q2404.4844,395.1563 2404.4844,396.1875 L2404.4844,397.2813 Q2404.4844,398.5156 2405.375,399.3438 Q2406.2656,400.1563 2407.8594,400.1563 Q2408.7969,400.1563 2409.4531,399.9063 Q2409.8438,399.75 2410.2656,399.3125 Q2410.5313,399.0469 2410.6719,398.9688 Q2410.8281,398.8906 2411.0313,398.8906 Q2411.3594,398.8906 2411.6094,399.1563 Q2411.875,399.4063 2411.875,399.75 Q2411.875,400.0938 2411.5313,400.5 Q2411.0313,401.0781 2410.2344,401.4063 Q2409.1563,401.8594 2407.8594,401.8594 Q2406.3438,401.8594 2405.1406,401.2344 Q2404.1563,400.7344 2403.4688,399.6719 Q2402.7813,398.5938 2402.7813,397.3125 L2402.7813,396.1563 Q2402.7813,394.8281 2403.3906,393.6875 Q2404.0156,392.5313 2405.1094,391.9219 Q2406.2031,391.2969 2407.4375,391.2969 Q2408.1719,391.2969 2408.8125,391.4688 Q2409.4688,391.625 2410.0156,391.9844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="2427.75" y="401.8379">UnknownLogFormatException</text><line style="stroke:#181818;stroke-width:0.5;" x1="2239" x2="2771" y1="412.1094" y2="412.1094"/><line style="stroke:#181818;stroke-width:0.5;" x1="2239" x2="2771" y1="420.1094" y2="420.1094"/><ellipse cx="2249" cy="434.4141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="2258" y="438.6426">UnknownLogFormatException()</text><ellipse cx="2249" cy="452.0234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="301" x="2258" y="456.252">UnknownLogFormatException(message : string)</text><ellipse cx="2249" cy="469.6328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="414" x="2258" y="473.8613">UnknownLogFormatException(message : string, inner : Exception)</text><ellipse cx="2249" cy="487.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="508" x="2258" y="491.4707">UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)</text></g><!--MD5=[4271e197f146b364f9bd1c82b0331e6e]
+class CantCheckUpdateException--><g id="elem_CantCheckUpdateException"><rect codeLine="119" fill="#F1F1F1" height="118.4375" id="CantCheckUpdateException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="523" x="2140.5" y="889.6094"/><ellipse cx="2309.75" cy="905.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2312.5156,901.4844 Q2312.6719,901.2656 2312.8594,901.1563 Q2313.0469,901.0469 2313.2656,901.0469 Q2313.6406,901.0469 2313.875,901.3125 Q2314.1094,901.5625 2314.1094,902.1719 L2314.1094,903.625 Q2314.1094,904.2344 2313.875,904.5 Q2313.6406,904.7656 2313.2656,904.7656 Q2312.9219,904.7656 2312.7188,904.5625 Q2312.5156,904.375 2312.4063,903.8594 Q2312.3594,903.5 2312.1719,903.3125 Q2311.8438,902.9375 2311.2344,902.7188 Q2310.625,902.5 2310,902.5 Q2309.2344,902.5 2308.5938,902.8281 Q2307.9688,903.1563 2307.4688,903.9063 Q2306.9844,904.6563 2306.9844,905.6875 L2306.9844,906.7813 Q2306.9844,908.0156 2307.875,908.8438 Q2308.7656,909.6563 2310.3594,909.6563 Q2311.2969,909.6563 2311.9531,909.4063 Q2312.3438,909.25 2312.7656,908.8125 Q2313.0313,908.5469 2313.1719,908.4688 Q2313.3281,908.3906 2313.5313,908.3906 Q2313.8594,908.3906 2314.1094,908.6563 Q2314.375,908.9063 2314.375,909.25 Q2314.375,909.5938 2314.0313,910 Q2313.5313,910.5781 2312.7344,910.9063 Q2311.6563,911.3594 2310.3594,911.3594 Q2308.8438,911.3594 2307.6406,910.7344 Q2306.6563,910.2344 2305.9688,909.1719 Q2305.2813,908.0938 2305.2813,906.8125 L2305.2813,905.6563 Q2305.2813,904.3281 2305.8906,903.1875 Q2306.5156,902.0313 2307.6094,901.4219 Q2308.7031,900.7969 2309.9375,900.7969 Q2310.6719,900.7969 2311.3125,900.9688 Q2311.9688,901.125 2312.5156,901.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="2330.25" y="911.3379">CantCheckUpdateException</text><line style="stroke:#181818;stroke-width:0.5;" x1="2141.5" x2="2662.5" y1="921.6094" y2="921.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="2141.5" x2="2662.5" y1="929.6094" y2="929.6094"/><ellipse cx="2151.5" cy="943.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="2160.5" y="948.1426">CantCheckUpdateException()</text><ellipse cx="2151.5" cy="961.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="290" x="2160.5" y="965.752">CantCheckUpdateException(message : string)</text><ellipse cx="2151.5" cy="979.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="2160.5" y="983.3613">CantCheckUpdateException(message : string, inner : Exception)</text><ellipse cx="2151.5" cy="996.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="497" x="2160.5" y="1000.9707">CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)</text></g><!--MD5=[d02e4140780dc23066aaaac23b3f00c0]
+class TooMuchSavesException--><g id="elem_TooMuchSavesException"><rect codeLine="127" fill="#F1F1F1" height="118.4375" id="TooMuchSavesException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="506" x="2699" y="889.6094"/><ellipse cx="2868.25" cy="905.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2871.0156,901.4844 Q2871.1719,901.2656 2871.3594,901.1563 Q2871.5469,901.0469 2871.7656,901.0469 Q2872.1406,901.0469 2872.375,901.3125 Q2872.6094,901.5625 2872.6094,902.1719 L2872.6094,903.625 Q2872.6094,904.2344 2872.375,904.5 Q2872.1406,904.7656 2871.7656,904.7656 Q2871.4219,904.7656 2871.2188,904.5625 Q2871.0156,904.375 2870.9063,903.8594 Q2870.8594,903.5 2870.6719,903.3125 Q2870.3438,902.9375 2869.7344,902.7188 Q2869.125,902.5 2868.5,902.5 Q2867.7344,902.5 2867.0938,902.8281 Q2866.4688,903.1563 2865.9688,903.9063 Q2865.4844,904.6563 2865.4844,905.6875 L2865.4844,906.7813 Q2865.4844,908.0156 2866.375,908.8438 Q2867.2656,909.6563 2868.8594,909.6563 Q2869.7969,909.6563 2870.4531,909.4063 Q2870.8438,909.25 2871.2656,908.8125 Q2871.5313,908.5469 2871.6719,908.4688 Q2871.8281,908.3906 2872.0313,908.3906 Q2872.3594,908.3906 2872.6094,908.6563 Q2872.875,908.9063 2872.875,909.25 Q2872.875,909.5938 2872.5313,910 Q2872.0313,910.5781 2871.2344,910.9063 Q2870.1563,911.3594 2868.8594,911.3594 Q2867.3438,911.3594 2866.1406,910.7344 Q2865.1563,910.2344 2864.4688,909.1719 Q2863.7813,908.0938 2863.7813,906.8125 L2863.7813,905.6563 Q2863.7813,904.3281 2864.3906,903.1875 Q2865.0156,902.0313 2866.1094,901.4219 Q2867.2031,900.7969 2868.4375,900.7969 Q2869.1719,900.7969 2869.8125,900.9688 Q2870.4688,901.125 2871.0156,901.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="2888.75" y="911.3379">TooMuchSavesException</text><line style="stroke:#181818;stroke-width:0.5;" x1="2700" x2="3204" y1="921.6094" y2="921.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="2700" x2="3204" y1="929.6094" y2="929.6094"/><ellipse cx="2710" cy="943.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="2719" y="948.1426">TooMuchSavesException()</text><ellipse cx="2710" cy="961.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="2719" y="965.752">TooMuchSavesException(message : string)</text><ellipse cx="2710" cy="979.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="386" x="2719" y="983.3613">TooMuchSavesException(message : string, inner : Exception)</text><ellipse cx="2710" cy="996.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="480" x="2719" y="1000.9707">TooMuchSavesException(info : SerializationInfo, context : StreamingContext)</text></g><!--MD5=[63349c2b1e3781ea70623bd904e0e8ca]
+class Save--><g id="elem_Save"><rect codeLine="139" fill="#F1F1F1" height="629.1094" id="Save" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="499" x="1573.5" y="124.6094"/><ellipse cx="1803.25" cy="140.6094" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1805.4375,142.375 L1801.2969,142.375 L1800.875,143.4063 L1801.2969,143.4063 Q1801.9063,143.4063 1802.1719,143.6406 Q1802.4375,143.875 1802.4375,144.2656 Q1802.4375,144.6406 1802.1719,144.875 Q1801.9063,145.1094 1801.2969,145.1094 L1799,145.1094 Q1798.3906,145.1094 1798.1406,144.875 Q1797.875,144.6406 1797.875,144.25 Q1797.875,143.875 1798.1563,143.6406 Q1798.4219,143.3906 1799.0469,143.4063 L1801.7188,136.75 L1800.6094,136.75 Q1800,136.75 1799.7344,136.5156 Q1799.4688,136.2813 1799.4688,135.8906 Q1799.4688,135.5156 1799.7344,135.2813 Q1800,135.0469 1800.6094,135.0469 L1804.2813,135.0469 L1807.6719,143.4063 Q1808.2656,143.4063 1808.4531,143.5469 Q1808.8438,143.8125 1808.8438,144.2656 Q1808.8438,144.6406 1808.5781,144.875 Q1808.3281,145.1094 1807.7188,145.1094 L1805.4219,145.1094 Q1804.8125,145.1094 1804.5469,144.875 Q1804.2813,144.6406 1804.2813,144.25 Q1804.2813,143.875 1804.5469,143.6406 Q1804.8125,143.4063 1805.4219,143.4063 L1805.8438,143.4063 L1805.4375,142.375 Z M1804.7188,140.6719 L1803.3594,137.2969 L1801.9844,140.6719 L1804.7188,140.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="31" x="1823.75" y="146.3379">Save</text><line style="stroke:#181818;stroke-width:0.5;" x1="1574.5" x2="2071.5" y1="156.6094" y2="156.6094"/><ellipse cx="1584.5" cy="170.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1593.5" y="175.1426">{const} MAX_SAVES : int</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1581.5" y="185.5234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="118" x="1593.5" y="192.752">saves : Set&lt;Save&gt;</text><ellipse cx="1584.5" cy="206.1328" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="1593.5" y="210.3613">uuid : Guid</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1581.5" y="220.7422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="1593.5" y="227.9707">name : string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1581.5" y="238.3516"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="1593.5" y="245.5801">filesCopied : long</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1581.5" y="255.9609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1593.5" y="263.1895">sizeCopied : long</text><polygon fill="none" points="1584.5,271.5703,1588.5,275.5703,1584.5,279.5703,1580.5,275.5703" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1593.5" y="280.7988">status : JobStatus</text><ellipse cx="1584.5" cy="294.1797" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="1593.5" y="298.4082">SrcDir : SrcDir</text><ellipse cx="1584.5" cy="311.7891" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="1593.5" y="316.0176">DestDir : DestDir</text><line style="stroke:#181818;stroke-width:0.5;" x1="1574.5" x2="2071.5" y1="323.0938" y2="323.0938"/><polygon fill="#FFFF44" points="1584.5,332.3984,1588.5,336.3984,1584.5,340.3984,1580.5,336.3984" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="473" x="1593.5" y="341.627">Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1593.5" y="359.2363"> </text><ellipse cx="1584.5" cy="372.6172" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="408" x="1593.5" y="376.8457">Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save</text><ellipse cx="1584.5" cy="390.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="1593.5" y="394.4551">Rename(newName : string) : void</text><ellipse cx="1584.5" cy="407.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1593.5" y="412.0645">Pause() : void</text><ellipse cx="1584.5" cy="425.4453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="1593.5" y="429.6738">Resume() : void</text><ellipse cx="1584.5" cy="443.0547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="1593.5" y="447.2832">Cancel() : void</text><ellipse cx="1584.5" cy="460.6641" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="1593.5" y="464.8926">Stop() : void</text><ellipse cx="1584.5" cy="478.2734" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="158" x="1593.5" y="482.502">Delete(uuid : Guid) : void</text><ellipse cx="1584.5" cy="495.8828" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="1593.5" y="500.1113">Run() : string</text><ellipse cx="1584.5" cy="513.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="1593.5" y="517.7207">CalculateProgress() : int</text><ellipse cx="1584.5" cy="531.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="111" x="1593.5" y="535.3301">ToString() : string</text><ellipse cx="1584.5" cy="548.7109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="158" x="1593.5" y="552.9395">Init(data : dynamic) : void</text><ellipse cx="1584.5" cy="566.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="1593.5" y="570.5488">AddFileCopied(nb : int) : void</text><ellipse cx="1584.5" cy="583.9297" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="1593.5" y="588.1582">AddSizeCopied(length : long) : void</text><polygon fill="#FFFF44" points="1584.5,596.5391,1588.5,600.5391,1584.5,604.5391,1580.5,600.5391" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="245" x="1593.5" y="605.7676">ProcessResult(sw : StopWatch) : string</text><ellipse cx="1584.5" cy="619.1484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="183" x="1593.5" y="623.377">GetSaves() : HashSet&lt;save&gt;</text><ellipse cx="1584.5" cy="636.7578" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="1593.5" y="640.9863">GetName() : string</text><ellipse cx="1584.5" cy="654.3672" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1593.5" y="658.5957">GetStatus() : JobStatus</text><ellipse cx="1584.5" cy="671.9766" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="1593.5" y="676.2051">GetSizeCopied() : long</text><ellipse cx="1584.5" cy="689.5859" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1593.5" y="693.8145">GetFilesCopied() : long</text><ellipse cx="1584.5" cy="707.1953" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="171" x="1593.5" y="711.4238">GetSaveType() : SaveType</text><ellipse cx="1584.5" cy="724.8047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="234" x="1593.5" y="729.0332">GetStatus(status : String) : JobStatus</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1581.5" y="739.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="1593.5" y="746.6426">UpdateState() : void</text></g><!--MD5=[b3aa3c6b91715097506b17996fd666f5]
+class DifferentialSave--><g id="elem_DifferentialSave"><rect codeLine="176" fill="#F1F1F1" height="118.4375" id="DifferentialSave" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="567" x="1479.5" y="889.6094"/><ellipse cx="1708.75" cy="905.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1711.5156,901.4844 Q1711.6719,901.2656 1711.8594,901.1563 Q1712.0469,901.0469 1712.2656,901.0469 Q1712.6406,901.0469 1712.875,901.3125 Q1713.1094,901.5625 1713.1094,902.1719 L1713.1094,903.625 Q1713.1094,904.2344 1712.875,904.5 Q1712.6406,904.7656 1712.2656,904.7656 Q1711.9219,904.7656 1711.7188,904.5625 Q1711.5156,904.375 1711.4063,903.8594 Q1711.3594,903.5 1711.1719,903.3125 Q1710.8438,902.9375 1710.2344,902.7188 Q1709.625,902.5 1709,902.5 Q1708.2344,902.5 1707.5938,902.8281 Q1706.9688,903.1563 1706.4688,903.9063 Q1705.9844,904.6563 1705.9844,905.6875 L1705.9844,906.7813 Q1705.9844,908.0156 1706.875,908.8438 Q1707.7656,909.6563 1709.3594,909.6563 Q1710.2969,909.6563 1710.9531,909.4063 Q1711.3438,909.25 1711.7656,908.8125 Q1712.0313,908.5469 1712.1719,908.4688 Q1712.3281,908.3906 1712.5313,908.3906 Q1712.8594,908.3906 1713.1094,908.6563 Q1713.375,908.9063 1713.375,909.25 Q1713.375,909.5938 1713.0313,910 Q1712.5313,910.5781 1711.7344,910.9063 Q1710.6563,911.3594 1709.3594,911.3594 Q1707.8438,911.3594 1706.6406,910.7344 Q1705.6563,910.2344 1704.9688,909.1719 Q1704.2813,908.0938 1704.2813,906.8125 L1704.2813,905.6563 Q1704.2813,904.3281 1704.8906,903.1875 Q1705.5156,902.0313 1706.6094,901.4219 Q1707.7031,900.7969 1708.9375,900.7969 Q1709.6719,900.7969 1710.3125,900.9688 Q1710.9688,901.125 1711.5156,901.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="1729.25" y="911.3379">DifferentialSave</text><line style="stroke:#181818;stroke-width:0.5;" x1="1480.5" x2="2045.5" y1="921.6094" y2="921.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="1480.5" x2="2045.5" y1="929.6094" y2="929.6094"/><polygon fill="#FFFF44" points="1490.5,938.9141,1494.5,942.9141,1490.5,946.9141,1486.5,942.9141" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="541" x="1499.5" y="948.1426">DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1499.5" y="965.752"> </text><ellipse cx="1490.5" cy="979.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1499.5" y="983.3613">GetSaveType() : SaveType</text><ellipse cx="1490.5" cy="996.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1499.5" y="1000.9707">ToString() : string</text></g><!--MD5=[3f002bb007c4c5ab323fd5a755cf1088]
+class FullSave--><g id="elem_FullSave"><rect codeLine="183" fill="#F1F1F1" height="118.4375" id="FullSave" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="522" x="1484" y="1143.6094"/><ellipse cx="1713.25" cy="1159.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1716.0156,1155.4844 Q1716.1719,1155.2656 1716.3594,1155.1563 Q1716.5469,1155.0469 1716.7656,1155.0469 Q1717.1406,1155.0469 1717.375,1155.3125 Q1717.6094,1155.5625 1717.6094,1156.1719 L1717.6094,1157.625 Q1717.6094,1158.2344 1717.375,1158.5 Q1717.1406,1158.7656 1716.7656,1158.7656 Q1716.4219,1158.7656 1716.2188,1158.5625 Q1716.0156,1158.375 1715.9063,1157.8594 Q1715.8594,1157.5 1715.6719,1157.3125 Q1715.3438,1156.9375 1714.7344,1156.7188 Q1714.125,1156.5 1713.5,1156.5 Q1712.7344,1156.5 1712.0938,1156.8281 Q1711.4688,1157.1563 1710.9688,1157.9063 Q1710.4844,1158.6563 1710.4844,1159.6875 L1710.4844,1160.7813 Q1710.4844,1162.0156 1711.375,1162.8438 Q1712.2656,1163.6563 1713.8594,1163.6563 Q1714.7969,1163.6563 1715.4531,1163.4063 Q1715.8438,1163.25 1716.2656,1162.8125 Q1716.5313,1162.5469 1716.6719,1162.4688 Q1716.8281,1162.3906 1717.0313,1162.3906 Q1717.3594,1162.3906 1717.6094,1162.6563 Q1717.875,1162.9063 1717.875,1163.25 Q1717.875,1163.5938 1717.5313,1164 Q1717.0313,1164.5781 1716.2344,1164.9063 Q1715.1563,1165.3594 1713.8594,1165.3594 Q1712.3438,1165.3594 1711.1406,1164.7344 Q1710.1563,1164.2344 1709.4688,1163.1719 Q1708.7813,1162.0938 1708.7813,1160.8125 L1708.7813,1159.6563 Q1708.7813,1158.3281 1709.3906,1157.1875 Q1710.0156,1156.0313 1711.1094,1155.4219 Q1712.2031,1154.7969 1713.4375,1154.7969 Q1714.1719,1154.7969 1714.8125,1154.9688 Q1715.4688,1155.125 1716.0156,1155.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="1733.75" y="1165.3379">FullSave</text><line style="stroke:#181818;stroke-width:0.5;" x1="1485" x2="2005" y1="1175.6094" y2="1175.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="1485" x2="2005" y1="1183.6094" y2="1183.6094"/><polygon fill="#FFFF44" points="1495,1192.9141,1499,1196.9141,1495,1200.9141,1491,1196.9141" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="496" x="1504" y="1202.1426">FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1504" y="1219.752"> </text><ellipse cx="1495" cy="1233.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1504" y="1237.3613">GetSaveType() : SaveType</text><ellipse cx="1495" cy="1250.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1504" y="1254.9707">ToString() : string</text></g><!--MD5=[924f0520738fdbce5f27119fca9a4750]
+class SaveType--><g id="elem_SaveType"><rect codeLine="190" fill="#F1F1F1" height="83.2188" id="SaveType" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="96" x="1442" y="397.6094"/><ellipse cx="1457" cy="413.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1455.8594,414.4063 L1455.8594,416.9063 L1460.1875,416.9063 L1460.1875,415.9844 Q1460.1875,415.375 1460.4219,415.1094 Q1460.6719,414.8438 1461.0469,414.8438 Q1461.4219,414.8438 1461.6563,415.1094 Q1461.8906,415.375 1461.8906,415.9844 L1461.8906,418.6094 L1453.8906,418.6094 Q1453.2656,418.6094 1453,418.375 Q1452.75,418.1406 1452.75,417.75 Q1452.75,417.375 1453.0156,417.1406 Q1453.2813,416.9063 1453.8906,416.9063 L1454.1563,416.9063 L1454.1563,410.25 L1453.8906,410.25 Q1453.2656,410.25 1453,410.0156 Q1452.75,409.7813 1452.75,409.3906 Q1452.75,409.0156 1453,408.7813 Q1453.2656,408.5469 1453.8906,408.5469 L1461.5156,408.5469 L1461.5156,411.1406 Q1461.5156,411.75 1461.2813,412.0156 Q1461.0625,412.2656 1460.6719,412.2656 Q1460.2969,412.2656 1460.0625,412.0156 Q1459.8281,411.75 1459.8281,411.1406 L1459.8281,410.25 L1455.8594,410.25 L1455.8594,412.7031 L1457.3438,412.7031 Q1457.3438,412.0469 1457.4688,411.8594 Q1457.7344,411.4531 1458.2031,411.4531 Q1458.5781,411.4531 1458.8125,411.7188 Q1459.0469,411.9688 1459.0469,412.5781 L1459.0469,414.5469 Q1459.0469,415.0938 1458.9219,415.2813 Q1458.6563,415.6719 1458.2031,415.6719 Q1457.7344,415.6719 1457.4688,415.2656 Q1457.3438,415.0781 1457.3438,414.4063 L1455.8594,414.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1471" y="419.3379">SaveType</text><line style="stroke:#181818;stroke-width:0.5;" x1="1443" x2="1537" y1="429.6094" y2="429.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="23" x="1448" y="448.1426">Full</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="1448" y="465.752">Differential</text><line style="stroke:#181818;stroke-width:0.5;" x1="1443" x2="1537" y1="472.8281" y2="472.8281"/></g><!--MD5=[9193257c4e679857599a9d012188711b]
+class JobStatus--><g id="elem_JobStatus"><rect codeLine="195" fill="#F1F1F1" height="153.6563" id="JobStatus" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="94" x="1844" y="1487.6094"/><ellipse cx="1859" cy="1503.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1857.8594,1504.4063 L1857.8594,1506.9063 L1862.1875,1506.9063 L1862.1875,1505.9844 Q1862.1875,1505.375 1862.4219,1505.1094 Q1862.6719,1504.8438 1863.0469,1504.8438 Q1863.4219,1504.8438 1863.6563,1505.1094 Q1863.8906,1505.375 1863.8906,1505.9844 L1863.8906,1508.6094 L1855.8906,1508.6094 Q1855.2656,1508.6094 1855,1508.375 Q1854.75,1508.1406 1854.75,1507.75 Q1854.75,1507.375 1855.0156,1507.1406 Q1855.2813,1506.9063 1855.8906,1506.9063 L1856.1563,1506.9063 L1856.1563,1500.25 L1855.8906,1500.25 Q1855.2656,1500.25 1855,1500.0156 Q1854.75,1499.7813 1854.75,1499.3906 Q1854.75,1499.0156 1855,1498.7813 Q1855.2656,1498.5469 1855.8906,1498.5469 L1863.5156,1498.5469 L1863.5156,1501.1406 Q1863.5156,1501.75 1863.2813,1502.0156 Q1863.0625,1502.2656 1862.6719,1502.2656 Q1862.2969,1502.2656 1862.0625,1502.0156 Q1861.8281,1501.75 1861.8281,1501.1406 L1861.8281,1500.25 L1857.8594,1500.25 L1857.8594,1502.7031 L1859.3438,1502.7031 Q1859.3438,1502.0469 1859.4688,1501.8594 Q1859.7344,1501.4531 1860.2031,1501.4531 Q1860.5781,1501.4531 1860.8125,1501.7188 Q1861.0469,1501.9688 1861.0469,1502.5781 L1861.0469,1504.5469 Q1861.0469,1505.0938 1860.9219,1505.2813 Q1860.6563,1505.6719 1860.2031,1505.6719 Q1859.7344,1505.6719 1859.4688,1505.2656 Q1859.3438,1505.0781 1859.3438,1504.4063 L1857.8594,1504.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="1873" y="1509.3379">JobStatus</text><line style="stroke:#181818;stroke-width:0.5;" x1="1845" x2="1937" y1="1519.6094" y2="1519.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="1850" y="1538.1426">Running</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="1850" y="1555.752">Paused</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="1850" y="1573.3613">Finished</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="1850" y="1590.9707">Cancelled</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="1850" y="1608.5801">Error</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="1850" y="1626.1895">Waiting</text><line style="stroke:#181818;stroke-width:0.5;" x1="1845" x2="1937" y1="1633.2656" y2="1633.2656"/></g><!--MD5=[1542b077a1eb18cbf04d284c282cc6e6]
+class LogsFormat--><g id="elem_LogsFormat"><rect codeLine="208" fill="#F1F1F1" height="83.2188" id="LogsFormat" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="108" x="334" y="397.6094"/><ellipse cx="349" cy="413.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M347.8594,414.4063 L347.8594,416.9063 L352.1875,416.9063 L352.1875,415.9844 Q352.1875,415.375 352.4219,415.1094 Q352.6719,414.8438 353.0469,414.8438 Q353.4219,414.8438 353.6563,415.1094 Q353.8906,415.375 353.8906,415.9844 L353.8906,418.6094 L345.8906,418.6094 Q345.2656,418.6094 345,418.375 Q344.75,418.1406 344.75,417.75 Q344.75,417.375 345.0156,417.1406 Q345.2813,416.9063 345.8906,416.9063 L346.1563,416.9063 L346.1563,410.25 L345.8906,410.25 Q345.2656,410.25 345,410.0156 Q344.75,409.7813 344.75,409.3906 Q344.75,409.0156 345,408.7813 Q345.2656,408.5469 345.8906,408.5469 L353.5156,408.5469 L353.5156,411.1406 Q353.5156,411.75 353.2813,412.0156 Q353.0625,412.2656 352.6719,412.2656 Q352.2969,412.2656 352.0625,412.0156 Q351.8281,411.75 351.8281,411.1406 L351.8281,410.25 L347.8594,410.25 L347.8594,412.7031 L349.3438,412.7031 Q349.3438,412.0469 349.4688,411.8594 Q349.7344,411.4531 350.2031,411.4531 Q350.5781,411.4531 350.8125,411.7188 Q351.0469,411.9688 351.0469,412.5781 L351.0469,414.5469 Q351.0469,415.0938 350.9219,415.2813 Q350.6563,415.6719 350.2031,415.6719 Q349.7344,415.6719 349.4688,415.2656 Q349.3438,415.0781 349.3438,414.4063 L347.8594,414.4063 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="363" y="419.3379">LogsFormat</text><line style="stroke:#181818;stroke-width:0.5;" x1="335" x2="441" y1="429.6094" y2="429.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="340" y="448.1426">JSON</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="340" y="465.752">XML</text><line style="stroke:#181818;stroke-width:0.5;" x1="335" x2="441" y1="472.8281" y2="472.8281"/></g><!--MD5=[0ae186b829e8c536129944e439e973a1]
+class DirectoryUtils--><g id="elem_DirectoryUtils"><rect codeLine="213" fill="#F1F1F1" height="199.5781" id="DirectoryUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="530" x="477" y="339.1094"/><ellipse cx="696.25" cy="360.4609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M699.0156,356.3359 Q699.1719,356.1172 699.3594,356.0078 Q699.5469,355.8984 699.7656,355.8984 Q700.1406,355.8984 700.375,356.1641 Q700.6094,356.4141 700.6094,357.0234 L700.6094,358.4766 Q700.6094,359.0859 700.375,359.3516 Q700.1406,359.6172 699.7656,359.6172 Q699.4219,359.6172 699.2188,359.4141 Q699.0156,359.2266 698.9063,358.7109 Q698.8594,358.3516 698.6719,358.1641 Q698.3438,357.7891 697.7344,357.5703 Q697.125,357.3516 696.5,357.3516 Q695.7344,357.3516 695.0938,357.6797 Q694.4688,358.0078 693.9688,358.7578 Q693.4844,359.5078 693.4844,360.5391 L693.4844,361.6328 Q693.4844,362.8672 694.375,363.6953 Q695.2656,364.5078 696.8594,364.5078 Q697.7969,364.5078 698.4531,364.2578 Q698.8438,364.1016 699.2656,363.6641 Q699.5313,363.3984 699.6719,363.3203 Q699.8281,363.2422 700.0313,363.2422 Q700.3594,363.2422 700.6094,363.5078 Q700.875,363.7578 700.875,364.1016 Q700.875,364.4453 700.5313,364.8516 Q700.0313,365.4297 699.2344,365.7578 Q698.1563,366.2109 696.8594,366.2109 Q695.3438,366.2109 694.1406,365.5859 Q693.1563,365.0859 692.4688,364.0234 Q691.7813,362.9453 691.7813,361.6641 L691.7813,360.5078 Q691.7813,359.1797 692.3906,358.0391 Q693.0156,356.8828 694.1094,356.2734 Q695.2031,355.6484 696.4375,355.6484 Q697.1719,355.6484 697.8125,355.8203 Q698.4688,355.9766 699.0156,356.3359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="737.25" y="356.5664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="716.75" y="373.7363">DirectoryUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="478" x2="1006" y1="381.8125" y2="381.8125"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="485" y="393.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="116" x="497" y="400.3457">actualFile : string[]</text><line style="stroke:#181818;stroke-width:0.5;" x1="478" x2="1006" y1="407.4219" y2="407.4219"/><ellipse cx="488" cy="421.7266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="235" x="497" y="425.9551">CopyFilesAndFolders(s : Save) : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="485" y="436.3359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="504" x="497" y="443.5645">CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void</text><ellipse cx="488" cy="456.9453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="194" x="497" y="461.1738">IsValidPath(path : string) : bool</text><ellipse cx="488" cy="474.5547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="195" x="497" y="478.7832">CreatePath(path : string) : void</text><ellipse cx="488" cy="492.1641" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="279" x="497" y="496.3926">GetDirectorySize(dir : DirectoryInfo) : double</text><ellipse cx="488" cy="509.7734" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="267" x="497" y="514.002">GetDirectoryFiles(dir : DirectoryInfo) : long</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="485" y="524.3828"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="150" x="497" y="531.6113">GetActualFile() : string[]</text></g><!--MD5=[95065420017a358c6a6a2ed951794e54]
+class LogUtils--><g id="elem_LogUtils"><rect codeLine="224" fill="#F1F1F1" height="270.0156" id="LogUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="684" x="46" y="813.6094"/><ellipse cx="358.75" cy="834.9609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M361.5156,830.8359 Q361.6719,830.6172 361.8594,830.5078 Q362.0469,830.3984 362.2656,830.3984 Q362.6406,830.3984 362.875,830.6641 Q363.1094,830.9141 363.1094,831.5234 L363.1094,832.9766 Q363.1094,833.5859 362.875,833.8516 Q362.6406,834.1172 362.2656,834.1172 Q361.9219,834.1172 361.7188,833.9141 Q361.5156,833.7266 361.4063,833.2109 Q361.3594,832.8516 361.1719,832.6641 Q360.8438,832.2891 360.2344,832.0703 Q359.625,831.8516 359,831.8516 Q358.2344,831.8516 357.5938,832.1797 Q356.9688,832.5078 356.4688,833.2578 Q355.9844,834.0078 355.9844,835.0391 L355.9844,836.1328 Q355.9844,837.3672 356.875,838.1953 Q357.7656,839.0078 359.3594,839.0078 Q360.2969,839.0078 360.9531,838.7578 Q361.3438,838.6016 361.7656,838.1641 Q362.0313,837.8984 362.1719,837.8203 Q362.3281,837.7422 362.5313,837.7422 Q362.8594,837.7422 363.1094,838.0078 Q363.375,838.2578 363.375,838.6016 Q363.375,838.9453 363.0313,839.3516 Q362.5313,839.9297 361.7344,840.2578 Q360.6563,840.7109 359.3594,840.7109 Q357.8438,840.7109 356.6406,840.0859 Q355.6563,839.5859 354.9688,838.5234 Q354.2813,837.4453 354.2813,836.1641 L354.2813,835.0078 Q354.2813,833.6797 354.8906,832.5391 Q355.5156,831.3828 356.6094,830.7734 Q357.7031,830.1484 358.9375,830.1484 Q359.6719,830.1484 360.3125,830.3203 Q360.9688,830.4766 361.5156,830.8359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="383.25" y="831.0664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="379.25" y="848.2363">LogUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="47" x2="729" y1="856.3125" y2="856.3125"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="54" y="867.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="75" x="66" y="874.8457">path : string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="54" y="885.2266"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="75" x="66" y="892.4551">date : string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="54" y="902.8359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="128" x="66" y="910.0645">format : LogsFormat</text><line style="stroke:#181818;stroke-width:0.5;" x1="47" x2="729" y1="917.1406" y2="917.1406"/><ellipse cx="57" cy="931.4453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="66" x="66" y="935.6738">Init() : void</text><ellipse cx="57" cy="949.0547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="111" x="66" y="953.2832">LogSaves() : void</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="54" y="963.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="154" x="66" y="970.8926">SavesToJson() : JObject</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="54" y="981.2734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="159" x="66" y="988.502">SavesToXml() : XElement</text><ellipse cx="57" cy="1001.8828" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="198" x="66" y="1006.1113">SaveToJson(s : Save) : JObject</text><ellipse cx="57" cy="1019.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="203" x="66" y="1023.7207">SaveToXml(s : Save) : XElement</text><ellipse cx="57" cy="1037.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="658" x="66" y="1041.3301">LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void</text><ellipse cx="57" cy="1054.7109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="271" x="66" y="1058.9395">ChangeFormat(format : LogsFormat) : void</text><ellipse cx="57" cy="1072.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="166" x="66" y="1076.5488">GetFormat() : LogsFormat</text></g><!--MD5=[a2c6409ba669831248d5bb83f2828155]
+class VersionUtils--><g id="elem_VersionUtils"><rect codeLine="240" fill="#F1F1F1" height="111.5313" id="VersionUtils" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="263" x="765.5" y="892.6094"/><ellipse cx="855.75" cy="913.9609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M858.5156,909.8359 Q858.6719,909.6172 858.8594,909.5078 Q859.0469,909.3984 859.2656,909.3984 Q859.6406,909.3984 859.875,909.6641 Q860.1094,909.9141 860.1094,910.5234 L860.1094,911.9766 Q860.1094,912.5859 859.875,912.8516 Q859.6406,913.1172 859.2656,913.1172 Q858.9219,913.1172 858.7188,912.9141 Q858.5156,912.7266 858.4063,912.2109 Q858.3594,911.8516 858.1719,911.6641 Q857.8438,911.2891 857.2344,911.0703 Q856.625,910.8516 856,910.8516 Q855.2344,910.8516 854.5938,911.1797 Q853.9688,911.5078 853.4688,912.2578 Q852.9844,913.0078 852.9844,914.0391 L852.9844,915.1328 Q852.9844,916.3672 853.875,917.1953 Q854.7656,918.0078 856.3594,918.0078 Q857.2969,918.0078 857.9531,917.7578 Q858.3438,917.6016 858.7656,917.1641 Q859.0313,916.8984 859.1719,916.8203 Q859.3281,916.7422 859.5313,916.7422 Q859.8594,916.7422 860.1094,917.0078 Q860.375,917.2578 860.375,917.6016 Q860.375,917.9453 860.0313,918.3516 Q859.5313,918.9297 858.7344,919.2578 Q857.6563,919.7109 856.3594,919.7109 Q854.8438,919.7109 853.6406,919.0859 Q852.6563,918.5859 851.9688,917.5234 Q851.2813,916.4453 851.2813,915.1641 L851.2813,914.0078 Q851.2813,912.6797 851.8906,911.5391 Q852.5156,910.3828 853.6094,909.7734 Q854.7031,909.1484 855.9375,909.1484 Q856.6719,909.1484 857.3125,909.3203 Q857.9688,909.4766 858.5156,909.8359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="892.25" y="910.0664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="876.25" y="927.2363">VersionUtils</text><line style="stroke:#181818;stroke-width:0.5;" x1="766.5" x2="1027.5" y1="935.3125" y2="935.3125"/><line style="stroke:#181818;stroke-width:0.5;" x1="766.5" x2="1027.5" y1="943.3125" y2="943.3125"/><ellipse cx="776.5" cy="957.6172" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="179" x="785.5" y="961.8457">GetVersionFromGit() : string</text><ellipse cx="776.5" cy="975.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="237" x="785.5" y="979.4551">VersionFromStr(version : string) : int[]</text><ellipse cx="776.5" cy="992.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="162" x="785.5" y="997.0645">CompareVersions() : bool</text></g><!--MD5=[b1d46488418bc0cd55cf54b5fc017696]
+class ViewModel--><g id="elem_ViewModel"><rect codeLine="4" fill="#F1F1F1" height="241.7031" id="ViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="504" x="3918" y="1443.6094"/><ellipse cx="4132.25" cy="1459.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M4135.0156,1455.4844 Q4135.1719,1455.2656 4135.3594,1455.1563 Q4135.5469,1455.0469 4135.7656,1455.0469 Q4136.1406,1455.0469 4136.375,1455.3125 Q4136.6094,1455.5625 4136.6094,1456.1719 L4136.6094,1457.625 Q4136.6094,1458.2344 4136.375,1458.5 Q4136.1406,1458.7656 4135.7656,1458.7656 Q4135.4219,1458.7656 4135.2188,1458.5625 Q4135.0156,1458.375 4134.9063,1457.8594 Q4134.8594,1457.5 4134.6719,1457.3125 Q4134.3438,1456.9375 4133.7344,1456.7188 Q4133.125,1456.5 4132.5,1456.5 Q4131.7344,1456.5 4131.0938,1456.8281 Q4130.4688,1457.1563 4129.9688,1457.9063 Q4129.4844,1458.6563 4129.4844,1459.6875 L4129.4844,1460.7813 Q4129.4844,1462.0156 4130.375,1462.8438 Q4131.2656,1463.6563 4132.8594,1463.6563 Q4133.7969,1463.6563 4134.4531,1463.4063 Q4134.8438,1463.25 4135.2656,1462.8125 Q4135.5313,1462.5469 4135.6719,1462.4688 Q4135.8281,1462.3906 4136.0313,1462.3906 Q4136.3594,1462.3906 4136.6094,1462.6563 Q4136.875,1462.9063 4136.875,1463.25 Q4136.875,1463.5938 4136.5313,1464 Q4136.0313,1464.5781 4135.2344,1464.9063 Q4134.1563,1465.3594 4132.8594,1465.3594 Q4131.3438,1465.3594 4130.1406,1464.7344 Q4129.1563,1464.2344 4128.4688,1463.1719 Q4127.7813,1462.0938 4127.7813,1460.8125 L4127.7813,1459.6563 Q4127.7813,1458.3281 4128.3906,1457.1875 Q4129.0156,1456.0313 4130.1094,1455.4219 Q4131.2031,1454.7969 4132.4375,1454.7969 Q4133.1719,1454.7969 4133.8125,1454.9688 Q4134.4688,1455.125 4135.0156,1455.4844 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="4152.75" y="1465.3379">ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="3919" x2="4421" y1="1475.6094" y2="1475.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="3919" x2="4421" y1="1483.6094" y2="1483.6094"/><ellipse cx="3929" cy="1497.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="478" x="3938" y="1502.1426">CreateSave(name : string, src : string, dest : string, type : SaveType) : Save</text><ellipse cx="3929" cy="1515.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="271" x="3938" y="1519.752">EditSave(s : Save, newName : string) : void</text><ellipse cx="3929" cy="1533.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="3938" y="1537.3613">DeleteSave(s : Save) : void</text><ellipse cx="3929" cy="1550.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="3938" y="1554.9707">RunSave(s : Save) : string</text><ellipse cx="3929" cy="1568.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="3938" y="1572.5801">ChangeLanguage() : void</text><ellipse cx="3929" cy="1585.9609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="3938" y="1590.1895">ChangeLogsFormat() : void</text><polygon fill="#FFFF44" points="3929,1598.5703,3933,1602.5703,3929,1606.5703,3925,1602.5703" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="3938" y="1607.7988">StopAllSaves() : void</text><ellipse cx="3929" cy="1621.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="123" x="3938" y="1625.4082">IsUpToDate() : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="3938" y="1643.0176"> </text><ellipse cx="3929" cy="1656.3984" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="389" x="3938" y="1660.627">GetSavesByUuid(names : HashSet&lt;String&gt;) : HashSet&lt;Save&gt;</text><ellipse cx="3929" cy="1674.0078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="3938" y="1678.2363">GetSaves() : HashSet&lt;string&gt;</text></g><!--MD5=[175f95e045c1a44aed0b30df3abe0e5c]
+class Program--><g id="elem_Program"><rect codeLine="18" fill="#F1F1F1" height="76.3125" id="Program" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104" x="4152" y="401.1094"/><ellipse cx="4175.1" cy="422.4609" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M4177.8656,418.3359 Q4178.0219,418.1172 4178.2094,418.0078 Q4178.3969,417.8984 4178.6156,417.8984 Q4178.9906,417.8984 4179.225,418.1641 Q4179.4594,418.4141 4179.4594,419.0234 L4179.4594,420.4766 Q4179.4594,421.0859 4179.225,421.3516 Q4178.9906,421.6172 4178.6156,421.6172 Q4178.2719,421.6172 4178.0688,421.4141 Q4177.8656,421.2266 4177.7563,420.7109 Q4177.7094,420.3516 4177.5219,420.1641 Q4177.1938,419.7891 4176.5844,419.5703 Q4175.975,419.3516 4175.35,419.3516 Q4174.5844,419.3516 4173.9438,419.6797 Q4173.3188,420.0078 4172.8188,420.7578 Q4172.3344,421.5078 4172.3344,422.5391 L4172.3344,423.6328 Q4172.3344,424.8672 4173.225,425.6953 Q4174.1156,426.5078 4175.7094,426.5078 Q4176.6469,426.5078 4177.3031,426.2578 Q4177.6938,426.1016 4178.1156,425.6641 Q4178.3813,425.3984 4178.5219,425.3203 Q4178.6781,425.2422 4178.8813,425.2422 Q4179.2094,425.2422 4179.4594,425.5078 Q4179.725,425.7578 4179.725,426.1016 Q4179.725,426.4453 4179.3813,426.8516 Q4178.8813,427.4297 4178.0844,427.7578 Q4177.0063,428.2109 4175.7094,428.2109 Q4174.1938,428.2109 4172.9906,427.5859 Q4172.0063,427.0859 4171.3188,426.0234 Q4170.6313,424.9453 4170.6313,423.6641 L4170.6313,422.5078 Q4170.6313,421.1797 4171.2406,420.0391 Q4171.8656,418.8828 4172.9594,418.2734 Q4174.0531,417.6484 4175.2875,417.6484 Q4176.0219,417.6484 4176.6625,417.8203 Q4177.3188,417.9766 4177.8656,418.3359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="4196.9" y="418.5664">«static»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="4190.9" y="435.7363">Program</text><line style="stroke:#181818;stroke-width:0.5;" x1="4153" x2="4255" y1="443.8125" y2="443.8125"/><line style="stroke:#181818;stroke-width:0.5;" x1="4153" x2="4255" y1="451.8125" y2="451.8125"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="4160" y="463.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="78" x="4172" y="470.3457">Main() : void</text></g><!--MD5=[73cfb69b8bcc06f09fde2e3051d4bf57]
+reverse link View to ViewModel--><g id="link_View_ViewModel"><path codeLine="250" d="M4056.78,537.4994 C4082.68,612.0594 4116.31,717.9994 4135,813.6094 C4168.23,983.5394 4170,1028.4694 4170,1201.6094 C4170,1201.6094 4170,1201.6094 4170,1322.6094 C4170,1361.9394 4170,1404.8794 4170,1443.4794 " fill="none" id="View-backto-ViewModel" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="4052.37,524.8794,4050.572,531.8627,4056.3266,536.2083,4058.1246,529.225,4052.37,524.8794" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="4034.2065" y="546.4365">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="4162.7758" y="1432.7229">1</text></g><!--MD5=[f1977668a0d4902379d701cbb54da806]
+reverse link Save to SrcDir--><g id="link_Save_SrcDir"><path codeLine="251" d="M1562.23,749.3294 C1559.83,750.7794 1557.42,752.2094 1555,753.6094 C1428.15,826.7994 1353.81,733.8294 1231,813.6094 C1205.92,829.9094 1185.83,855.6794 1170.91,880.2894 " fill="none" id="Save-backto-SrcDir" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1573.38,742.2994,1566.171,742.1235,1563.236,748.7103,1570.445,748.8862,1573.38,742.2994" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="1560.1073" y="766.0094">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1166.8398" y="869.9297">1</text></g><!--MD5=[85907110e97e66d9c65e49318b1ae453]
+reverse link Save to DestDir--><g id="link_Save_DestDir"><path codeLine="252" d="M1563.02,747.4094 C1560.36,749.5094 1557.68,751.5694 1555,753.6094 C1504.64,791.8494 1474.87,773.4894 1426,813.6094 C1391.14,842.2294 1362.27,885.9394 1345.11,915.5894 " fill="none" id="Save-backto-DestDir" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1573.26,739.1794,1566.0781,739.8275,1563.9141,746.7062,1571.096,746.0581,1573.26,739.1794" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="1560.7716" y="745.3489">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1340.9171" y="904.7007">1</text></g><!--MD5=[e8dab679573d0d14c2418cba53102b8e]
+reverse link Save to JobStatus--><g id="link_Save_JobStatus"><path codeLine="253" d="M2046.21,765.9194 C2052.88,781.7194 2058.87,797.6594 2064,813.6094 C2116.83,977.9794 2083,1028.9594 2083,1201.6094 C2083,1201.6094 2083,1201.6094 2083,1322.6094 C2083,1415.1594 1995.32,1492.6794 1938.46,1533.2194 " fill="none" id="Save-backto-JobStatus" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="2040.98,753.8594,2039.7069,760.9572,2045.7691,764.8623,2047.0422,757.7645,2040.98,753.8594" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="2041.0303" y="774.9218">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1945.9448" y="1524.9801">1</text></g><!--MD5=[b320bf836a005f07cd8b73f09e3a3ed6]
+reverse link Dir to SrcDir--><g id="link_Dir_SrcDir"><path codeLine="255" d="M1223.4,491.9294 C1206.27,584.4094 1170.45,777.8094 1151.45,880.3794 " fill="none" id="Dir-backto-SrcDir" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1216.52,490.6294,1227.05,472.2394,1230.29,493.1794,1216.52,490.6294" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[60a0330826d1039500b4d0ff7fcb4e99]
+reverse link Dir to DestDir--><g id="link_Dir_DestDir"><path codeLine="256" d="M1242.7,491.9094 C1262.25,596.3794 1305.92,829.6694 1321.95,915.2894 " fill="none" id="Dir-backto-DestDir" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1235.81,493.1894,1239.01,472.2394,1249.58,490.6094,1235.81,493.1894" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6d77c61459a13101d3a49e0cac2fd3a7]
+reverse link Save to FullSave--><g id="link_Save_FullSave"><path codeLine="258" d="M1558.13,750.8594 C1557.08,751.7794 1556.04,752.6994 1555,753.6094 C1517.96,785.9794 1485.54,770.4194 1462,813.6094 C1446.37,842.2894 1442.89,1081.1194 1462,1107.6094 C1472,1121.4594 1484.12,1133.3094 1497.65,1143.4294 " fill="none" id="Save-backto-FullSave" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1553.6,745.5194,1573.14,737.3094,1562.98,755.9094,1553.6,745.5194" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[da84a1213a55b534a5714fd5ba3d1879]
+reverse link Save to DifferentialSave--><g id="link_Save_DifferentialSave"><path codeLine="259" d="M1783.52,774.0594 C1778.31,818.1294 1773.52,858.5894 1769.89,889.3494 " fill="none" id="Save-backto-DifferentialSave" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1776.6,772.9794,1785.9,753.9394,1790.5,774.6194,1776.6,772.9794" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[95787bbd8e885202ab63eaff88b0fa08]
+reverse link IView to HomeView--><g id="link_IView_HomeView"><path codeLine="261" d="M3603.22,500.5394 C3624.08,595.9494 3664.52,780.8194 3686.28,880.3194 " fill="none" id="IView-backto-HomeView" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3596.33,501.8194,3598.9,480.7794,3610.01,498.8294,3596.33,501.8194" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[265df0ee4d01fe7e5e544bd378352a0e]
+reverse link IView to SaveView--><g id="link_IView_SaveView"><path codeLine="262" d="M3605.24,499.9994 C3625.23,568.3994 3666.1,680.2794 3735,753.6094 C3773.4,794.4794 3800.44,780.9094 3846,813.6094 C3859.59,823.3694 3873.26,834.2994 3886.47,845.5994 " fill="none" id="IView-backto-SaveView" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3598.49,501.8294,3599.81,480.6794,3611.96,498.0394,3598.49,501.8294" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[62349de62bc8f474af0ba23726a03bd1]
+reverse link IView to SettingsView--><g id="link_IView_SettingsView"><path codeLine="263" d="M3569.1,499.7094 C3537.6,589.4994 3477.85,759.8694 3441.8,862.6494 " fill="none" id="IView-backto-SettingsView" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3562.51,497.3394,3575.73,480.7794,3575.72,501.9694,3562.51,497.3394" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bcb18f9f551421e31c32debcef489dc9]
+reverse link Exception to CantCheckUpdateException--><g id="link_Exception_CantCheckUpdateException"><path codeLine="265" d="M2897.57,483.3494 C2887.27,549.0494 2859.26,674.6994 2789,753.6094 C2779.09,764.7394 2632.88,836.5594 2523.08,889.5894 " fill="none" id="Exception-backto-CantCheckUpdateException" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="2890.7,481.9494,2900.47,463.1494,2904.56,483.9394,2890.7,481.9494" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3d1f87e207ac506f9ff60b24d1371347]
+reverse link Exception to TooMuchSavesException--><g id="link_Exception_TooMuchSavesException"><path codeLine="266" d="M2907.16,483.1594 C2915.95,574.1994 2936.43,786.3394 2946.38,889.3794 " fill="none" id="Exception-backto-TooMuchSavesException" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="2900.19,483.8194,2905.23,463.2294,2914.12,482.4694,2900.19,483.8194" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d9d2a8e5760e8554b17f6920dcf2b4a0]
+link FullSave to JobStatus--><!--MD5=[b92d2b0a4bc61ce7fc33262152005528]
+@startuml ProSoft - EasySave 2.0.0 - Class Diagram
+
+title "ProSoft - EasySave 2.0.0 - Class Diagram"
+
+class ViewModel {
+    + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+    + EditSave(s : Save, newName : string) : void
+    + DeleteSave(s : Save) : void
+    + RunSave(s : Save) : string
+    + ChangeLanguage() : void
+    + ChangeLogsFormat() : void
+    # StopAllSaves() : void
+    + {static} IsUpToDate() : bool
+
+    + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+    + GetSaves() : HashSet<string>
+}
+
+class Program <<static>> {
+    - {static} Main() : void
+}
+
+package Render <<Folder>> {
+
+    interface IView {
+        + Start() : void
+        + Render(type : RenderMethod) : void
+    }
+
+    enum RenderMethod {
+        Home
+        CreateSave
+        LoadSave
+        EditSave
+        DeleteSave
+        ChangeLanguage
+        Settings,
+        ChangeLogsFormat
+    }
+
+    class View {
+        - vm : ViewModel
+
+        + View()
+
+        + Start() : void
+        + Render(view : IView) : void
+        # Exit(code : int) : void
+        - CheckUpdate() : string
+    }
+
+    class HomeView {
+        - vm : ViewModel
+
+        + HomeView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+    }
+
+    class SaveView {
+        - vm : ViewModel
+
+        + SaveView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderCreate() : void
+        - RenderEdit() : void
+        - RenderDelete() : void
+        - RenderLoad() : void
+    }
+
+    class SettingsView {
+        - vm : ViewModel
+
+        + SettingsView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderChangeLanguage() : void
+        - RenderChangeLogsFormat() : void
+    }
+
+}
+
+package Models <<Folder>> {
+
+    Interface Dir {
+        - path : string
+    }
+
+    class SrcDir {
+        - size : double
+        + nbFiles : long
+
+        + SrcDir(path : string)
+
+        + GetSize() : double
+    }
+
+    class DestDir {
+        + DestDir(path : string)
+    }
+
+    package Exceptions <<Folder>> {
+    
+        class Exception {
+
+        }
+
+        class UnknownLogFormatException {
+
+            + UnknownLogFormatException()
+            + UnknownLogFormatException(message : string)
+            + UnknownLogFormatException(message : string, inner : Exception)
+            + UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class CantCheckUpdateException {
+
+            + CantCheckUpdateException()
+            + CantCheckUpdateException(message : string)
+            + CantCheckUpdateException(message : string, inner : Exception)
+            + CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class TooMuchSavesException {
+
+            + TooMuchSavesException()
+            + TooMuchSavesException(message : string)
+            + TooMuchSavesException(message : string, inner : Exception)
+            + TooMuchSavesException(info : SerializationInfo, context : StreamingContext)
+        }
+
+    }
+    
+    package Data <<Folder>> {
+
+        abstract class Save {
+            + {const} MAX_SAVES : int
+            - {static} saves : Set<Save>
+            + uuid : Guid
+            - name : string
+            - filesCopied : long
+            - sizeCopied : long
+            # status : JobStatus
+            + SrcDir : SrcDir
+            + DestDir : DestDir
+
+            # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
+
+            + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + Rename(newName : string) : void
+            + Pause() : void
+            + Resume() : void
+            + Cancel() : void
+            + Stop() : void
+            + {static} Delete(uuid : Guid) : void
+            + Run() : string
+            + CalculateProgress() : int
+            + {abstract} ToString() : string
+            + {static} Init(data : dynamic) : void
+            + AddFileCopied(nb : int) : void
+            + AddSizeCopied(length : long) : void
+            # ProcessResult(sw : StopWatch) : string
+            + {static} GetSaves() : HashSet<save>
+            + GetName() : string
+            + GetStatus() : JobStatus
+            + GetSizeCopied() : long
+            + GetFilesCopied() : long
+            + {abstract} GetSaveType() : SaveType
+            + {static} GetStatus(status : String) : JobStatus
+            - UpdateState() : void
+        }            
+
+        class DifferentialSave {
+            # DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        class FullSave {
+            # FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        enum SaveType {
+            Full
+            Differential
+        }
+
+        enum JobStatus {
+            Running
+            Paused
+            Finished
+            Cancelled
+            Error
+            Waiting
+        }
+        
+    }
+
+    package Utils <<Folder>> {
+
+        enum LogsFormat {
+            JSON
+            XML
+        }
+
+        class DirectoryUtils <<static>> {
+            - {static} actualFile : string[]
+            + {static} CopyFilesAndFolders(s : Save) : void
+            - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
+            + {static} IsValidPath(path : string) : bool
+            + {static} CreatePath(path : string) : void
+            + {static} GetDirectorySize(dir : DirectoryInfo) : double
+            + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+            - {static} GetActualFile() : string[]
+        }
+
+        class LogUtils <<static>> {
+            - {static} path : string
+            - {static} date : string
+            - {static} format : LogsFormat
+
+            + {static} Init() : void
+            + {static} LogSaves() : void
+            - {static} SavesToJson() : JObject
+            - {static} SavesToXml() : XElement
+            + {static} SaveToJson(s : Save) : JObject
+            + {static} SaveToXml(s : Save) : XElement
+            + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+            + {static} ChangeFormat(format : LogsFormat) : void
+            + {static} GetFormat() : LogsFormat
+        }
+
+        class VersionUtils <<static>> {
+            + {static} GetVersionFromGit() : string
+            + {static} VersionFromStr(version : string) : int[]
+            + {static} CompareVersions() : bool
+        }
+    
+    }
+
+}
+
+View "1..*" o- - - - - - "1" ViewModel
+Save "*" *- - "1" SrcDir
+Save "*" *- - "1" DestDir
+Save "*" o- - - - - - "1" JobStatus
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+Save <|.. FullSave
+Save <|.. DifferentialSave
+
+HomeView .up.|> IView
+SaveView .up.|> IView
+SettingsView .up.|> IView
+
+CantCheckUpdateException -up-|> Exception
+TooMuchSavesException -up-|> Exception
+
+/'Hidden links for organization'/
+FullSave -down[hidden]-> JobStatus
+
+
+@enduml
+
+@startuml ProSoft - EasySave 2.0.0 - Class Diagram
+
+title "ProSoft - EasySave 2.0.0 - Class Diagram"
+
+class ViewModel {
+    + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+    + EditSave(s : Save, newName : string) : void
+    + DeleteSave(s : Save) : void
+    + RunSave(s : Save) : string
+    + ChangeLanguage() : void
+    + ChangeLogsFormat() : void
+    # StopAllSaves() : void
+    + {static} IsUpToDate() : bool
+
+    + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+    + GetSaves() : HashSet<string>
+}
+
+class Program <<static>> {
+    - {static} Main() : void
+}
+
+package Render <<Folder>> {
+
+    interface IView {
+        + Start() : void
+        + Render(type : RenderMethod) : void
+    }
+
+    enum RenderMethod {
+        Home
+        CreateSave
+        LoadSave
+        EditSave
+        DeleteSave
+        ChangeLanguage
+        Settings,
+        ChangeLogsFormat
+    }
+
+    class View {
+        - vm : ViewModel
+
+        + View()
+
+        + Start() : void
+        + Render(view : IView) : void
+        # Exit(code : int) : void
+        - CheckUpdate() : string
+    }
+
+    class HomeView {
+        - vm : ViewModel
+
+        + HomeView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+    }
+
+    class SaveView {
+        - vm : ViewModel
+
+        + SaveView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderCreate() : void
+        - RenderEdit() : void
+        - RenderDelete() : void
+        - RenderLoad() : void
+    }
+
+    class SettingsView {
+        - vm : ViewModel
+
+        + SettingsView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderChangeLanguage() : void
+        - RenderChangeLogsFormat() : void
+    }
+
+}
+
+package Models <<Folder>> {
+
+    Interface Dir {
+        - path : string
+    }
+
+    class SrcDir {
+        - size : double
+        + nbFiles : long
+
+        + SrcDir(path : string)
+
+        + GetSize() : double
+    }
+
+    class DestDir {
+        + DestDir(path : string)
+    }
+
+    package Exceptions <<Folder>> {
+    
+        class Exception {
+
+        }
+
+        class UnknownLogFormatException {
+
+            + UnknownLogFormatException()
+            + UnknownLogFormatException(message : string)
+            + UnknownLogFormatException(message : string, inner : Exception)
+            + UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class CantCheckUpdateException {
+
+            + CantCheckUpdateException()
+            + CantCheckUpdateException(message : string)
+            + CantCheckUpdateException(message : string, inner : Exception)
+            + CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class TooMuchSavesException {
+
+            + TooMuchSavesException()
+            + TooMuchSavesException(message : string)
+            + TooMuchSavesException(message : string, inner : Exception)
+            + TooMuchSavesException(info : SerializationInfo, context : StreamingContext)
+        }
+
+    }
+    
+    package Data <<Folder>> {
+
+        abstract class Save {
+            + {const} MAX_SAVES : int
+            - {static} saves : Set<Save>
+            + uuid : Guid
+            - name : string
+            - filesCopied : long
+            - sizeCopied : long
+            # status : JobStatus
+            + SrcDir : SrcDir
+            + DestDir : DestDir
+
+            # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
+
+            + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + Rename(newName : string) : void
+            + Pause() : void
+            + Resume() : void
+            + Cancel() : void
+            + Stop() : void
+            + {static} Delete(uuid : Guid) : void
+            + Run() : string
+            + CalculateProgress() : int
+            + {abstract} ToString() : string
+            + {static} Init(data : dynamic) : void
+            + AddFileCopied(nb : int) : void
+            + AddSizeCopied(length : long) : void
+            # ProcessResult(sw : StopWatch) : string
+            + {static} GetSaves() : HashSet<save>
+            + GetName() : string
+            + GetStatus() : JobStatus
+            + GetSizeCopied() : long
+            + GetFilesCopied() : long
+            + {abstract} GetSaveType() : SaveType
+            + {static} GetStatus(status : String) : JobStatus
+            - UpdateState() : void
+        }            
+
+        class DifferentialSave {
+            # DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        class FullSave {
+            # FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        enum SaveType {
+            Full
+            Differential
+        }
+
+        enum JobStatus {
+            Running
+            Paused
+            Finished
+            Cancelled
+            Error
+            Waiting
+        }
+        
+    }
+
+    package Utils <<Folder>> {
+
+        enum LogsFormat {
+            JSON
+            XML
+        }
+
+        class DirectoryUtils <<static>> {
+            - {static} actualFile : string[]
+            + {static} CopyFilesAndFolders(s : Save) : void
+            - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
+            + {static} IsValidPath(path : string) : bool
+            + {static} CreatePath(path : string) : void
+            + {static} GetDirectorySize(dir : DirectoryInfo) : double
+            + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+            - {static} GetActualFile() : string[]
+        }
+
+        class LogUtils <<static>> {
+            - {static} path : string
+            - {static} date : string
+            - {static} format : LogsFormat
+
+            + {static} Init() : void
+            + {static} LogSaves() : void
+            - {static} SavesToJson() : JObject
+            - {static} SavesToXml() : XElement
+            + {static} SaveToJson(s : Save) : JObject
+            + {static} SaveToXml(s : Save) : XElement
+            + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+            + {static} ChangeFormat(format : LogsFormat) : void
+            + {static} GetFormat() : LogsFormat
+        }
+
+        class VersionUtils <<static>> {
+            + {static} GetVersionFromGit() : string
+            + {static} VersionFromStr(version : string) : int[]
+            + {static} CompareVersions() : bool
+        }
+    
+    }
+
+}
+
+View "1..*" o- - - - - - "1" ViewModel
+Save "*" *- - "1" SrcDir
+Save "*" *- - "1" DestDir
+Save "*" o- - - - - - "1" JobStatus
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+Save <|.. FullSave
+Save <|.. DifferentialSave
+
+HomeView .up.|> IView
+SaveView .up.|> IView
+SettingsView .up.|> IView
+
+CantCheckUpdateException -up-|> Exception
+TooMuchSavesException -up-|> Exception
+
+FullSave -down[hidden]-> JobStatus
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

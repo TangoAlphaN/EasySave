@@ -7,6 +7,8 @@ class ViewModel {
     + EditSave(s : Save, newName : string) : void
     + DeleteSave(s : Save) : void
     + RunSave(s : Save) : string
+    + ChangeLanguage() : void
+    + ChangeLogsFormat() : void
     # StopAllSaves() : void
     + {static} IsUpToDate() : bool
 
@@ -19,6 +21,11 @@ class Program <<static>> {
 }
 
 package Render <<Folder>> {
+
+    interface IView {
+        + Start() : void
+        + Render(type : RenderMethod) : void
+    }
 
     enum RenderMethod {
         Home
@@ -37,18 +44,42 @@ package Render <<Folder>> {
         + View()
 
         + Start() : void
-        + Render(type : RenderMethod) : void
-        - RenderHome(message : string) : void
-        - RenderCreateSave() : void
-        - RenderEditSave(save : HashSet<Save>) : void
-        - RenderLoadSave(save : HashSet<Save>) : void
-        - RenderDeleteSave(save : HashSet<Save>) : void
-        - RenderChangeLanguage() : void
-        - RenderChangeLogsFormat() : void
-        - RenderSettings() : void
-        - PromptSave(multi : bool) : HashSet<Save>
+        + Render(view : IView) : void
         # Exit(code : int) : void
         - CheckUpdate() : string
+    }
+
+    class HomeView {
+        - vm : ViewModel
+
+        + HomeView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+    }
+
+    class SaveView {
+        - vm : ViewModel
+
+        + SaveView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderCreate() : void
+        - RenderEdit() : void
+        - RenderDelete() : void
+        - RenderLoad() : void
+    }
+
+    class SettingsView {
+        - vm : ViewModel
+
+        + SettingsView()
+
+        + Start() : void
+        + Render(type : RenderMethod) : void
+        - RenderChangeLanguage() : void
+        - RenderChangeLogsFormat() : void
     }
 
 }
@@ -207,16 +238,6 @@ package Models <<Folder>> {
             + {static} GetFormat() : LogsFormat
         }
 
-        class ConsoleUtils <<static>> {
-            + {static} ChooseAction(title : string, choices : HashSet<string>, lastOption : string) : string
-            + {static} ChooseMultiple(title : string, choices : HashSet<string>, lastOption : string) : string
-            + {static} AskConfirm(withoutChoice : bool) : bool
-            + {static} WriteJson(title : string, data : JsonText, color : Color) : void
-            + {static} Ask(title : string, errorMessage : string) : string
-            + {static} WriteError(error : string) : void
-            + {static} CreateProgressBar(s : Save) : void
-        }
-
         class VersionUtils <<static>> {
             + {static} GetVersionFromGit() : string
             + {static} VersionFromStr(version : string) : int[]
@@ -237,6 +258,10 @@ Dir <|.. DestDir
 
 Save <|.. FullSave
 Save <|.. DifferentialSave
+
+HomeView .up.|> IView
+SaveView .up.|> IView
+SettingsView .up.|> IView
 
 CantCheckUpdateException -up-|> Exception
 TooMuchSavesException -up-|> Exception
