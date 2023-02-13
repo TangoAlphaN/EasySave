@@ -11,7 +11,7 @@ using System.Windows.Data;
 
 namespace EasySave.src.ViewModels
 {
-    public class SaveViewModel : INotifyPropertyChanged
+    public class SaveCreateViewModel : INotifyPropertyChanged
     {
         private CollectionViewSource SaveItemsCollection;
         public ICollectionView HomeSourceCollection => SaveItemsCollection.View;
@@ -21,7 +21,7 @@ namespace EasySave.src.ViewModels
         {
             ObservableCollection<SaveItems> saveItems = new ObservableCollection<SaveItems>
 
-        public SaveViewModel(RenderMethod renderMethod)
+        public SaveCreateViewModel()
         {
             ObservableCollection<HomeItems> saveItems = new ObservableCollection<HomeItems>
             {

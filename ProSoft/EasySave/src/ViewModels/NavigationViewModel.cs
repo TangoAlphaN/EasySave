@@ -69,16 +69,16 @@ namespace EasySave.src.ViewModels
                     SelectedViewModel = new HomeViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Create:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.CreateSave);
+                    SelectedViewModel = new SaveCreateViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Edit:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.EditSave);
+                    SelectedViewModel = new SaveEditViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Load:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.LoadSave);
+                    SelectedViewModel = new SaveLoadViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Delete:
-                    SelectedViewModel = new SaveViewModel(RenderMethod.DeleteSave);
+                    SelectedViewModel = new SaveDeleteViewModel();
                     break;
                 case var value when value == Resource.HomeMenu_Settings:
                     SelectedViewModel = new SettingsViewModel();
