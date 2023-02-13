@@ -26,6 +26,7 @@ namespace EasySave.src.Render.Views
         public SaveLoadView()
         {
             InitializeComponent();
+            updateSaves();
         }
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
@@ -33,7 +34,7 @@ namespace EasySave.src.Render.Views
             object selectedItem = LoadListBox.SelectedItem;
             if (selectedItem != null)
             {
-                string uuid = selectedItem.ToString().Split(" - ")[1].Split(" | ")[0];
+                string uuid = selectedItem.ToString();
                 ViewModel viewModel = new ViewModel();
                 HashSet<Save> saves = viewModel.GetSavesByUuid(new HashSet<string>() { uuid });
                 foreach (Save s in saves)
