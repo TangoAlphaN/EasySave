@@ -60,7 +60,7 @@ namespace EasySave.src.Utils
                 bool fileCopied = true;
                 bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
                 //Proceed differential mode by comparing files data
-                if (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
+                if (file.Extension != ".exe" && (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0)))
                 {
                     actualFile[0] = src.FullName;
                     actualFile[1] = dest.FullName;
