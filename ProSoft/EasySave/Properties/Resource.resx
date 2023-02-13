@@ -243,13 +243,12 @@
   <data name="ChangeLogsFormat.Actual" xml:space="preserve">
     <value>Current Type:</value>
   </data>
-<<<<<<< HEAD
   <data name="CreateSave.SrcPath" xml:space="preserve">
     <value>Select source path</value>
   </data>
   <data name="CreateSave.DestPath" xml:space="preserve">
     <value>Select destination path</value>
-=======
+  </data>
   <data name="HomePresentation" xml:space="preserve">
     <value>Welcome to EasySave, the easiest to use backup application. To save data, simply go to the "Create Save" selection. If you have any problems please contact us at easysave.help@outlook.com</value>
   </data>
@@ -258,6 +257,14 @@
   </data>
   <data name="HomeWelcome" xml:space="preserve">
     <value>Welcome to EasySave</value>
->>>>>>> 9e90b2f17979489cdcfbd9ece7cb56a5dff0e5d9
+  </data>
+  <data name="HomeMenu.Settings.CryptoSoft" xml:space="preserve">
+    <value>CryptoSoft Settings:</value>
+  </data>
+  <data name="Settings.Secret" xml:space="preserve">
+    <value>CryptoSoft Secret:</value>
+  </data>
+  <data name="Settings.Extensions" xml:space="preserve">
+    <value>CryptoSoft Extensions:</value>
   </data>
 </root>
