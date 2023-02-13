@@ -376,7 +376,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CryptoSoft Settings:.
+        ///   Looks up a localized string similar to CryptoSoft Settings.
         /// </summary>
         public static string HomeMenu_Settings_CryptoSoft {
             get {

@@ -18,52 +18,45 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveCreateView : UserControl
     {
+        SaveType _type;
+
         private void SelectFilePathCommand(object sender, RoutedEventArgs e)
         {
-            /*OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == true)
-                TxtSrc.Text = File.ReadAllText(openFileDialog.FileName);*/
-            
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\";
             dialog.IsFolderPicker = true;
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 TxtSrc.Text = dialog.FileName;
         }
-        
+
         private void SelectFilePathCommandDest(object sender, RoutedEventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\";
             dialog.IsFolderPicker = true;
-            if(dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 TxtDest.Text = dialog.FileName;
         }
 
-        /*private SaveType RadioCheck()
+        public void RadioCheck(Object sender, EventArgs e)
         {
-            if(btnFull.IsChecked != null && (bool)btnFull.IsChecked)
-                return Full;
-            else
-                return Differential;
-        }*/
+            if (btnFull.IsChecked == true)
+                _type = Full;
+            else if (btnDiff.IsChecked == true)
+                _type = Differential;
+        }
 
-        public void CreateSave(Object sender, EventArgs e)
+        public void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-            CreateNewSave();
+            CreateSave();
         }
-        
-        public Save CreateNewSave()
+
+        private Save CreateSave()
         {
-            SaveType type;
-            if(btnFull.IsChecked != null && (bool)btnFull.IsChecked)
-                type = Full;
-            else
-                type = Differential;
-            return Save.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, type);
+            return Save.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
         }
-        
-        public SaveCreateView(Save newSave)
+
+        public SaveCreateView()
         {
             InitializeComponent();
         }

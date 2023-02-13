@@ -2,6 +2,7 @@
 using EasySave.Properties;
 using EasySave.src.Models;
 using EasySave.src.Render;
+using EasySave.src.Utils;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -19,8 +20,8 @@ namespace EasySave.src.ViewModels
         {
             ObservableCollection<CryptoSoftSettingsItem> settingsItem = new ObservableCollection<CryptoSoftSettingsItem>
             {
-                new CryptoSoftSettingsItem { SettingsName = $"{Resource.Settings_Secret}", ChangeSettings = new RelayCommand(ViewModel.ChangeSettings) },
-                new CryptoSoftSettingsItem { SettingsName = $"{Resource.Settings_Extensions}", ChangeSettings = new RelayCommand(ViewModel.ChangeSettings) },
+                new CryptoSoftSettingsItem { SettingsName = $"{Resource.Settings_Secret}", SettingsValue = DirectoryUtils.GetSecret(), ChangeSettings = new RelayCommand(ViewModel.ChangeKey) },
+                //new CryptoSoftSettingsItem { SettingsName = $"{Resource.Settings_Extensions}", SettingsValue = DirectoryUtils.GetExtensions(), ChangeSettings = new RelayCommand(ViewModel.ChangeExtensions) },
             };
 
             SettingsItemsCollection = new CollectionViewSource { Source = settingsItem };

@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading.Tasks;
 using ProSoft.CryptoSoft;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace EasySave.src.Utils
 {
@@ -15,9 +17,9 @@ namespace EasySave.src.Utils
     public static class DirectoryUtils
     {
 
-        private static HashSet<string> extensions = new HashSet<string>();
+        private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
 
-        private static string key;
+        private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
         
         /// <summary>
         /// Array to store the actual file being copied
@@ -58,7 +60,7 @@ namespace EasySave.src.Utils
                 bool fileCopied = true;
                 bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
                 //Proceed differential mode by comparing files data
-                if (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
+                if (file.Extension != ".exe" && (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0)))
                 {
                     actualFile[0] = src.FullName;
                     actualFile[1] = dest.FullName;
@@ -162,5 +164,20 @@ namespace EasySave.src.Utils
             key = newSecret;
         }
 
+        public static string GetSecret()
+        {
+            try
+            {
+                return key;
+            }
+            catch {
+                return $"Please set a key in {LogUtils.path}config.json";
+            }
+        }
+
+        public static HashSet<string> GetExtensions()
+        {
+            return extensions;
+        }
     }
 }

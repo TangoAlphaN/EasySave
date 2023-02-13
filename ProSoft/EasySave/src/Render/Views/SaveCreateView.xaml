@@ -126,22 +126,24 @@
                FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
         <RadioButton Grid.Row="8" 
                      Grid.Column="0"
-                     x:Name="btnFull"
+                     Name="btnFull"
                      Content="{x:Static resources:Resource.CreateSave_Type_Full}"
                      CommandParameter="{x:Static resources:Resource.CreateSave_Type_Full}"
                      HorizontalAlignment="Left"
                      FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                      GroupName="TypeGroup"
-                     Foreground="#DDDDDD"/>
+                     Foreground="#DDDDDD"
+                     Checked="RadioCheck"/>
         <RadioButton Grid.Row="8" 
                      Grid.Column="1"
-                     x:Name="btnDiff"
+                     Name="btnDiff"
                      Content="{x:Static resources:Resource.CreateSave_Type_Differential}"
                      CommandParameter="{x:Static resources:Resource.CreateSave_Type_Differential}"
                      HorizontalAlignment="Left"
                      FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                      GroupName="TypeGroup"
-                     Foreground="#DDDDDD"/>
+                     Foreground="#DDDDDD"
+                     Checked="RadioCheck"/>
         <Button Grid.Row="9"
                 Grid.Column="0" 
                 Content="{x:Static resources:Resource.HomeMenu_Create}"
@@ -150,7 +152,8 @@
                 Width="150"
                 Height="50"
                 VerticalAlignment="Bottom"
-                Click="CreateSave"/>
+                Click="CreateNewSave"
+                />
         
     </Grid>
 

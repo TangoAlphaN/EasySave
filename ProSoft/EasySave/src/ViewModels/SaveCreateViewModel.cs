@@ -16,31 +16,22 @@ namespace EasySave.src.ViewModels
     {
         private CollectionViewSource CreateSaveItemsCollection;
         public ICollectionView CreateSaveSourceCollection => CreateSaveItemsCollection.View;
-        public event PropertyChangedEventHandler PropertyChanged;
         
         public SaveCreateViewModel()
         {
             ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                new MenuItems {MenuName = $"{Resource.CreateSave_Type_Full}", MenuImage = "0"},
-                new MenuItems {MenuName = $"{Resource.CreateSave_Type_Differential}", MenuImage = "1"},
+                
             };
 
             CreateSaveItemsCollection = new CollectionViewSource { Source = menuItems };
         }
 
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string propName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
     }
 }
