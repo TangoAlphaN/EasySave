@@ -76,7 +76,7 @@ namespace EasySave.src.Render
         {
             throw new NotImplementedException();
         }
-        
+
         private void RenderDeleteSave(HashSet<Save> saves)
         {
             throw new NotImplementedException();

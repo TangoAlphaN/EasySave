@@ -40,7 +40,7 @@ namespace ProSoft.CryptoSoft
         /// </summary>
         private CryptoSoft()
         {
-            
+
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace ProSoft.CryptoSoft
         {
             if (key.Length < 8)
                 throw new InvalidDataException("Key must be at least 64 bits long");
-            if(extensions != null)
+            if (extensions != null)
                 _instance ??= new CryptoSoft(key, extensions.ToHashSet());
             else
                 _instance ??= new CryptoSoft(key);
@@ -96,7 +96,7 @@ namespace ProSoft.CryptoSoft
             try
             {
                 //Create output filename automatically if no specified
-                if(outputFile == null)
+                if (outputFile == null)
                 {
                     outputFile = inputFile;
                     if (inputFile.EndsWith(".enc"))
@@ -136,18 +136,18 @@ namespace ProSoft.CryptoSoft
                 }
                 else
                 {*/
-                    var buffer = new byte[4096];
-                    while (true)
-                    {
-                        var bytesRead = fin.Read(buffer);
-                        if (bytesRead == 0)
-                            break;
-                        for (var i = 0; i < bytesRead; ++i)
-                            buffer[i] = (byte)(buffer[i] ^ _key[i % _key.Length]);
-                        fout.Write(buffer, 0, bytesRead);
-                    }
-                    _stopwatch.Stop();
-                    return _stopwatch.ElapsedMilliseconds;
+                var buffer = new byte[4096];
+                while (true)
+                {
+                    var bytesRead = fin.Read(buffer);
+                    if (bytesRead == 0)
+                        break;
+                    for (var i = 0; i < bytesRead; ++i)
+                        buffer[i] = (byte)(buffer[i] ^ _key[i % _key.Length]);
+                    fout.Write(buffer, 0, bytesRead);
+                }
+                _stopwatch.Stop();
+                return _stopwatch.ElapsedMilliseconds;
                 //}
             }
             catch
@@ -160,7 +160,7 @@ namespace ProSoft.CryptoSoft
         {
             Dictionary<string, long> result = new Dictionary<string, long>();
             List<Task> tasks = new List<Task>();
-            foreach(string file in inputFiles)
+            foreach (string file in inputFiles)
             {
                 string outputFile;
                 if (outputDir == null)
@@ -175,15 +175,15 @@ namespace ProSoft.CryptoSoft
                     outputFile = outputDir + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(file) + ".enc";
                 if (_extensions.Count == 0 || _extensions.Contains(Path.GetExtension(file)))
                 {
-                    
+
                     try
                     {
-                    
+
                         tasks.Add(Task.Run(() =>
                         {
                             try
                             {
-                                long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (200*1024*1024));
+                                long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (200 * 1024 * 1024));
                                 result.Add(outputFile, time);
                             }
                             catch
@@ -196,7 +196,8 @@ namespace ProSoft.CryptoSoft
                     {
                         result.Add(outputFile, -1);
                     }
-                }else
+                }
+                else
                     result.Add(outputFile, -2);
             }
             Task.WaitAll(tasks.ToArray());
