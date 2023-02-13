@@ -166,7 +166,13 @@ namespace EasySave.src.Utils
 
         public static string GetSecret()
         {
-            return key;
+            try
+            {
+                return key;
+            }
+            catch {
+                return $"Please set a key in {LogUtils.path}config.json";
+            }
         }
 
         public static HashSet<string> GetExtensions()
