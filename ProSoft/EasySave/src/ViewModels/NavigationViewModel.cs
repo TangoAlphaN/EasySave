@@ -38,6 +38,7 @@ namespace EasySave.src.ViewModels
                 new MenuItems { MenuName = $"{Resource.HomeMenu_Delete}", MenuImage = @"Assets/Trash_Icon.png" },
                 new MenuItems { MenuName = $"{Resource.SettingsMenu_LogsFormat}", MenuImage = @"Assets/notepad_icon.png" },
                 new MenuItems { MenuName = $"{Resource.SettingsMenu_ChangeLanguage}", MenuImage = @"Assets/Lang_icon.png" },
+                new MenuItems { MenuName = $"{Resource.HomeMenu_Settings_CryptoSoft}", MenuImage = @"Assets/password_icon.png" },
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
@@ -86,6 +87,9 @@ namespace EasySave.src.ViewModels
                     break;
                 case var value when value == Resource.SettingsMenu_LogsFormat:
                     SelectedViewModel = new SettingsChangeLogsFormatViewModel();
+                    break;
+                case var value when value == Resource.HomeMenu_Settings_CryptoSoft:
+                    SelectedViewModel = new CryptoSoftSettingsViewModel();
                     break;
             }
         }
