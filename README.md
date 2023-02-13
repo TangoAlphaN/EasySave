@@ -4,9 +4,9 @@ CryptoSoft is a software that can encrypt or decrypt any file using XOR byte per
 
 # Syntax
 
-Command line to use : CryptoSoft.exe source [destination] [secret]
+Command line to use : `CryptoSoft.exe source [destination] [secret]`
 
-Example : CryptoSoft.exe "C:\Users\user\Desktop\test.txt" "C:\Users\user\Desktop\test.txt.enc" edOdDYC0amtMJhlzyiGbNiOeLMXksBMj
+Example : `CryptoSoft.exe "C:\Users\user\Desktop\test.txt" "C:\Users\user\Desktop\test.txt.enc" edOdDYC0amtMJhlzyiGbNiOeLMXksBMj`
 
 # Important Informations
 
