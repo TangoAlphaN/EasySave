@@ -115,13 +115,7 @@ namespace EasySave.src
             Application.Current.MainWindow.Show();
         }
 
-        public static void ChangeKey(object key)
-        {
-            DirectoryUtils.ChangeKey((string)key);
-            MessageBox.Show($"new key is {(string)key}");
-        }
-
-        public static void ChangeExtensions(object culture)
+        public static void ChangeSettings(object culture)
         {
             CultureInfo cultureInfo = new CultureInfo(culture.ToString());
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
@@ -182,7 +176,6 @@ namespace EasySave.src
     public class CryptoSoftSettingsItem
     {
         public string SettingsName { get; set; }
-        public string SettingsValue { get; set; }
         public ICommand ChangeSettings { get; set; }
     }
 
