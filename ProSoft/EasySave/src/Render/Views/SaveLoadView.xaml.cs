@@ -31,12 +31,17 @@ namespace EasySave.src.Render.Views
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            object selectedItem = LoadListBox.SelectedItem;
-            if (selectedItem != null)
+            if (LoadListBox.SelectedItems.Count > 0)
             {
-                string uuid = selectedItem.ToString();
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < LoadListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = LoadListBox.SelectedItems[i];
+                    keys.Add(selectedItem.ToString());
+                }
+                
                 ViewModel viewModel = new ViewModel();
-                HashSet<Save> saves = viewModel.GetSavesByUuid(new HashSet<string>() { uuid });
+                HashSet<Save> saves = viewModel.GetSavesByUuid(keys);
                 foreach (Save s in saves)
                     s.Run();
                 updateSaves();
