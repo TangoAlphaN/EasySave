@@ -187,7 +187,7 @@
     <value>Choose an action:</value>
   </data>
   <data name="Lang.en-US" xml:space="preserve">
-    <value>English</value>
+    <value>English (USA)</value>
   </data>
   <data name="Lang.fr-FR" xml:space="preserve">
     <value>French</value>
@@ -242,5 +242,41 @@
   </data>
   <data name="ChangeLogsFormat.Actual" xml:space="preserve">
     <value>Current Type:</value>
+  </data>
+  <data name="CreateSave.SrcPath" xml:space="preserve">
+    <value>Select source path</value>
+  </data>
+  <data name="CreateSave.DestPath" xml:space="preserve">
+    <value>Select destination path</value>
+  </data>
+  <data name="HomePresentation" xml:space="preserve">
+    <value>Welcome to EasySave, the easiest to use backup application. To save data, simply go to the "Create Save" selection. If you have any problems please contact us at easysave.help@outlook.com</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>The most practical backup application</value>
+  </data>
+  <data name="HomeWelcome" xml:space="preserve">
+    <value>Welcome to EasySave</value>
+  </data>
+  <data name="HomeMenu.Settings.CryptoSoft" xml:space="preserve">
+    <value>CryptoSoft Settings</value>
+  </data>
+  <data name="Settings.Secret" xml:space="preserve">
+    <value>CryptoSoft Secret:</value>
+  </data>
+  <data name="Settings.Extensions" xml:space="preserve">
+    <value>CryptoSoft Extensions:</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
   </data>
 </root>

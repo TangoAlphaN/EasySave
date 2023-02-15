@@ -1,7 +1,15 @@
-﻿using EasySave.src.Models.Data;
+﻿using EasySave.Properties;
+using EasySave.src.Models.Data;
+using EasySave.src.Render;
+using EasySave.src.Render.Views;
 using EasySave.src.Utils;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Windows;
+using System.Windows.Input;
 
 namespace EasySave.src
 {
@@ -97,5 +105,84 @@ namespace EasySave.src
             return data;
         }
 
+        public static void ChangeLanguage(object culture)
+        {
+            CultureInfo cultureInfo = new CultureInfo(culture.ToString());
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            var windows = Application.Current.MainWindow;
+            Application.Current.MainWindow = new MainWindow();
+            windows.Close();
+            Application.Current.MainWindow.Show();
+        }
+
+        public static void ChangeSettings(object culture)
+        {
+            CultureInfo cultureInfo = new CultureInfo(culture.ToString());
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            var windows = Application.Current.MainWindow;
+            Application.Current.MainWindow = new MainWindow();
+            windows.Close();
+            Application.Current.MainWindow.Show();
+        }
+
+        public static void ChangeLogsFormat(object format)
+        {
+            switch ((string)format)
+            {
+                case "JSON":
+                    LogUtils.ChangeFormat(LogsFormat.JSON);
+                    break;
+                case "XML":
+                    LogUtils.ChangeFormat(LogsFormat.XML);
+                    break;
+            }
+            var windows = Application.Current.MainWindow;
+            Application.Current.MainWindow = new MainWindow();
+            windows.Close();
+            Application.Current.MainWindow.Show();
+        }
+
+        internal static void ChangeKey(object obj)
+        {
+            DirectoryUtils.ChangeKey((string)obj);
+        }
     }
+
+    public class MenuItems
+    {
+        public string MenuName { get; set; }
+        public string MenuImage { get; set; }
+    }
+
+    // Home Page
+    public class HomeItems
+    {
+        public string HomeName { get; set; }
+        public string HomeImage { get; set; }
+    }
+
+    public class LangItems
+    {
+        public string LangName { get; set; }
+        public string LangImage { get; set; }
+        public string LangParam { get; set; }
+        public ICommand ChangeLanguage { get; set; }
+    }
+
+    public class LogsItems
+    {
+        public string LogName { get; set; }
+        public string LogImage { get; set; }
+        public ICommand ChangeLogs { get; set; }
+    }
+
+    public class CryptoSoftSettingsItem
+    {
+        public string SettingsName { get; set; }
+        public string SettingsValue { get; set; }
+        public ICommand ChangeSettings { get; set; }
+    }
+
 }

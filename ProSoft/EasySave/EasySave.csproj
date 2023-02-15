@@ -1,16 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <OutputType>WinExe</OutputType>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject>EasySave.src.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAPICodePack-Shell" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Octokit" Version="5.0.0" />
-    <PackageReference Include="Spectre.Console" Version="0.46.0" />
-    <PackageReference Include="Spectre.Console.Json" Version="0.46.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoSoft\CryptoSoft.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,5 +41,36 @@
       <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
-
+  <ItemGroup>
+    <Resource Include="src\Render\Assets\book_icon.png" />
+    <Resource Include="src\Render\Assets\close_icon.png" />
+    <Resource Include="src\Render\Assets\close_mo_icon.png" />
+    <Resource Include="src\Render\Assets\Document_Icon.png" />
+    <Resource Include="src\Render\Assets\drive_icon.png" />
+    <Resource Include="src\Render\Assets\export_icon.png" />
+    <Resource Include="src\Render\Assets\file_icon.png" />
+    <Resource Include="src\Render\Assets\Home_Icon.png" />
+    <Resource Include="src\Render\Assets\notepad_icon.png" />
+    <Resource Include="src\Render\Assets\order_icon.png" />
+    <Resource Include="src\Render\Assets\password_icon.png" />
+    <Resource Include="src\Render\Assets\pc_icon.png" />
+    <Resource Include="src\Render\Assets\print_icon.png" />
+    <Resource Include="src\Render\Assets\services_icon.png" />
+    <Resource Include="src\Render\Assets\Trash_Icon.png" />
+    <Resource Include="src\Render\Assets\Lang_Icon.png" />
+    <Resource Include="src\Render\Assets\usb_icon.png" />
+    <Resource Include="src\Render\Assets\vsc_icon.png" />
+    <Resource Include="src\Render\Assets\vs_icon.png" />
+    <Resource Include="src\Render\Assets\LogoEasySave.png" />
+    <Resource Include="src\Render\Assets\Logo.png" />
+    <Resource Include="src\Render\Assets\fr_FR.png" />
+    <Resource Include="src\Render\Assets\en_US.png" />
+    <Resource Include="src\Render\Assets\it_IT.png" />
+    <Resource Include="src\Render\Assets\ru_RU.png" />
+    <Resource Include="src\Render\Assets\json.png" />
+    <Resource Include="src\Render\Assets\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Render\Views\" />
+  </ItemGroup>
 </Project>
