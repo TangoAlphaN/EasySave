@@ -13,8 +13,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True"
-        Loaded="Window_Loaded">
+        AllowsTransparency="True">
 
     <Window.DataContext>
         <vm:NavigationViewModel/>
@@ -34,7 +33,8 @@
                 HorizontalAlignment="Left"
                 CornerRadius="10,0,100,0"
                 Height="80"
-                Width="850">
+                Width="850"
+                MouseDown="Window_MouseDown">
 
             <TextBlock Text="EasySave V2.0"
                        Style="{StaticResource HeaderStyle}"/>
