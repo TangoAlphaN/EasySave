@@ -1,9 +1,6 @@
-﻿using EasySave.Properties;
-using EasySave.src.Models.Data;
-using EasySave.src.Render;
+﻿using EasySave.src.Models.Data;
 using EasySave.src.Render.Views;
 using EasySave.src.Utils;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -18,6 +15,30 @@ namespace EasySave.src
     /// </summary>
     public class ViewModel
     {
+
+        /// <summary>
+        /// private instance field
+        /// </summary>
+        private static ViewModel _instance;
+
+        /// <summary>
+        /// private constructor to prevent multiple instances
+        /// </summary>
+        private ViewModel()
+        {
+            
+        }
+
+        /// <summary>
+        /// singleton getinstance method
+        /// </summary>
+        /// <returns>unique instance of viewmodel</returns>
+        public static ViewModel GetInstance()
+        {
+            if (_instance == null)
+                _instance = new ViewModel();
+            return _instance;
+        }
 
         /// <summary>
         /// Create save method

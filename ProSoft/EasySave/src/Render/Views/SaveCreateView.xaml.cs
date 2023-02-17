@@ -1,14 +1,9 @@
 ﻿
+using EasySave.src.Models.Data;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
-using System.ComponentModel;
-using System.IO;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using EasySave.src.Models.Data;
-using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using static EasySave.src.Models.Data.SaveType;
 
 namespace EasySave.src.Render.Views
@@ -18,7 +13,10 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveCreateView : UserControl
     {
-        SaveType _type;
+        public SaveCreateView()
+        {
+            InitializeComponent();
+        }
 
         private void SelectFilePathCommand(object sender, RoutedEventArgs e)
         {
@@ -40,6 +38,7 @@ namespace EasySave.src.Render.Views
 
         public void RadioCheck(Object sender, EventArgs e)
         {
+            SaveType _type;
             if (btnFull.IsChecked == true)
                 _type = Full;
             else if (btnDiff.IsChecked == true)
@@ -48,17 +47,7 @@ namespace EasySave.src.Render.Views
 
         public void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-            CreateSave();
-        }
-
-        private Save CreateSave()
-        {
-            return Save.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
-        }
-
-        public SaveCreateView()
-        {
-            InitializeComponent();
+            ViewModel.GetInstance().CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, (bool)btnDiff.IsChecked ? Differential : Full);
         }
 
     }

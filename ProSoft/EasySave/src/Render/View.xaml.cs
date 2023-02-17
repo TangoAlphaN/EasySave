@@ -15,7 +15,7 @@ namespace EasySave.src.Render
 
         public View()
         {
-            vm = new ViewModel();
+            vm = ViewModel.GetInstance();
         }
 
         public void Start()

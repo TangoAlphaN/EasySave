@@ -56,11 +56,11 @@ namespace EasySave.src.Render.Views
                     return;
                 }
 
-                HashSet<Save> saves = new ViewModel().GetSavesByUuid(new HashSet<string>() { selectedItem.ToString() });
+                HashSet<Save> saves = ViewModel.GetInstance().GetSavesByUuid(new HashSet<string>() { selectedItem.ToString() });
 
                 foreach (Save save in saves)
                 {
-                    new ViewModel().EditSave(save, EditTextBox.Text.ToString());
+                    ViewModel.GetInstance().EditSave(save, EditTextBox.Text.ToString());
                     updateSaves();
                 }
             }

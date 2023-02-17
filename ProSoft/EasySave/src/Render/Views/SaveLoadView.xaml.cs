@@ -40,8 +40,7 @@ namespace EasySave.src.Render.Views
                     keys.Add(selectedItem.ToString());
                 }
                 
-                ViewModel viewModel = new ViewModel();
-                HashSet<Save> saves = viewModel.GetSavesByUuid(keys);
+                HashSet<Save> saves = ViewModel.GetInstance().GetSavesByUuid(keys);
                 foreach (Save s in saves)
                     s.Run();
                 updateSaves();

@@ -9,6 +9,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
 using EasySave.Properties;
+using EasySave.src.Models.Data;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Windows;
+using System;
 
 namespace EasySave.src.ViewModels
 {
@@ -21,12 +25,11 @@ namespace EasySave.src.ViewModels
         {
             ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                
+                //TODO saves ici
             };
 
             CreateSaveItemsCollection = new CollectionViewSource { Source = menuItems };
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propName)
