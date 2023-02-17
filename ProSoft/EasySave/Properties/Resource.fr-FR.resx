@@ -279,4 +279,7 @@
   <data name="Rename" xml:space="preserve">
     <value>Renomer</value>
   </data>
+  <data name="Saves" xml:space="preserve">
+    <value>Sauvegardes</value>
+  </data>
 </root>

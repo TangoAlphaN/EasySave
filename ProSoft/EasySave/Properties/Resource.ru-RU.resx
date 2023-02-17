@@ -253,7 +253,7 @@
     <value>Добро пожаловать в EasySave, самое простое в использовании приложение для резервного копирования. Чтобы сохранить данные, просто перейдите к выбору "Создать сохранение". Если у вас возникли какие-либо проблемы, пожалуйста, свяжитесь с нами по адресу easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
-    <value>Самое практичное приложение для резервного </value>
+    <value>Самое практичное приложение для резервного</value>
   </data>
   <data name="HomeWelcome" xml:space="preserve">
     <value>Добро пожаловать в EasySave</value>
@@ -278,5 +278,8 @@
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Переименовать</value>
+  </data>
+  <data name="Saves" xml:space="preserve">
+    <value>Резервные копии</value>
   </data>
 </root>

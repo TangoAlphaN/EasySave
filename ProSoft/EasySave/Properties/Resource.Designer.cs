@@ -511,6 +511,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Saves.
+        /// </summary>
+        public static string Saves {
+            get {
+                return ResourceManager.GetString("Saves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CryptoSoft Extensions:.
         /// </summary>
         public static string Settings_Extensions {
