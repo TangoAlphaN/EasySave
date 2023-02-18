@@ -1,12 +1,4 @@
-﻿
-/// <summary>
-/// ViewModel - [ "The Connector" ]
-/// ViewModel exposes data contained in the Model objects to the View. The ViewModel performs 
-/// all modifications made to the Model data.
-/// </summary>
-
-using EasySave.Properties;
-using EasySave.src.Models;
+﻿using EasySave.Properties;
 using EasySave.src.Render;
 using EasySave.src.Render.Views;
 using System.Collections.ObjectModel;
@@ -16,34 +8,26 @@ using System.Windows.Input;
 
 namespace EasySave.src.ViewModels
 {
+    /// <summary>
+    /// NavigationViewModel class
+    /// </summary>
     class NavigationViewModel : INotifyPropertyChanged
     {
-        // CollectionViewSource enables XAML code to set the commonly used CollectionView properties,
-        // passing these settings to the underlying view.
-        private CollectionViewSource MenuItemsCollection;
 
-        // ICollectionView enables collections to have the functionalities of current record management,
-        // custom sorting, filtering, and grouping.
-        public ICollectionView SourceCollection => MenuItemsCollection.View;
+        private readonly CollectionViewSource _navigationItemsCollection;
+        public ICollectionView NavigationSourceCollection => _navigationItemsCollection.View;
 
         public NavigationViewModel()
         {
             // ObservableCollection represents a dynamic data collection that provides notifications when items
             // get added, removed, or when the whole list is refreshed.
-            ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
+            ObservableCollection<NavigationItem> navigationItems = new ObservableCollection<NavigationItem>
             {
-                new MenuItems { MenuName = $"{Resource.HomeMenu_Create}", MenuImage = @"Assets/Home_Icon.png" },
-                new MenuItems { MenuName = $"{Resource.HomeMenu_Load}", MenuImage = @"Assets/Drive_Icon.png" },
-                new MenuItems { MenuName = $"{Resource.HomeMenu_Edit}", MenuImage = @"Assets/order_icon.png" },
-                new MenuItems { MenuName = $"{Resource.HomeMenu_Delete}", MenuImage = @"Assets/Trash_Icon.png" },
-                new MenuItems { MenuName = $"{Resource.SettingsMenu_LogsFormat}", MenuImage = @"Assets/notepad_icon.png" },
-                new MenuItems { MenuName = $"{Resource.SettingsMenu_ChangeLanguage}", MenuImage = @"Assets/Lang_icon.png" },
-                new MenuItems { MenuName = $"{Resource.HomeMenu_Settings_CryptoSoft}", MenuImage = @"Assets/password_icon.png" },
+                new NavigationItem { NavigationName = $"{Resource.HomeMenu_Home}", NavigationImage = @"Assets/Home_Icon.png" },
+                new NavigationItem { NavigationName = $"{Resource.HomeMenu_Saves}", NavigationImage = @"Assets/Drive_Icon.png" },
+                new NavigationItem { NavigationName = $"{Resource.HomeMenu_Settings}", NavigationImage = @"Assets/services_icon.png" },
             };
-
-            MenuItemsCollection = new CollectionViewSource { Source = menuItems };
-
-            // Set Startup Page
+            _navigationItemsCollection = new CollectionViewSource { Source = navigationItems };
             SelectedViewModel = new HomeViewModel();
         }
 
@@ -67,64 +51,15 @@ namespace EasySave.src.ViewModels
         {
             switch (parameter)
             {
-                case "Home":
+                case var value when value == Resource.HomeMenu_Home:
                     SelectedViewModel = new HomeViewModel();
                     break;
-                case var value when value == Resource.HomeMenu_Create:
-                    SelectedViewModel = new SaveCreateViewModel();
+                case var value when value == Resource.HomeMenu_Saves:
+                    SelectedViewModel = new SaveViewModel();
                     break;
-                case var value when value == Resource.HomeMenu_Edit:
-                    SelectedViewModel = new SaveEditViewModel();
+                case var value when value == Resource.HomeMenu_Settings:
+                    SelectedViewModel = new SettingsViewModel();
                     break;
-                case var value when value == Resource.HomeMenu_Load:
-                    SelectedViewModel = new SaveLoadViewModel();
-                    break;
-                case var value when value == Resource.HomeMenu_Delete:
-                    SelectedViewModel = new SaveDeleteViewModel();
-                    break;
-                case var value when value == Resource.SettingsMenu_ChangeLanguage:
-                    SelectedViewModel = new SettingsChangeLanguageViewModel();
-                    break;
-                case var value when value == Resource.SettingsMenu_LogsFormat:
-                    SelectedViewModel = new SettingsChangeLogsFormatViewModel();
-                    break;
-                case var value when value == Resource.HomeMenu_Settings_CryptoSoft:
-                    SelectedViewModel = new CryptoSoftSettingsViewModel();
-                    break;
-            }
-        }
-
-        // This Settings button Command
-        private ICommand _settingsLogsCommand;
-        public ICommand ThisSettingsLogsCommand
-        {
-            get
-            {
-                if (_settingsLogsCommand == null)
-                {
-                    _settingsLogsCommand = new RelayCommand(param =>
-                    {
-                        SelectedViewModel = new SettingsChangeLogsFormatViewModel();
-                    });
-                }
-                return _settingsLogsCommand;
-            }
-        }
-
-        // This Settings button Command
-        private ICommand _settingsLangCommand;
-        public ICommand ThisSettingsLangCommand
-        {
-            get
-            {
-                if (_settingsLangCommand == null)
-                {
-                    _settingsLangCommand = new RelayCommand(param =>
-                    {
-                        SelectedViewModel = new SettingsChangeLanguageViewModel();
-                    });
-                }
-                return _settingsLangCommand;
             }
         }
 

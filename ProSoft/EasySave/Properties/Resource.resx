@@ -279,4 +279,10 @@
   <data name="Rename" xml:space="preserve">
     <value>Rename</value>
   </data>
+  <data name="HomeMenu.Saves" xml:space="preserve">
+    <value>Saves</value>
+  </data>
+  <data name="HomeMenu.Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
 </root>

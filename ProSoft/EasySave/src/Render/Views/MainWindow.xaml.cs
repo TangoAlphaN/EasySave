@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace EasySave.src.Render.Views
 {
@@ -11,10 +12,12 @@ namespace EasySave.src.Render.Views
         {
             InitializeComponent();
         }
-        
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.MouseLeftButtonDown += (s, args) => this.DragMove();
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
+
     }
 }
