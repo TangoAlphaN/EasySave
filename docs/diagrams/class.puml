@@ -1,23 +1,55 @@
-@startuml ProSoft - EasySave 2.0.0 - Class Diagram
+@startuml ProSoft - EasySave 2.1.0 - Class Diagram
 
-title "ProSoft - EasySave 2.0.0 - Class Diagram"
-
-class ViewModel {
-    + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
-    + EditSave(s : Save, newName : string) : void
-    + DeleteSave(s : Save) : void
-    + RunSave(s : Save) : string
-    + ChangeLanguage() : void
-    + ChangeLogsFormat() : void
-    # StopAllSaves() : void
-    + {static} IsUpToDate() : bool
-
-    + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
-    + GetSaves() : HashSet<string>
-}
+title "ProSoft - EasySave 2.1.0 - Class Diagram"
 
 class Program <<static>> {
     - {static} Main() : void
+}
+
+package ViewModels <<Folder>> {
+
+    class HomeViewModel {
+        + HomeViewModel()
+        + {static} IsUpToDate() : bool
+    }
+
+    class NavigationViewModel {
+        - navigationItemsCollection : CollectionViewSource
+        + NavigationSourceCollection : ICollectionView
+        - selectedViewModel : object
+        + SelectedViewModel : object
+        - closeAppCommand : ICommand
+        + CloseAppCommand : ICommand
+        - backHome : ICommand
+        + BackHome : ICommand
+        - menuCommand : ICommand
+        + MenuCommand : ICommand
+        + NavigationViewModel()
+        - ShowHome() : void
+        + CloseApp(obj : object) : void
+        + SwitchViews(parameter : string) : void
+        - OnPropertyChanged(propName : string) : void
+    }
+
+    class SaveViewModel {
+        - saveItemsCollection : CollectionViewSource
+        + SaveSourceCollection : ICollectionView
+        + SaveViewModel()
+        + GetSaves() : HashSet<string>
+        + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+        + EditSave(s : Save, newName : string) : void
+        + DeleteSave(s : Save) : void
+        + RunSave(s : Save) : string
+        # {static} StopAllSaves() : void
+        + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+    }
+
+    class SettingsViewModel {
+        - settingsItemsCollection : CollectionViewSource
+        + SettingsSourceCollection : ICollectionView
+        + SettingsViewModel()
+    }
+
 }
 
 package Render <<Folder>> {
@@ -83,6 +115,9 @@ package Render <<Folder>> {
     }
 
 }
+
+'OK
+
 
 package Models <<Folder>> {
 
@@ -150,7 +185,7 @@ package Models <<Folder>> {
 
             # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
 
-            + {static} Create(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + {static} CreateSave(name : string, src: Dir, dest : Dir, type : SaveType) : Save
             + Rename(newName : string) : void
             + Pause() : void
             + Resume() : void
@@ -167,10 +202,10 @@ package Models <<Folder>> {
             + {static} GetSaves() : HashSet<save>
             + GetName() : string
             + GetStatus() : JobStatus
+            + {static} GetStatus(status : String) : JobStatus
             + GetSizeCopied() : long
             + GetFilesCopied() : long
             + {abstract} GetSaveType() : SaveType
-            + {static} GetStatus(status : String) : JobStatus
             - UpdateState() : void
         }            
 
@@ -204,46 +239,55 @@ package Models <<Folder>> {
         
     }
 
-    package Utils <<Folder>> {
+}
 
-        enum LogsFormat {
-            JSON
-            XML
-        }
+package Utils <<Folder>> {
 
-        class DirectoryUtils <<static>> {
-            - {static} actualFile : string[]
-            + {static} CopyFilesAndFolders(s : Save) : void
-            - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
-            + {static} IsValidPath(path : string) : bool
-            + {static} CreatePath(path : string) : void
-            + {static} GetDirectorySize(dir : DirectoryInfo) : double
-            + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
-            - {static} GetActualFile() : string[]
-        }
+    enum LogsFormat {
+        JSON
+        XML
+    }
 
-        class LogUtils <<static>> {
-            - {static} path : string
-            - {static} date : string
-            - {static} format : LogsFormat
+    class DirectoryUtils <<static>> {
+        - {static} extension : HashSet<string>
+        - {static} secret : string
+        - {static} actualFile : string[]
 
-            + {static} Init() : void
-            + {static} LogSaves() : void
-            - {static} SavesToJson() : JObject
-            - {static} SavesToXml() : XElement
-            + {static} SaveToJson(s : Save) : JObject
-            + {static} SaveToXml(s : Save) : XElement
-            + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
-            + {static} ChangeFormat(format : LogsFormat) : void
-            + {static} GetFormat() : LogsFormat
-        }
+        + {static} CopyFilesAndFolders(s : Save) : void
+        - {static} CopyAll(s : Save, src : DirectoryInfo, dest : DirectoryInfo, type : SaveType) : void
+        + {static} IsValidPath(path : string) : bool
+        + {static} CreatePath(path : string) : void
+        + {static} GetDirectorySize(dir : DirectoryInfo) : double
+        + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+        - {static} GetActualFile() : string[]
+        + {static} ChangeKey(newSecret : string) : void
+        + {static} ChangeExtensions(newExtensions : HashSet<string>) : void
+        - {static} UpdateConfig() : void
+        + {static} GetSecret() : string
+        + {static} GetExtensions() : HashSet<string>
+    }
 
-        class VersionUtils <<static>> {
-            + {static} GetVersionFromGit() : string
-            + {static} VersionFromStr(version : string) : int[]
-            + {static} CompareVersions() : bool
-        }
-    
+    class LogUtils <<static>> {
+        - {static} path : string
+        - {static} date : string
+        - {static} format : LogsFormat
+
+        + {static} Init() : void
+        + {static} LogSaves() : void
+        - {static} SavesToJson() : JObject
+        - {static} SavesToXml() : XElement
+        + {static} SaveToJson(s : Save) : JObject
+        + {static} SaveToXml(s : Save) : XElement
+        + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float) : void
+        + {static} ChangeFormat(format : LogsFormat) : void
+        + {static} LogConfig(key : string, extensions : HashSet<string>) : void
+        + {static} GetFormat() : LogsFormat
+    }
+
+    class VersionUtils <<static>> {
+        + {static} GetVersionFromGit() : string
+        + {static} VersionFromStr(version : string) : int[]
+        + {static} CompareVersions() : bool
     }
 
 }
@@ -265,6 +309,11 @@ SettingsView .up.|> IView
 
 CantCheckUpdateException -up-|> Exception
 TooMuchSavesException -up-|> Exception
+UnknownLogFormatException -up-|> Exception
+
+NavigationViewModel -up-|> INotifyPropertyChanged
+SaveViewModel -up-|> INotifyPropertyChanged
+SettingsViewModel -up-|> INotifyPropertyChanged
 
 /'Hidden links for organization'/
 FullSave -down[hidden]-> JobStatus
