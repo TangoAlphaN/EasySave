@@ -1,31 +1,26 @@
-﻿
-using EasySave.src.Models;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows.Data;
+﻿using EasySave.src.Utils;
 
 namespace EasySave.src.ViewModels
 {
-    public class HomeViewModel : INotifyPropertyChanged
+    /// <summary>
+    /// HomeViewModel class
+    /// </summary>
+    public class HomeViewModel
     {
-        private CollectionViewSource HomeItemsCollection;
-        public ICollectionView HomeSourceCollection => HomeItemsCollection.View;
 
         public HomeViewModel()
         {
-            ObservableCollection<HomeItems> homeItems = new ObservableCollection<HomeItems>
-            {
-
-            };
-
-            HomeItemsCollection = new CollectionViewSource { Source = homeItems };
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propName)
+        /// <summary>
+        /// check for updates
+        /// </summary>
+        /// <returns>bool if up to date</returns>
+        public static bool IsUpToDate()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+            return !VersionUtils.CompareVersions();
         }
+
     }
 
 }

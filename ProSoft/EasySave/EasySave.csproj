@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <AssemblyVersion>2.1.0</AssemblyVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>EasySave.src.Program</StartupObject>
@@ -69,8 +69,6 @@
     <Resource Include="src\Render\Assets\ru_RU.png" />
     <Resource Include="src\Render\Assets\json.png" />
     <Resource Include="src\Render\Assets\xml.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Render\Views\" />
+    <Resource Include="src\Render\Assets\validate.png" />
   </ItemGroup>
 </Project>

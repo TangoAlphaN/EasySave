@@ -4,13 +4,14 @@ using System.Windows;
 using System;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using EasySave.src.ViewModels;
 
 namespace EasySave.src.Render.Views
 {
     /// <summary>
     /// Interaction logic for HomeView.xaml
     /// </summary>
-    public partial class SaveLoadView : UserControl
+    public partial class SaveView : UserControl
     {
 
 
@@ -23,7 +24,7 @@ namespace EasySave.src.Render.Views
             }
         }
     
-        public SaveLoadView()
+        public SaveView()
         {
             InitializeComponent();
             updateSaves();
@@ -40,7 +41,7 @@ namespace EasySave.src.Render.Views
                     keys.Add(selectedItem.ToString());
                 }
                 
-                HashSet<Save> saves = ViewModel.GetInstance().GetSavesByUuid(keys);
+                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
                     s.Run();
                 updateSaves();

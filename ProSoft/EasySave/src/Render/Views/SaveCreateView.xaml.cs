@@ -1,5 +1,6 @@
 ﻿
 using EasySave.src.Models.Data;
+using EasySave.src.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Windows;
@@ -47,7 +48,8 @@ namespace EasySave.src.Render.Views
 
         public void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-            ViewModel.GetInstance().CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, (bool)btnDiff.IsChecked ? Differential : Full);
+
+            ((SaveViewModel)DataContext).CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, (bool)btnDiff.IsChecked ? Differential : Full);
         }
 
     }
