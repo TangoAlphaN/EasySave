@@ -279,7 +279,10 @@
   <data name="Rename" xml:space="preserve">
     <value>Переименовать</value>
   </data>
-  <data name="Saves" xml:space="preserve">
+  <data name="HomeMenu.Saves" xml:space="preserve">
     <value>Резервные копии</value>
+  </data>
+  <data name="HomeMenu.Home" xml:space="preserve">
+    <value>добро пожаловать</value>
   </data>
 </root>

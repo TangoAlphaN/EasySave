@@ -358,11 +358,29 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string HomeMenu_Home {
+            get {
+                return ResourceManager.GetString("HomeMenu.Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load a save.
         /// </summary>
         public static string HomeMenu_Load {
             get {
                 return ResourceManager.GetString("HomeMenu.Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saves.
+        /// </summary>
+        public static string HomeMenu_Saves {
+            get {
+                return ResourceManager.GetString("HomeMenu.Saves", resourceCulture);
             }
         }
         
@@ -507,15 +525,6 @@ namespace EasySave.Properties {
         public static string SaveMenu_Title {
             get {
                 return ResourceManager.GetString("SaveMenu.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Saves.
-        /// </summary>
-        public static string Saves {
-            get {
-                return ResourceManager.GetString("Saves", resourceCulture);
             }
         }
         
