@@ -28,11 +28,19 @@ namespace EasySave.src.Render.Views
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            object selectedItem = DeleteListBox.SelectedItem;
-            if (selectedItem != null)
+            if (DeleteListBox.SelectedItems.Count > 0)
             {
-                string uuid = selectedItem.ToString().Split(" - ")[1].Split(" | ")[0];
-                Save.Delete(Guid.Parse(uuid));
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < DeleteListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = DeleteListBox.SelectedItems[i];
+                    keys.Add(selectedItem.ToString());
+                }
+
+                ViewModel viewModel = new ViewModel();
+                HashSet<Save> saves = viewModel.GetSavesByUuid(keys);
+                foreach (Save s in saves)
+                    Save.Delete(s.uuid);
                 updateSaves();
             }
             else
