@@ -1,6 +1,7 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Render;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ProSoft.CryptoSoft;
 using System;
@@ -157,6 +158,18 @@ namespace EasySave.src.Utils
         public static void ChangeKey(string newSecret)
         {
             key = newSecret;
+            UpdateConfig();
+        }
+
+        public static void ChangeExtensions(HashSet<string> newExtensions)
+        {
+            extensions = newExtensions;
+            UpdateConfig();
+        }
+
+        private static void UpdateConfig()
+        {
+            LogUtils.LogConfig(key, extensions);
         }
 
         public static string GetSecret()
@@ -171,9 +184,10 @@ namespace EasySave.src.Utils
             }
         }
 
-        public static HashSet<string> GetExtensions()
+        public static string GetExtensions()
         {
-            return extensions;
+            return string.Join("\r\n", extensions);
         }
+
     }
 }

@@ -3,7 +3,9 @@ using EasySave.src.Models.Exceptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace EasySave.src.Utils
@@ -19,6 +21,9 @@ namespace EasySave.src.Utils
         /// </summary>
         public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
 
+        /// <summary>
+        /// Format of the logs
+        /// </summary>
         private static LogsFormat _format;
 
         /// <summary>
@@ -34,7 +39,6 @@ namespace EasySave.src.Utils
             //Create easysave dir if not exists
             if (!DirectoryUtils.IsValidPath(path))
             {
-                //AnsiConsole.Clear();
                 Directory.CreateDirectory(path);
             }
             //If XML file exists, load saves and set XML as default
@@ -251,5 +255,14 @@ namespace EasySave.src.Utils
             return _format;
         }
 
+        public static void LogConfig(string key, HashSet<string> extensions)
+        {
+            JObject data = new JObject(
+                new JProperty("key", key),
+                new JProperty("extensions", new JArray(extensions))
+            );
+            string json = JsonConvert.SerializeObject(data);
+            File.WriteAllText($"{path}config.json", json);
+        }
     }
 }
