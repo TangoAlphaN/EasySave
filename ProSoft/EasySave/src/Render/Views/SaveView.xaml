@@ -28,20 +28,18 @@
         </Style>
     </UserControl.Style>
 
-    <!--
-    <Grid>
-         <TextBlock Text="Save list here"
-                    FontSize="24"
-                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
-                    Foreground="#DDDDDD"/> 
-    </Grid>
-    -->
     
     <Grid VerticalAlignment="Bottom">
-        <Button Grid.Column="0" Content="{x:Static resources:Resource.Load}"/>
-        <Button Grid.Column="1" Content="{x:Static resources:Resource.Resume}"/>
-        <Button Grid.Column="1" Content="{x:Static resources:Resource.Cancel}"/>
-        <Button Grid.Column="1" Content="{x:Static resources:Resource.Delete}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Height="25" Width="150" Content="{x:Static resources:Resource.Load}"/>
+        <Button Grid.Column="1" Height="25" Width="150" Content="{x:Static resources:Resource.Resume}"/>
+        <Button Grid.Column="2" Height="25" Width="150" Content="{x:Static resources:Resource.Cancel}"/>
+        <Button Grid.Column="3" Height="25" Width="150" Content="{x:Static resources:Resource.Delete}"/>
     </Grid>
     
     <!--
