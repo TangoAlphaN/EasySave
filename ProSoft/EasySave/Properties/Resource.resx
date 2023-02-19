@@ -285,4 +285,10 @@
   <data name="HomeMenu.Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>
