@@ -4,11 +4,27 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+	<ApplicationIcon>applicationIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="wpf-ui" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Remove="Assets\applicationIcon-1024.png" />
+	<None Remove="Assets\applicationIcon-256.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Resource Include="Assets\applicationIcon-1024.png" />
+	<Resource Include="Assets\applicationIcon-256.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Content Include="applicationIcon.ico" />
   </ItemGroup>
 
 </Project>
