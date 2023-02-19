@@ -84,14 +84,14 @@
         <Button Grid.Column="1" 
                 Grid.Row="4"
                 Name="btnOpenFile"
-                Width="250"
+                Width="50"
                 Height="25"
                 HorizontalAlignment="left"
                 Background="#DDDDDD" 
                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
                 Click="SelectFilePathCommand"
                 BorderThickness="0"
-                Content="{x:Static resources:Resource.CreateSave_SrcPath}"
+                Content="..."
                 Foreground="#303030" />
         
         <Label Grid.Row="5" 
@@ -109,13 +109,13 @@
         <Button Grid.Column="1" 
                 Grid.Row="6"
                 Name="btnOpenFileDest"
-                Width="250"
+                Width="50"
                 Height="25"
                 HorizontalAlignment="left"
                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
                 Click="SelectFilePathCommandDest" 
                 BorderThickness="0"
-                Content="{x:Static resources:Resource.CreateSave_DestPath}"
+                Content="..."
                 Background="#DDDDDD"
                 Foreground="#303030" />
         
