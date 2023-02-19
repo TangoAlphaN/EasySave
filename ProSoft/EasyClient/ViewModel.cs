@@ -1,6 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using EasyClient.Properties;
 using EasyClient.Views;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows.Input;
+using System.Windows.Shapes;
+using System.Xml.Linq;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
@@ -49,6 +57,23 @@ namespace EasyClient
         [ObservableProperty]
         private ObservableCollection<MenuItem> _trayMenuItems = new ObservableCollection<MenuItem>();
 
+        //-----------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Gets or sets the IP address.
+        /// </summary>
+        public static string Ip {get; set;}
+
+        /// <summary>
+        /// Gets or sets the port.
+        /// </summary>
+        public static int Port {get; set;}
+
+        /// <summary>
+        /// Gets path.
+        /// </summary>
+        private static readonly string Path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\ProSoft\EasyClient";
+
         public ViewModel(INavigationService navigationService)
         {
             if (!_isInitialized)
@@ -57,6 +82,29 @@ namespace EasyClient
 
         private void InitializeViewModel()
         {
+            if (!Directory.Exists(@$"{Path}"))
+                Directory.CreateDirectory(@$"{Path}");
+            if (!File.Exists(@$"{Path}\config.json"))
+                File.Create(@$"{Path}\config.json");
+
+            try
+            {
+                JObject data = JObject.Parse(File.ReadAllText(@$"{Path}\config.json"));
+                if (data["ip"] != null)
+                    Ip = data["ip"].ToString();
+                else
+                    Ip = "127.0.0.1";
+                if (data["port"] != null)
+                    Port = int.Parse(data["port"].ToString());
+                else
+                    Port = 6732;
+            }
+            catch (JsonReaderException)
+            {
+                SaveSettings("127.0.0.1", "6732");
+            }
+            
+
             ApplicationTitle = "EasyClient - EasySave";
 
             AppVersion = "1.0.0";
@@ -65,7 +113,7 @@ namespace EasyClient
             {
                 new NavigationItem()
                 {
-                    Content = "Home",
+                    Content = Resource.Home,
                     PageTag = "dashboard",
                     Icon = SymbolRegular.Home24,
                     PageType = typeof(HomePage)
@@ -76,7 +124,7 @@ namespace EasyClient
             {
                 new NavigationItem()
                 {
-                    Content = "Settings",
+                    Content = Resource.Settings,
                     PageTag = "settings",
                     Icon = SymbolRegular.Settings24,
                     PageType = typeof(SettingsPage)
@@ -94,5 +142,18 @@ namespace EasyClient
 
             _isInitialized = true;
         }
+
+        public void SaveSettings(string ip, string port)
+        {
+            Ip = ip;
+            Port = int.Parse(port);
+            JObject data = new JObject(
+                new JProperty("ip", Ip),
+                new JProperty("port", Port)
+            );
+            string json = JsonConvert.SerializeObject(data);
+            File.WriteAllText($@"{Path}\config.json", json);
+        }
+
     }
 }

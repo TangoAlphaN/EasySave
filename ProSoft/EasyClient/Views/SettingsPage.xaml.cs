@@ -1,4 +1,5 @@
-﻿using Wpf.Ui.Common.Interfaces;
+﻿using System.Windows;
+using Wpf.Ui.Common.Interfaces;
 
 namespace EasyClient.Views
 {
@@ -18,5 +19,11 @@ namespace EasyClient.Views
 
             InitializeComponent();
         }
+
+        private void SaveSettings(object sender, RoutedEventArgs e)
+        {
+            ViewModel.SaveSettings(IpBox.Text, PortBox.Text);
+        }
+
     }
 }
