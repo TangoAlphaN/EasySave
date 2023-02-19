@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using EasySave.src.ViewModels;
 
 namespace EasySave.src.Render.Views
 {
@@ -12,6 +13,7 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveDeleteView : UserControl
     {
+        /*
         private void updateSaves()
         {
             DeleteListBox.Items.Clear();
@@ -20,12 +22,16 @@ namespace EasySave.src.Render.Views
                 DeleteListBox.Items.Add(s.ToString());
             }
         }
+        */
         public SaveDeleteView()
         {
+            /*
             InitializeComponent();
             updateSaves();
+        */
         }
 
+        /*
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (DeleteListBox.SelectedItems.Count > 0)
@@ -37,7 +43,7 @@ namespace EasySave.src.Render.Views
                     keys.Add(selectedItem.ToString());
                 }
 
-                ViewModel viewModel = new ViewModel();
+                SaveViewModel viewModel = new SaveViewModel();
                 HashSet<Save> saves = viewModel.GetSavesByUuid(keys);
                 foreach (Save s in saves)
                     Save.Delete(s.uuid);
@@ -48,6 +54,7 @@ namespace EasySave.src.Render.Views
                 MessageBox.Show("No item selected.");
             }
         }
+        */
 
         private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

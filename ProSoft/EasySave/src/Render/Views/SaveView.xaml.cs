@@ -17,19 +17,22 @@ namespace EasySave.src.Render.Views
 
         private void updateSaves()
         {
-            LoadListBox.Items.Clear();
+            /*LoadListBox.Items.Clear();
             foreach (Save s in Save.GetSaves())
             {
                 LoadListBox.Items.Add(s.ToString());
-            }
+            }*/
         }
     
         public SaveView()
         {
+            /*
             InitializeComponent();
             updateSaves();
+        */
         }
 
+        /*
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
             if (LoadListBox.SelectedItems.Count > 0)
@@ -51,5 +54,6 @@ namespace EasySave.src.Render.Views
                 MessageBox.Show("No item selected.");
             }
         }
+    */
     }
 }

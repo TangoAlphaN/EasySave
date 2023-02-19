@@ -6,10 +6,45 @@
              xmlns:resources="clr-namespace:EasySave.Properties"
              xmlns:local="clr-namespace:EasySave.src.Render.Views"
              xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
+             xmlns:easySave="clr-namespace:EasySave"
              mc:Ignorable="d"
              d:DesignHeight="500"
              d:DesignWidth="650">
+    
+    <UserControl.Style>
+        <Style>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="UserControl.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             From="0.0"
+                                             To="1.0"
+                                             Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
 
+    <!--
+    <Grid>
+         <TextBlock Text="Save list here"
+                    FontSize="24"
+                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                    Foreground="#DDDDDD"/> 
+    </Grid>
+    -->
+    
+    <Grid VerticalAlignment="Bottom">
+        <Button Grid.Column="0" Content="{x:Static resources:Resource.Load}"/>
+        <Button Grid.Column="1" Content="{x:Static resources:Resource.Resume}"/>
+        <Button Grid.Column="1" Content="{x:Static resources:Resource.Cancel}"/>
+        <Button Grid.Column="1" Content="{x:Static resources:Resource.Delete}"/>
+    </Grid>
+    
+    <!--
     <UserControl.Style>
         <Style>
             <Style.Triggers>
@@ -55,5 +90,6 @@
                 VerticalAlignment="Top" 
                 Width="200" Click="DeleteButton_Click" Grid.Row="1"/>
     </Grid>
-
+-->
 </UserControl>
+
