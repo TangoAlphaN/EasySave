@@ -14,6 +14,10 @@ namespace EasySave.src.Render.Views
     public partial class SaveView : UserControl
     {
 
+        public bool IsSaveRunning()
+        {
+            return true;
+        }
 
         private void updateSaves()
         {
