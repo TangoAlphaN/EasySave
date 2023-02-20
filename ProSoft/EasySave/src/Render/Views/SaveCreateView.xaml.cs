@@ -48,9 +48,9 @@ namespace EasySave.src.Render.Views
                 _type = Differential;
         }
 
-        public void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
+        private void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-            ((SaveViewModel)DataContext).CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
+            SaveViewModel.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
         }
     }
 }
