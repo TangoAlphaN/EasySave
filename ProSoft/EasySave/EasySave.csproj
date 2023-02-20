@@ -6,7 +6,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>EasySave.src.Program</StartupObject>
+    <ApplicationIcon>LogoSoloEasySavev1.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="LogoSoloEasySavev1.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.WindowsAPICodePack-Shell" Version="1.1.0" />
