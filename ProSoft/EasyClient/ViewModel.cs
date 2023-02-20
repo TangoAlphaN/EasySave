@@ -1,14 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using EasyClient.Enums;
 using EasyClient.Properties;
 using EasyClient.Views;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Windows.Input;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
@@ -40,6 +39,12 @@ namespace EasyClient
         private string _appVersion = string.Empty;
 
         /// <summary>
+        /// Gets or sets the save list.
+        /// </summary>
+        [ObservableProperty]
+        private Dictionary<string, SaveInfo> _saves;
+
+        /// <summary>
         /// Gets or sets the navigation items.
         /// </summary>
         [ObservableProperty]
@@ -62,12 +67,12 @@ namespace EasyClient
         /// <summary>
         /// Gets or sets the IP address.
         /// </summary>
-        public static string Ip {get; set;}
+        public static string Ip { get; set; }
 
         /// <summary>
         /// Gets or sets the port.
         /// </summary>
-        public static int Port {get; set;}
+        public static int Port { get; set; }
 
         /// <summary>
         /// Gets path.
@@ -76,6 +81,7 @@ namespace EasyClient
 
         public ViewModel(INavigationService navigationService)
         {
+            _saves = new Dictionary<string, SaveInfo>();
             if (!_isInitialized)
                 InitializeViewModel();
         }
@@ -86,7 +92,6 @@ namespace EasyClient
                 Directory.CreateDirectory(@$"{Path}");
             if (!File.Exists(@$"{Path}\config.json"))
                 File.Create(@$"{Path}\config.json");
-
             try
             {
                 JObject data = JObject.Parse(File.ReadAllText(@$"{Path}\config.json"));
@@ -103,11 +108,11 @@ namespace EasyClient
             {
                 SaveSettings("127.0.0.1", "6732");
             }
-            
+
 
             ApplicationTitle = "EasyClient - EasySave";
 
-            AppVersion = "1.0.0";
+            AppVersion = "Version 1.0.0";
 
             NavigationItems = new ObservableCollection<INavigationControl>
             {
@@ -155,5 +160,27 @@ namespace EasyClient
             File.WriteAllText($@"{Path}\config.json", json);
         }
 
+        public static bool Connect()
+        {
+            if (SocketUtils.Connect(Ip, Port))
+            {
+                return true;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show($"{Resource.ErrorConnect}");
+                return false;
+            }
+        }
+
+        public void UpdateSaves()
+        {
+            Saves = (Dictionary<string, SaveInfo>)SocketUtils.SendRequest(SocketRequest.GetData);
+        }
+
+        public static void Disconnect()
+        {
+            SocketUtils.Disconnect();
+        }
     }
 }
