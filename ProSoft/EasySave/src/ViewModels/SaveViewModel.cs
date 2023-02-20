@@ -55,7 +55,7 @@ namespace EasySave.src.ViewModels
         /// <param name="dest">destination path</param>
         /// <param name="type">type of save</param>
         /// <returns>save object</returns>
-        public Save CreateSave(string name, string src, string dest, SaveType type)
+        public static Save CreateSave(string name, string src, string dest, SaveType type)
         {
             return Save.CreateSave(name, src, dest, type);
         }
