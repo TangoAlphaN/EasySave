@@ -300,4 +300,7 @@
   <data name="Settings.Software-Package" xml:space="preserve">
     <value>Software package</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
 </root>

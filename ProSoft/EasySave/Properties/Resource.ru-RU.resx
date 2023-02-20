@@ -300,4 +300,7 @@
   <data name="Settings.Software-Package" xml:space="preserve">
     <value>программный пакет</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Перерыв</value>
+  </data>
 </root>
