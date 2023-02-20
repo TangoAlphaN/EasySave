@@ -112,4 +112,16 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="ErrorConnect" xml:space="preserve">
+    <value>Unable to connect server</value>
+  </data>
+  <data name="Saves" xml:space="preserve">
+    <value>Saves</value>
+  </data>
 </root>

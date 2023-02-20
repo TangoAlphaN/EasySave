@@ -132,4 +132,10 @@
   <data name="Home" xml:space="preserve">
     <value>добро пожаловать</value>
   </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Авторизоваться</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
 </root>
