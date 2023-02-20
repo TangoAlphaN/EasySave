@@ -9,6 +9,9 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using EasySave.Properties;
 using EasySave.src.ViewModels;
+using Notifications.Wpf;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace EasySave.src.Render.Views
 {
@@ -53,7 +56,12 @@ namespace EasySave.src.Render.Views
             }
             else
             {
-                MessageBox.Show(Resource.NoSelected);
+                new NotificationManager().Show(new NotificationContent
+                {
+                    Title = "Save Error",
+                    Message = Resource.NoSelected,
+                    Type = NotificationType.Error
+                });
             }
         }
 

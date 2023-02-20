@@ -3,6 +3,7 @@ using EasySave.src.Models.Data;
 using EasySave.src.Render;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Notifications.Wpf;
 using ProSoft.CryptoSoft;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,6 @@ namespace EasySave.src.Utils
         private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
         
         private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
-               
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -53,13 +53,20 @@ namespace EasySave.src.Utils
         /// <param name="type">type of save</param>
         private static void CopyAll(CryptoSoft cs, Save s, DirectoryInfo src, DirectoryInfo dest, SaveType type)
         {
+            var notificationManager = new NotificationManager();
+
             foreach (FileInfo file in src.GetFiles())
             {
                 foreach (var p in process)
                 {
                     if (Process.GetProcessesByName(p).Length > 0)
                     {
-                        MessageBox.Show("Process \"[PROCESS]\"is still running.".Replace("[PROCESS]", p.Split(".exe")[0]));
+                        notificationManager.Show(new NotificationContent
+                        {
+                            Title = "Save Error",
+                            Message = "Process \"[PROCESS]\"is still running.".Replace("[PROCESS]", p.Split(".exe")[0]),
+                            Type = NotificationType.Error
+                        });
                         s.Stop();
                         return;
                     }
