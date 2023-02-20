@@ -492,6 +492,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No item selected.
+        /// </summary>
+        public static string NoSelected {
+            get {
+                return ResourceManager.GetString("NoSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect Path | .
         /// </summary>
         public static string Path_Invalid {
@@ -578,6 +587,15 @@ namespace EasySave.Properties {
         public static string SettingsMenu_LogsFormat {
             get {
                 return ResourceManager.GetString("SettingsMenu.LogsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save created successfully.
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
     }

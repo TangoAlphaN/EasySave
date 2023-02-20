@@ -291,4 +291,10 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
+  <data name="NoSelected" xml:space="preserve">
+    <value>Nessun elemento selezionato</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Backup creato con successo</value>
+  </data>
 </root>

@@ -291,4 +291,10 @@
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
+  <data name="NoSelected" xml:space="preserve">
+    <value>Элемент не выбран</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Резервная копия успешно создана</value>
+  </data>
 </root>
