@@ -29,6 +29,7 @@ namespace EasySave.src.ViewModels
             {
                 new SettingsItem { SettingsName = $"{Resource.Settings_Secret}", SettingsValue = DirectoryUtils.GetSecret(), SettingsCommand = new RelayCommand(ChangeKey) },
                 new SettingsItem { SettingsName = $"{Resource.Settings_Extensions}", SettingsValue = DirectoryUtils.GetExtensions(), SettingsCommand = new RelayCommand(ChangeExtensions) },
+                new SettingsItem { SettingsName = $"{Resource.Settings_Software_Package}", SettingsValue = DirectoryUtils.GetProcess(), SettingsCommand = new RelayCommand(ChangeProcess) },
             };
             ObservableCollection<SettingsItem> langItems = new ObservableCollection<SettingsItem>
             {
@@ -42,6 +43,7 @@ namespace EasySave.src.ViewModels
                 new SettingsItem { SettingsName = "JSON", SettingsImage = @"Assets/json.png", SettingsCommand = new RelayCommand(ChangeLogsFormat) },
                 new SettingsItem { SettingsName = "XML", SettingsImage = @"Assets/xml.png", SettingsCommand = new RelayCommand(ChangeLogsFormat) },
             };
+            
             _cryptoSoftSettingsItemsCollection = new CollectionViewSource { Source = cryptoSoftItems };
             _langItemsCollection = new CollectionViewSource { Source = langItems };
             _logItemsCollection = new CollectionViewSource { Source = logItems };
@@ -96,6 +98,11 @@ namespace EasySave.src.ViewModels
         public static void ChangeExtensions(object obj)
         {
             DirectoryUtils.ChangeExtensions(((string)obj).Split("\r\n").ToHashSet());
+        }
+
+        public static void ChangeProcess(object obj)
+        {
+            DirectoryUtils.ChangeProcess(((string)obj).Split("\r\n").ToHashSet());
         }
 
     }

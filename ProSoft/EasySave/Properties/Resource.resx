@@ -297,4 +297,7 @@
   <data name="Success" xml:space="preserve">
     <value>Save created successfully</value>
   </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>Software package</value>
+  </data>
 </root>

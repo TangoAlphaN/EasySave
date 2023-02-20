@@ -255,11 +255,12 @@ namespace EasySave.src.Utils
             return _format;
         }
 
-        public static void LogConfig(string key, HashSet<string> extensions)
+        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process)
         {
             JObject data = new JObject(
                 new JProperty("key", key),
-                new JProperty("extensions", new JArray(extensions))
+                new JProperty("extensions", new JArray(extensions.Where(k => k.Length > 0))),
+                new JProperty("process", new JArray(process.Where(k => k.Length > 0)))
             );
             string json = JsonConvert.SerializeObject(data);
             File.WriteAllText($"{path}config.json", json);
