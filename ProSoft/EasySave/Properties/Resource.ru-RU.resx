@@ -297,4 +297,7 @@
   <data name="Success" xml:space="preserve">
     <value>Резервная копия успешно создана</value>
   </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>программный пакет</value>
+  </data>
 </root>

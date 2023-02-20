@@ -6,8 +6,10 @@ using Newtonsoft.Json.Linq;
 using ProSoft.CryptoSoft;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows;
 
 namespace EasySave.src.Utils
 {
@@ -16,10 +18,12 @@ namespace EasySave.src.Utils
     /// </summary>
     public static class DirectoryUtils
     {
+        private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
 
         private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
-
-        private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
+        
+        private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
+               
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -51,12 +55,21 @@ namespace EasySave.src.Utils
         {
             foreach (FileInfo file in src.GetFiles())
             {
+                foreach (var p in process)
+                {
+                    if (Process.GetProcessesByName(p).Length > 0)
+                    {
+                        MessageBox.Show("Process \"[PROCESS]\"is still running.".Replace("[PROCESS]", p.Split(".exe")[0]));
+                        s.Stop();
+                        return;
+                    }
+                }
                 //Update json data
                 LogUtils.LogSaves();
                 bool fileCopied = true;
                 bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
                 //Proceed differential mode by comparing files data
-                if (file.Extension != ".exe" && (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0)))
+                if (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
                 {
                     actualFile[0] = src.FullName;
                     actualFile[1] = dest.FullName;
@@ -167,9 +180,15 @@ namespace EasySave.src.Utils
             UpdateConfig();
         }
 
+        public static void ChangeProcess(HashSet<string> newProcess)
+        {
+            process = newProcess;
+            UpdateConfig();
+        }
+
         private static void UpdateConfig()
         {
-            LogUtils.LogConfig(key, extensions);
+            LogUtils.LogConfig(key, extensions, process);
         }
 
         public static string GetSecret()
@@ -187,6 +206,11 @@ namespace EasySave.src.Utils
         public static string GetExtensions()
         {
             return string.Join("\r\n", extensions);
+        }
+
+        public static string GetProcess()
+        {
+            return string.Join("\r\n", process);
         }
 
     }

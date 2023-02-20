@@ -297,4 +297,7 @@
   <data name="Success" xml:space="preserve">
     <value>Backup creato con successo</value>
   </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>Pacchetto software</value>
+  </data>
 </root>
