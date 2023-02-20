@@ -12,6 +12,7 @@ using EasySave.src.ViewModels;
 using Notifications.Wpf;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace EasySave.src.Render.Views
 {
@@ -49,19 +50,94 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                    ((SaveViewModel)DataContext).RunSave(s);
+                Parallel.ForEach(saves, save => {
+                    save.Run();
+                });
                 _updateSaves();
-                SaveViewModel.IsVisible = true;
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
+                MessageBox.Show(Resource.NoSelected);
+            }
+        }
+
+        private void ResumeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SaveListBox.SelectedItems.Count > 0)
+            {
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                    var selectedItem = SaveListBox.SelectedItems[i];
+                    keys.Add(selectedItem.ToString());
+                }
+
+                if (JobStatus.Paused == ((SaveViewModel)DataContext).GetSavesByUuid(keys).GetEnumerator().Current.GetStatus())
+                {
+                    HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+                    foreach (Save s in saves)
+                    {
+                        s.Resume();
+                        _updateSaves();
+                    }
+                }
+                MessageBox.Show("No Save status equals to Paused.");
+            }
+            else
+            {
+                MessageBox.Show("No item selected.");
+            }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SaveListBox.SelectedItems.Count > 0)
+            {
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = SaveListBox.SelectedItems[i];
+                    keys.Add(selectedItem.ToString());
+                }
+
+                if (JobStatus.Paused == ((SaveViewModel)DataContext).GetSavesByUuid(keys).GetEnumerator().Current.GetStatus() || JobStatus.Running == ((SaveViewModel)DataContext).GetSavesByUuid(keys).GetEnumerator().Current.GetStatus())
+                {
+                    HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+                    foreach (Save s in saves)
+                    {
+                        s.Cancel();
+                        _updateSaves();
+                    }
+                }
+                MessageBox.Show("No Save status equals to Cancel.");
+            }
+            else
+            {
+                MessageBox.Show("No item selected.");
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SaveListBox.SelectedItems.Count > 0)
+            {
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = SaveListBox.SelectedItems[i];
+                    keys.Add(selectedItem.ToString());
+                }
+
+                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+                foreach (Save s in saves)
+                {
+                    ((SaveViewModel)DataContext).DeleteSave(s);
+                    _updateSaves();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No item selected.");
             }
         }
 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 
 namespace EasySave.src.Models.Data
 {
@@ -59,6 +60,11 @@ namespace EasySave.src.Models.Data
         /// Destination directory
         /// </summary>
         public readonly DestDir DestDir;
+
+        /// <summary>
+        /// Semaphore to change stat of save
+        /// </summary>
+        private SemaphoreSlim _semaphore = new SemaphoreSlim(0);
 
         /// <summary>
         /// Save constructor. Constructor is protected to prevent direct instantiation
@@ -122,33 +128,52 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Method to pause a save
         /// </summary>
-        public void Pause()
+        public string Pause()
         {
             Status = JobStatus.Paused;
+            Stopwatch sw = new Stopwatch();
+            _semaphore.Wait();
+            sw.Stop();
+            return ProcessResult(sw);
         }
 
         /// <summary>
         /// Method to resume a save
         /// </summary>
-        public void Resume()
+        public string Resume()
         {
+            Stopwatch sw = new Stopwatch();
             Status = JobStatus.Running;
+            sw.Start();
+            Thread thread = new Thread(() => DirectoryUtils.CopyFilesAndFolders(this));
+            thread.Start();
+            sw.Stop();
+            Status = JobStatus.Finished;
+            return ProcessResult(sw); ;
         }
 
         /// <summary>
         /// Method to cancel a save
         /// </summary>
-        public void Cancel()
+        public string Cancel()
         {
+            Stopwatch sw = new Stopwatch();
+            _semaphore.Release();
+            sw.Stop();
             Status = JobStatus.Canceled;
+            return ProcessResult(sw); ;
         }
 
         /// <summary>
         /// Method to stop a save
         /// </summary>
-        public void Stop()
+        public string Stop()
         {
-            Status = JobStatus.Waiting;
+            Stopwatch sw = new Stopwatch();
+            _semaphore.Release();
+            sw.Stop();
+            Status = JobStatus.Canceled;
+            return ProcessResult(sw); ;
         }
 
         /// <summary>
