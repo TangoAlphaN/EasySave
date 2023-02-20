@@ -79,6 +79,21 @@ namespace EasySave.src.ViewModels
             Save.Delete(s.uuid);
         }
 
+        public void PauseSave(Save s)
+        {
+            s.Stop();
+        }
+        
+        public void ResumeSave(Save s)
+        {
+            s.Resume();
+        }
+        
+        public void CancelSave(Save s)
+        {
+            s.Cancel();
+        }
+
         /// <summary>
         /// Run save method
         /// </summary>

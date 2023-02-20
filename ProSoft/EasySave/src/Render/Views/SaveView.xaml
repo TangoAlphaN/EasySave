@@ -53,11 +53,13 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Height="25" Width="100" Content="{x:Static resources:Resource.Load}" Click="RunButton_Click"/>
-            <Button Grid.Column="1" Height="25" Width="100" Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Content="{x:Static resources:Resource.Resume}"/>
-            <Button Grid.Column="2" Height="25" Width="100" Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Content="{x:Static resources:Resource.Cancel}"/>
-            <Button Grid.Column="3" Height="25" Width="100" Content="{x:Static resources:Resource.Delete}"/>
+            <Button Grid.Column="1" x:Name="PauseBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Pause}" Click="PauseButton_Click"/>
+            <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Resume}" Click="ResumeButton_Click"/>
+            <Button Grid.Column="3" x:Name="CancelBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Cancel}" Click="CancelButton_Click"/>
+            <Button Grid.Column="4" Height="25" Width="100" Content="{x:Static resources:Resource.Delete}" Click="DeleteButton_Click"/>
         </Grid>
     </Grid>
     
