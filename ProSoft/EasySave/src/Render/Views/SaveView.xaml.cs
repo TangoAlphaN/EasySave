@@ -12,6 +12,7 @@ using EasySave.src.ViewModels;
 using Notifications.Wpf;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace EasySave.src.Render.Views
 {
@@ -52,18 +53,14 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                    ((SaveViewModel)DataContext).RunSave(s);
+                Parallel.ForEach(saves, save => {
+                    save.Run();
+                });
                 _updateSaves();
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                MessageBox.Show(Resource.NoSelected);
             }
         }
 
