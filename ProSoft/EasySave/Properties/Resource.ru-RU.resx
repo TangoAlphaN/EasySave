@@ -306,4 +306,10 @@
   <data name="Run" xml:space="preserve">
     <value>Запуск</value>
   </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>Программа "[PROCESS]" уже запущена</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>Резервное копирование [NAME] остановлено</value>
+  </data>
 </root>

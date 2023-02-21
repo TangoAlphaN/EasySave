@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using EasySave.Properties;
 using EasySave.src.ViewModels;
-using Notifications.Wpf;
+using Notification.Wpf;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -103,8 +103,10 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                    ((SaveViewModel)DataContext).RunSave(s);
+                Parallel.ForEach(saves, save => 
+                {
+                    save.Run();
+                });
                 _updateSaves();
                 new NotificationManager().Show(new NotificationContent
                 {

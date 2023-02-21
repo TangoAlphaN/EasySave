@@ -3,13 +3,15 @@ using EasySave.src.Models.Data;
 using EasySave.src.Render;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Notifications.Wpf;
+using Notification.Wpf;
 using ProSoft.CryptoSoft;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 
 namespace EasySave.src.Utils
@@ -24,6 +26,8 @@ namespace EasySave.src.Utils
         private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
         
         private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
+
+        private static Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -53,24 +57,18 @@ namespace EasySave.src.Utils
         /// <param name="type">type of save</param>
         private static void CopyAll(CryptoSoft cs, Save s, DirectoryInfo src, DirectoryInfo dest, SaveType type)
         {
-            var notificationManager = new NotificationManager();
-
+            foreach (var p in process)
+            {
+                Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToLower());
+                if (processes.Length > 0)
+                {
+                    NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_Title.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p));
+                    s.Stop();
+                    return;
+                }
+            }
             foreach (FileInfo file in src.GetFiles())
             {
-                foreach (var p in process)
-                {
-                    if (Process.GetProcessesByName(p).Length > 0)
-                    {
-                        notificationManager.Show(new NotificationContent
-                        {
-                            Title = "Save Error",
-                            Message = "Process \"[PROCESS]\"is still running.".Replace("[PROCESS]", p.Split(".exe")[0]),
-                            Type = NotificationType.Error
-                        });
-                        s.Stop();
-                        return;
-                    }
-                }
                 //Update json data
                 LogUtils.LogSaves();
                 bool fileCopied = true;
@@ -98,7 +96,10 @@ namespace EasySave.src.Utils
                     }
                     watch.Stop();
                     //Log transfer in json
+                    _mutex.WaitOne();
                     LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
+                    _mutex.ReleaseMutex();
+                    
                 }
                 if (fileCopied)
                     s.AddFileCopied();

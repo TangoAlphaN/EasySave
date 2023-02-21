@@ -306,4 +306,10 @@
   <data name="Run" xml:space="preserve">
     <value>Lancer</value>
   </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" est en cours de fonctionnement</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>Sauvegarde [NAME] stoppée</value>
+  </data>
 </root>
