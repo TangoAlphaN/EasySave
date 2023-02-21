@@ -1,5 +1,4 @@
-﻿using EasySave.src.Models.Data;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
@@ -25,14 +24,14 @@ namespace EasyClient
             _guid = guid;
         }
 
-        public static SaveInfo FromSave(Save s)
+        public static SaveInfo FromSave(dynamic s)
         {
             return new SaveInfo($"{s.GetName()} - {s.uuid}", s.GetStatus().ToString(), s.CalculateProgress(), s.uuid);
         }
 
         public override string ToString()
         {
-            return $"{SaveName} - {Status.ToString()} - {ProgressionString}";
+            return $"{SaveName} - {Status} - {ProgressionString}";
         }
 
         public static object Create(JObject jsonData)
