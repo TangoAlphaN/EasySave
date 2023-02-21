@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Xml.Linq;
 
 namespace EasySave.src.Utils
@@ -30,6 +31,8 @@ namespace EasySave.src.Utils
         /// Date of the day
         /// </summary>
         private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
+
+        private static Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Init logs util
@@ -75,7 +78,9 @@ namespace EasySave.src.Utils
             if(_format == LogsFormat.XML)
                 new XDocument(SavesToXml()).Save($"{path}saves.xml");
             else
+                _mutex.WaitOne();
                 File.WriteAllText($"{path}saves.json", SavesToJson().ToString());
+                _mutex.ReleaseMutex();
         }
 
         /// <summary>

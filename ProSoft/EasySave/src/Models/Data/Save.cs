@@ -149,7 +149,7 @@ namespace EasySave.src.Models.Data
             thread.Start();
             sw.Stop();
             Status = JobStatus.Finished;
-            return ProcessResult(sw); ;
+            return ProcessResult(sw);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace EasySave.src.Models.Data
             _semaphore.Release();
             sw.Stop();
             Status = JobStatus.Canceled;
-            return ProcessResult(sw); ;
+            return ProcessResult(sw);
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace EasySave.src.Models.Data
             _semaphore.Release();
             sw.Stop();
             Status = JobStatus.Canceled;
-            return ProcessResult(sw); ;
+            return ProcessResult(sw);
         }
 
         /// <summary>
