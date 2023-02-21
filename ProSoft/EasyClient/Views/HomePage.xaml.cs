@@ -165,7 +165,7 @@ namespace EasyClient.Views
                         }
 #pragma warning restore S108 // Nested blocks of code should not be left empty
 #pragma warning restore S2486 // Generic exceptions should not be ignored
-                        
+
                     }
                 });
                 _t.Start();
@@ -204,7 +204,7 @@ namespace EasyClient.Views
             Button button = (Button)sender;
             string uuid = button.CommandParameter.ToString();
             string status = ViewModel.GetStatusByUuid(button.CommandParameter.ToString());
-            if(status == "Finished")
+            if (status == "Finished")
                 ViewModel.StopSave(uuid);
             else
                 ViewModel.CancelSave(uuid);
