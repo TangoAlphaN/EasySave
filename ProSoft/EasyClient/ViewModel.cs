@@ -216,6 +216,15 @@ namespace EasyClient
             SocketUtils.SendRequest(SocketRequest.Stop, uuid);
         }
 
+        /// <summary>
+        /// CancelSave
+        /// </summary>
+        /// <param name="uuid">save uuid</param>
+        public static void CancelSave(string uuid)
+        {
+            SocketUtils.SendRequest(SocketRequest.Cancel, uuid);
+        }
+
         public void UpdateSaves()
         {
             Saves = (Dictionary<string, SaveInfo>)SocketUtils.SendRequest(SocketRequest.GetData);

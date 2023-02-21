@@ -154,6 +154,7 @@ namespace EasyClient.Views
                     {
 #pragma warning disable S2486 // Generic exceptions should not be ignored
                         ViewModel.UpdateSaves();
+                        Dispatcher.Invoke(UpdateInterface);
                         try
                         {
                             Thread.Sleep(1000);
@@ -194,14 +195,20 @@ namespace EasyClient.Views
         }
 
         /// <summary>
-        /// Stop a save
+        /// Stop / cancel a save
         /// </summary>
         /// <param name="sender">data object</param>
         /// <param name="e">args</param>
         private void StopSave(object sender, RoutedEventArgs e)
         {
-            string uuid = ((Button)sender).CommandParameter.ToString();
-            ViewModel.StopSave(uuid);
+            Button button = (Button)sender;
+            string uuid = button.CommandParameter.ToString();
+            string status = ViewModel.GetStatusByUuid(button.CommandParameter.ToString());
+            if(status == "Finished")
+                ViewModel.StopSave(uuid);
+            else
+                ViewModel.CancelSave(uuid);
+
         }
 
         /// <summary>
