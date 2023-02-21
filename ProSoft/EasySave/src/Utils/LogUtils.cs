@@ -20,7 +20,7 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Path to the log file
         /// </summary>
-        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
+        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\ProSoft\EasySave\";
 
         /// <summary>
         /// Format of the logs

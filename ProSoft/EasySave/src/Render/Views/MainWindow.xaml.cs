@@ -31,7 +31,7 @@ namespace EasySave.src.Render.Views
         {
             bool upToDate = HomeViewModel.IsUpToDate();
             NotificationUtils.SendNotification(
-                title: $"EasySave {VersionUtils.GetVersionFromGit()}",
+                title: $"EasySave {VersionUtils.GetVersionFromLocal().ToString()[0..5]}",
                 message: upToDate ? Resource.Header_UpToDate : Resource.Header_NoUpToDate + "\n" + "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
                 type: upToDate ? NotificationType.Success : NotificationType.Warning,
                 url: upToDate ? "" : "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
