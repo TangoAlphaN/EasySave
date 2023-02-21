@@ -303,4 +303,7 @@
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
   </data>
+  <data name="Run" xml:space="preserve">
+    <value>Lancer</value>
+  </data>
 </root>

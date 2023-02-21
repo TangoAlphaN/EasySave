@@ -303,4 +303,7 @@
   <data name="Pause" xml:space="preserve">
     <value>Перерыв</value>
   </data>
+  <data name="Run" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
 </root>
