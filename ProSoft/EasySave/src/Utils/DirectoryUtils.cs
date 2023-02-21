@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 
 namespace EasySave.src.Utils
@@ -98,7 +100,10 @@ namespace EasySave.src.Utils
                     }
                     watch.Stop();
                     //Log transfer in json
-                    LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
+                    lock(LogUtils.path)
+                    {
+                        LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
+                    }
                 }
                 if (fileCopied)
                     s.AddFileCopied();

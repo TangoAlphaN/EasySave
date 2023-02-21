@@ -103,8 +103,10 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                    ((SaveViewModel)DataContext).RunSave(s);
+                Parallel.ForEach(saves, save => 
+                {
+                    save.Run();
+                });
                 _updateSaves();
             }
             else
