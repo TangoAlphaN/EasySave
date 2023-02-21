@@ -1,13 +1,16 @@
+using System;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Data;
 using EasySave.src.Render;
 using System.Windows.Input;
+using System.Windows.Threading;
 using EasySave.Properties;
 
 
@@ -20,6 +23,8 @@ namespace EasySave.src.ViewModels
     {
         private readonly CollectionViewSource _saveItemsCollection;
         public ICollectionView SaveSourceCollection => _saveItemsCollection.View;
+
+        public int progressBar;
         
         public SaveViewModel()
         {
@@ -124,6 +129,7 @@ namespace EasySave.src.ViewModels
         {
             return s.GetStatus();
         }
+        
         
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propName)

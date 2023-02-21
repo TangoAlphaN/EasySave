@@ -32,7 +32,7 @@
         <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin=" 30 10">
                 <Button Height="25" Width="100" Content="{x:Static resources:Resource.Create}" Click="GoTo"/>
             </Grid>
-        <ListBox x:Name="SaveListBox" Margin="10 58 10 200" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030" SelectionChanged="OnSelectionChanged">
+        <ListBox x:Name="SaveListBox" Margin="10 58 10 250" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding }" Foreground="#DDDDDD" FontSize="14"/>
@@ -40,33 +40,42 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-
+        <ProgressBar x:Name="SaveProgressBar" Minimum="0" Maximum="100" Value="{Binding UpdateProgressBar}" Background="#DDDDDDDD" BorderBrush="Gray" BorderThickness="2" Width="600" Height="25" Margin="0 125 0 0">
+            <ProgressBar.Foreground>
+                <SolidColorBrush Color="Chartreuse"/>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        
         <Grid VerticalAlignment="Bottom" Margin="3 2 3 75" Background="#303030">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <!--
                 <ColumnDefinition />
+            -->
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" x:Name="RunBtn" Height="25" Width="50" Click="RunButton_Click" IsEnabled="True">
+            <Button Grid.Column="0" x:Name="RunBtn" Height="50" Width="50" Click="RunButton_Click" IsEnabled="True">
                 <Image Source="/src/Render/Assets/Play.png" />
             </Button>
             
-            <Button Grid.Column="1" x:Name="PauseBtn" Height="25" Width="50" Visibility="Collapsed" Click="PauseButton_Click" IsEnabled="True">
+            <Button Grid.Column="1" x:Name="PauseBtn" Height="50" Width="50" Visibility="Collapsed" Click="PauseButton_Click" IsEnabled="True">
                 <Image Source="/src/Render/Assets/Pause.png" />
             </Button>
             
+            <!--
             <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="50" Visibility="Collapsed"  Click="ResumeButton_Click" IsEnabled="True">
                 <Image Source="/src/Render/Assets/Resume.png" />
             </Button>
+            -->
             
-            <Button Grid.Column="3" x:Name="CancelBtn" Height="25" Width="50" Visibility="Collapsed" Click="CancelButton_Click" IsEnabled="True">
+            <Button Grid.Column="2" x:Name="CancelBtn" Height="50" Width="50" Visibility="Collapsed" Click="CancelButton_Click" IsEnabled="True">
                 <Image Source="/src/Render/Assets/Cancel.png" />
             </Button>
             
-            <Button Grid.Column="4" Height="25" Width="50" Click="DeleteButton_Click">
+            <Button Grid.Column="3" Height="50" Width="50" Click="DeleteButton_Click">
                 <Image Source="/src/Render/Assets/Trash.png" />
             </Button>
         </Grid>
