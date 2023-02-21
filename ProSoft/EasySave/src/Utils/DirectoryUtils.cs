@@ -27,6 +27,8 @@ namespace EasySave.src.Utils
         
         private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
 
+        private static HashSet<string> priorityFiles = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["priorityFiles"].Select(t => t.ToString()).ToHashSet();
+
         private static Mutex _mutex = new Mutex();
 
         /// <summary>
@@ -194,9 +196,15 @@ namespace EasySave.src.Utils
             UpdateConfig();
         }
 
+        public static void ChangePriorityFiles(HashSet<string> newPriorityFiles)
+        {
+            priorityFiles = newPriorityFiles;
+            UpdateConfig();
+        }
+
         private static void UpdateConfig()
         {
-            LogUtils.LogConfig(key, extensions, process);
+            LogUtils.LogConfig(key, extensions, process, priorityFiles);
         }
 
         public static string GetSecret()
@@ -221,5 +229,9 @@ namespace EasySave.src.Utils
             return string.Join("\r\n", process);
         }
 
+        public static string GetPriorityFiles()
+        {
+            return string.Join("\r\n", priorityFiles);
+        }
     }
 }

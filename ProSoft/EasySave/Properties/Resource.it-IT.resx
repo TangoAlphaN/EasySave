@@ -312,10 +312,15 @@
   <data name="Exception.Run-SP-Title" xml:space="preserve">
     <value>[NAME] backup interrotto</value>
   </data>
+<<<<<<< HEAD
   <data name="Error" xml:space="preserve">
     <value>Errore</value>
   </data>
   <data name="ErrorMsg" xml:space="preserve">
     <value>Si è verificato un errore</value>
+=======
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>File prioritari</value>
+>>>>>>> 849b3a4f6969aaba0cf1ffd6571e71711e4c3076
   </data>
 </root>

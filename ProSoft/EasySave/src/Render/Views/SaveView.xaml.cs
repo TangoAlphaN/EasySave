@@ -4,15 +4,15 @@ using System.Windows;
 using System;
 using System.Windows.Controls;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Windows.Input;
-using System.Windows.Navigation;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using EasySave.Properties;
 using EasySave.src.ViewModels;
 using Notification.Wpf;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using EasySave.src.Utils;
 
 namespace EasySave.src.Render.Views
 {
@@ -22,7 +22,9 @@ namespace EasySave.src.Render.Views
     public partial class SaveView : UserControl
     {
         string _selectedItem;
-        JobStatus _saveStatus;
+        JobStatus? _saveStatus = null;
+        readonly SaveViewModel _viewModel;
+        private ObservableCollection<Save> _saves;
 
         
         private void _updateSaves()
@@ -38,6 +40,9 @@ namespace EasySave.src.Render.Views
         {
             InitializeComponent();
             _updateSaves();
+            _viewModel = new SaveViewModel();
+            this.DataContext = _viewModel;
+
         }
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
@@ -55,40 +60,59 @@ namespace EasySave.src.Render.Views
                     var selectedItem = SaveListBox.SelectedItems[i];
                     if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
-                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
+                _saves = new ObservableCollection<Save>(_viewModel.GetSavesByUuid(keys));
+                foreach (Save s in _saves)
                 {
-                    _saveStatus = ((SaveViewModel)DataContext).GetSaveStatus(s);
-                    switch (_saveStatus)
-                    {
-                        case JobStatus.Running:
-                            RunBtn.IsEnabled = false;
-                            PauseBtn.IsEnabled = true;
-                            ResumeBtn.IsEnabled = true;
-                            CancelBtn.IsEnabled = true;
-                            break;
-                        case JobStatus.Paused:
-                            RunBtn.IsEnabled = true;
-                            PauseBtn.IsEnabled = false;
-                            ResumeBtn.IsEnabled = true;
-                            CancelBtn.IsEnabled = true;
-                            break;
-                        case JobStatus.Canceled:
-                        case JobStatus.Waiting:
-                            RunBtn.IsEnabled = true;
-                            PauseBtn.IsEnabled = false;
-                            ResumeBtn.IsEnabled = false;
-                            CancelBtn.IsEnabled = false;
-                            break;
-                    }
+                    _saveStatus = _viewModel.GetSaveStatus(s);
+                    s.PropertyChanged += Save_PropertyChanged;
                 }
+                UpdateButtonStatus();
             }
             else
             {
+                
                 PauseBtn.Visibility = Visibility.Collapsed;
                 ResumeBtn.Visibility = Visibility.Collapsed;
                 CancelBtn.Visibility = Visibility.Collapsed;
             }
+        }
+        
+        private void Save_PropertyChanged(object sender, PropertyChangedEventArgs e)
+                {
+                    if (e.PropertyName == "Status")
+                    {
+                        Save save = (Save)sender;
+                        _saveStatus = _viewModel.GetSaveStatus(save);
+                        
+                        UpdateButtonStatus();
+                    }
+                }
+
+        private void UpdateButtonStatus()
+        {
+            switch (_saveStatus)
+            {
+                case JobStatus.Running:
+                    RunBtn.IsEnabled = false;
+                    PauseBtn.IsEnabled = true;
+                    ResumeBtn.IsEnabled = true;
+                    CancelBtn.IsEnabled = true;
+                    break;
+                case JobStatus.Paused:
+                    RunBtn.IsEnabled = true;
+                    PauseBtn.IsEnabled = false;
+                    ResumeBtn.IsEnabled = true;
+                    CancelBtn.IsEnabled = true;
+                    break;
+                case JobStatus.Canceled:
+                case JobStatus.Waiting:
+                    RunBtn.IsEnabled = true;
+                    PauseBtn.IsEnabled = false;
+                    ResumeBtn.IsEnabled = false;
+                    CancelBtn.IsEnabled = false;
+                    break;
+            }
+
         }
 
         private void RunButton_Click(object sender, RoutedEventArgs e)
@@ -106,23 +130,22 @@ namespace EasySave.src.Render.Views
                 Parallel.ForEach(saves, save => 
                 {
                     save.Run();
+                    save.PropertyChanged += Save_PropertyChanged;
                 });
                 _updateSaves();
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Success",
-                    Message = Resource.Success,
-                    Type = NotificationType.Success
-                });
+                NotificationUtils.SendNotification(
+                    title: "EasySave",
+                    message: Resource.Success,
+                    type: NotificationType.Success,
+                    time: 15);
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                NotificationUtils.SendNotification(
+                    title: $"EasySave - {Resource.Error}",
+                    message: Resource.NoSelected,
+                    type: NotificationType.Error,
+                    time: 15);
             }
         }
 
@@ -139,17 +162,19 @@ namespace EasySave.src.Render.Views
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
+                {
                     ((SaveViewModel)DataContext).PauseSave(s);
+                    s.PropertyChanged += Save_PropertyChanged;
+                }
                 _updateSaves();
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                NotificationUtils.SendNotification(
+                    title: $"EasySave - {Resource.Error}",
+                    message: Resource.ErrorMsg,
+                    type: NotificationType.Error,
+                    time: 15);
             }
         }
 
@@ -166,17 +191,19 @@ namespace EasySave.src.Render.Views
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
+                {
                     ((SaveViewModel)DataContext).ResumeSave(s);
+                    s.PropertyChanged += Save_PropertyChanged;
+                }
                 _updateSaves();
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                NotificationUtils.SendNotification(
+                    title: $"EasySave - {Resource.Error}",
+                    message: Resource.ErrorMsg,
+                    type: NotificationType.Error,
+                    time: 15);
             }
         }
 
@@ -193,17 +220,19 @@ namespace EasySave.src.Render.Views
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
+                {
                     ((SaveViewModel)DataContext).CancelSave(s);
+                    s.PropertyChanged += Save_PropertyChanged;
+                }
                 _updateSaves();
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                NotificationUtils.SendNotification(
+                    title: $"EasySave - {Resource.Error}",
+                    message: Resource.ErrorMsg,
+                    type: NotificationType.Error,
+                    time: 15);
             }
 
         }
@@ -229,12 +258,11 @@ namespace EasySave.src.Render.Views
             }
             else
             {
-                new NotificationManager().Show(new NotificationContent
-                {
-                    Title = "Save Error",
-                    Message = Resource.NoSelected,
-                    Type = NotificationType.Error
-                });
+                NotificationUtils.SendNotification(
+                    title: $"EasySave - {Resource.Error}",
+                    message: Resource.NoSelected,
+                    type: NotificationType.Error,
+                    time: 15);
             }
         }
 

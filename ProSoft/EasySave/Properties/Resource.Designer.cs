@@ -258,7 +258,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occured.
+        ///   Looks up a localized string similar to Priority files.
         /// </summary>
         public static string ErrorMsg {
             get {
