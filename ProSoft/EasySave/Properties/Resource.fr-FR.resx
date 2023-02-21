@@ -306,4 +306,7 @@
   <data name="Run" xml:space="preserve">
     <value>Lancer</value>
   </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" est en cours de fonctionnement</value>
+  </data>
 </root>
