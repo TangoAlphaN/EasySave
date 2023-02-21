@@ -99,7 +99,7 @@ namespace EasyClient.Views
             {
                 "Running" => tag != "Play",
                 "Paused" => tag != "Pause",
-                "Finished" => tag == "Play",
+                "Finished" => tag != "Pause",
                 "Canceled" => tag == "Play",
                 "Error" => tag == "Stop",
                 "Waiting" => tag == "Play",
@@ -153,9 +153,10 @@ namespace EasyClient.Views
                     while (logged)
                     {
 #pragma warning disable S2486 // Generic exceptions should not be ignored
+                        ViewModel.UpdateSaves();
                         try
                         {
-                            Thread.Sleep(3000);
+                            Thread.Sleep(1000);
                         }
                         catch
 #pragma warning disable S108 // Nested blocks of code should not be left empty
@@ -163,7 +164,7 @@ namespace EasyClient.Views
                         }
 #pragma warning restore S108 // Nested blocks of code should not be left empty
 #pragma warning restore S2486 // Generic exceptions should not be ignored
-                        ViewModel.UpdateSaves();
+                        
                     }
                 });
                 _t.Start();

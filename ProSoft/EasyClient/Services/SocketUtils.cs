@@ -83,6 +83,10 @@ namespace EasyClient
                         //Send action
                         socket.Send(Encoding.ASCII.GetBytes($"[ACTION]PAUSE|{parameter}"));
                         return null;
+                    case SocketRequest.Cancel:
+                        //Send action
+                        socket.Send(Encoding.ASCII.GetBytes($"[ACTION]CANCEL|{parameter}"));
+                        return null;
                     case SocketRequest.Stop:
                         //Send action
                         socket.Send(Encoding.ASCII.GetBytes($"[ACTION]STOP|{parameter}"));

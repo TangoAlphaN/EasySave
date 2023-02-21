@@ -20,6 +20,11 @@
         /// <summary>
         /// Stop a save
         /// </summary>
-        Stop
+        Stop,
+
+        /// <summary>
+        /// Cancel a save
+        /// </summary>
+        Cancel
     }
 }
