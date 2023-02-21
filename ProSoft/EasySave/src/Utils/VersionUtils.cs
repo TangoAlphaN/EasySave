@@ -30,15 +30,6 @@ namespace EasySave.src.Utils
         }
 
         /// <summary>
-        /// Get the local version
-        /// </summary>
-        /// <returns>version</returns>
-        public static Version GetVersionFromLocal()
-        {
-            return Assembly.GetExecutingAssembly().GetName().Version;
-        }
-
-        /// <summary>
         /// Get version from string
         /// e.g. "V1.0.0" => [1, 0, 0]
         /// </summary>
@@ -59,7 +50,7 @@ namespace EasySave.src.Utils
         public static bool CompareVersions()
         {
             //Get version from project info
-            Version versionData = GetVersionFromLocal();
+            Version versionData = Assembly.GetExecutingAssembly().GetName().Version;
             int[] current = VersionFromStr($"V{versionData.Major}.{versionData.Minor}.{versionData.Build}");
             int[] latest = VersionFromStr(GetVersionFromGit());
             return (latest[0] > current[0]) || (latest[0] == current[0] && latest[1] > current[1]) || (latest[0] == current[0] && latest[1] == current[1] && latest[2] > current[2]);

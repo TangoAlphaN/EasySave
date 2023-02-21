@@ -18,10 +18,11 @@ namespace EasySave.src.ViewModels
 {
     public class SettingsViewModel
     {
-        private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection;
+        private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection, _Package_Priority;
         public ICollectionView CryptoSoftSourceCollection => _cryptoSoftSettingsItemsCollection.View;
         public ICollectionView LangSourceCollection => _langItemsCollection.View;
         public ICollectionView LogsSourceCollection => _logItemsCollection.View;
+        public ICollectionView SoftPackage_PriorityFiles => _Package_Priority.View;
 
         public SettingsViewModel()
         {
@@ -29,7 +30,6 @@ namespace EasySave.src.ViewModels
             {
                 new SettingsItem { SettingsName = $"{Resource.Settings_Secret}", SettingsValue = DirectoryUtils.GetSecret(), SettingsCommand = new RelayCommand(ChangeKey) },
                 new SettingsItem { SettingsName = $"{Resource.Settings_Extensions}", SettingsValue = DirectoryUtils.GetExtensions(), SettingsCommand = new RelayCommand(ChangeExtensions) },
-                new SettingsItem { SettingsName = $"{Resource.Settings_Software_Package}", SettingsValue = DirectoryUtils.GetProcess(), SettingsCommand = new RelayCommand(ChangeProcess) },
             };
             ObservableCollection<SettingsItem> langItems = new ObservableCollection<SettingsItem>
             {
@@ -43,10 +43,15 @@ namespace EasySave.src.ViewModels
                 new SettingsItem { SettingsName = "JSON", SettingsImage = @"Assets/json.png", SettingsCommand = new RelayCommand(ChangeLogsFormat) },
                 new SettingsItem { SettingsName = "XML", SettingsImage = @"Assets/xml.png", SettingsCommand = new RelayCommand(ChangeLogsFormat) },
             };
-            
+            ObservableCollection<SettingsItem> priorityItems = new ObservableCollection<SettingsItem>
+            {
+                new SettingsItem { SettingsName = $"{Resource.Settings_Software_Package}", SettingsValue = DirectoryUtils.GetProcess(), SettingsCommand = new RelayCommand(ChangeProcess) },
+            };
+
             _cryptoSoftSettingsItemsCollection = new CollectionViewSource { Source = cryptoSoftItems };
             _langItemsCollection = new CollectionViewSource { Source = langItems };
             _logItemsCollection = new CollectionViewSource { Source = logItems };
+            _Package_Priority = new CollectionViewSource { Source = priorityItems };
         }
 
         private static void ChangeLanguage(object culture)

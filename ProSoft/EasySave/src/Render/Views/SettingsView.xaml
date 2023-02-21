@@ -8,8 +8,8 @@
              xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
              mc:Ignorable="d"
              d:DesignHeight="500"
-             d:DesignWidth="650">   
-   
+             d:DesignWidth="650">
+
     <UserControl.Style>
         <Style>
             <Style.Triggers>
@@ -26,20 +26,25 @@
             </Style.Triggers>
         </Style>
     </UserControl.Style>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
 
-    <Grid Background="#303030">
+        <Grid Background="#303030"          
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         ScrollViewer.CanContentScroll="True" Height="Auto">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="200"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="120"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="120"></RowDefinition>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="200"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings}"
+            <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings}"
                    FontSize="24"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
@@ -48,103 +53,139 @@
                    VerticalAlignment="Top"
                    Margin="5,12,0,0" />
 
-        <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_CryptoSoft}"
+            <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_CryptoSoft}"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
                    VerticalAlignment="Center"
                    Grid.Row="1"/>
-        <ItemsControl ItemsSource="{Binding CryptoSoftSourceCollection}"
+            <ItemsControl ItemsSource="{Binding CryptoSoftSourceCollection}"
                       Width="650"
                       Height="150"
                       Grid.Row="2"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Label Content="{Binding SettingsName}" 
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Content="{Binding SettingsName}" 
                            Foreground="#DDDDDD"
                                Margin="0,-25"
                            FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-                        <TextBox Text="{Binding SettingsValue}" Tag="{Binding SettingsName}" 
+                            <TextBox Text="{Binding SettingsValue}" Tag="{Binding SettingsName}" 
                                  Margin="10,0"
                                  AcceptsReturn="true"
                                  Height="Auto"
                                  TextWrapping="Wrap"
                                  TextChanged="textChangedEventHandler"
                                  />
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="2" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        </ItemsControl>
+            </ItemsControl>
 
-        <TextBlock Text="{x:Static resources:Resource.SettingsMenu_ChangeLanguage}"
+            <TextBlock Text="{x:Static resources:Resource.SettingsMenu_ChangeLanguage}"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
                    Grid.Row="3"/>
-        <ItemsControl ItemsSource="{Binding LangSourceCollection}"
+            <ItemsControl ItemsSource="{Binding LangSourceCollection}"
                       Height="400"
                       Width="650"
                       Grid.Row="4"
                       HorizontalAlignment="Center">
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <RadioButton Content="{Binding SettingsName}"
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Content="{Binding SettingsName}"
                                  CommandParameter="{Binding SettingsName}"
                                  Command="{Binding SettingsCommand}"
                                  Tag="{Binding SettingsImage}"
                                  Style="{StaticResource GridButtonStyle}"
                                  GroupName="LangGroup" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="4"
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4"
                                  Rows="2" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        </ItemsControl>
+            </ItemsControl>
 
-        <TextBlock Text="{x:Static resources:Resource.SettingsMenu_LogsFormat}"
+            <TextBlock Text="{x:Static resources:Resource.SettingsMenu_LogsFormat}"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
                    Grid.Row="5"/>
-        <ItemsControl ItemsSource="{Binding LogsSourceCollection}"
+            <ItemsControl ItemsSource="{Binding LogsSourceCollection}"
                       Width="650"
                       Height="400"
                       Grid.Row="6"
                       HorizontalAlignment="Center">
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <RadioButton Content="{Binding SettingsName}"
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Content="{Binding SettingsName}"
                                  CommandParameter="{Binding SettingsName}"
                                  Command="{Binding SettingsCommand}"
                                  Tag="{Binding SettingsImage}"
                                  Style="{StaticResource GridButtonStyle}"
                                  GroupName="LogGroup" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="2"
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2"
                                  Rows="2" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        </ItemsControl>
+            </ItemsControl>
 
-        
+            <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_CryptoSoft}"
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                   Foreground="#DDDDDD"
+                   VerticalAlignment="Center"
+                   Grid.Row="7"/>
+            <ItemsControl ItemsSource="{Binding SoftPackage_PriorityFiles}"
+                      Width="650"
+                      Height="150"
+                      Grid.Row="8"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
 
-    </Grid>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Content="{Binding SettingsName}" 
+                           Foreground="#DDDDDD"
+                               Margin="0,-25"
+                           FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+                            <TextBox Text="{Binding SettingsValue}" Tag="{Binding SettingsName}" 
+                                 Margin="10,0"
+                                 AcceptsReturn="true"
+                                 Height="Auto"
+                                 TextWrapping="Wrap"
+                                 TextChanged="textChangedEventHandler"
+                                 />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
+            </ItemsControl>
+
+        </Grid>
+
+    </ScrollViewer>
 </UserControl>
