@@ -28,6 +28,7 @@ namespace EasySave.src
                 Environment.Exit(-9);
             }
             LogUtils.Init();
+            SocketUtils.Init();
             View v = new View();
             v.Start();
             v.Exit();
