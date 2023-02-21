@@ -156,7 +156,7 @@ namespace EasySave.src.Render.Views
                             break;
                     }
                     save.PropertyChanged += Save_PropertyChanged;
-                    UpdateProgressBar(save.ProgressBar);
+                    UpdateProgressBar(save.CalculateProgress());
                 });
                 _updateSaves();
                 
