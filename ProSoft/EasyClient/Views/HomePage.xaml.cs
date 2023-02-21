@@ -154,9 +154,9 @@ namespace EasyClient.Views
                     {
 #pragma warning disable S2486 // Generic exceptions should not be ignored
                         ViewModel.UpdateSaves();
-                        Dispatcher.Invoke(UpdateInterface);
                         try
                         {
+                            Dispatcher.Invoke(UpdateInterface);
                             Thread.Sleep(1000);
                         }
                         catch
