@@ -1,5 +1,6 @@
 ﻿using EasyClient.Enums;
 using Newtonsoft.Json.Linq;
+using System;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -37,28 +38,36 @@ namespace EasyClient
             }
         }
 
-        public static object SendRequest(SocketRequest action)
+        public static object SendRequest(SocketRequest action, string parameter = null)
         {
+            byte[] buffer;
+            int bytesRead;
             try
             {
                 switch (action)
                 {
                     case SocketRequest.GetData:
                         socket.Send(Encoding.ASCII.GetBytes("[ACTION]GETDATA"));
-                        byte[] buffer = new byte[4096];
+                        buffer = new byte[4096];
                         var memoryStream = new MemoryStream();
-                        int bytesRead = socket.Receive(buffer);
+                        bytesRead = socket.Receive(buffer);
                         memoryStream.Write(buffer, 0, bytesRead);
                         return SaveInfo.Create(JObject.Parse(Encoding.ASCII.GetString(memoryStream.ToArray())));
                     case SocketRequest.Pause:
                         socket.Send(Encoding.ASCII.GetBytes("[ACTION]PAUSE"));
-                        break;
+                        buffer = new byte[sizeof(bool)];
+                        socket.Receive(buffer);
+                        return BitConverter.ToBoolean(buffer, 0);
                     case SocketRequest.Stop:
                         socket.Send(Encoding.ASCII.GetBytes("[ACTION]STOP"));
-                        break;
-                    case SocketRequest.Resume:
-                        socket.Send(Encoding.ASCII.GetBytes("[ACTION]RESUME"));
-                        break;
+                        buffer = new byte[sizeof(bool)];
+                        socket.Receive(buffer);
+                        return BitConverter.ToBoolean(buffer, 0);
+                    case SocketRequest.Play:
+                        socket.Send(Encoding.ASCII.GetBytes("[ACTION]PLAY"));
+                        buffer = new byte[sizeof(bool)];
+                        socket.Receive(buffer);
+                        return BitConverter.ToBoolean(buffer, 0);
                 }
             }
             catch
