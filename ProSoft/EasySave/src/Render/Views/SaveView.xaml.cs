@@ -51,8 +51,12 @@ namespace EasySave.src.Render.Views
             if (((sender as ListBox).SelectedItems.Count > 0) && (_selectedItem != null))
             {
                 PauseBtn.Visibility = Visibility.Visible;
+                /*
                 ResumeBtn.Visibility = Visibility.Visible;
+                */
                 CancelBtn.Visibility = Visibility.Visible;
+                
+                MessageBox.Show(_saveStatus.ToString()+" "+"0");
                 
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
@@ -72,7 +76,9 @@ namespace EasySave.src.Render.Views
             {
                 
                 PauseBtn.Visibility = Visibility.Collapsed;
+                /*
                 ResumeBtn.Visibility = Visibility.Collapsed;
+                */
                 CancelBtn.Visibility = Visibility.Collapsed;
             }
         }
@@ -95,20 +101,26 @@ namespace EasySave.src.Render.Views
                 case JobStatus.Running:
                     RunBtn.IsEnabled = false;
                     PauseBtn.IsEnabled = true;
+                    /*
                     ResumeBtn.IsEnabled = true;
+                    */
                     CancelBtn.IsEnabled = true;
                     break;
                 case JobStatus.Paused:
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
+                    /*
                     ResumeBtn.IsEnabled = true;
+                    */
                     CancelBtn.IsEnabled = true;
                     break;
                 case JobStatus.Canceled:
                 case JobStatus.Waiting:
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
+                    /*
                     ResumeBtn.IsEnabled = false;
+                    */
                     CancelBtn.IsEnabled = false;
                     break;
             }
@@ -129,10 +141,25 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 Parallel.ForEach(saves, save => 
                 {
-                    save.Run();
+                    MessageBox.Show(_saveStatus.ToString()+" "+"1");
+                    _saveStatus = _viewModel.GetSaveStatus(save);
+                    MessageBox.Show(_saveStatus.ToString()+" "+"2");
+                    switch (_saveStatus.ToString())
+                    {
+                        case "Waiting":
+                            MessageBox.Show("01");
+                            _viewModel.RunSave(save);
+                            break;
+                        case "Paused":
+                            MessageBox.Show("02");
+                            _viewModel.ResumeSave(save);
+                            break;
+                    }
                     save.PropertyChanged += Save_PropertyChanged;
+                    UpdateProgressBar(save.ProgressBar);
                 });
                 _updateSaves();
+                
                 NotificationUtils.SendNotification(
                     title: "EasySave",
                     message: Resource.Success,
@@ -148,6 +175,15 @@ namespace EasySave.src.Render.Views
                     time: 15);
             }
         }
+        
+        public void UpdateProgressBar(int value)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                SaveProgressBar.Value = value;
+            });
+        }
+
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -178,6 +214,7 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /*
         private void ResumeButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -206,6 +243,7 @@ namespace EasySave.src.Render.Views
                     time: 15);
             }
         }
+        */
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -242,7 +280,9 @@ namespace EasySave.src.Render.Views
             if (SaveListBox.SelectedItems.Count > 0)
             {
                 PauseBtn.Visibility = Visibility.Collapsed;
+                /*
                 ResumeBtn.Visibility = Visibility.Collapsed;
+                */
                 CancelBtn.Visibility = Visibility.Collapsed;
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)

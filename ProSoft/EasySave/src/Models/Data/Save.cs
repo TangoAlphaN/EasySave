@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Windows;
+using Microsoft.WindowsAPICodePack.Shell.Interop;
 
 namespace EasySave.src.Models.Data
 {
@@ -46,7 +48,7 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Size of files copied
         /// </summary>
-        private long _sizeCopied;
+        public long _sizeCopied;
 
         /// <summary>
         /// Status of the save
@@ -67,6 +69,18 @@ namespace EasySave.src.Models.Data
         /// Semaphore to change stat of save
         /// </summary>
         private SemaphoreSlim _semaphore = new SemaphoreSlim(0);
+
+        public long length;
+        
+        public int ProgressBar
+        {
+            get => (int)(_sizeCopied / length * 100);
+            set
+            {
+                _sizeCopied = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Save constructor. Constructor is protected to prevent direct instantiation
@@ -197,10 +211,15 @@ namespace EasySave.src.Models.Data
         public string Run()
         {
             Status = JobStatus.Running;
+            MessageBox.Show("Running");
             Stopwatch sw = new Stopwatch();
+            MessageBox.Show("Sw started");
             sw.Start();
+            MessageBox.Show("sw go");
             DirectoryUtils.CopyFilesAndFolders(this);
+            MessageBox.Show("sw stop");
             sw.Stop();
+            MessageBox.Show("Finished");
             Status = JobStatus.Finished;
             return ProcessResult(sw);
         }

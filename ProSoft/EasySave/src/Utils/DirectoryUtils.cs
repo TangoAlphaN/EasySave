@@ -46,10 +46,14 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
+            MessageBox.Show(JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json")).ToString());
             CryptoSoft cs = CryptoSoft.Init(key);
+            MessageBox.Show("002");
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
+            MessageBox.Show("003");
             CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType());
+            MessageBox.Show("004");
         }
 
         /// <summary>
@@ -112,6 +116,7 @@ namespace EasySave.src.Utils
                 if (fileCopied)
                     s.AddFileCopied();
                 s.AddSizeCopied(file.Length);
+                s.ProgressBar = (int)s._sizeCopied;
             }
 
             //Recursive call for subdirectories

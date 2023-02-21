@@ -1,9 +1,17 @@
+using System;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading;
+using System.Windows;
+using System.Windows.Data;
+using EasySave.src.Render;
+using System.Windows.Input;
+using System.Windows.Threading;
+using EasySave.Properties;
 using System.Windows.Data;
 
 
@@ -141,6 +149,7 @@ namespace EasySave.src.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        
         public void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
