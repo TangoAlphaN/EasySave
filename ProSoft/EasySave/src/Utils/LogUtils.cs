@@ -68,6 +68,10 @@ namespace EasySave.src.Utils
                     LogSaves();
                 }
             }
+            if (!File.Exists($"{path}config.json")){
+                HashSet<string> empty = new HashSet<string>();
+                LogConfig("CHANGETHISKEY", empty, empty, empty);
+            }
         }
 
         /// <summary>
