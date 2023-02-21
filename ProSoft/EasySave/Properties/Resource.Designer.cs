@@ -258,7 +258,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Priority files.
+        ///   Looks up a localized string similar to An error occured.
         /// </summary>
         public static string ErrorMsg {
             get {
@@ -614,6 +614,15 @@ namespace EasySave.Properties {
         public static string Settings_Extensions {
             get {
                 return ResourceManager.GetString("Settings.Extensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority files.
+        /// </summary>
+        public static string Settings_Priority_Files {
+            get {
+                return ResourceManager.GetString("Settings.Priority-Files", resourceCulture);
             }
         }
         
