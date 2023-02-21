@@ -27,7 +27,7 @@ namespace EasyClient
 
         public static SaveInfo FromSave(Save s)
         {
-            return new SaveInfo(s.GetName(), s.GetStatus().ToString(), s.CalculateProgress(), s.uuid);
+            return new SaveInfo($"{s.GetName()} - {s.uuid}", s.GetStatus().ToString(), s.CalculateProgress(), s.uuid);
         }
 
         public override string ToString()
@@ -42,16 +42,16 @@ namespace EasyClient
                 if (dictionnaryInstance.ContainsKey(save.Name.ToString()))
                 {
                     if (save.Value["save.Value[\"progression\"].ToString()"] != null)
-                        dictionnaryInstance[save.Name.ToString()] = dictionnaryInstance[save.Name.ToString()].Update(save.Value["name"].ToString(), save.Value["state"].ToString(), int.Parse(save.Value["progression"].ToString()));
-                    else dictionnaryInstance[save.Name.ToString()] = dictionnaryInstance[save.Name.ToString()].Update(save.Value["name"].ToString(), save.Value["state"].ToString(), 0);
+                        dictionnaryInstance[save.Name.ToString()] = dictionnaryInstance[save.Name.ToString()].Update($"{save.Value["name"]} - {save.Name}", save.Value["state"].ToString(), int.Parse(save.Value["progression"].ToString()));
+                    else dictionnaryInstance[save.Name.ToString()] = dictionnaryInstance[save.Name.ToString()].Update($"{save.Value["name"]} - {save.Name}", save.Value["state"].ToString(), 0);
                 }
                 else
                 {
                     SaveInfo s;
                     if (save.Value["progression"] != null)
-                        s = new SaveInfo(save.Value["name"].ToString(), save.Value["state"].ToString(), int.Parse(save.Value["progression"].ToString()), Guid.Parse(save.Name));
+                        s = new SaveInfo($"{save.Value["name"]} - {save.Name}", save.Value["state"].ToString(), int.Parse(save.Value["progression"].ToString()), Guid.Parse(save.Name));
                     else
-                        s = new SaveInfo(save.Value["name"].ToString(), save.Value["state"].ToString(), 0, Guid.Parse(save.Name));
+                        s = new SaveInfo($"{save.Value["name"]} - {save.Name}", save.Value["state"].ToString(), 0, Guid.Parse(save.Name));
                     dictionnaryInstance.Add(save.Name.ToString(), s);
 
                 }

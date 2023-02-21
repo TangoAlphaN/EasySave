@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
@@ -173,6 +174,21 @@ namespace EasyClient
             }
         }
 
+        public static void PlaySave(string uuid)
+        {
+            SocketUtils.SendRequest(SocketRequest.Play, uuid);
+        }
+
+        public static void PauseSave(string uuid)
+        {
+            SocketUtils.SendRequest(SocketRequest.Pause, uuid);
+        }
+
+        public static void StopSave(string uuid)
+        {
+            SocketUtils.SendRequest(SocketRequest.Stop, uuid);
+        }
+
         public void UpdateSaves()
         {
             Saves = (Dictionary<string, SaveInfo>)SocketUtils.SendRequest(SocketRequest.GetData);
@@ -181,6 +197,11 @@ namespace EasyClient
         public static void Disconnect()
         {
             SocketUtils.Disconnect();
+        }
+
+        public string GetSaveByUuid(string save)
+        {
+            return Saves.Single(k => k.Value.SaveName == save).Value.Status;
         }
     }
 }

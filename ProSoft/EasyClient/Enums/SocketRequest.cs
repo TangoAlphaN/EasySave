@@ -13,9 +13,9 @@
         Pause,
 
         /// <summary>
-        /// Resume a save
+        /// Play or resume a save
         /// </summary>
-        Resume,
+        Play,
 
         /// <summary>
         /// Stop a save

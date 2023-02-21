@@ -1,7 +1,12 @@
 ﻿using EasyClient.Properties;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Wpf.Ui.Common.Interfaces;
+using Button = Wpf.Ui.Controls.Button;
 
 namespace EasyClient.Views
 {
@@ -49,12 +54,31 @@ namespace EasyClient.Views
             {
                 ViewConnected.Visibility = Visibility.Visible;
                 ViewDisconnected.Visibility = Visibility.Collapsed;
+                foreach (Button child in FindVisualChildren<Button>(ListViewSaves))
+                     child.IsEnabled = UpdateButtonVisibility(child.Tag.ToString(), ViewModel.GetSaveByUuid(child.CommandParameter.ToString()));
+
+                //ViewModel.UpdateSaves();
             }
             else
             {
                 ViewDisconnected.Visibility = Visibility.Visible;
                 ViewConnected.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private bool UpdateButtonVisibility(string tag, string status)
+        {
+            bool b = status switch
+            {
+                "Running" => tag != "Play",
+                "Paused" => tag != "Pause",
+                "Finished" => tag == "Play",
+                "Canceled" => tag == "Play",
+                "Error" => tag == "Stop",
+                "Waiting" => tag == "Play",
+                _ => false
+            };
+            return b;
         }
 
         private void Connect(object sender, RoutedEventArgs e)
@@ -75,5 +99,43 @@ namespace EasyClient.Views
             }
             UpdateInterface();
         }
+
+        private void PlaySave(object sender, RoutedEventArgs e)
+        {
+            string uuid = ((Button)sender).CommandParameter.ToString();
+            ViewModel.PlaySave(uuid);
+        }
+
+        private void PauseSave(object sender, RoutedEventArgs e)
+        {
+            string uuid = ((Button)sender).CommandParameter.ToString();
+            ViewModel.PauseSave(uuid);
+        }
+
+        private void StopSave(object sender, RoutedEventArgs e)
+        {
+            string uuid = ((Button)sender).CommandParameter.ToString();
+            ViewModel.StopSave(uuid);
+        }
+
+        public static List<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            List<T> list = new List<T>();
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child is T)
+                        list.Add((T)child);
+                    List<T> childItems = FindVisualChildren<T>(child);
+                    if (childItems != null && childItems.Count > 0)
+                        foreach (var item in childItems)
+                            list.Add(item);
+                }
+            }
+            return list;
+        }
+
     }
 }
