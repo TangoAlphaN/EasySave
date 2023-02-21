@@ -5,6 +5,8 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using EasySave.Properties;
+using Notification.Wpf;
 using static EasySave.src.Models.Data.SaveType;
 
 namespace EasySave.src.Render.Views
@@ -14,6 +16,8 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveCreateView : UserControl
     {
+        SaveType _type;
+
         public SaveCreateView()
         {
             InitializeComponent();
@@ -39,18 +43,21 @@ namespace EasySave.src.Render.Views
 
         public void RadioCheck(Object sender, EventArgs e)
         {
-            SaveType _type;
             if (btnFull.IsChecked == true)
                 _type = Full;
             else if (btnDiff.IsChecked == true)
                 _type = Differential;
         }
 
-        public void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
+        private void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-
-            ((SaveViewModel)DataContext).CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, (bool)btnDiff.IsChecked ? Differential : Full);
+            SaveViewModel.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
+            new NotificationManager().Show(new NotificationContent
+            {
+                Title = "Save Success",
+                Message = Resource.Success,
+                Type = NotificationType.Success
+            });
         }
-
     }
 }

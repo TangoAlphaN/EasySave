@@ -285,4 +285,28 @@
   <data name="HomeMenu.Home" xml:space="preserve">
     <value>Accueil</value>
   </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Reprendre</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="NoSelected" xml:space="preserve">
+    <value>Aucun item sélectionné</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Sauvegarde créée avec succès</value>
+  </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>Logiciel métier</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Lancer</value>
+  </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" est en cours de fonctionnement</value>
+  </data>
 </root>

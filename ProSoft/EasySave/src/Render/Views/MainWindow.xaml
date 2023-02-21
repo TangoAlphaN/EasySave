@@ -20,6 +20,7 @@
     </Window.DataContext>
 
     <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
 
         <!--Background Border-->
 
@@ -66,7 +67,6 @@
         <!--Content Grid-->
 
         <Grid>
-
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="25"/>

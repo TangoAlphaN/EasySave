@@ -28,133 +28,134 @@
     </UserControl.Style>
 
     <Grid Background="#303030">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <TextBlock Grid.Row="0"  
-                   Text="{x:Static resources:Resource.HomeMenu_Create}"
-                   FontSize="24"
-                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="{x:Static resources:Resource.HomeMenu_Create}"
+                       FontSize="24"
+                       FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                       Foreground="#DDDDDD"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5,12,0,0" />
+            
+            <Label Grid.Row="1" 
+                   Grid.Column="0"
+                   Content="{x:Static resources:Resource.CreateSave_Name}" 
                    Foreground="#DDDDDD"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="5,12,0,0" />
-        
-        <Label Grid.Row="1" 
-               Grid.Column="0"
-               Content="{x:Static resources:Resource.CreateSave_Name}" 
-               Foreground="#DDDDDD"
-               FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        <TextBox Grid.Row="2" 
-                 Grid.Column="0"
-                 Name="CreatSaveName"
-                 Width="300"
-                 Height="25"
-                 HorizontalAlignment="left"
-                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        
-        <Label Grid.Row="3" 
-               Grid.Column="0"
-               Content="{x:Static resources:Resource.CreateSave_Src}" 
-               Foreground="#DDDDDD"
-               FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        
-        <TextBox Grid.Row="4" 
-                 Grid.Column="0"
-                 Name="TxtSrc" 
-                 Width="300"
-                 Height="25"
-                 HorizontalAlignment="left"
-                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        <Button Grid.Column="1" 
-                Grid.Row="4"
-                Name="btnOpenFile"
-                Width="250"
-                Height="25"
-                HorizontalAlignment="left"
-                Background="#DDDDDD" 
-                FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
-                Click="SelectFilePathCommand"
-                BorderThickness="0"
-                Content="{x:Static resources:Resource.CreateSave_SrcPath}"
-                Foreground="#303030" />
-        
-        <Label Grid.Row="5" 
-               Grid.Column="0"
-               Content="{x:Static resources:Resource.CreateSave_Dest}" 
-               Foreground="#DDDDDD"
-               FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        <TextBox Grid.Row="6" 
-                 Grid.Column="0"
-                 Name="TxtDest" 
-                 Width="300"
-                 Height="25"
-                 HorizontalAlignment="left"
-                 FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        <Button Grid.Column="1" 
-                Grid.Row="6"
-                Name="btnOpenFileDest"
-                Width="250"
-                Height="25"
-                HorizontalAlignment="left"
-                FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
-                Click="SelectFilePathCommandDest" 
-                BorderThickness="0"
-                Content="{x:Static resources:Resource.CreateSave_DestPath}"
-                Background="#DDDDDD"
-                Foreground="#303030" />
-        
-        <Label Grid.Column="0"
-               Grid.Row="7"
-               Content="{x:Static resources:Resource.CreateSave_Type}"
-               Foreground="#DDDDDD"
-               FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-        <RadioButton Grid.Row="8" 
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            <TextBox Grid.Row="2" 
                      Grid.Column="0"
-                     Name="btnFull"
-                     Content="{x:Static resources:Resource.CreateSave_Type_Full}"
-                     CommandParameter="{x:Static resources:Resource.CreateSave_Type_Full}"
-                     HorizontalAlignment="Left"
-                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
-                     GroupName="TypeGroup"
-                     Foreground="#DDDDDD"
-                     Checked="RadioCheck"/>
-        <RadioButton Grid.Row="8" 
-                     Grid.Column="1"
-                     Name="btnDiff"
-                     Content="{x:Static resources:Resource.CreateSave_Type_Differential}"
-                     CommandParameter="{x:Static resources:Resource.CreateSave_Type_Differential}"
-                     HorizontalAlignment="Left"
-                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
-                     GroupName="TypeGroup"
-                     Foreground="#DDDDDD"
-                     Checked="RadioCheck"/>
-        <Button Grid.Row="9"
-                Grid.Column="0" 
-                Content="{x:Static resources:Resource.HomeMenu_Create}"
-                FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
-                Foreground="#303030" 
-                Width="150"
-                Height="50"
-                VerticalAlignment="Bottom"
-                Click="CreateNewSave"
-                />
-        
+                     Name="CreatSaveName"
+                     Width="300"
+                     Height="25"
+                     HorizontalAlignment="left"
+                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            
+            <Label Grid.Row="3" 
+                   Grid.Column="0"
+                   Content="{x:Static resources:Resource.CreateSave_Src}" 
+                   Foreground="#DDDDDD"
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            
+            <TextBox Grid.Row="4" 
+                     Grid.Column="0"
+                     Name="TxtSrc" 
+                     Width="300"
+                     Height="25"
+                     HorizontalAlignment="left"
+                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            <Button Grid.Column="1" 
+                    Grid.Row="4"
+                    Name="btnOpenFile"
+                    Width="50"
+                    Height="25"
+                    HorizontalAlignment="left"
+                    Background="#DDDDDD" 
+                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
+                    Click="SelectFilePathCommand"
+                    BorderThickness="0"
+                    Content="..."
+                    Foreground="#303030" />
+            
+            <Label Grid.Row="5" 
+                   Grid.Column="0"
+                   Content="{x:Static resources:Resource.CreateSave_Dest}" 
+                   Foreground="#DDDDDD"
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            <TextBox Grid.Row="6" 
+                     Grid.Column="0"
+                     Name="TxtDest" 
+                     Width="300"
+                     Height="25"
+                     HorizontalAlignment="left"
+                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            <Button Grid.Column="1" 
+                    Grid.Row="6"
+                    Name="btnOpenFileDest"
+                    Width="50"
+                    Height="25"
+                    HorizontalAlignment="left"
+                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
+                    Click="SelectFilePathCommandDest" 
+                    BorderThickness="0"
+                    Content="..."
+                    Background="#DDDDDD"
+                    Foreground="#303030" />
+            
+            <Label Grid.Column="0"
+                   Grid.Row="7"
+                   Content="{x:Static resources:Resource.CreateSave_Type}"
+                   Foreground="#DDDDDD"
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+            <RadioButton Grid.Row="8" 
+                         Grid.Column="0"
+                         Name="btnFull"
+                         Content="{x:Static resources:Resource.CreateSave_Type_Full}"
+                         CommandParameter="{x:Static resources:Resource.CreateSave_Type_Full}"
+                         HorizontalAlignment="Left"
+                         FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                         GroupName="TypeGroup"
+                         Foreground="#DDDDDD"
+                         Checked="RadioCheck"/>
+            <RadioButton Grid.Row="8" 
+                         Grid.Column="1"
+                         Name="btnDiff"
+                         Content="{x:Static resources:Resource.CreateSave_Type_Differential}"
+                         CommandParameter="{x:Static resources:Resource.CreateSave_Type_Differential}"
+                         HorizontalAlignment="Left"
+                         FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                         GroupName="TypeGroup"
+                         Foreground="#DDDDDD"
+                         Checked="RadioCheck"/>
+            <Button Grid.Row="9"
+                    Grid.Column="0" 
+                    Content="{x:Static resources:Resource.HomeMenu_Create}"
+                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                    Foreground="#303030" 
+                    Width="150"
+                    Height="50"
+                    VerticalAlignment="Bottom"
+                    Click="CreateNewSave"
+                    />
+        </Grid>
+        <Frame Canvas.ZIndex="2" x:Name="CreateFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 
 </UserControl>

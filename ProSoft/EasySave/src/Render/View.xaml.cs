@@ -1,7 +1,12 @@
-﻿using EasySave.src.Models.Data;
+﻿using EasySave.Properties;
+using EasySave.src.Models.Data;
+using EasySave.src.Utils;
 using EasySave.src.ViewModels;
+using Notifications.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace EasySave.src.Render
@@ -20,18 +25,12 @@ namespace EasySave.src.Render
         {
             InitializeComponent();
             Run();
-            //TODO RenderHome(CheckUpdate());
         }
 
         internal void Exit(int code = 0)
         {
             SaveViewModel.StopAllSaves();
             Environment.Exit(code);
-        }
-
-        private string CheckUpdate()
-        {
-            throw new NotImplementedException();
         }
 
         private void RenderChangeLanguage()

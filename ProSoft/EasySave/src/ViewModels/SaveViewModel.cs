@@ -4,7 +4,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Data;
+using EasySave.src.Render;
+using System.Windows.Input;
+using EasySave.Properties;
+
 
 namespace EasySave.src.ViewModels
 {
@@ -15,6 +20,14 @@ namespace EasySave.src.ViewModels
     {
         private readonly CollectionViewSource _saveItemsCollection;
         public ICollectionView SaveSourceCollection => _saveItemsCollection.View;
+        
+        private static bool _isVisible;
+        public static bool IsVisible
+        {
+            get => _isVisible;
+            set => _isVisible = value;
+            //OnPropertyChanged("IsVisible");
+        }
 
         public SaveViewModel()
         {
@@ -42,7 +55,7 @@ namespace EasySave.src.ViewModels
         /// <param name="dest">destination path</param>
         /// <param name="type">type of save</param>
         /// <returns>save object</returns>
-        public Save CreateSave(string name, string src, string dest, SaveType type)
+        public static Save CreateSave(string name, string src, string dest, SaveType type)
         {
             return Save.CreateSave(name, src, dest, type);
         }
@@ -64,6 +77,21 @@ namespace EasySave.src.ViewModels
         public void DeleteSave(Save s)
         {
             Save.Delete(s.uuid);
+        }
+
+        public void PauseSave(Save s)
+        {
+            s.Pause();
+        }
+        
+        public void ResumeSave(Save s)
+        {
+            s.Resume();
+        }
+        
+        public void CancelSave(Save s)
+        {
+            s.Cancel();
         }
 
         /// <summary>
@@ -98,7 +126,7 @@ namespace EasySave.src.ViewModels
         {
             return new HashSet<Save>(Save.GetSaves().Where(save => names.Contains(save.ToString())).ToList());
         }
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propName)
         {

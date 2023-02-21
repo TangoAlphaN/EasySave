@@ -285,4 +285,28 @@
   <data name="HomeMenu.Home" xml:space="preserve">
     <value>добро пожаловать</value>
   </data>
+  <data name="Resume" xml:space="preserve">
+    <value>возобновить</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="NoSelected" xml:space="preserve">
+    <value>Элемент не выбран</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Резервная копия успешно создана</value>
+  </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>программный пакет</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Перерыв</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>Программа [ПРОЦЕСС] уже запущена</value>
+  </data>
 </root>

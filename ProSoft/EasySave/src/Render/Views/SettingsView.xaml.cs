@@ -27,6 +27,9 @@ namespace EasySave.src.Render.Views
                 case var value when value == Resource.Settings_Extensions:
                     SettingsViewModel.ChangeExtensions(sender.Text);
                         break;
+                case var value when value == Resource.Settings_Software_Package:
+                    SettingsViewModel.ChangeProcess(sender.Text);
+                    break;
 
             }
         }
