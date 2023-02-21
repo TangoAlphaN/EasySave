@@ -138,4 +138,13 @@
   <data name="Disconnect" xml:space="preserve">
     <value>Выйти</value>
   </data>
+  <data name="Saves" xml:space="preserve">
+    <value>Резервные копии</value>
+  </data>
+  <data name="ErrorConnect" xml:space="preserve">
+    <value>Невозможно подключиться</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
 </root>
