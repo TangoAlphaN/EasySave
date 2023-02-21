@@ -46,6 +46,7 @@ namespace EasySave.src.ViewModels
             ObservableCollection<SettingsItem> priorityItems = new ObservableCollection<SettingsItem>
             {
                 new SettingsItem { SettingsName = $"{Resource.Settings_Software_Package}", SettingsValue = DirectoryUtils.GetProcess(), SettingsCommand = new RelayCommand(ChangeProcess) },
+                new SettingsItem { SettingsName = $"{Resource.Settings_Priority_Files}", SettingsValue = DirectoryUtils.GetPriorityFiles(), SettingsCommand = new RelayCommand(ChangePriorityFiles) },
             };
 
             _cryptoSoftSettingsItemsCollection = new CollectionViewSource { Source = cryptoSoftItems };
@@ -110,5 +111,9 @@ namespace EasySave.src.ViewModels
             DirectoryUtils.ChangeProcess(((string)obj).Split("\r\n").ToHashSet());
         }
 
+        public static void ChangePriorityFiles(object obj)
+        {
+            DirectoryUtils.ChangePriorityFiles(((string)obj).Split("\r\n").ToHashSet());
+        }
     }
 }

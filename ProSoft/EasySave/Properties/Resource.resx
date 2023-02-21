@@ -312,4 +312,7 @@
   <data name="Exception.Run-SP-Title" xml:space="preserve">
     <value>[NAME] backup stopped</value>
   </data>
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>Priority files</value>
+  </data>
 </root>

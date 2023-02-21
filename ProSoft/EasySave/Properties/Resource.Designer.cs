@@ -601,6 +601,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Priority files.
+        /// </summary>
+        public static string Settings_Priority_Files {
+            get {
+                return ResourceManager.GetString("Settings.Priority-Files", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à CryptoSoft Secret:.
         /// </summary>
         public static string Settings_Secret {
