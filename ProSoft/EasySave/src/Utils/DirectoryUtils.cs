@@ -21,13 +21,16 @@ namespace EasySave.src.Utils
     /// </summary>
     public static class DirectoryUtils
     {
-        private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
 
-        private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
+        private static JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
+            
+        private static string key = data["key"].ToString();
+
+        private static HashSet<string> extensions = data["extensions"].Select(t => t.ToString()).ToHashSet();
         
-        private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
+        private static HashSet<string> process = data["process"].Select(t => t.ToString()).ToHashSet();
 
-        private static HashSet<string> priorityFiles = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["priorityFiles"].Select(t => t.ToString()).ToHashSet();
+        private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
 
         private static Mutex _mutex = new Mutex();
 
@@ -75,6 +78,9 @@ namespace EasySave.src.Utils
             }
             foreach (FileInfo file in src.GetFiles())
             {
+                //Check if save is running
+                if (s.GetStatus() != JobStatus.Running)
+                    return;
                 //Update json data
                 LogUtils.LogSaves();
                 bool fileCopied = true;
