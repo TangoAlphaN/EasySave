@@ -6,7 +6,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using EasySave.Properties;
-using Notifications.Wpf;
+using Notification.Wpf;
 using static EasySave.src.Models.Data.SaveType;
 
 namespace EasySave.src.Render.Views

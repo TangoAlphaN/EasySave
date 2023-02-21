@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using EasySave.Properties;
 using EasySave.src.ViewModels;
-using Notifications.Wpf;
+using Notification.Wpf;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;

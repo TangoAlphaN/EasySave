@@ -1,7 +1,7 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Utils;
 using EasySave.src.ViewModels;
-using Notifications.Wpf;
+using Notification.Wpf;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System;
@@ -29,16 +29,13 @@ namespace EasySave.src.Render.Views
 
         private void CheckUpdate()
         {
-            bool upToDate = !HomeViewModel.IsUpToDate();
-            new NotificationManager().Show(new NotificationContent
-            {
-                Title = $"EasySave {VersionUtils.GetVersionFromGit()}",
-                Message = upToDate ? Resource.Header_UpToDate : Resource.Header_NoUpToDate + "\n" + "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
-                Type = upToDate ? NotificationType.Success : NotificationType.Warning,
-            },
-            onClick: () => OpenUrl("https://github.com/arnoux23u-CESI/EasySave/releases/latest", !upToDate),
-            expirationTime: TimeSpan.FromSeconds(upToDate ? 5 : 30)
-            );
+            bool upToDate = HomeViewModel.IsUpToDate();
+            NotificationUtils.SendNotification(
+                title: $"EasySave {VersionUtils.GetVersionFromGit()}",
+                message: upToDate ? Resource.Header_UpToDate : Resource.Header_NoUpToDate + "\n" + "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
+                type: upToDate ? NotificationType.Success : NotificationType.Warning,
+                url: upToDate ? "" : "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
+                time: upToDate ? 5 : 30);
         }
 
         private void OpenUrl(string url, bool open = false)

@@ -3,7 +3,7 @@ using EasySave.src.Models.Data;
 using EasySave.src.Render;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Notifications.Wpf;
+using Notification.Wpf;
 using ProSoft.CryptoSoft;
 using System;
 using System.Collections.Generic;
@@ -55,22 +55,19 @@ namespace EasySave.src.Utils
         /// <param name="type">type of save</param>
         private static void CopyAll(CryptoSoft cs, Save s, DirectoryInfo src, DirectoryInfo dest, SaveType type)
         {
-            var notificationManager = new NotificationManager();
-
             foreach (FileInfo file in src.GetFiles())
             {
                 foreach (var p in process)
                 {
                     if (Process.GetProcessesByName(p).Length > 0)
                     {
-                        notificationManager.Show(new NotificationContent
-                        {
-                            Title = "Save Error",
-                            Message = "Process \"[PROCESS]\"is still running.".Replace("[PROCESS]", p.Split(".exe")[0]),
-                            Type = NotificationType.Error
-                        });
+                        NotificationUtils.SendNotification(title: "Save Error", message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p.Split(".exe")[0]));
                         s.Stop();
                         return;
+                    }
+                    else
+                    {
+                        NotificationUtils.SendNotification(title: "Run", message: "\"[PROCESS]\" not running".Replace("[PROCESS]", p.Split(".exe")[0]), type: NotificationType.Information);
                     }
                 }
                 //Update json data

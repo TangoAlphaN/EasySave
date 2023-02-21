@@ -306,4 +306,7 @@
   <data name="Run" xml:space="preserve">
     <value>Run</value>
   </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>The software [PROCESS] is running</value>
+  </data>
 </root>
