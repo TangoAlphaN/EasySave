@@ -53,7 +53,7 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Status of the save
         /// </summary>
-        protected static JobStatus Status;
+        protected JobStatus Status;
 
         /// <summary>
         /// Source directory
@@ -68,7 +68,7 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Semaphore to change stat of save
         /// </summary>
-        private SemaphoreSlim _semaphore = new SemaphoreSlim(0);
+        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(0);
 
         public long length;
         
@@ -188,7 +188,7 @@ namespace EasySave.src.Models.Data
             Stopwatch sw = new Stopwatch();
             _semaphore.Release();
             sw.Stop();
-            Status = JobStatus.Canceled;
+            Status = JobStatus.Finished;
             return ProcessResult(sw);
         }
 
@@ -266,7 +266,7 @@ namespace EasySave.src.Models.Data
         public static void Init(dynamic data)
         {
             //Data is read from json file and then saves are created
-            if(LogUtils.GetFormat() == LogsFormat.XML)
+            if (LogUtils.GetFormat() == LogsFormat.XML)
             {
                 foreach (var save in data.Root.Elements())
                 {
@@ -279,7 +279,8 @@ namespace EasySave.src.Models.Data
             }
             else
             {
-                foreach (var save in data) {
+                foreach (var save in data)
+                {
                     if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
                     if (save.Value["type"].ToString() == "Full")
                         saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString()), Save.GetStatus(save.Value["state"].ToString())));
@@ -287,7 +288,7 @@ namespace EasySave.src.Models.Data
                         saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString())));
                 }
             }
-           
+
         }
 
         /// <summary>

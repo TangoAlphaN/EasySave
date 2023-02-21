@@ -19,7 +19,7 @@ namespace EasySave.src.Utils
 
         private static Socket socket;
 
-        private static SaveViewModel saveViewModel = new SaveViewModel();
+        private readonly static SaveViewModel saveViewModel = new SaveViewModel();
 
         /// <summary>
         /// Init the socket server

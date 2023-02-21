@@ -22,7 +22,7 @@ namespace EasySave.src.Utils
     public static class DirectoryUtils
     {
 
-        private static JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
+        private static readonly JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
             
         private static string key = data["key"].ToString();
 
@@ -32,7 +32,7 @@ namespace EasySave.src.Utils
 
         private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
 
-        private static Mutex _mutex = new Mutex();
+        private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -104,7 +104,7 @@ namespace EasySave.src.Utils
                     catch
                     {
                         fileCopied = false;
-                        View.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
+                        //TODO Notification View.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
                     }
                     watch.Stop();
                     //Log transfer in json

@@ -298,7 +298,7 @@
     <value>Резервная копия успешно создана</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>программный пакет</value>
+    <value>программный пакет:</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Перерыв</value>
@@ -319,6 +319,9 @@
     <value>Произошла ошибка</value>
   </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
-    <value>Приоритетные файлы </value>
+    <value>Приоритетные файлы:</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Другие параметры</value>
   </data>
 </root>

@@ -298,7 +298,7 @@
     <value>Save created successfully</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>Software package</value>
+    <value>Software packages:</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
@@ -319,6 +319,9 @@
     <value>An error occured</value>
   </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
-    <value>Priority files</value>
+    <value>Priority files:</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Other Settings</value>
   </data>
 </root>

@@ -298,7 +298,7 @@
     <value>Sauvegarde créée avec succès</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>Logiciel métier</value>
+    <value>Logiciels métier :</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
@@ -319,6 +319,9 @@
     <value>Une erreur est survenue</value>
   </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
-    <value>Fichiers prioritaires </value>
+    <value>Fichiers prioritaires :</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Autres paramètres</value>
   </data>
 </root>
