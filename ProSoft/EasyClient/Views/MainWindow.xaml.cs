@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.Mvvm.Interfaces;
 
 namespace EasyClient.Views
 {
@@ -12,11 +11,21 @@ namespace EasyClient.Views
     /// </summary>
     public partial class MainWindow : INavigationWindow
     {
+
+        /// <summary>
+        /// ViewModel reference
+        /// </summary>
         public ViewModel ViewModel
         {
             get;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="viewModel">viewmodel</param>
+        /// <param name="pageService">pageservice</param>
+        /// <param name="navigationService">navigationservice</param>
         public MainWindow(ViewModel viewModel, IPageService pageService, INavigationService navigationService)
         {
             ViewModel = viewModel;

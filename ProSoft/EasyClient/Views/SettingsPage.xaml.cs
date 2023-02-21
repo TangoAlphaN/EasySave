@@ -8,11 +8,19 @@ namespace EasyClient.Views
     /// </summary>
     public partial class SettingsPage : INavigableView<ViewModel>
     {
+
+        /// <summary>
+        /// ViewModel reference
+        /// </summary>
         public ViewModel ViewModel
         {
             get;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="viewModel">viewmodel</param>
         public SettingsPage(ViewModel viewModel)
         {
             ViewModel = viewModel;
@@ -20,6 +28,11 @@ namespace EasyClient.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Save settings to json
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveSettings(object sender, RoutedEventArgs e)
         {
             ViewModel.SaveSettings(IpBox.Text, PortBox.Text);
