@@ -315,8 +315,9 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="ErrorMsg" xml:space="preserve"><value>An error occured</value></data>
-  <value>An error occured</value>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>An error occured</value>
+  </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
     <value>Priority files</value>
   </data>
