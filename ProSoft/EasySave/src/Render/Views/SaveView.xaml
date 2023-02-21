@@ -38,7 +38,7 @@
         <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin=" 30 10">
                 <Button Height="25" Width="100" Content="{x:Static resources:Resource.Create}" Click="GoTo"/>
             </Grid>
-        <ListBox x:Name="SaveListBox" Margin="10 58 10 200" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030">
+        <ListBox x:Name="SaveListBox" Margin="10 58 10 200" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding }" Foreground="#DDDDDD" FontSize="14"/>
@@ -55,10 +55,10 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Height="25" Width="100" Content="{x:Static resources:Resource.Load}" Click="RunButton_Click"/>
-            <Button Grid.Column="1" x:Name="PauseBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Pause}" Click="PauseButton_Click"/>
-            <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Resume}" Click="ResumeButton_Click"/>
-            <Button Grid.Column="3" x:Name="CancelBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Cancel}" Click="CancelButton_Click"/>
+            <Button Grid.Column="0" x:Name="RunBtn" Height="25" Width="100" Content="{x:Static resources:Resource.Run}" Click="RunButton_Click" IsEnabled="True"/>
+            <Button Grid.Column="1" x:Name="PauseBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Pause}" Click="PauseButton_Click" IsEnabled="True"/>
+            <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Resume}" Click="ResumeButton_Click" IsEnabled="True"/>
+            <Button Grid.Column="3" x:Name="CancelBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Cancel}" Click="CancelButton_Click" IsEnabled="True"/>
             <Button Grid.Column="4" Height="25" Width="100" Content="{x:Static resources:Resource.Delete}" Click="DeleteButton_Click"/>
         </Grid>
     </Grid>

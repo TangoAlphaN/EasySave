@@ -21,7 +21,10 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveView : UserControl
     {
+        string _selectedItem;
+        JobStatus _saveStatus;
 
+        
         private void _updateSaves()
         {
             SaveListBox.Items.Clear();
@@ -33,34 +36,85 @@ namespace EasySave.src.Render.Views
 
         public SaveView()
         {
-
             InitializeComponent();
             _updateSaves();
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+        {
+            _selectedItem = (sender as ListBox)?.SelectedItem as string;
+            if (((sender as ListBox).SelectedItems.Count > 0) && (_selectedItem != null))
+            {
+                PauseBtn.Visibility = Visibility.Visible;
+                ResumeBtn.Visibility = Visibility.Visible;
+                CancelBtn.Visibility = Visibility.Visible;
+                
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = SaveListBox.SelectedItems[i];
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
+                }
+                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+                foreach (Save s in saves)
+                {
+                    _saveStatus = s.GetStatus();
+                    switch (_saveStatus)
+                    {
+                        case JobStatus.Running:
+                            RunBtn.IsEnabled = false;
+                            PauseBtn.IsEnabled = true;
+                            ResumeBtn.IsEnabled = true;
+                            CancelBtn.IsEnabled = true;
+                            break;
+                        case JobStatus.Paused:
+                            RunBtn.IsEnabled = true;
+                            PauseBtn.IsEnabled = false;
+                            ResumeBtn.IsEnabled = true;
+                            CancelBtn.IsEnabled = true;
+                            break;
+                        case JobStatus.Canceled:
+                        case JobStatus.Waiting:
+                            RunBtn.IsEnabled = true;
+                            PauseBtn.IsEnabled = false;
+                            ResumeBtn.IsEnabled = false;
+                            CancelBtn.IsEnabled = false;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                PauseBtn.Visibility = Visibility.Collapsed;
+                ResumeBtn.Visibility = Visibility.Collapsed;
+                CancelBtn.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void RunButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
             {
-                PauseBtn.Visibility = Visibility.Visible;
-                ResumeBtn.Visibility = Visibility.Visible;
-                CancelBtn.Visibility = Visibility.Visible;
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
                     var selectedItem = SaveListBox.SelectedItems[i];
-                    keys.Add(selectedItem.ToString());
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                Parallel.ForEach(saves, save => {
-                    save.Run();
-                });
+                foreach (Save s in saves)
+                    ((SaveViewModel)DataContext).RunSave(s);
                 _updateSaves();
             }
             else
             {
-                MessageBox.Show(Resource.NoSelected);
+                new NotificationManager().Show(new NotificationContent
+                {
+                    Title = "Save Error",
+                    Message = Resource.NoSelected,
+                    Type = NotificationType.Error
+                });
             }
         }
 
@@ -122,9 +176,6 @@ namespace EasySave.src.Render.Views
         {
             if (SaveListBox.SelectedItems.Count > 0)
             {
-                PauseBtn.Visibility = Visibility.Collapsed;
-                ResumeBtn.Visibility = Visibility.Collapsed;
-                CancelBtn.Visibility = Visibility.Collapsed;
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {

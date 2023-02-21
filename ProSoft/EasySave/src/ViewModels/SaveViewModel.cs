@@ -81,7 +81,7 @@ namespace EasySave.src.ViewModels
 
         public void PauseSave(Save s)
         {
-            s.Stop();
+            s.Pause();
         }
         
         public void ResumeSave(Save s)

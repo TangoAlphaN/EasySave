@@ -6,6 +6,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using EasySave.Properties;
+using Notifications.Wpf;
 using static EasySave.src.Models.Data.SaveType;
 
 namespace EasySave.src.Render.Views
@@ -51,6 +52,12 @@ namespace EasySave.src.Render.Views
         private void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
             SaveViewModel.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
+            new NotificationManager().Show(new NotificationContent
+            {
+                Title = "Save Success",
+                Message = Resource.Success,
+                Type = NotificationType.Success
+            });
         }
     }
 }
