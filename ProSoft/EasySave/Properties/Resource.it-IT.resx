@@ -298,7 +298,7 @@
     <value>Backup creato con successo</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>Pacchetto software</value>
+    <value>Pacchetto software:</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pausa</value>
@@ -319,6 +319,9 @@
     <value>Si è verificato un errore</value>
   </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
-    <value>File prioritari</value>
+    <value>File prioritari:</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Altri parametri</value>
   </data>
 </root>
