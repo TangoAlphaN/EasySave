@@ -1,6 +1,5 @@
 ﻿using EasyClient.Enums;
 using Newtonsoft.Json.Linq;
-using System;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -13,8 +12,17 @@ namespace EasyClient
     public static class SocketUtils
     {
 
+        /// <summary>
+        /// Socket instance
+        /// </summary>
         private static Socket socket;
 
+        /// <summary>
+        /// Connects to the server
+        /// </summary>
+        /// <param name="ip">ip</param>
+        /// <param name="port">port</param>
+        /// <returns>true if connected</returns>
         public static bool Connect(string ip, int port)
         {
             try
@@ -29,45 +37,60 @@ namespace EasyClient
             }
         }
 
+        /// <summary>
+        /// Disconnects from the server
+        /// </summary>
         public static void Disconnect()
         {
             if (socket != null)
             {
-                socket.Shutdown(SocketShutdown.Both);
-                socket.Close();
+                try
+                {
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
+                }
+                catch
+                {
+                    socket = null;
+                }
             }
         }
 
+        /// <summary>
+        /// Sends a request to the server
+        /// </summary>
+        /// <param name="action">action refered to SocketRequest</param>
+        /// <param name="parameter">Optionnal parameter</param>
+        /// <returns>Dynamic response from server</returns>
         public static object SendRequest(SocketRequest action, string parameter = null)
         {
-            byte[] buffer;
-            int bytesRead;
             try
             {
                 switch (action)
                 {
+                    //Ask for data
                     case SocketRequest.GetData:
+                        //Send action
                         socket.Send(Encoding.ASCII.GetBytes("[ACTION]GETDATA"));
-                        buffer = new byte[4096];
+                        byte[] buffer = new byte[4096];
                         var memoryStream = new MemoryStream();
-                        bytesRead = socket.Receive(buffer);
+                        //Receive result
+                        int bytesRead = socket.Receive(buffer);
                         memoryStream.Write(buffer, 0, bytesRead);
+                        //Update data
                         return SaveInfo.Create(JObject.Parse(Encoding.ASCII.GetString(memoryStream.ToArray())));
                     case SocketRequest.Pause:
-                        socket.Send(Encoding.ASCII.GetBytes("[ACTION]PAUSE"));
-                        buffer = new byte[sizeof(bool)];
-                        socket.Receive(buffer);
-                        return BitConverter.ToBoolean(buffer, 0);
+                        //Send action
+                        socket.Send(Encoding.ASCII.GetBytes($"[ACTION]PAUSE|{parameter}"));
+                        return null;
                     case SocketRequest.Stop:
-                        socket.Send(Encoding.ASCII.GetBytes("[ACTION]STOP"));
-                        buffer = new byte[sizeof(bool)];
-                        socket.Receive(buffer);
-                        return BitConverter.ToBoolean(buffer, 0);
+                        //Send action
+                        socket.Send(Encoding.ASCII.GetBytes($"[ACTION]STOP|{parameter}"));
+                        return null;
                     case SocketRequest.Play:
-                        socket.Send(Encoding.ASCII.GetBytes("[ACTION]PLAY"));
-                        buffer = new byte[sizeof(bool)];
-                        socket.Receive(buffer);
-                        return BitConverter.ToBoolean(buffer, 0);
+                        //Send action
+                        socket.Send(Encoding.ASCII.GetBytes($"[ACTION]PLAY|{parameter}"));
+                        return null;
                 }
             }
             catch

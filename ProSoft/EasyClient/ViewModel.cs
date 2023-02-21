@@ -43,7 +43,7 @@ namespace EasyClient
         /// Gets or sets the save list.
         /// </summary>
         [ObservableProperty]
-        private Dictionary<string, SaveInfo> _saves;
+        private static volatile Dictionary<string, SaveInfo> _saves;
 
         /// <summary>
         /// Gets or sets the navigation items.
@@ -80,15 +80,23 @@ namespace EasyClient
         /// </summary>
         private static readonly string Path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\ProSoft\EasyClient";
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="navigationService">navigationservice</param>
         public ViewModel(INavigationService navigationService)
         {
-            _saves = new Dictionary<string, SaveInfo>();
+            Saves = new Dictionary<string, SaveInfo>();
             if (!_isInitialized)
                 InitializeViewModel();
         }
 
+        /// <summary>
+        /// Initializes the view model.
+        /// </summary>
         private void InitializeViewModel()
         {
+            //Check config file
             if (!Directory.Exists(@$"{Path}"))
                 Directory.CreateDirectory(@$"{Path}");
             if (!File.Exists(@$"{Path}\config.json"))
@@ -149,6 +157,11 @@ namespace EasyClient
             _isInitialized = true;
         }
 
+        /// <summary>
+        /// Save settings into JSON
+        /// </summary>
+        /// <param name="ip">ip</param>
+        /// <param name="port">port</param>
         public void SaveSettings(string ip, string port)
         {
             Ip = ip;
@@ -161,12 +174,14 @@ namespace EasyClient
             File.WriteAllText($@"{Path}\config.json", json);
         }
 
+        /// <summary>
+        /// Connect to server
+        /// </summary>
+        /// <returns>true if connect ok</returns>
         public static bool Connect()
         {
             if (SocketUtils.Connect(Ip, Port))
-            {
                 return true;
-            }
             else
             {
                 System.Windows.MessageBox.Show($"{Resource.ErrorConnect}");
@@ -174,16 +189,28 @@ namespace EasyClient
             }
         }
 
+        /// <summary>
+        /// Play / resume a save
+        /// </summary>
+        /// <param name="uuid">save uuid</param>
         public static void PlaySave(string uuid)
         {
             SocketUtils.SendRequest(SocketRequest.Play, uuid);
         }
 
+        /// <summary>
+        /// Pause
+        /// </summary>
+        /// <param name="uuid">save uuid</param>
         public static void PauseSave(string uuid)
         {
             SocketUtils.SendRequest(SocketRequest.Pause, uuid);
         }
 
+        /// <summary>
+        /// StopSave
+        /// </summary>
+        /// <param name="uuid">save uuid</param>
         public static void StopSave(string uuid)
         {
             SocketUtils.SendRequest(SocketRequest.Stop, uuid);
@@ -194,12 +221,20 @@ namespace EasyClient
             Saves = (Dictionary<string, SaveInfo>)SocketUtils.SendRequest(SocketRequest.GetData);
         }
 
+        /// <summary>
+        /// Disconnect from server
+        /// </summary>
         public static void Disconnect()
         {
             SocketUtils.Disconnect();
         }
 
-        public string GetSaveByUuid(string save)
+        /// <summary>
+        /// Get Save status by uuid
+        /// </summary>
+        /// <param name="save">save uuid</param>
+        /// <returns>Save status</returns>
+        public string GetStatusByUuid(string save)
         {
             return Saves.Single(k => k.Value.SaveName == save).Value.Status;
         }
