@@ -27,6 +27,8 @@ namespace EasySave.src.Utils
         
         private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
 
+        private static Mutex _mutex = new Mutex();
+
         /// <summary>
         /// Array to store the actual file being copied
         /// </summary>
@@ -94,10 +96,10 @@ namespace EasySave.src.Utils
                     }
                     watch.Stop();
                     //Log transfer in json
-                    lock(LogUtils.path)
-                    {
-                        LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
-                    }
+                    _mutex.WaitOne();
+                    LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
+                    _mutex.ReleaseMutex();
+                    
                 }
                 if (fileCopied)
                     s.AddFileCopied();
