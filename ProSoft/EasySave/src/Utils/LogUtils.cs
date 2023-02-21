@@ -32,7 +32,7 @@ namespace EasySave.src.Utils
         /// </summary>
         private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
 
-        private static Mutex _mutex = new Mutex();
+        private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Init logs util
@@ -79,12 +79,12 @@ namespace EasySave.src.Utils
         /// </summary>
         public static void LogSaves()
         {
+            _mutex.WaitOne();
             if (_format == LogsFormat.XML)
                 new XDocument(SavesToXml()).Save($"{path}saves.xml");
             else
-                _mutex.WaitOne();
                 File.WriteAllText($"{path}saves.json", SavesToJson().ToString());
-                _mutex.ReleaseMutex();
+            _mutex.ReleaseMutex();
         }
 
         /// <summary>

@@ -1,18 +1,15 @@
 ﻿
+using EasySave.Properties;
 using EasySave.src.Models.Data;
-using System.Windows;
-using System;
-using System.Windows.Controls;
+using EasySave.src.Utils;
+using EasySave.src.ViewModels;
+using Notification.Wpf;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using EasySave.Properties;
-using EasySave.src.ViewModels;
-using Notification.Wpf;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using EasySave.src.Utils;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EasySave.src.Render.Views
 {
@@ -26,8 +23,8 @@ namespace EasySave.src.Render.Views
         readonly SaveViewModel _viewModel;
         private ObservableCollection<Save> _saves;
 
-        
-        private void _updateSaves()
+
+        private void UpdateSaves()
         {
             SaveListBox.Items.Clear();
             foreach (Save s in Save.GetSaves())
@@ -39,7 +36,7 @@ namespace EasySave.src.Render.Views
         public SaveView()
         {
             InitializeComponent();
-            _updateSaves();
+            UpdateSaves();
             _viewModel = new SaveViewModel();
             this.DataContext = _viewModel;
 
@@ -55,9 +52,6 @@ namespace EasySave.src.Render.Views
                 ResumeBtn.Visibility = Visibility.Visible;
                 */
                 CancelBtn.Visibility = Visibility.Visible;
-                
-                MessageBox.Show(_saveStatus.ToString()+" "+"0");
-                
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
@@ -74,7 +68,7 @@ namespace EasySave.src.Render.Views
             }
             else
             {
-                
+
                 PauseBtn.Visibility = Visibility.Collapsed;
                 /*
                 ResumeBtn.Visibility = Visibility.Collapsed;
@@ -82,17 +76,17 @@ namespace EasySave.src.Render.Views
                 CancelBtn.Visibility = Visibility.Collapsed;
             }
         }
-        
+
         private void Save_PropertyChanged(object sender, PropertyChangedEventArgs e)
-                {
-                    if (e.PropertyName == "Status")
-                    {
-                        Save save = (Save)sender;
-                        _saveStatus = _viewModel.GetSaveStatus(save);
-                        
-                        UpdateButtonStatus();
-                    }
-                }
+        {
+            if (e.PropertyName == "Status")
+            {
+                Save save = (Save)sender;
+                _saveStatus = _viewModel.GetSaveStatus(save);
+
+                UpdateButtonStatus();
+            }
+        }
 
         private void UpdateButtonStatus()
         {
@@ -139,7 +133,7 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                Parallel.ForEach(saves, save => 
+                Parallel.ForEach(saves, save =>
                 {
                     MessageBox.Show(_saveStatus.ToString()+" "+"1");
                     _saveStatus = _viewModel.GetSaveStatus(save);
@@ -158,8 +152,7 @@ namespace EasySave.src.Render.Views
                     save.PropertyChanged += Save_PropertyChanged;
                     UpdateProgressBar(save.ProgressBar);
                 });
-                _updateSaves();
-                
+                UpdateSaves();
                 NotificationUtils.SendNotification(
                     title: "EasySave",
                     message: Resource.Success,
@@ -202,7 +195,7 @@ namespace EasySave.src.Render.Views
                     ((SaveViewModel)DataContext).PauseSave(s);
                     s.PropertyChanged += Save_PropertyChanged;
                 }
-                _updateSaves();
+                UpdateSaves();
             }
             else
             {
@@ -232,7 +225,7 @@ namespace EasySave.src.Render.Views
                     ((SaveViewModel)DataContext).ResumeSave(s);
                     s.PropertyChanged += Save_PropertyChanged;
                 }
-                _updateSaves();
+                UpdateSaves();
             }
             else
             {
@@ -262,7 +255,7 @@ namespace EasySave.src.Render.Views
                     ((SaveViewModel)DataContext).CancelSave(s);
                     s.PropertyChanged += Save_PropertyChanged;
                 }
-                _updateSaves();
+                UpdateSaves();
             }
             else
             {
@@ -294,7 +287,7 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
                     ((SaveViewModel)DataContext).DeleteSave(s);
-                _updateSaves();
+                UpdateSaves();
             }
             else
             {

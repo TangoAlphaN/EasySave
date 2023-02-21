@@ -25,13 +25,7 @@ namespace EasySave.src.ViewModels
         private readonly CollectionViewSource _saveItemsCollection;
         public ICollectionView SaveSourceCollection => _saveItemsCollection.View;
 
-        private static bool _isVisible;
-        public static bool IsVisible
-        {
-            get => _isVisible;
-            set => _isVisible = value;
-            //OnPropertyChanged("IsVisible");
-        }
+        public static bool IsVisible { get; set; }
 
         public SaveViewModel()
         {

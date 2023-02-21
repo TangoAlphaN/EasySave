@@ -1,13 +1,13 @@
 ﻿
+using EasySave.Properties;
 using EasySave.src.Models.Data;
+using EasySave.src.Utils;
 using EasySave.src.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Notification.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using EasySave.Properties;
-using EasySave.src.Utils;
-using Notification.Wpf;
 using static EasySave.src.Models.Data.SaveType;
 
 namespace EasySave.src.Render.Views
@@ -26,18 +26,22 @@ namespace EasySave.src.Render.Views
 
         private void SelectFilePathCommand(object sender, RoutedEventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\";
-            dialog.IsFolderPicker = true;
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
+            {
+                InitialDirectory = "C:\\",
+                IsFolderPicker = true
+            };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 TxtSrc.Text = dialog.FileName;
         }
 
         private void SelectFilePathCommandDest(object sender, RoutedEventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\";
-            dialog.IsFolderPicker = true;
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
+            {
+                InitialDirectory = "C:\\",
+                IsFolderPicker = true
+            };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 TxtDest.Text = dialog.FileName;
         }
