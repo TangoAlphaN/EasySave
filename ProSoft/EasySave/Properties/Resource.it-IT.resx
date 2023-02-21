@@ -312,4 +312,10 @@
   <data name="Exception.Run-SP-Title" xml:space="preserve">
     <value>[NAME] backup interrotto</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Si è verificato un errore</value>
+  </data>
 </root>
