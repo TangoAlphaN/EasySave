@@ -21,19 +21,12 @@ namespace EasySave.src.ViewModels
         private readonly CollectionViewSource _saveItemsCollection;
         public ICollectionView SaveSourceCollection => _saveItemsCollection.View;
         
-        private static bool _isVisible;
-        public static bool IsVisible
-        {
-            get => _isVisible;
-            set => _isVisible = value;
-            //OnPropertyChanged("IsVisible");
-        }
-
         public SaveViewModel()
         {
             ObservableCollection<Save> menuItems = new ObservableCollection<Save>(Save.GetSaves());
             _saveItemsCollection = new CollectionViewSource { Source = menuItems };
         }
+        
 
         /// <summary>
         /// Get all saves names
@@ -125,6 +118,11 @@ namespace EasySave.src.ViewModels
         public HashSet<Save> GetSavesByUuid(HashSet<string> names)
         {
             return new HashSet<Save>(Save.GetSaves().Where(save => names.Contains(save.ToString())).ToList());
+        }
+        
+        public JobStatus GetSaveStatus(Save s)
+        {
+            return s.GetStatus();
         }
         
         public event PropertyChangedEventHandler PropertyChanged;

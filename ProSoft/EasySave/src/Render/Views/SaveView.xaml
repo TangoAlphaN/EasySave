@@ -4,17 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:resources="clr-namespace:EasySave.Properties"
-             xmlns:local="clr-namespace:EasySave.src.Render.Views"
-             xmlns:navigation="clr-namespace:EasySave.src.Render.Views"
-             xmlns:easySave="clr-namespace:EasySave"
-             xmlns:data="clr-namespace:EasySave.src.Models.Data"
-             xmlns:viewModels="clr-namespace:EasySave.src.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="500"
              d:DesignWidth="650" d:DataContext="{d:DesignInstance }">
 
     <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
     <UserControl.Style>
         <Style>
@@ -55,11 +49,26 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="RunBtn" Height="25" Width="100" Content="{x:Static resources:Resource.Run}" Click="RunButton_Click" IsEnabled="True"/>
-            <Button Grid.Column="1" x:Name="PauseBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Pause}" Click="PauseButton_Click" IsEnabled="True"/>
-            <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Resume}" Click="ResumeButton_Click" IsEnabled="True"/>
-            <Button Grid.Column="3" x:Name="CancelBtn" Height="25" Width="100" Visibility="Collapsed" Content="{x:Static resources:Resource.Cancel}" Click="CancelButton_Click" IsEnabled="True"/>
-            <Button Grid.Column="4" Height="25" Width="100" Content="{x:Static resources:Resource.Delete}" Click="DeleteButton_Click"/>
+            
+            <Button Grid.Column="0" x:Name="RunBtn" Height="25" Width="50" Click="RunButton_Click" IsEnabled="True">
+                <Image Source="/src/Render/Assets/Play.png" />
+            </Button>
+            
+            <Button Grid.Column="1" x:Name="PauseBtn" Height="25" Width="50" Visibility="Collapsed" Click="PauseButton_Click" IsEnabled="True">
+                <Image Source="/src/Render/Assets/Pause.png" />
+            </Button>
+            
+            <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="50" Visibility="Collapsed"  Click="ResumeButton_Click" IsEnabled="True">
+                <Image Source="/src/Render/Assets/Resume.png" />
+            </Button>
+            
+            <Button Grid.Column="3" x:Name="CancelBtn" Height="25" Width="50" Visibility="Collapsed" Click="CancelButton_Click" IsEnabled="True">
+                <Image Source="/src/Render/Assets/Cancel.png" />
+            </Button>
+            
+            <Button Grid.Column="4" Height="25" Width="50" Click="DeleteButton_Click">
+                <Image Source="/src/Render/Assets/Trash.png" />
+            </Button>
         </Grid>
     </Grid>
     

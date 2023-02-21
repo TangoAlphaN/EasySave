@@ -49,7 +49,7 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Status of the save
         /// </summary>
-        protected JobStatus Status;
+        protected static JobStatus Status;
 
         /// <summary>
         /// Source directory

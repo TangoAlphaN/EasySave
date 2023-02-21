@@ -58,7 +58,7 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
                 {
-                    _saveStatus = s.GetStatus();
+                    _saveStatus = ((SaveViewModel)DataContext).GetSaveStatus(s);
                     switch (_saveStatus)
                     {
                         case JobStatus.Running:
@@ -106,6 +106,12 @@ namespace EasySave.src.Render.Views
                 foreach (Save s in saves)
                     ((SaveViewModel)DataContext).RunSave(s);
                 _updateSaves();
+                new NotificationManager().Show(new NotificationContent
+                {
+                    Title = "Save Success",
+                    Message = Resource.Success,
+                    Type = NotificationType.Success
+                });
             }
             else
             {
@@ -126,7 +132,7 @@ namespace EasySave.src.Render.Views
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
                     var selectedItem = SaveListBox.SelectedItems[i];
-                    keys.Add(selectedItem.ToString());
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
@@ -153,7 +159,7 @@ namespace EasySave.src.Render.Views
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
                     var selectedItem = SaveListBox.SelectedItems[i];
-                    keys.Add(selectedItem.ToString());
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
@@ -180,7 +186,7 @@ namespace EasySave.src.Render.Views
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
                     var selectedItem = SaveListBox.SelectedItems[i];
-                    keys.Add(selectedItem.ToString());
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
@@ -211,7 +217,7 @@ namespace EasySave.src.Render.Views
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
                     var selectedItem = SaveListBox.SelectedItems[i];
-                    keys.Add(selectedItem.ToString());
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
@@ -235,9 +241,6 @@ namespace EasySave.src.Render.Views
         {
             if (Application.Current.MainWindow != null)
             {
-                //NavigationService navigationService = NavigationService.GetNavigationService(Application.Current.MainWindow);
-
-                //SaveFrame.Visibility = Visibility.Collapsed;
                 SaveCreateView createSave = new SaveCreateView();
                 SaveFrame.NavigationService.Navigate(createSave);
             }
