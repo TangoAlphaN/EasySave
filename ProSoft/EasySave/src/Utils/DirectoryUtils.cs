@@ -116,7 +116,7 @@ namespace EasySave.src.Utils
                 if (fileCopied)
                     s.AddFileCopied();
                 s.AddSizeCopied(file.Length);
-                s.ProgressBar = (int)s._sizeCopied;
+                s.ProgressBar = s.CalculateProgress();
             }
 
             //Recursive call for subdirectories
