@@ -259,7 +259,16 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à The software [PROCESS] is running.
+        ///   Recherche une chaîne localisée semblable à [NAME] backup stopped.
+        /// </summary>
+        public static string Exception_Run_SP_Title {
+            get {
+                return ResourceManager.GetString("Exception.Run-SP-Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The software &quot;[PROCESS]&quot; is running.
         /// </summary>
         public static string Exception_Running_Software_Package {
             get {
