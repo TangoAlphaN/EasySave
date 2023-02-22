@@ -122,41 +122,7 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                Parallel.ForEach(saves, save =>
-                {
-                    _saveStatus = _viewModel.GetSaveStatus(save);
-
-                    switch (_saveStatus.ToString())
-                    {
-                        case "Finished":
-                        case "Waiting":
-                        case "Canceled":
-                            if (_saveStatus.ToString() != "Waiting")
-                                save.Stop();
-                            _viewModel.RunSave(save);
-                            NotificationUtils.SendNotification(
-                                title: $"{save.GetName()} - {save.uuid}",
-                                message: Resource.Header_SaveLaunched,
-                                type: NotificationType.Success
-                            );
-                            break;
-                        case "Paused":
-                            _viewModel.ResumeSave(save);
-                            NotificationUtils.SendNotification(
-                                title: $"{save.GetName()} - {save.uuid}",
-                                message: Resource.Header_SaveResumed,
-                                type: NotificationType.Success
-                            );
-                            break;
-                    }
-
-                    save.PropertyChanged += Save_PropertyChanged;
-                    /*Dispatcher.Invoke(() =>
-                    {
-                        UpdateProgressBar(save.CalculateProgress());
-
-                    });*/
-                });
+                RunButton_Handle(saves);
                 UpdateSaves();
 
             }
@@ -168,6 +134,44 @@ namespace EasySave.src.Render.Views
                     type: NotificationType.Error,
                     time: 15);
             }
+        }
+
+        public void RunButton_Handle(HashSet<Save> saves)
+        {
+            Parallel.ForEach(saves, save =>
+            {
+                _saveStatus = _viewModel.GetSaveStatus(save);
+                switch (_saveStatus.ToString())
+                {
+                    case "Finished":
+                    case "Waiting":
+                    case "Canceled":
+                        if (_saveStatus.ToString() != "Waiting")
+                            save.Stop();
+                        _viewModel.RunSave(save);
+                        NotificationUtils.SendNotification(
+                            title: $"{save.GetName()} - {save.uuid}",
+                            message: Resource.Header_SaveLaunched,
+                            type: NotificationType.Success
+                        );
+                        break;
+                    case "Paused":
+                        _viewModel.ResumeSave(save);
+                        NotificationUtils.SendNotification(
+                            title: $"{save.GetName()} - {save.uuid}",
+                            message: Resource.Header_SaveResumed,
+                            type: NotificationType.Success
+                        );
+                        break;
+                }
+
+                save.PropertyChanged += Save_PropertyChanged;
+                /*Dispatcher.Invoke(() =>
+                {
+                    UpdateProgressBar(save.CalculateProgress());
+
+                });*/
+            });
         }
 
         public void UpdateProgressBar(int value)
@@ -240,16 +244,7 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                {
-                    NotificationUtils.SendNotification(
-                        title: $"{s.GetName()} - {s.uuid}",
-                        message: Resource.Header_SavePaused,
-                        type: NotificationType.Success
-                    );
-                    ((SaveViewModel)DataContext).PauseSave(s);
-                    s.PropertyChanged += Save_PropertyChanged;
-                }
+                PauseButton_Handle(saves);
                 UpdateSaves();
             }
             else
@@ -259,6 +254,20 @@ namespace EasySave.src.Render.Views
                     message: Resource.NoSelected,
                     type: NotificationType.Error,
                     time: 15);
+            }
+        }
+
+        public void PauseButton_Handle(HashSet<Save> saves)
+        {
+            foreach (Save s in saves)
+            {
+                NotificationUtils.SendNotification(
+                    title: $"{s.GetName()} - {s.uuid}",
+                    message: Resource.Header_SavePaused,
+                    type: NotificationType.Success
+                );
+                ((SaveViewModel)DataContext).PauseSave(s);
+                s.PropertyChanged += Save_PropertyChanged;
             }
         }
 
@@ -274,11 +283,7 @@ namespace EasySave.src.Render.Views
                 }
 
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                {
-                    ((SaveViewModel)DataContext).CancelSave(s);
-                    s.PropertyChanged += Save_PropertyChanged;
-                }
+                CancelButton_Handle(saves);
                 UpdateSaves();
             }
             else
@@ -289,7 +294,15 @@ namespace EasySave.src.Render.Views
                     type: NotificationType.Error,
                     time: 15);
             }
+        }
 
+        public void CancelButton_Handle(HashSet<Save> saves)
+        {
+            foreach (Save s in saves)
+            {
+                ((SaveViewModel)DataContext).CancelSave(s);
+                s.PropertyChanged += Save_PropertyChanged;
+            }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -297,9 +310,6 @@ namespace EasySave.src.Render.Views
             if (SaveListBox.SelectedItems.Count > 0)
             {
                 PauseBtn.Visibility = Visibility.Collapsed;
-                /*
-                ResumeBtn.Visibility = Visibility.Collapsed;
-                */
                 CancelBtn.Visibility = Visibility.Collapsed;
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
@@ -322,10 +332,6 @@ namespace EasySave.src.Render.Views
                 );
             }
         }
-
-        /*
-        public int ZSave = 0;
-        */
         
         private void GoTo(object sender, RoutedEventArgs e)
         {
