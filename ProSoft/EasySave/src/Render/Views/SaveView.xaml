@@ -29,10 +29,14 @@
 
     <Grid Background="#303030">
         <Frame Canvas.ZIndex="1" x:Name="SaveFrame" NavigationUIVisibility="Hidden"/>
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin=" 30 10">
-                <Button Height="25" Width="100" Content="{x:Static resources:Resource.Create}" Click="GoTo"/>
-            </Grid>
-        <ListBox x:Name="SaveListBox" Margin="10 58 10 250" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030" SelectionChanged="OnSelectionChanged">
+        
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin=" 30 10 30 20">
+            <Button Height="50" Width="50" Click="GoTo" Background="Transparent" BorderThickness="0">
+                <Image Source="/src/Render/Assets/Add.png" />
+            </Button>
+        </Grid>
+        
+        <ListBox x:Name="SaveListBox" Margin="10 65 10 250" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding }" Foreground="#DDDDDD" FontSize="14"/>
@@ -74,11 +78,11 @@
             -->
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" x:Name="RunBtn" Height="50" Width="50" Click="RunButton_Click" IsEnabled="True">
+            <Button Grid.Column="0" x:Name="RunBtn" Height="50" Width="50" Click="RunButton_Click" IsEnabled="True" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Play.png" />
             </Button>
             
-            <Button Grid.Column="1" x:Name="PauseBtn" Height="50" Width="50" Visibility="Collapsed" Click="PauseButton_Click" IsEnabled="True">
+            <Button Grid.Column="1" x:Name="PauseBtn" Height="50" Width="50" Visibility="Collapsed" Click="PauseButton_Click" IsEnabled="True" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Pause.png" />
             </Button>
             
@@ -88,11 +92,11 @@
             </Button>
             -->
             
-            <Button Grid.Column="2" x:Name="CancelBtn" Height="50" Width="50" Visibility="Collapsed" Click="CancelButton_Click" IsEnabled="True">
+            <Button Grid.Column="2" x:Name="CancelBtn" Height="50" Width="50" Visibility="Collapsed" Click="CancelButton_Click" IsEnabled="True" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Cancel.png" />
             </Button>
             
-            <Button Grid.Column="3" Height="50" Width="50" Click="DeleteButton_Click">
+            <Button Grid.Column="3" Height="50" Width="50" Click="DeleteButton_Click" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Trash.png" />
             </Button>
         </Grid>
