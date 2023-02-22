@@ -19,11 +19,8 @@ namespace EasySave.src.Render.Views
     {
         private SaveType _type;
 
-        private SaveView _sv;
-
-        public SaveCreateView(SaveView saveView)
+        public SaveCreateView()
         {
-            _sv = saveView;
             InitializeComponent();
         }
 
@@ -80,7 +77,7 @@ namespace EasySave.src.Render.Views
             TxtDest.Text = "";
             btnFull.IsChecked = false;
             btnDiff.IsChecked = false;
-            CreateFrame.NavigationService.Navigate(_sv);
+            CreateFrame.NavigationService.Navigate(new SaveView());
         }
     }
 }

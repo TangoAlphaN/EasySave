@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Linq;
 
 namespace EasySave.src.Render.Views
 {
@@ -18,19 +19,25 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveView : UserControl
     {
-        string _selectedItem;
-        JobStatus? _saveStatus = null;
-        readonly SaveViewModel _viewModel;
+        private string _selectedItem;
+        private readonly SaveViewModel _viewModel;
         private ObservableCollection<Save> _saves;
-        string _editText;
+        private string _editText;
 
 
         private void UpdateSaves()
         {
+            var selectedItems = SaveListBox.SelectedItems.Cast<object>().ToList();
             SaveListBox.Items.Clear();
             foreach (Save s in Save.GetSaves())
             {
                 SaveListBox.Items.Add(s.ToString());
+            }
+            foreach (var item in from object item in selectedItems
+                                 where SaveListBox.Items.Contains(item)
+                                 select item)
+            {
+                SaveListBox.SelectedItems.Add(item);
             }
         }
 
@@ -39,37 +46,32 @@ namespace EasySave.src.Render.Views
             InitializeComponent();
             UpdateSaves();
             _viewModel = new SaveViewModel();
-            this.DataContext = _viewModel;
+            DataContext = _viewModel;
 
         }
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
             _selectedItem = (sender as ListBox)?.SelectedItem as string;
-            if (((sender as ListBox).SelectedItems.Count > 0) && (_selectedItem != null))
+            int count = (sender as ListBox).SelectedItems.Count;
+            if (count > 0 && _selectedItem != null)
             {
+                if (count == 1)
+                    SaveProgressBar.Visibility = Visibility.Visible;
+                else
+                    SaveProgressBar.Visibility = Visibility.Collapsed;
                 PauseBtn.Visibility = Visibility.Visible;
                 CancelBtn.Visibility = Visibility.Visible;
-                SaveProgressBar.Visibility = Visibility.Visible;
-
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
                     var selectedItem = SaveListBox.SelectedItems[i];
                     if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
-                _saves = new ObservableCollection<Save>(_viewModel.GetSavesByUuid(keys));
-                foreach (Save s in _saves)
-                {
-                    _saveStatus = _viewModel.GetSaveStatus(s);
-                    s.PropertyChanged += Save_PropertyChanged;
-                }
-                UpdateButtonStatus();
             }
             else
             {
                 SaveProgressBar.Visibility = Visibility.Collapsed;
-
                 PauseBtn.Visibility = Visibility.Collapsed;
                 CancelBtn.Visibility = Visibility.Collapsed;
             }
@@ -80,15 +82,13 @@ namespace EasySave.src.Render.Views
             if (e.PropertyName == "Status")
             {
                 Save save = (Save)sender;
-                _saveStatus = _viewModel.GetSaveStatus(save);
-
-                UpdateButtonStatus();
+                UpdateButtonStatus(save.GetStatus());
             }
         }
 
-        private void UpdateButtonStatus()
+        private void UpdateButtonStatus(JobStatus status)
         {
-            switch (_saveStatus)
+            switch (status)
             {
                 case JobStatus.Running:
                     RunBtn.IsEnabled = false;
@@ -105,6 +105,8 @@ namespace EasySave.src.Render.Views
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
                     CancelBtn.IsEnabled = false;
+                    break;
+                default:
                     break;
             }
 
@@ -124,14 +126,14 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 Parallel.ForEach(saves, save =>
                 {
-                    _saveStatus = _viewModel.GetSaveStatus(save);
+                    JobStatus saveStatus = _viewModel.GetSaveStatus(save);
 
-                    switch (_saveStatus.ToString())
+                    switch (saveStatus)
                     {
-                        case "Finished":
-                        case "Waiting":
-                        case "Canceled":
-                            if (_saveStatus.ToString() != "Waiting")
+                        case JobStatus.Finished:
+                        case JobStatus.Waiting:
+                        case JobStatus.Canceled:
+                            if (saveStatus != JobStatus.Waiting)
                                 save.Stop();
                             _viewModel.RunSave(save);
                             NotificationUtils.SendNotification(
@@ -140,7 +142,7 @@ namespace EasySave.src.Render.Views
                                 type: NotificationType.Success
                             );
                             break;
-                        case "Paused":
+                        case JobStatus.Paused:
                             _viewModel.ResumeSave(save);
                             NotificationUtils.SendNotification(
                                 title: $"{save.GetName()} - {save.uuid}",
@@ -323,10 +325,6 @@ namespace EasySave.src.Render.Views
             }
         }
 
-        /*
-        public int ZSave = 0;
-        */
-        
         private void GoTo(object sender, RoutedEventArgs e)
         {
             if (Application.Current.MainWindow != null)
