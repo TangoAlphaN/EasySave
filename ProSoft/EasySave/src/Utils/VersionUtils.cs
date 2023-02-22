@@ -1,6 +1,7 @@
 ﻿using EasySave.src.Models.Exceptions;
 using Octokit;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace EasySave.src.Utils
@@ -21,7 +22,7 @@ namespace EasySave.src.Utils
             try
             {
                 var client = new GitHubClient(new ProductHeaderValue("EasySave"));
-                return client.Repository.Release.GetAll("arnoux23u-CESI", "EasySave").GetAwaiter().GetResult()[0].TagName;
+                return client.Repository.Release.GetAll("arnoux23u-CESI", "EasySave").GetAwaiter().GetResult().Where(release => release.TagName.StartsWith("V")).First().TagName;
             }
             catch
             {
