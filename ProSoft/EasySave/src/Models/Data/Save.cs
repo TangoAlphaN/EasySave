@@ -121,7 +121,7 @@ namespace EasySave.src.Models.Data
         /// <returns>int between 0 and 100</returns>
         public int CalculateProgress()
         {
-            return (int)(_sizeCopied / SrcDir.GetSize() * 100);
+            return Math.Min((int)(_sizeCopied / SrcDir.GetSize() * 100), 100);
         }
 
         /// <summary>

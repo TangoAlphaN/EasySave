@@ -105,7 +105,6 @@ namespace EasySave.src.Utils
                 FileInfo source = data.Key;
                 FileInfo dest = data.Value;
                 //Check if save is running
-                //TODO FAIRE ATTENTION
                 if (s.GetStatus() == JobStatus.Canceled)
                     return JobStatus.Canceled;
                 
