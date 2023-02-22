@@ -145,7 +145,6 @@ namespace EasySave.src.Models.Data
         public void Pause()
         {
             Status = JobStatus.Paused;
-            //TODO
         }
 
         /// <summary>
@@ -154,7 +153,6 @@ namespace EasySave.src.Models.Data
         public void Resume()
         {
             Status = JobStatus.Running;
-            //TODO
         }
 
         /// <summary>
@@ -171,6 +169,8 @@ namespace EasySave.src.Models.Data
         public void Stop()
         {
             Status = JobStatus.Waiting;
+            _filesCopied = 0;
+            _sizeCopied = 0;
         }
 
         /// <summary>
@@ -196,7 +196,6 @@ namespace EasySave.src.Models.Data
             sw.Start();
             DirectoryUtils.CopyFilesAndFolders(this);
             sw.Stop();
-            Status = JobStatus.Finished;
             return ProcessResult(sw);
         }
 
@@ -368,6 +367,11 @@ namespace EasySave.src.Models.Data
             field = value;
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        public void MarkAsFinished()
+        {
+            Status = JobStatus.Finished;
         }
     }
 }

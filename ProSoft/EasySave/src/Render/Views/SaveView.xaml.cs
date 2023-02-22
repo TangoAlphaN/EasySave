@@ -1,10 +1,9 @@
-﻿
-using System;
-using EasySave.Properties;
+﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
 using EasySave.src.ViewModels;
 using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -126,10 +125,14 @@ namespace EasySave.src.Render.Views
                 Parallel.ForEach(saves, save =>
                 {
                     _saveStatus = _viewModel.GetSaveStatus(save);
+
                     switch (_saveStatus.ToString())
                     {
-                        case "Waiting":
                         case "Finished":
+                        case "Waiting":
+                        case "Canceled":
+                            if (_saveStatus.ToString() != "Waiting")
+                                save.Stop();
                             _viewModel.RunSave(save);
                             NotificationUtils.SendNotification(
                                 title: $"{save.GetName()} - {save.uuid}",
@@ -141,7 +144,7 @@ namespace EasySave.src.Render.Views
                             _viewModel.ResumeSave(save);
                             NotificationUtils.SendNotification(
                                 title: $"{save.GetName()} - {save.uuid}",
-                                message: Resource.Header_SavePaused,
+                                message: Resource.Header_SaveResumed,
                                 type: NotificationType.Success
                             );
                             break;
@@ -199,7 +202,7 @@ namespace EasySave.src.Render.Views
         private void EnregisterEdit(Object sender, RoutedEventArgs e)
         {
             _editText = EditTextBox.Text;
-            
+
             HashSet<string> keys = new HashSet<string>();
             for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
             {
@@ -217,7 +220,7 @@ namespace EasySave.src.Render.Views
             UpdateSaves();
 
         }
-        
+
         private void CancelEdit(Object sender, RoutedEventArgs e)
         {
             EditTextBox.Text = "";
@@ -239,6 +242,11 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 foreach (Save s in saves)
                 {
+                    NotificationUtils.SendNotification(
+                        title: $"{s.GetName()} - {s.uuid}",
+                        message: Resource.Header_SavePaused,
+                        type: NotificationType.Success
+                    );
                     ((SaveViewModel)DataContext).PauseSave(s);
                     s.PropertyChanged += Save_PropertyChanged;
                 }
@@ -253,7 +261,7 @@ namespace EasySave.src.Render.Views
                     time: 15);
             }
         }
-        
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -310,8 +318,8 @@ namespace EasySave.src.Render.Views
                 NotificationUtils.SendNotification(
                     title: $"EasySave - {Resource.Error}",
                     message: Resource.NoSelected,
-                    type: NotificationType.Error,
-                    time: 15);
+                    type: NotificationType.Error
+                );
             }
         }
 

@@ -1,7 +1,5 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
-using EasySave.src.Render.Views;
-using EasySave.src.ViewModels;
 using Newtonsoft.Json.Linq;
 using Notification.Wpf;
 using ProSoft.CryptoSoft;
@@ -36,6 +34,8 @@ namespace EasySave.src.Utils
 
         private static CryptoSoft cs = CryptoSoft.Init(key);
 
+        private static ManualResetEvent mre = new ManualResetEvent(true);
+
         /// <summary>
         /// Array to store the actual file being copied
         /// </summary>
@@ -51,23 +51,15 @@ namespace EasySave.src.Utils
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory);
-            switch (CopyAll(s, files)) {
+            switch (CopyAll(s, files, mre))
+            {
                 case JobStatus.Canceled:
                     NotificationUtils.SendNotification(
-                        title: $"{s.GetName()} - {s.uuid}",
-                        message: Resource.Header_SaveCanceled,
-                        type: NotificationType.Success
-                    );
-                    SaveViewModel.JobBackups.Remove(s.uuid.ToString());
-                    s.Cancel();
-                    break;
-                case JobStatus.Paused:
-                     NotificationUtils.SendNotification(
                         title: $"{s.GetName()} - {s.uuid}",
                         message: Resource.Header_SavePaused,
                         type: NotificationType.Success
                     );
-                    s.Pause();
+                    s.Cancel();
                     break;
                 case JobStatus.Finished:
                     NotificationUtils.SendNotification(
@@ -75,7 +67,6 @@ namespace EasySave.src.Utils
                         message: Resource.Header_SaveFinished,
                         type: NotificationType.Success
                     );
-                    SaveViewModel.JobBackups.Remove(s.uuid.ToString());
                     s.MarkAsFinished();
                     break;
             }
@@ -104,7 +95,7 @@ namespace EasySave.src.Utils
         /// </summary>
         /// <param name="s">concerned save</param>
         /// <param name="files">list of files</param>
-        private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files)
+        private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files, ManualResetEvent mre)
         {
             foreach (var p in process)
             {
@@ -131,13 +122,14 @@ namespace EasySave.src.Utils
             }
             foreach (KeyValuePair<FileInfo, FileInfo> data in files)
             {
+                LogUtils.LogSaves();
+                mre.WaitOne();
                 FileInfo source = data.Key;
                 FileInfo dest = data.Value;
                 //Check if save is running
                 if (s.GetStatus() != JobStatus.Running)
                     return JobStatus.Canceled;
                 //Update json data
-                LogUtils.LogSaves();
                 bool fileCopied = true;
                 bool fileExists = File.Exists(dest.FullName);
                 //Proceed differential mode by comparing files data
@@ -232,6 +224,16 @@ namespace EasySave.src.Utils
         public static string[] GetActualFile()
         {
             return actualFile;
+        }
+
+        public static void PauseTransfer()
+        {
+            mre.Reset();
+        }
+
+        public static void ResumeTransfer()
+        {
+            mre.Set();
         }
 
         /// <summary>
