@@ -1,12 +1,6 @@
-﻿using EasySave.Properties;
-using EasySave.src.Models.Data;
-using EasySave.src.Utils;
+﻿using EasySave.src.Models.Data;
 using EasySave.src.ViewModels;
-using Notifications.Wpf;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace EasySave.src.Render
@@ -31,21 +25,6 @@ namespace EasySave.src.Render
         {
             SaveViewModel.StopAllSaves();
             Environment.Exit(code);
-        }
-
-        private void RenderChangeLanguage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static object CreateProgressBar(Save s)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void WriteError(string v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

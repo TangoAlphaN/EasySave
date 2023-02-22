@@ -35,11 +35,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="200"></RowDefinition>
-                <RowDefinition Height="20"></RowDefinition>
-                <RowDefinition Height="120"></RowDefinition>
-                <RowDefinition Height="20"></RowDefinition>
-                <RowDefinition Height="120"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="200"></RowDefinition>
             </Grid.RowDefinitions>
@@ -57,11 +57,11 @@
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
                    VerticalAlignment="Center"
-                   Grid.Row="1"/>
+                   Grid.Row="7"/>
             <ItemsControl ItemsSource="{Binding CryptoSoftSourceCollection}"
                       Width="650"
                       Height="150"
-                      Grid.Row="2"
+                      Grid.Row="8"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
 
@@ -77,7 +77,7 @@
                                  AcceptsReturn="true"
                                  Height="Auto"
                                  TextWrapping="Wrap"
-                                 TextChanged="textChangedEventHandler"
+                                 TextChanged="TextChangedEventHandler"
                                  />
                         </Grid>
                     </DataTemplate>
@@ -93,11 +93,11 @@
             <TextBlock Text="{x:Static resources:Resource.SettingsMenu_ChangeLanguage}"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
-                   Grid.Row="3"/>
+                   Grid.Row="1"/>
             <ItemsControl ItemsSource="{Binding LangSourceCollection}"
                       Height="400"
                       Width="650"
-                      Grid.Row="4"
+                      Grid.Row="2"
                       HorizontalAlignment="Center">
 
                 <ItemsControl.ItemTemplate>
@@ -122,11 +122,11 @@
             <TextBlock Text="{x:Static resources:Resource.SettingsMenu_LogsFormat}"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
-                   Grid.Row="5"/>
+                   Grid.Row="3"/>
             <ItemsControl ItemsSource="{Binding LogsSourceCollection}"
                       Width="650"
                       Height="400"
-                      Grid.Row="6"
+                      Grid.Row="4"
                       HorizontalAlignment="Center">
 
                 <ItemsControl.ItemTemplate>
@@ -148,15 +148,15 @@
 
             </ItemsControl>
 
-            <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_CryptoSoft}"
+            <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_Others}"
                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                    Foreground="#DDDDDD"
                    VerticalAlignment="Center"
-                   Grid.Row="7"/>
+                   Grid.Row="5"/>
             <ItemsControl ItemsSource="{Binding SoftPackage_PriorityFiles}"
                       Width="650"
                       Height="150"
-                      Grid.Row="8"
+                      Grid.Row="6"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
 
@@ -172,7 +172,7 @@
                                  AcceptsReturn="true"
                                  Height="Auto"
                                  TextWrapping="Wrap"
-                                 TextChanged="textChangedEventHandler"
+                                 TextChanged="TextChangedEventHandler"
                                  />
                         </Grid>
                     </DataTemplate>

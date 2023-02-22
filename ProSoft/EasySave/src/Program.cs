@@ -12,7 +12,7 @@ namespace EasySave.src
     static class Program
     {
 
-        static Mutex mutex = null;
+        private static Mutex _mutex;
 
         /// <summary>
         /// Main program entry point
@@ -20,14 +20,14 @@ namespace EasySave.src
         [STAThread]
         public static void Main()
         {
-            bool oldInstance;
-            mutex = new Mutex(true, "EasySave", out oldInstance);
+            _mutex = new Mutex(true, "EasySave", out bool oldInstance);
             if (!oldInstance)
             {
                 MessageBox.Show("EasySave is Already Running");
                 Environment.Exit(-9);
             }
             LogUtils.Init();
+            SocketUtils.Init();
             View v = new View();
             v.Start();
             v.Exit();

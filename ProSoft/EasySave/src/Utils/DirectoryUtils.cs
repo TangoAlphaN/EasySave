@@ -21,15 +21,18 @@ namespace EasySave.src.Utils
     /// </summary>
     public static class DirectoryUtils
     {
-        private static string key = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["key"].ToString();
 
-        private static HashSet<string> extensions = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["extensions"].Select(t => t.ToString()).ToHashSet();
+        private static readonly JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
+            
+        private static string key = data["key"].ToString();
+
+        private static HashSet<string> extensions = data["extensions"].Select(t => t.ToString()).ToHashSet();
         
-        private static HashSet<string> process = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["process"].Select(t => t.ToString()).ToHashSet();
+        private static HashSet<string> process = data["process"].Select(t => t.ToString()).ToHashSet();
 
-        private static HashSet<string> priorityFiles = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["priorityFiles"].Select(t => t.ToString()).ToHashSet();
+        private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
 
-        private static Mutex _mutex = new Mutex();
+        private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -43,10 +46,14 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
+            MessageBox.Show(JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json")).ToString());
             CryptoSoft cs = CryptoSoft.Init(key);
+            MessageBox.Show("002");
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
+            MessageBox.Show("003");
             CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType());
+            MessageBox.Show("004");
         }
 
         /// <summary>
@@ -71,6 +78,9 @@ namespace EasySave.src.Utils
             }
             foreach (FileInfo file in src.GetFiles())
             {
+                //Check if save is running
+                if (s.GetStatus() != JobStatus.Running)
+                    return;
                 //Update json data
                 LogUtils.LogSaves();
                 bool fileCopied = true;
@@ -94,7 +104,7 @@ namespace EasySave.src.Utils
                     catch
                     {
                         fileCopied = false;
-                        View.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
+                        //TODO Notification View.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
                     }
                     watch.Stop();
                     //Log transfer in json
@@ -106,6 +116,7 @@ namespace EasySave.src.Utils
                 if (fileCopied)
                     s.AddFileCopied();
                 s.AddSizeCopied(file.Length);
+                s.ProgressBar = s.CalculateProgress();
             }
 
             //Recursive call for subdirectories

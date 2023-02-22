@@ -32,7 +32,7 @@ namespace EasySave.src.Utils
         /// </summary>
         private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
 
-        private static Mutex _mutex = new Mutex();
+        private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Init logs util
@@ -68,6 +68,10 @@ namespace EasySave.src.Utils
                     LogSaves();
                 }
             }
+            if (!File.Exists($"{path}config.json")){
+                HashSet<string> empty = new HashSet<string>();
+                LogConfig("CHANGETHISKEY", empty, empty, empty);
+            }
         }
 
         /// <summary>
@@ -75,19 +79,19 @@ namespace EasySave.src.Utils
         /// </summary>
         public static void LogSaves()
         {
-            if(_format == LogsFormat.XML)
+            _mutex.WaitOne();
+            if (_format == LogsFormat.XML)
                 new XDocument(SavesToXml()).Save($"{path}saves.xml");
             else
-                _mutex.WaitOne();
                 File.WriteAllText($"{path}saves.json", SavesToJson().ToString());
-                _mutex.ReleaseMutex();
+            _mutex.ReleaseMutex();
         }
 
         /// <summary>
         /// Convert saves into json
         /// </summary>
         /// <returns>json object</returns>
-        private static JObject SavesToJson()
+        public static JObject SavesToJson()
         {
             JObject data = new JObject();
             foreach (Save s in Save.GetSaves())
@@ -204,7 +208,8 @@ namespace EasySave.src.Utils
                 data.Element("transfers").Add(transferInfo);
                 data.Save($"{path}data-{_date}.xml");
             }
-            else {
+            else
+            {
                 transferInfo = new JObject();
                 transferInfo.name = $"{s.GetName()} ({s.uuid})";
                 transferInfo.fileSource = sourcePath;
