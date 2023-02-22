@@ -336,4 +336,7 @@
   <data name="Settings.LimitSize" xml:space="preserve">
     <value>Ограничение размера файла резервной копии (кБ)</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
 </root>

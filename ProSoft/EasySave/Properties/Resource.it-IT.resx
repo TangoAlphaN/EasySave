@@ -336,4 +336,7 @@
   <data name="Settings.LimitSize" xml:space="preserve">
     <value>Limite di dimensione di un file di backup (kB)</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Indietro</value>
+  </data>
 </root>

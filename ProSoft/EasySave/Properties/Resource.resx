@@ -336,4 +336,7 @@
   <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
     <value>File size limit</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
 </root>
