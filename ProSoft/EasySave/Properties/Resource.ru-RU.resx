@@ -339,4 +339,7 @@
   <data name="Resource.Header_SaveCanceled" xml:space="preserve">
     <value>La sauvegarde a été annulée</value>
   </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>Охрана возобновилась</value>
+  </data>
 </root>
