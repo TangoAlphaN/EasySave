@@ -324,4 +324,10 @@
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Другие параметры</value>
   </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Ограничение размера файла</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Ограничение размера файла резервной копии (кБ)</value>
+  </data>
 </root>

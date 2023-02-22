@@ -324,4 +324,10 @@
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Altri parametri</value>
   </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Limite di dimensione dei file</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Limite di dimensione di un file di backup (kB)</value>
+  </data>
 </root>
