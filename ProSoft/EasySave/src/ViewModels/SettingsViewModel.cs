@@ -1,29 +1,25 @@
 using EasySave.Properties;
-using EasySave.src.Models;
 using EasySave.src.Render;
 using EasySave.src.Render.Views;
 using EasySave.src.Utils;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Input;
 
 namespace EasySave.src.ViewModels
 {
     public class SettingsViewModel
     {
-        private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection, _Package_Priority, _LimitSize;
+        private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection, _priorityFilesItemsCollection, _sizeLimitItemsCollection;
         public ICollectionView CryptoSoftSourceCollection => _cryptoSoftSettingsItemsCollection.View;
         public ICollectionView LangSourceCollection => _langItemsCollection.View;
         public ICollectionView LogsSourceCollection => _logItemsCollection.View;
-        public ICollectionView SoftPackage_PriorityFiles => _Package_Priority.View;
-        public ICollectionView SoftPackage_LimitSize => _LimitSize.View;
+        public ICollectionView PriorityFilesSourceCollection => _priorityFilesItemsCollection.View;
+        public ICollectionView SizeLimitSourceCollection => _sizeLimitItemsCollection.View;
 
         public SettingsViewModel()
         {
@@ -57,8 +53,8 @@ namespace EasySave.src.ViewModels
             _cryptoSoftSettingsItemsCollection = new CollectionViewSource { Source = cryptoSoftItems };
             _langItemsCollection = new CollectionViewSource { Source = langItems };
             _logItemsCollection = new CollectionViewSource { Source = logItems };
-            _Package_Priority = new CollectionViewSource { Source = priorityItems };
-            _LimitSize = new CollectionViewSource { Source = limitSize };
+            _priorityFilesItemsCollection = new CollectionViewSource { Source = priorityItems };
+            _sizeLimitItemsCollection = new CollectionViewSource { Source = limitSize };
         }
 
         private static void ChangeLanguage(object culture)
@@ -78,7 +74,7 @@ namespace EasySave.src.ViewModels
                 case var _ when (string)culture == Resource.Lang_ru_RU:
                     cultureData = "ru-RU";
                     break;
-                    
+
             }
             CultureInfo cultureInfo = new CultureInfo(cultureData.ToString());
             Thread.CurrentThread.CurrentUICulture = cultureInfo;

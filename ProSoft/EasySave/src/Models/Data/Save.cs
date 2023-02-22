@@ -63,11 +63,6 @@ namespace EasySave.src.Models.Data
         /// </summary>
         public readonly DestDir DestDir;
 
-        /// <summary>
-        /// Semaphore to change stat of save
-        /// </summary>
-        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(0);
-
         /*public long length;
 
         public int ProgressBar
@@ -189,32 +184,10 @@ namespace EasySave.src.Models.Data
         /// A stopwatch is created, save is launched and stopwatch is stopped
         /// </summary>
         /// <returns>result of the save job</returns>
-        public string Run()
+        public void Run()
         {
             Status = JobStatus.Running;
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
             DirectoryUtils.CopyFilesAndFolders(this);
-            sw.Stop();
-            return ProcessResult(sw);
-        }
-
-        /// <summary>
-        /// Protected method to get result of the save
-        /// </summary>
-        /// <param name="sw">stopwatch to mesure time</param>
-        /// <returns>job result (json format)</returns>
-        protected string ProcessResult(Stopwatch sw)
-        {
-            //Update of json data before returning result
-            LogUtils.LogSaves();
-            dynamic result = new JObject();
-            result.name = _name;
-            result.status = Status.ToString();
-            result.filesCopied = _filesCopied;
-            result.sizeCopied = $"{_sizeCopied / (1024 * 1024)} Mo";
-            result.duration = $"{(int)sw.Elapsed.TotalSeconds}s";
-            return result.ToString();
         }
 
         /// <summary>

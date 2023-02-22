@@ -35,7 +35,8 @@ namespace EasySave.src.Render.Views
                 message: upToDate ? Resource.Header_UpToDate : Resource.Header_NoUpToDate + "\n" + "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
                 type: upToDate ? NotificationType.Success : NotificationType.Warning,
                 url: upToDate ? "" : "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
-                time: upToDate ? 5 : 15);
+                time: upToDate ? 5 : 15
+            );
         }
     }
 }

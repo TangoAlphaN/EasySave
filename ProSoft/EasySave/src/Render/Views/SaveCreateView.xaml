@@ -88,7 +88,7 @@
                     Height="25"
                     HorizontalAlignment="Right"
                     Background="Transparent" 
-                    Click="SelectFilePathCommand"
+                    Click="SelectFilePathCommandSrc"
                     BorderThickness="1">
                 <Image Source="/src/Render/Assets/Folder.png"/>
             </Button>

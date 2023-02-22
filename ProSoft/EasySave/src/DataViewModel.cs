@@ -8,7 +8,7 @@ namespace EasySave.src
         public string NavigationImage { get; set; }
     }
 
-    public class HomeItems
+    public class HomeItem
     {
         public string HomeName { get; set; }
         public string HomeImage { get; set; }

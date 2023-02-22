@@ -98,13 +98,12 @@ namespace EasySave.src.ViewModels
         /// <param name="save">save to run</param>
         /// <returns>save job result</returns>
 
-        public string RunSave(Save save)
+        public void RunSave(Save save)
         {
             new Thread(() =>
             {
                 save.Run();
             }).Start();
-            return "";
         }
 
         /// <summary>
