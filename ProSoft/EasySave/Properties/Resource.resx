@@ -336,4 +336,7 @@
   <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
     <value>File size limit</value>
   </data>
+  <data name="Resource.Header_SaveCanceled" xml:space="preserve">
+    <value>The backup has been cancelled</value>
+  </data>
 </root>

@@ -610,6 +610,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The backup has been cancelled.
+        /// </summary>
+        public static string Resource_Header_SaveCanceled {
+            get {
+                return ResourceManager.GetString("Resource.Header_SaveCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resume.
         /// </summary>
         public static string Resume {

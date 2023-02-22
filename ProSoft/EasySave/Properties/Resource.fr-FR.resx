@@ -336,4 +336,7 @@
   <data name="Settings.LimitSize" xml:space="preserve">
     <value>Taille limite d'un fichier de sauvegarde (kO)</value>
   </data>
+  <data name="Resource.Header_SaveCanceled" xml:space="preserve">
+    <value>La sauvegarde a été annulée</value>
+  </data>
 </root>
