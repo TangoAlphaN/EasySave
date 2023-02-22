@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <AssemblyVersion>3.0.0</AssemblyVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>EasySave.src.Program</StartupObject>
