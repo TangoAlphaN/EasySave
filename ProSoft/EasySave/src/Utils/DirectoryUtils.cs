@@ -27,6 +27,8 @@ namespace EasySave.src.Utils
 
         private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
 
+        private static HashSet<string> limitSize = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["limitSize"].Select(t => t.ToString()).ToHashSet();
+
         private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
@@ -204,9 +206,15 @@ namespace EasySave.src.Utils
             UpdateConfig();
         }
 
+        public static void ChangeLimitSize(HashSet<string> newLimitSize)
+        {
+            limitSize = newLimitSize;
+            UpdateConfig();
+        }
+
         private static void UpdateConfig()
         {
-            LogUtils.LogConfig(key, extensions, process, priorityFiles);
+            LogUtils.LogConfig(key, extensions, process, priorityFiles, limitSize);
         }
 
         public static string GetSecret()
@@ -234,6 +242,11 @@ namespace EasySave.src.Utils
         public static string GetPriorityFiles()
         {
             return string.Join("\r\n", priorityFiles);
+        }
+
+        public static string GetLimitSize()
+        {
+            return string.Join("\r\n", limitSize);
         }
     }
 }

@@ -130,20 +130,33 @@ namespace EasySave.src.Render.Views
                     {
                         case "Waiting":
                             _viewModel.RunSave(save);
+                            NotificationUtils.SendNotification(
+                                title: $"{save.GetName()} - {save.uuid}",
+                                message: Resource.Header_SaveLaunched,
+                                type: NotificationType.Success,
+                                time: 15
+                            );
                             break;
                         case "Paused":
                             _viewModel.ResumeSave(save);
+                            NotificationUtils.SendNotification(
+                                title: $"{save.GetName()} - {save.uuid}",
+                                message: Resource.Header_SavePaused,
+                                type: NotificationType.Success,
+                                time: 15
+                            );
                             break;
                     }
+
                     save.PropertyChanged += Save_PropertyChanged;
-                    UpdateProgressBar(save.CalculateProgress());
+                    /*Dispatcher.Invoke(() =>
+                    {
+                        UpdateProgressBar(save.CalculateProgress());
+
+                    });*/
                 });
                 UpdateSaves();
-                NotificationUtils.SendNotification(
-                    title: "EasySave",
-                    message: Resource.Success,
-                    type: NotificationType.Success,
-                    time: 15);
+
             }
             else
             {
@@ -154,13 +167,10 @@ namespace EasySave.src.Render.Views
                     time: 15);
             }
         }
-        
+
         public void UpdateProgressBar(int value)
         {
-            Dispatcher.Invoke(() =>
-            {
-                SaveProgressBar.Value = value;
-            });
+            SaveProgressBar.Value = value;
         }
 
         private void EditButton_Click(Object sender, RoutedEventArgs e)

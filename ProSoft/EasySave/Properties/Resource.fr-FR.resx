@@ -294,8 +294,8 @@
   <data name="NoSelected" xml:space="preserve">
     <value>Aucun item sélectionné</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Sauvegarde créée avec succès</value>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Sauvegarde débutée</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
     <value>Logiciels métier :</value>
@@ -323,5 +323,17 @@
   </data>
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Autres paramètres</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Sauvegarde terminée</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Sauvegarde en attente</value>
+  </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Limite de la taille des fichiers</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Taille limite d'un fichier de sauvegarde (kO)</value>
   </data>
 </root>

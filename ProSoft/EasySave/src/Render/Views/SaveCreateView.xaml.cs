@@ -59,7 +59,7 @@ namespace EasySave.src.Render.Views
             SaveViewModel.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
             NotificationUtils.SendNotification(
                 title: "EasySave",
-                message: Resource.Success,
+                message: Resource.Header_CreateSaveSuccess,
                 type: NotificationType.Success,
                 time: 15);
 

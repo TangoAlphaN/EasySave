@@ -42,6 +42,8 @@
                 <RowDefinition Height="200"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
             </Grid.RowDefinitions>
 
             <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings}"
@@ -180,6 +182,43 @@
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="2" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+            </ItemsControl>
+
+            <TextBlock Text="{x:Static resources:Resource.HomeMenu_Settings_LimitSize}"
+                   FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                   Foreground="#DDDDDD"
+                   VerticalAlignment="Center"
+                   Grid.Row="9"/>
+            <ItemsControl ItemsSource="{Binding SoftPackage_LimitSize}"
+                      Width="650"
+                      Height="30"
+                      Grid.Row="10"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Content="{Binding SettingsName}" 
+                           Foreground="#DDDDDD"
+                               Margin="0,-25"
+                           FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
+                            <TextBox Text="{Binding SettingsValue}" Tag="{Binding SettingsName}" 
+                                 Margin="10,0"
+                                 AcceptsReturn="true"
+                                 Height="Auto"
+                                 TextWrapping="Wrap"
+                                 TextChanged="TextChangedEventHandler"
+                                 />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="1" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 

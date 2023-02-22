@@ -31,6 +31,9 @@ namespace EasySave.src.Render.Views
                 case var value when value == Resource.Settings_Priority_Files:
                     SettingsViewModel.ChangePriorityFiles(sender.Text);
                     break;
+                case var value when value == Resource.Settings_LimitSize:
+                    SettingsViewModel.ChangeLimitSize(sender.Text);
+                    break;
             }
         }
     }
