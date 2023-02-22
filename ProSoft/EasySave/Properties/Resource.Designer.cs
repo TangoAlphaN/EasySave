@@ -285,11 +285,20 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [NAME] backup stopped.
+        ///   Looks up a localized string similar to [NAME] - Backup Stopped.
         /// </summary>
         public static string Exception_Run_SP_Title {
             get {
                 return ResourceManager.GetString("Exception.Run-SP-Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [NAME] - Backup Restarted.
+        /// </summary>
+        public static string Exception_Run_SP_TitleOK {
+            get {
+                return ResourceManager.GetString("Exception.Run-SP-TitleOK", resourceCulture);
             }
         }
         
@@ -299,6 +308,15 @@ namespace EasySave.Properties {
         public static string Exception_Running_Software_Package {
             get {
                 return ResourceManager.GetString("Exception.Running-Software-Package", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The software &quot;[PROCESS]&quot; is not running anymore.
+        /// </summary>
+        public static string Exception_Running_Software_PackageOK {
+            get {
+                return ResourceManager.GetString("Exception.Running-Software-PackageOK", resourceCulture);
             }
         }
         

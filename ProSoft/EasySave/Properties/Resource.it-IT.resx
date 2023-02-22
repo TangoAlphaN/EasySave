@@ -310,7 +310,7 @@
     <value>Il software "[PROCESS]" è in esecuzione</value>
   </data>
   <data name="Exception.Run-SP-Title" xml:space="preserve">
-    <value>[NAME] backup interrotto</value>
+    <value>[NAME] - Backup Interrotto</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Errore</value>
@@ -343,5 +343,11 @@
   </data>
   <data name="Header.SaveResumed" xml:space="preserve">
     <value>La salvaguardia è ripresa</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>Il software "[PROCESS]" è stato chiuso</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>[NAME] - Backup Restarted</value>
   </data>
 </root>
