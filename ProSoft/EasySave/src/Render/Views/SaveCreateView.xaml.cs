@@ -17,14 +17,17 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveCreateView : UserControl
     {
-        SaveType _type;
+        private SaveType _type;
 
-        public SaveCreateView()
+        private SaveView _sv;
+
+        public SaveCreateView(SaveView saveView)
         {
+            _sv = saveView;
             InitializeComponent();
         }
 
-        private void SelectFilePathCommand(object sender, RoutedEventArgs e)
+        private void SelectFilePathCommandSrc(object sender, RoutedEventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog
             {
@@ -46,7 +49,7 @@ namespace EasySave.src.Render.Views
                 TxtDest.Text = dialog.FileName;
         }
 
-        public void RadioCheck(Object sender, EventArgs e)
+        private void RadioCheck(Object sender, EventArgs e)
         {
             if (btnFull.IsChecked == true)
                 _type = Full;
@@ -77,8 +80,7 @@ namespace EasySave.src.Render.Views
             TxtDest.Text = "";
             btnFull.IsChecked = false;
             btnDiff.IsChecked = false;
-            SaveView saveView = new SaveView();
-            CreateFrame.NavigationService.Navigate(saveView);
+            CreateFrame.NavigationService.Navigate(_sv);
         }
     }
 }
