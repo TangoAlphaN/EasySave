@@ -24,10 +24,11 @@
             Text="{x:Static resources:Resource.Settings}" />
         <TextBlock Margin="0,12,0,0" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />
         <Grid VerticalAlignment="Center"
+              Margin="0,50"
               HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -37,18 +38,19 @@
             <TextBlock
             FontWeight="Medium"
             Grid.Row="0"
-            VerticalAlignment="Center"
             Grid.Column="0"
+            VerticalAlignment="Center"
             Margin="20,0"
             Text="{x:Static resources:Resource.Ip}" />
-            <ui:TextBox Name="IpBox" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Text="{Binding ViewModel.Ip}" Width="120"/>
+            <ui:TextBox Name="IpBox" Margin="0,10" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Text="{Binding ViewModel.Ip}" Width="200"/>
             <TextBlock
             FontWeight="Medium"
             Grid.Row="1"
             Grid.Column="0"
+            VerticalAlignment="Center"
             Margin="20,0"
             Text="{x:Static resources:Resource.Port}" />
-            <ui:TextBox Name="PortBox"  Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="{Binding ViewModel.Port}" Width="120"/>
+            <ui:TextBox Name="PortBox" Margin="0,10" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="{Binding ViewModel.Port}" Width="120"/>
             <ui:Button Margin="0,20" Grid.Row="3" Grid.Column="1" Content="{x:Static resources:Resource.Save}" Click="SaveSettings" HorizontalAlignment="Center"/>
         </Grid>
     </StackPanel>
