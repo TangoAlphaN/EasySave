@@ -272,7 +272,7 @@ namespace EasySave.src.Utils
                 new JProperty("extensions", new JArray(extensions.Where(k => k.Length > 0))),
                 new JProperty("process", new JArray(process.Where(k => k.Length > 0))),
                 new JProperty("priorityFiles", new JArray(priorityFiles.Where(k => k.Length > 0))),
-                new JProperty("limitSize", new JArray(priorityFiles.Where(k => k.Length > 0)))
+                new JProperty("limitSize", new JArray(limitSize.Where(k => k.Length > 0)))
             );
             string json = JsonConvert.SerializeObject(data);
             File.WriteAllText($"{path}config.json", json);
