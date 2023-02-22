@@ -349,6 +349,33 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backup finished.
+        /// </summary>
+        public static string Header_SaveFinished {
+            get {
+                return ResourceManager.GetString("Header.SaveFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup started.
+        /// </summary>
+        public static string Header_SaveLaunched {
+            get {
+                return ResourceManager.GetString("Header.SaveLaunched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup paused.
+        /// </summary>
+        public static string Header_SavePaused {
+            get {
+                return ResourceManager.GetString("Header.SavePaused", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save successfully renamed.
         /// </summary>
         public static string Header_SaveRenamed {
@@ -669,15 +696,6 @@ namespace EasySave.Properties {
         public static string SettingsMenu_LogsFormat {
             get {
                 return ResourceManager.GetString("SettingsMenu.LogsFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save created successfully.
-        /// </summary>
-        public static string Success {
-            get {
-                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
     }

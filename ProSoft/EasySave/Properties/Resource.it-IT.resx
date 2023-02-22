@@ -294,8 +294,8 @@
   <data name="NoSelected" xml:space="preserve">
     <value>Nessun elemento selezionato</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Backup creato con successo</value>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Backup avviato</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
     <value>Pacchetto software:</value>
@@ -323,5 +323,11 @@
   </data>
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Altri parametri</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Backup completato</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Backup in pausa</value>
   </data>
 </root>

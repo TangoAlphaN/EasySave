@@ -294,8 +294,8 @@
   <data name="NoSelected" xml:space="preserve">
     <value>Элемент не выбран</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Резервная копия успешно создана</value>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Резервное копирование запущено</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
     <value>программный пакет:</value>
@@ -323,5 +323,11 @@
   </data>
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Другие параметры</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Резервное копирование завершено</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Резервное копирование приостановлено</value>
   </data>
 </root>
