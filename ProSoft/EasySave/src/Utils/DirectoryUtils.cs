@@ -27,9 +27,11 @@ namespace EasySave.src.Utils
 
         private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
 
-        private static HashSet<string> limitSize = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"))["limitSize"].Select(t => t.ToString()).ToHashSet();
+        private static int limitSize = int.Parse(data["limitSize"].ToString());
 
         private static readonly Mutex _mutex = new Mutex();
+
+        private static CryptoSoft cs = CryptoSoft.Init(key);
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -43,80 +45,103 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
-            CryptoSoft cs = CryptoSoft.Init(key);
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
-            CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType());
+            Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory);
+            CopyAll(s, files);
+        }
+
+        private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest)
+        {
+            Dictionary<FileInfo, FileInfo> files = new Dictionary<FileInfo, FileInfo>();
+            foreach (FileInfo file in src.GetFiles())
+            {
+                files.Add(file, new FileInfo(Path.Combine(dest.FullName, file.Name)));
+            }
+            //Recursive call for subdirectories
+            foreach (DirectoryInfo directory in src.GetDirectories())
+            {
+                DirectoryInfo nextTarget = dest.CreateSubdirectory(directory.Name);
+                Dictionary<FileInfo, FileInfo> subFiles = GetAllFiles(directory, nextTarget);
+                foreach (KeyValuePair<FileInfo, FileInfo> file in subFiles)
+                    files.Add(file.Key, file.Value);
+            }
+            return files;
         }
 
         /// <summary>
         /// Method to copy all files and folders from a source directory to a destination directory
         /// </summary>
-        /// <param name="cs">cryptosofct instance</param>
         /// <param name="s">concerned save</param>
-        /// <param name="src">source dir</param>
-        /// <param name="dest">destination dir</param>
-        /// <param name="type">type of save</param>
-        private static void CopyAll(CryptoSoft cs, Save s, DirectoryInfo src, DirectoryInfo dest, SaveType type)
+        /// <param name="files">list of files</param>
+        private static void CopyAll(Save s, Dictionary<FileInfo, FileInfo> files)
         {
             foreach (var p in process)
             {
                 Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToLower());
-                if (processes.Length > 0)
+                if (processes.Length > 0 && s.GetStatus() == JobStatus.Running)
                 {
                     NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_Title.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p));
-                    s.Stop();
+                    s.Pause();
+                    Process first = processes[0];
+                    if (first != null)
+                    {
+                        first.EnableRaisingEvents = true;
+                        first.Exited += (sender, e) =>
+                        {
+                            if (s.GetStatus() == JobStatus.Paused)
+                            {
+                                NotificationUtils.SendNotification(title: $"Reprise de {s.GetName()}", message: $"{p} est maintenant fermé, reprise de la sauvegarde");
+                                s.Resume();
+                            }
+                        };
+                    }
                     return;
                 }
             }
-            foreach (FileInfo file in src.GetFiles())
+            foreach (KeyValuePair<FileInfo, FileInfo> data in files)
             {
+                FileInfo source = data.Key;
+                FileInfo dest = data.Value;
                 //Check if save is running
                 if (s.GetStatus() != JobStatus.Running)
                     return;
                 //Update json data
                 LogUtils.LogSaves();
                 bool fileCopied = true;
-                bool fileExists = File.Exists(Path.Combine(dest.FullName, file.Name));
+                bool fileExists = File.Exists(dest.FullName);
                 //Proceed differential mode by comparing files data
-                if (type == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(Path.Combine(dest.FullName, file.Name)), File.GetLastWriteTime(Path.Combine(src.FullName, file.Name))) < 0))
+                if (s.GetSaveType() == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0))
                 {
-                    actualFile[0] = src.FullName;
+                    actualFile[0] = source.FullName;
                     actualFile[1] = dest.FullName;
                     //Stopwatch to mesure transfer time
-                    var watch = new System.Diagnostics.Stopwatch();
+                    var watch = new Stopwatch();
                     long encryptionTime = -2;
                     watch.Start();
                     try
                     {
-                        if (extensions.Contains(file.Extension))
-                            encryptionTime = cs.ProcessFile(Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, $"{file.Name}.enc"));
+                        if (extensions.Contains(source.Extension))
+                            encryptionTime = cs.ProcessFile(source.FullName, Path.Combine(dest.FullName, ".enc"));
                         else
-                            file.CopyTo(Path.Combine(dest.FullName, file.Name), true);
+                            source.CopyTo(dest.FullName, true);
                     }
                     catch
                     {
                         fileCopied = false;
-                        NotificationUtils.SendNotification(Resource.AccesDenied, Path.Combine(dest.FullName, file.Name), time: 3);
+                        NotificationUtils.SendNotification(dest.FullName, Resource.AccesDenied);
                     }
                     watch.Stop();
                     //Log transfer in json
                     _mutex.WaitOne();
-                    LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
+                    LogUtils.LogTransfer(s, source.FullName, dest.FullName, source.Length, watch.ElapsedMilliseconds, encryptionTime);
                     _mutex.ReleaseMutex();
 
                 }
                 if (fileCopied)
                     s.AddFileCopied();
-                s.AddSizeCopied(file.Length);
-                s.ProgressBar = s.CalculateProgress();
-            }
-
-            //Recursive call for subdirectories
-            foreach (DirectoryInfo directory in src.GetDirectories())
-            {
-                DirectoryInfo nextTarget = dest.CreateSubdirectory(directory.Name);
-                CopyAll(cs, s, directory, nextTarget, type);
+                s.AddSizeCopied(source.Length);
+                //s.ProgressBar = s.CalculateProgress();
             }
         }
 
@@ -205,12 +230,12 @@ namespace EasySave.src.Utils
             priorityFiles = newPriorityFiles;
             UpdateConfig();
         }
-
-        public static void ChangeLimitSize(HashSet<string> newLimitSize)
+        public static void ChangeLimitSize(int newLimitSize)
         {
             limitSize = newLimitSize;
             UpdateConfig();
         }
+
 
         private static void UpdateConfig()
         {
@@ -244,9 +269,9 @@ namespace EasySave.src.Utils
             return string.Join("\r\n", priorityFiles);
         }
 
-        public static string GetLimitSize()
+        public static int GetLimitSize()
         {
-            return string.Join("\r\n", limitSize);
+            return limitSize;
         }
     }
 }

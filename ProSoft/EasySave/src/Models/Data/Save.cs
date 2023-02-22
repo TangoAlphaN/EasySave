@@ -46,7 +46,7 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Size of files copied
         /// </summary>
-        public long _sizeCopied;
+        private long _sizeCopied;
 
         /// <summary>
         /// Status of the save
@@ -68,7 +68,7 @@ namespace EasySave.src.Models.Data
         /// </summary>
         private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(0);
 
-        public long length;
+        /*public long length;
 
         public int ProgressBar
         {
@@ -78,7 +78,7 @@ namespace EasySave.src.Models.Data
                 _sizeCopied = value;
                 OnPropertyChanged();
             }
-        }
+        }*/
 
         /// <summary>
         /// Save constructor. Constructor is protected to prevent direct instantiation
