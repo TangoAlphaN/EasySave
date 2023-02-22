@@ -62,7 +62,23 @@ namespace EasySave.src.Render.Views
                 message: Resource.Header_CreateSaveSuccess,
                 type: NotificationType.Success,
                 time: 15);
+            CreatSaveName.Text = "";
+            TxtSrc.Text = "";
+            TxtDest.Text = "";
+            btnFull.IsChecked = false;
+            btnDiff.IsChecked = false;
+        }
+        
 
+        private void BackBtnClick(Object sender, RoutedEventArgs e)
+        {
+            CreatSaveName.Text = "";
+            TxtSrc.Text = "";
+            TxtDest.Text = "";
+            btnFull.IsChecked = false;
+            btnDiff.IsChecked = false;
+            SaveView saveView = new SaveView();
+            CreateFrame.NavigationService.Navigate(saveView);
         }
     }
 }
