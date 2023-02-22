@@ -83,5 +83,6 @@
     <Resource Include="src\Render\Assets\Pause.png" />
     <Resource Include="src\Render\Assets\Add.png" />
     <Resource Include="src\Render\Assets\Edit.png" />
+    <Resource Include="src\Render\Assets\Ok.png" />
   </ItemGroup>
 </Project>
