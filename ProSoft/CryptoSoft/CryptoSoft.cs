@@ -40,7 +40,7 @@ namespace ProSoft.CryptoSoft
         /// </summary>
         private CryptoSoft()
         {
-            
+
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace ProSoft.CryptoSoft
         {
             if (key.Length < 8)
                 throw new InvalidDataException("Key must be at least 64 bits long");
-            if(extensions != null)
+            if (extensions != null)
                 _instance ??= new CryptoSoft(key, extensions.ToHashSet());
             else
                 _instance ??= new CryptoSoft(key);
@@ -96,7 +96,7 @@ namespace ProSoft.CryptoSoft
             try
             {
                 //Create output filename automatically if no specified
-                if(outputFile == null)
+                if (outputFile == null)
                 {
                     outputFile = inputFile;
                     if (inputFile.EndsWith(".enc"))
@@ -104,51 +104,22 @@ namespace ProSoft.CryptoSoft
                     else
                         outputFile += ".enc";
                 }
-                //create filestrams
-                _stopwatch.Start();
+                //create filestreams
+                _stopwatch.Restart();
                 using var fin = new FileStream(inputFile, FileMode.Open);
                 using var fout = new FileStream(outputFile, FileMode.Create);
-                //TODO Not Working
-                /*//if file is larger than 500mb
-                if (largeFile)
+                var buffer = new byte[4096];
+                while (true)
                 {
-                    //file is cutted depending of thread numbers
-                    var fileLength = fin.Length;
-                    var numberOfThreads = Environment.ProcessorCount;
-                    var partLength = (int)(fileLength / numberOfThreads);
-                    //each part is crypted in parallel
-                    var tasks = new List<Task>();
-                    for (var i = 0; i < numberOfThreads; i++)
-                    {
-                        var buffer = new byte[partLength];
-                        fin.Read(buffer, 0, partLength);
-                        tasks.Add(Task.Run(() =>
-                        {
-                            for (var j = 0; j < buffer.Length; j++)
-                                buffer[j] = (byte)(buffer[j] ^ _key[j % _key.Length]);
-                            fout.Write(buffer, 0, buffer.Length);
-                        }));
-                    }
-                    //total time is returned
-                    Task.WaitAll(tasks.ToArray());
-                    _stopwatch.Stop();
-                    return _stopwatch.ElapsedMilliseconds;
+                    var bytesRead = fin.Read(buffer);
+                    if (bytesRead == 0)
+                        break;
+                    for (var i = 0; i < bytesRead; ++i)
+                        buffer[i] = (byte)(buffer[i] ^ _key[i % _key.Length]);
+                    fout.Write(buffer, 0, bytesRead);
                 }
-                else
-                {*/
-                    var buffer = new byte[4096];
-                    while (true)
-                    {
-                        var bytesRead = fin.Read(buffer);
-                        if (bytesRead == 0)
-                            break;
-                        for (var i = 0; i < bytesRead; ++i)
-                            buffer[i] = (byte)(buffer[i] ^ _key[i % _key.Length]);
-                        fout.Write(buffer, 0, bytesRead);
-                    }
-                    _stopwatch.Stop();
-                    return _stopwatch.ElapsedMilliseconds;
-                //}
+                _stopwatch.Stop();
+                return _stopwatch.ElapsedMilliseconds;
             }
             catch
             {
@@ -160,7 +131,7 @@ namespace ProSoft.CryptoSoft
         {
             Dictionary<string, long> result = new Dictionary<string, long>();
             List<Task> tasks = new List<Task>();
-            foreach(string file in inputFiles)
+            foreach (string file in inputFiles)
             {
                 string outputFile;
                 if (outputDir == null)
@@ -175,15 +146,15 @@ namespace ProSoft.CryptoSoft
                     outputFile = outputDir + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(file) + ".enc";
                 if (_extensions.Count == 0 || _extensions.Contains(Path.GetExtension(file)))
                 {
-                    
+
                     try
                     {
-                    
+
                         tasks.Add(Task.Run(() =>
                         {
                             try
                             {
-                                long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (200*1024*1024));
+                                long time = ProcessFile(file, outputFile, new FileInfo(file).Length > (200 * 1024 * 1024));
                                 result.Add(outputFile, time);
                             }
                             catch
@@ -196,7 +167,8 @@ namespace ProSoft.CryptoSoft
                     {
                         result.Add(outputFile, -1);
                     }
-                }else
+                }
+                else
                     result.Add(outputFile, -2);
             }
             Task.WaitAll(tasks.ToArray());
