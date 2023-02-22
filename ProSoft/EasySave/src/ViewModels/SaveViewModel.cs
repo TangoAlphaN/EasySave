@@ -1,4 +1,3 @@
-using System;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
 using System.Collections.Generic;
@@ -6,14 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
-using System.Windows;
 using System.Windows.Data;
-using EasySave.src.Render;
-using System.Windows.Input;
-using System.Windows.Threading;
-using EasySave.Properties;
-using System.Windows.Data;
-using Notification.Wpf;
 
 namespace EasySave.src.ViewModels
 {
@@ -81,11 +73,13 @@ namespace EasySave.src.ViewModels
         public void PauseSave(Save s)
         {
             s.Pause();
+            DirectoryUtils.PauseTransfer();
         }
 
         public void ResumeSave(Save s)
         {
             s.Resume();
+            DirectoryUtils.ResumeTransfer();
         }
 
         public void CancelSave(Save s)
@@ -109,11 +103,6 @@ namespace EasySave.src.ViewModels
             new Thread(() =>
             {
                 save.Run();
-                NotificationUtils.SendNotification(
-                    title: $"{save.GetName()} - {save.uuid}",
-                    message: Resource.Header_SaveFinished,
-                    type: NotificationType.Success,
-                    time: 15);
             }).Start();
             return "";
         }
@@ -152,7 +141,7 @@ namespace EasySave.src.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         public void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

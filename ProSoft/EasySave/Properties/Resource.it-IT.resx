@@ -338,5 +338,10 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>Indietro</value>
+  </data>>  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>Il backup è stato annullato</value>
+  </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>La salvaguardia è ripresa</value>
   </data>
 </root>
