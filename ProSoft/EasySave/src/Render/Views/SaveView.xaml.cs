@@ -323,7 +323,10 @@ namespace EasySave.src.Render.Views
             }
         }
 
-
+        /*
+        public int ZSave = 0;
+        */
+        
         private void GoTo(object sender, RoutedEventArgs e)
         {
             if (Application.Current.MainWindow != null)
@@ -332,6 +335,5 @@ namespace EasySave.src.Render.Views
                 SaveFrame.NavigationService.Navigate(createSave);
             }
         }
-
     }
 }

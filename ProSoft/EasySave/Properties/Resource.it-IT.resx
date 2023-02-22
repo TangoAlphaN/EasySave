@@ -336,7 +336,9 @@
   <data name="Settings.LimitSize" xml:space="preserve">
     <value>Limite di dimensione di un file di backup (kB)</value>
   </data>
-  <data name="Header.SaveCanceled" xml:space="preserve">
+  <data name="Back" xml:space="preserve">
+    <value>Indietro</value>
+  </data>>  <data name="Header.SaveCanceled" xml:space="preserve">
     <value>Il backup è stato annullato</value>
   </data>
   <data name="Header.SaveResumed" xml:space="preserve">
