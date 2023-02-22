@@ -56,7 +56,7 @@ namespace EasySave.src.Utils
                 case JobStatus.Canceled:
                     NotificationUtils.SendNotification(
                         title: $"{s.GetName()} - {s.uuid}",
-                        message: Resource.Header_SavePaused,
+                        message: Resource.Header_SaveCanceled,
                         type: NotificationType.Success
                     );
                     s.Cancel();

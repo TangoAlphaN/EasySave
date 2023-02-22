@@ -155,7 +155,7 @@
                    Foreground="#DDDDDD"
                    VerticalAlignment="Center"
                    Grid.Row="5"/>
-            <ItemsControl ItemsSource="{Binding SoftPackage_PriorityFiles}"
+            <ItemsControl ItemsSource="{Binding FilesSourceCollection}"
                       Width="650"
                       Height="150"
                       Grid.Row="6"
@@ -192,7 +192,7 @@
                    Foreground="#DDDDDD"
                    VerticalAlignment="Center"
                    Grid.Row="9"/>
-            <ItemsControl ItemsSource="{Binding SoftPackage_LimitSize}"
+            <ItemsControl ItemsSource="{Binding SizeLimitSourceCollection}"
                       Width="650"
                       Height="30"
                       Grid.Row="10"

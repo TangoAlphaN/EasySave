@@ -14,11 +14,11 @@ namespace EasySave.src.ViewModels
 {
     public class SettingsViewModel
     {
-        private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection, _priorityFilesItemsCollection, _sizeLimitItemsCollection;
+        private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection, _filesItemsCollection, _sizeLimitItemsCollection;
         public ICollectionView CryptoSoftSourceCollection => _cryptoSoftSettingsItemsCollection.View;
         public ICollectionView LangSourceCollection => _langItemsCollection.View;
         public ICollectionView LogsSourceCollection => _logItemsCollection.View;
-        public ICollectionView PriorityFilesSourceCollection => _priorityFilesItemsCollection.View;
+        public ICollectionView FilesSourceCollection => _filesItemsCollection.View;
         public ICollectionView SizeLimitSourceCollection => _sizeLimitItemsCollection.View;
 
         public SettingsViewModel()
@@ -40,7 +40,7 @@ namespace EasySave.src.ViewModels
                 new SettingsItem { SettingsName = "JSON", SettingsImage = @"Assets/json.png", SettingsCommand = new RelayCommand(ChangeLogsFormat) },
                 new SettingsItem { SettingsName = "XML", SettingsImage = @"Assets/xml.png", SettingsCommand = new RelayCommand(ChangeLogsFormat) },
             };
-            ObservableCollection<SettingsItem> priorityItems = new ObservableCollection<SettingsItem>
+            ObservableCollection<SettingsItem> fileSettings = new ObservableCollection<SettingsItem>
             {
                 new SettingsItem { SettingsName = $"{Resource.Settings_Software_Package}", SettingsValue = DirectoryUtils.GetProcess(), SettingsCommand = new RelayCommand(ChangeProcess) },
                 new SettingsItem { SettingsName = $"{Resource.Settings_Priority_Files}", SettingsValue = DirectoryUtils.GetPriorityFiles(), SettingsCommand = new RelayCommand(ChangePriorityFiles) },
@@ -53,7 +53,7 @@ namespace EasySave.src.ViewModels
             _cryptoSoftSettingsItemsCollection = new CollectionViewSource { Source = cryptoSoftItems };
             _langItemsCollection = new CollectionViewSource { Source = langItems };
             _logItemsCollection = new CollectionViewSource { Source = logItems };
-            _priorityFilesItemsCollection = new CollectionViewSource { Source = priorityItems };
+            _filesItemsCollection = new CollectionViewSource { Source = fileSettings };
             _sizeLimitItemsCollection = new CollectionViewSource { Source = limitSize };
         }
 

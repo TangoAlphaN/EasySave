@@ -98,6 +98,7 @@
                             Value="{Binding UpdateProgressBar}" 
                             Background="#DDDDDDDD" 
                             BorderBrush="Gray" 
+                            Visibility="Collapsed"
                             BorderThickness="2"
                             Width="600" 
                             Height="25" 
@@ -129,17 +130,11 @@
             <Button Grid.Column="0" x:Name="RunBtn" Height="50" Width="50" Click="RunButton_Click" IsEnabled="True" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Play.png" />
             </Button>
-            
+
             <Button Grid.Column="1" x:Name="PauseBtn" Height="50" Width="50" Visibility="Collapsed" Click="PauseButton_Click" IsEnabled="True" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Pause.png" />
             </Button>
-            
-            <!--
-            <Button Grid.Column="2" x:Name="ResumeBtn" Height="25" Width="50" Visibility="Collapsed"  Click="ResumeButton_Click" IsEnabled="True">
-                <Image Source="/src/Render/Assets/Resume.png" />
-            </Button>
-            -->
-            
+
             <Button Grid.Column="2" x:Name="CancelBtn" Height="50" Width="50" Visibility="Collapsed" Click="CancelButton_Click" IsEnabled="True" Background="Transparent" BorderThickness="0">
                 <Image Source="/src/Render/Assets/Cancel.png" />
             </Button>
