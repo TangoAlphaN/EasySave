@@ -294,11 +294,11 @@
   <data name="NoSelected" xml:space="preserve">
     <value>No item selected</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Save created successfully</value>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Backup started</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>Software package</value>
+    <value>Software packages:</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
@@ -307,6 +307,48 @@
     <value>Run</value>
   </data>
   <data name="Exception.Running-Software-Package" xml:space="preserve">
-    <value>The software [PROCESS] is running</value>
+    <value>The software "[PROCESS]" is running</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>[NAME] - Backup Stopped</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>An error occured</value>
+  </data>
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>Priority files:</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Other Settings</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Backup finished</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Backup paused</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Size limit of a backup file (kB)</value>
+  </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>File size limit</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>The backup has been cancelled</value>
+  </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>The backup has resumed</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>The software "[PROCESS]" is not running anymore</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>[NAME] - Backup Restarted</value>
   </data>
 </root>

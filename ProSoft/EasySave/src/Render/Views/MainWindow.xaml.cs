@@ -31,42 +31,11 @@ namespace EasySave.src.Render.Views
         {
             bool upToDate = HomeViewModel.IsUpToDate();
             NotificationUtils.SendNotification(
-                title: $"EasySave {VersionUtils.GetVersionFromGit()}",
+                title: $"EasySave {VersionUtils.GetVersionFromLocal().ToString()[0..5]}",
                 message: upToDate ? Resource.Header_UpToDate : Resource.Header_NoUpToDate + "\n" + "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
                 type: upToDate ? NotificationType.Success : NotificationType.Warning,
                 url: upToDate ? "" : "https://github.com/arnoux23u-CESI/EasySave/releases/latest",
-                time: upToDate ? 5 : 30);
+                time: upToDate ? 5 : 15);
         }
-
-        private void OpenUrl(string url, bool open = false)
-        {
-            if (!open) return;
-            try
-            {
-                Process.Start(url);
-            }
-            catch
-            {
-                // hack because of this: https://github.com/dotnet/corefx/issues/10361
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                {
-                    url = url.Replace("&", "^&");
-                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
-                }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                {
-                    Process.Start("xdg-open", url);
-                }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                {
-                    Process.Start("open", url);
-                }
-                else
-                {
-                    throw;
-                }
-            }
-        }
-
     }
 }

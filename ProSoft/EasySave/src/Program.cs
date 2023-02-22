@@ -1,6 +1,8 @@
 ﻿using EasySave.src.Render;
 using EasySave.src.Utils;
 using System;
+using System.Threading;
+using System.Windows;
 
 namespace EasySave.src
 {
@@ -10,13 +12,22 @@ namespace EasySave.src
     static class Program
     {
 
+        private static Mutex _mutex;
+
         /// <summary>
         /// Main program entry point
         /// </summary>
         [STAThread]
         public static void Main()
         {
+            _mutex = new Mutex(true, "EasySave", out bool oldInstance);
+            if (!oldInstance)
+            {
+                MessageBox.Show("EasySave is Already Running");
+                Environment.Exit(-9);
+            }
             LogUtils.Init();
+            SocketUtils.Init();
             View v = new View();
             v.Start();
             v.Exit();

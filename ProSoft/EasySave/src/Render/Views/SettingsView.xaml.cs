@@ -1,7 +1,5 @@
 ﻿using EasySave.Properties;
 using EasySave.src.ViewModels;
-using Microsoft.WindowsAPICodePack.Shell.Interop;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace EasySave.src.Render.Views
@@ -16,21 +14,26 @@ namespace EasySave.src.Render.Views
             InitializeComponent();
         }
 
-        private void textChangedEventHandler(object senderObj, TextChangedEventArgs args)
+        private void TextChangedEventHandler(object senderObj, TextChangedEventArgs args)
         {
             TextBox sender = (TextBox)senderObj;
             switch (sender.Tag.ToString())
             {
                 case var value when value == Resource.Settings_Secret:
                     SettingsViewModel.ChangeKey(sender.Text);
-                        break;
+                    break;
                 case var value when value == Resource.Settings_Extensions:
                     SettingsViewModel.ChangeExtensions(sender.Text);
-                        break;
+                    break;
                 case var value when value == Resource.Settings_Software_Package:
                     SettingsViewModel.ChangeProcess(sender.Text);
                     break;
-
+                case var value when value == Resource.Settings_Priority_Files:
+                    SettingsViewModel.ChangePriorityFiles(sender.Text);
+                    break;
+                case var value when value == Resource.Settings_LimitSize:
+                    SettingsViewModel.ChangeLimitSize(sender.Text);
+                    break;
             }
         }
     }

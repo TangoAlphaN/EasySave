@@ -51,8 +51,8 @@
                        FontSize="24"
                        FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
                        Foreground="#DDDDDD"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
                        Margin="5,12,0,0" />
             
             <Label Grid.Row="1" 
@@ -81,18 +81,18 @@
                      Height="25"
                      HorizontalAlignment="left"
                      FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-            <Button Grid.Column="1" 
+            <Button Grid.Column="0" 
                     Grid.Row="4"
                     Name="btnOpenFile"
                     Width="50"
                     Height="25"
-                    HorizontalAlignment="left"
-                    Background="#DDDDDD" 
-                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
+                    HorizontalAlignment="Right"
+                    Background="Transparent" 
                     Click="SelectFilePathCommand"
-                    BorderThickness="0"
-                    Content="..."
-                    Foreground="#303030" />
+                    BorderThickness="1">
+                <Image Source="/src/Render/Assets/Folder.png"/>
+            </Button>
+
             
             <Label Grid.Row="5" 
                    Grid.Column="0"
@@ -106,18 +106,18 @@
                      Height="25"
                      HorizontalAlignment="left"
                      FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" />
-            <Button Grid.Column="1" 
+            <Button Grid.Column="0" 
                     Grid.Row="6"
                     Name="btnOpenFileDest"
                     Width="50"
                     Height="25"
-                    HorizontalAlignment="left"
+                    HorizontalAlignment="Right"
                     FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular" 
                     Click="SelectFilePathCommandDest" 
-                    BorderThickness="0"
-                    Content="..."
-                    Background="#DDDDDD"
-                    Foreground="#303030" />
+                    BorderThickness="1"
+                    Background="Transparent" >
+                <Image Source="/src/Render/Assets/Folder.png"/>
+            </Button>
             
             <Label Grid.Column="0"
                    Grid.Row="7"
@@ -154,6 +154,17 @@
                     VerticalAlignment="Bottom"
                     Click="CreateNewSave"
                     />
+            
+            <Button Grid.Row="0"
+                    Grid.Column="0" 
+                    FontFamily="/Fonts/OpenSans-Regular.ttf #Open Sans Regular"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    HorizontalAlignment="Left"
+                    Margin="10"
+                    Click="BackBtnClick">
+                <Image Grid.Row="0" Source="/src/Render/Assets/Back.png"/>
+            </Button>
         </Grid>
         <Frame Canvas.ZIndex="2" x:Name="CreateFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

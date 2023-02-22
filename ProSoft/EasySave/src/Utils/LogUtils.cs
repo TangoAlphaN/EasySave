@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Xml.Linq;
 
 namespace EasySave.src.Utils
@@ -19,7 +20,7 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Path to the log file
         /// </summary>
-        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
+        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\ProSoft\EasySave\";
 
         /// <summary>
         /// Format of the logs
@@ -30,6 +31,8 @@ namespace EasySave.src.Utils
         /// Date of the day
         /// </summary>
         private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
+
+        private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Init logs util
@@ -62,8 +65,13 @@ namespace EasySave.src.Utils
                 }
                 catch
                 {
-                    LogSaves();
                 }
+                LogSaves();
+            }
+            if (!File.Exists($"{path}config.json"))
+            {
+                HashSet<string> empty = new HashSet<string>();
+                LogConfig("CHANGETHISKEY", empty, empty, empty, -1);
             }
         }
 
@@ -72,17 +80,19 @@ namespace EasySave.src.Utils
         /// </summary>
         public static void LogSaves()
         {
-            if(_format == LogsFormat.XML)
+            _mutex.WaitOne();
+            if (_format == LogsFormat.XML)
                 new XDocument(SavesToXml()).Save($"{path}saves.xml");
             else
                 File.WriteAllText($"{path}saves.json", SavesToJson().ToString());
+            _mutex.ReleaseMutex();
         }
 
         /// <summary>
         /// Convert saves into json
         /// </summary>
         /// <returns>json object</returns>
-        private static JObject SavesToJson()
+        public static JObject SavesToJson()
         {
             JObject data = new JObject();
             foreach (Save s in Save.GetSaves())
@@ -199,7 +209,8 @@ namespace EasySave.src.Utils
                 data.Element("transfers").Add(transferInfo);
                 data.Save($"{path}data-{_date}.xml");
             }
-            else {
+            else
+            {
                 transferInfo = new JObject();
                 transferInfo.name = $"{s.GetName()} ({s.uuid})";
                 transferInfo.fileSource = sourcePath;
@@ -255,12 +266,14 @@ namespace EasySave.src.Utils
             return _format;
         }
 
-        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process)
+        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process, HashSet<string> priorityFiles, int limitSize)
         {
             JObject data = new JObject(
                 new JProperty("key", key),
                 new JProperty("extensions", new JArray(extensions.Where(k => k.Length > 0))),
-                new JProperty("process", new JArray(process.Where(k => k.Length > 0)))
+                new JProperty("process", new JArray(process.Where(k => k.Length > 0))),
+                new JProperty("priorityFiles", new JArray(priorityFiles.Where(k => k.Length > 0))),
+                new JProperty("limitSize", limitSize)
             );
             string json = JsonConvert.SerializeObject(data);
             File.WriteAllText($"{path}config.json", json);

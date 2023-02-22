@@ -76,5 +76,15 @@
     <Resource Include="src\Render\Assets\json.png" />
     <Resource Include="src\Render\Assets\xml.png" />
     <Resource Include="src\Render\Assets\validate.png" />
+    <Resource Include="src\Render\Assets\Trash.png" />
+    <Resource Include="src\Render\Assets\Cancel.png" />
+    <Resource Include="src\Render\Assets\Resume.png" />
+    <Resource Include="src\Render\Assets\Play.png" />
+    <Resource Include="src\Render\Assets\Pause.png" />
+    <Resource Include="src\Render\Assets\Add.png" />
+    <Resource Include="src\Render\Assets\Edit.png" />
+    <Resource Include="src\Render\Assets\Ok.png" />
+    <Resource Include="src\Render\Assets\Back.png" />
+    <Resource Include="src\Render\Assets\Folder.png" />
   </ItemGroup>
 </Project>

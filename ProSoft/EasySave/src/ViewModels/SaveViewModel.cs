@@ -4,12 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Windows;
+using System.Threading;
 using System.Windows.Data;
-using EasySave.src.Render;
-using System.Windows.Input;
-using EasySave.Properties;
-
 
 namespace EasySave.src.ViewModels
 {
@@ -20,20 +16,15 @@ namespace EasySave.src.ViewModels
     {
         private readonly CollectionViewSource _saveItemsCollection;
         public ICollectionView SaveSourceCollection => _saveItemsCollection.View;
-        
-        private static bool _isVisible;
-        public static bool IsVisible
-        {
-            get => _isVisible;
-            set => _isVisible = value;
-            //OnPropertyChanged("IsVisible");
-        }
+
+        public static bool IsVisible { get; set; }
 
         public SaveViewModel()
         {
             ObservableCollection<Save> menuItems = new ObservableCollection<Save>(Save.GetSaves());
             _saveItemsCollection = new CollectionViewSource { Source = menuItems };
         }
+
 
         /// <summary>
         /// Get all saves names
@@ -82,16 +73,23 @@ namespace EasySave.src.ViewModels
         public void PauseSave(Save s)
         {
             s.Pause();
+            DirectoryUtils.PauseTransfer();
         }
-        
+
         public void ResumeSave(Save s)
         {
             s.Resume();
+            DirectoryUtils.ResumeTransfer();
         }
-        
+
         public void CancelSave(Save s)
         {
             s.Cancel();
+        }
+
+        public void StopSave(Save s)
+        {
+            s.Stop();
         }
 
         /// <summary>
@@ -102,7 +100,11 @@ namespace EasySave.src.ViewModels
 
         public string RunSave(Save save)
         {
-            return save.Run();
+            new Thread(() =>
+            {
+                save.Run();
+            }).Start();
+            return "";
         }
 
         /// <summary>
@@ -124,10 +126,22 @@ namespace EasySave.src.ViewModels
         /// <returns>list of saves</returns>
         public HashSet<Save> GetSavesByUuid(HashSet<string> names)
         {
-            return new HashSet<Save>(Save.GetSaves().Where(save => names.Contains(save.ToString())).ToList());
+            HashSet<Save> result = new HashSet<Save>();
+            foreach (Save s in Save.GetSaves())
+                foreach (var _ in from string name in names
+                                  where name.Contains(s.uuid.ToString())
+                                  select new { })
+                    result.Add(s);
+            return result;
         }
-        
+
+        public JobStatus GetSaveStatus(Save s)
+        {
+            return s.GetStatus();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

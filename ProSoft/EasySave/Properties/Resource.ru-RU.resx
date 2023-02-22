@@ -294,11 +294,11 @@
   <data name="NoSelected" xml:space="preserve">
     <value>Элемент не выбран</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Резервная копия успешно создана</value>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Резервное копирование запущено</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>программный пакет</value>
+    <value>программный пакет:</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Перерыв</value>
@@ -307,6 +307,51 @@
     <value>Запуск</value>
   </data>
   <data name="Exception.Running-Software-Package" xml:space="preserve">
-    <value>Программа [ПРОЦЕСС] уже запущена</value>
+    <value>Программа "[PROCESS]" уже запущена</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>Резервное копирование [NAME] остановлено</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Произошла ошибка</value>
+  </data>
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>Приоритетные файлы:</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Другие параметры</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Резервное копирование завершено</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Резервное копирование приостановлено</value>
+  </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Ограничение размера файла</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Ограничение размера файла резервной копии (кБ)</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>  
+  <data name="Resource.Header_SaveCanceled" xml:space="preserve">
+    <value>La sauvegarde a été annulée</value>
+  </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>Охрана возобновилась</value>
+  </data>
+  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>Резервное копирование было отменено</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>Программа "[PROCESS]" закрыта</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>[NAME] — Резервное копирование перезапущено</value>
   </data>
 </root>

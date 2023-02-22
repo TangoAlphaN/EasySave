@@ -3,8 +3,10 @@ using EasySave.src.Utils;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 
 namespace EasySave.src.Models.Data
@@ -12,7 +14,7 @@ namespace EasySave.src.Models.Data
     /// <summary>
     /// Abstract class representing a save
     /// </summary>
-    public abstract class Save
+    public abstract class Save : INotifyPropertyChanged
     {
 
         /// <summary>
@@ -64,7 +66,19 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Semaphore to change stat of save
         /// </summary>
-        private SemaphoreSlim _semaphore = new SemaphoreSlim(0);
+        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(0);
+
+        /*public long length;
+
+        public int ProgressBar
+        {
+            get => (int)(_sizeCopied / length * 100);
+            set
+            {
+                _sizeCopied = value;
+                OnPropertyChanged();
+            }
+        }*/
 
         /// <summary>
         /// Save constructor. Constructor is protected to prevent direct instantiation
@@ -128,52 +142,35 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Method to pause a save
         /// </summary>
-        public string Pause()
+        public void Pause()
         {
             Status = JobStatus.Paused;
-            Stopwatch sw = new Stopwatch();
-            _semaphore.Wait();
-            sw.Stop();
-            return ProcessResult(sw);
         }
 
         /// <summary>
         /// Method to resume a save
         /// </summary>
-        public string Resume()
+        public void Resume()
         {
-            Stopwatch sw = new Stopwatch();
             Status = JobStatus.Running;
-            sw.Start();
-            Thread thread = new Thread(() => DirectoryUtils.CopyFilesAndFolders(this));
-            thread.Start();
-            sw.Stop();
-            Status = JobStatus.Finished;
-            return ProcessResult(sw); ;
         }
 
         /// <summary>
         /// Method to cancel a save
         /// </summary>
-        public string Cancel()
+        public void Cancel()
         {
-            Stopwatch sw = new Stopwatch();
-            _semaphore.Release();
-            sw.Stop();
             Status = JobStatus.Canceled;
-            return ProcessResult(sw); ;
         }
 
         /// <summary>
         /// Method to stop a save
         /// </summary>
-        public string Stop()
+        public void Stop()
         {
-            Stopwatch sw = new Stopwatch();
-            _semaphore.Release();
-            sw.Stop();
-            Status = JobStatus.Canceled;
-            return ProcessResult(sw); ;
+            Status = JobStatus.Waiting;
+            _filesCopied = 0;
+            _sizeCopied = 0;
         }
 
         /// <summary>
@@ -199,7 +196,6 @@ namespace EasySave.src.Models.Data
             sw.Start();
             DirectoryUtils.CopyFilesAndFolders(this);
             sw.Stop();
-            Status = JobStatus.Finished;
             return ProcessResult(sw);
         }
 
@@ -245,7 +241,7 @@ namespace EasySave.src.Models.Data
         public static void Init(dynamic data)
         {
             //Data is read from json file and then saves are created
-            if(LogUtils.GetFormat() == LogsFormat.XML)
+            if (LogUtils.GetFormat() == LogsFormat.XML)
             {
                 foreach (var save in data.Root.Elements())
                 {
@@ -258,7 +254,8 @@ namespace EasySave.src.Models.Data
             }
             else
             {
-                foreach (var save in data) {
+                foreach (var save in data)
+                {
                     if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
                     if (save.Value["type"].ToString() == "Full")
                         saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString()), Save.GetStatus(save.Value["state"].ToString())));
@@ -266,7 +263,11 @@ namespace EasySave.src.Models.Data
                         saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString())));
                 }
             }
-           
+            foreach (Save save in saves)
+            {
+                save.Status = JobStatus.Waiting;
+            }
+
         }
 
         /// <summary>
@@ -353,5 +354,24 @@ namespace EasySave.src.Models.Data
         /// <returns>save type</returns>
         public abstract SaveType GetSaveType();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+            field = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        public void MarkAsFinished()
+        {
+            Status = JobStatus.Finished;
+        }
     }
 }

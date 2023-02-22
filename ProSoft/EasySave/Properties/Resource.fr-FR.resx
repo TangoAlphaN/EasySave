@@ -294,11 +294,11 @@
   <data name="NoSelected" xml:space="preserve">
     <value>Aucun item sélectionné</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Sauvegarde créée avec succès</value>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Sauvegarde débutée</value>
   </data>
   <data name="Settings.Software-Package" xml:space="preserve">
-    <value>Logiciel métier</value>
+    <value>Logiciels métier :</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
@@ -308,5 +308,47 @@
   </data>
   <data name="Exception.Running-Software-Package" xml:space="preserve">
     <value>Le logiciel "[PROCESS]" est en cours de fonctionnement</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>Sauvegarde [NAME] stoppée</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Une erreur est survenue</value>
+  </data>
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>Fichiers prioritaires :</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Autres paramètres</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Sauvegarde terminée</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Sauvegarde en attente</value>
+  </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Limite de la taille des fichiers</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Taille limite d'un fichier de sauvegarde (kO)</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>La sauvegarde a été annulée</value>
+  </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>La sauvegarde a repris</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" à été fermé</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>Sauvegarde [NAME] reprise</value>
   </data>
 </root>

@@ -1,12 +1,13 @@
 ﻿
+using EasySave.Properties;
 using EasySave.src.Models.Data;
+using EasySave.src.Utils;
 using EasySave.src.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Notification.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using EasySave.Properties;
-using Notification.Wpf;
 using static EasySave.src.Models.Data.SaveType;
 
 namespace EasySave.src.Render.Views
@@ -25,18 +26,22 @@ namespace EasySave.src.Render.Views
 
         private void SelectFilePathCommand(object sender, RoutedEventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\";
-            dialog.IsFolderPicker = true;
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
+            {
+                InitialDirectory = "C:\\",
+                IsFolderPicker = true
+            };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 TxtSrc.Text = dialog.FileName;
         }
 
         private void SelectFilePathCommandDest(object sender, RoutedEventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\";
-            dialog.IsFolderPicker = true;
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
+            {
+                InitialDirectory = "C:\\",
+                IsFolderPicker = true
+            };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 TxtDest.Text = dialog.FileName;
         }
@@ -52,12 +57,28 @@ namespace EasySave.src.Render.Views
         private void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
             SaveViewModel.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
-            new NotificationManager().Show(new NotificationContent
-            {
-                Title = "Save Success",
-                Message = Resource.Success,
-                Type = NotificationType.Success
-            });
+            NotificationUtils.SendNotification(
+                title: "EasySave",
+                message: Resource.Header_CreateSaveSuccess,
+                type: NotificationType.Success,
+                time: 15);
+            CreatSaveName.Text = "";
+            TxtSrc.Text = "";
+            TxtDest.Text = "";
+            btnFull.IsChecked = false;
+            btnDiff.IsChecked = false;
+        }
+        
+
+        private void BackBtnClick(Object sender, RoutedEventArgs e)
+        {
+            CreatSaveName.Text = "";
+            TxtSrc.Text = "";
+            TxtDest.Text = "";
+            btnFull.IsChecked = false;
+            btnDiff.IsChecked = false;
+            SaveView saveView = new SaveView();
+            CreateFrame.NavigationService.Navigate(saveView);
         }
     }
 }

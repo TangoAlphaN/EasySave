@@ -13,7 +13,7 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Send a notification with multiple parameters
         /// </summary>
-        public static void SendNotification(string title, string message, NotificationType type = NotificationType.Error, string url = null, int time = 5)
+        public static void SendNotification(string title, string message, NotificationType type = NotificationType.Error, string url = "", int time = 5)
         {
             new NotificationManager().Show(new NotificationContent
             {
@@ -21,7 +21,7 @@ namespace EasySave.src.Utils
                 Message = message,
                 Type = type,
             },
-            onClick: () => OpenUrl(url, url.Length > 0),
+            onClick: () => OpenUrl(url, url != null && url.Length > 0),
             expirationTime: TimeSpan.FromSeconds(time)
             );
         }
