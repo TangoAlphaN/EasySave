@@ -111,11 +111,11 @@ namespace EasyClient
                 if (data["port"] != null)
                     Port = int.Parse(data["port"].ToString());
                 else
-                    Port = 6732;
+                    Port = 7637;
             }
             catch (JsonReaderException)
             {
-                SaveSettings("127.0.0.1", "6732");
+                SaveSettings("127.0.0.1", "7637");
             }
 
 
