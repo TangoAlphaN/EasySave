@@ -1,6 +1,9 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
+using EasySave.src.Render.Views;
+using EasySave.src.ViewModels;
 using Newtonsoft.Json.Linq;
+using Notification.Wpf;
 using ProSoft.CryptoSoft;
 using System;
 using System.Collections.Generic;
@@ -48,7 +51,34 @@ namespace EasySave.src.Utils
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory);
-            CopyAll(s, files);
+            switch (CopyAll(s, files)) {
+                case JobStatus.Canceled:
+                    NotificationUtils.SendNotification(
+                        title: $"{s.GetName()} - {s.uuid}",
+                        message: Resource.Header_SaveCanceled,
+                        type: NotificationType.Success
+                    );
+                    SaveViewModel.JobBackups.Remove(s.uuid.ToString());
+                    s.Cancel();
+                    break;
+                case JobStatus.Paused:
+                     NotificationUtils.SendNotification(
+                        title: $"{s.GetName()} - {s.uuid}",
+                        message: Resource.Header_SavePaused,
+                        type: NotificationType.Success
+                    );
+                    s.Pause();
+                    break;
+                case JobStatus.Finished:
+                    NotificationUtils.SendNotification(
+                        title: $"{s.GetName()} - {s.uuid}",
+                        message: Resource.Header_SaveFinished,
+                        type: NotificationType.Success
+                    );
+                    SaveViewModel.JobBackups.Remove(s.uuid.ToString());
+                    s.MarkAsFinished();
+                    break;
+            }
         }
 
         private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest)
@@ -74,7 +104,7 @@ namespace EasySave.src.Utils
         /// </summary>
         /// <param name="s">concerned save</param>
         /// <param name="files">list of files</param>
-        private static void CopyAll(Save s, Dictionary<FileInfo, FileInfo> files)
+        private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files)
         {
             foreach (var p in process)
             {
@@ -96,7 +126,7 @@ namespace EasySave.src.Utils
                             }
                         };
                     }
-                    return;
+                    return JobStatus.Paused;
                 }
             }
             foreach (KeyValuePair<FileInfo, FileInfo> data in files)
@@ -105,7 +135,7 @@ namespace EasySave.src.Utils
                 FileInfo dest = data.Value;
                 //Check if save is running
                 if (s.GetStatus() != JobStatus.Running)
-                    return;
+                    return JobStatus.Canceled;
                 //Update json data
                 LogUtils.LogSaves();
                 bool fileCopied = true;
@@ -143,6 +173,7 @@ namespace EasySave.src.Utils
                 s.AddSizeCopied(source.Length);
                 //s.ProgressBar = s.CalculateProgress();
             }
+            return JobStatus.Finished;
         }
 
         /// <summary>
