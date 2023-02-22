@@ -264,6 +264,10 @@ namespace EasySave.src.Models.Data
                         saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Name.ToString())));
                 }
             }
+            foreach (Save save in saves)
+            {
+                save.Status = JobStatus.Waiting;
+            }
 
         }
 

@@ -65,8 +65,8 @@ namespace EasySave.src.Utils
                 }
                 catch
                 {
-                    LogSaves();
                 }
+                LogSaves();
             }
             if (!File.Exists($"{path}config.json")){
                 HashSet<string> empty = new HashSet<string>();
