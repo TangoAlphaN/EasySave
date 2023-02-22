@@ -135,17 +135,13 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 Parallel.ForEach(saves, save =>
                 {
-                    MessageBox.Show(_saveStatus.ToString()+" "+"1");
                     _saveStatus = _viewModel.GetSaveStatus(save);
-                    MessageBox.Show(_saveStatus.ToString()+" "+"2");
                     switch (_saveStatus.ToString())
                     {
                         case "Waiting":
-                            MessageBox.Show("01");
                             _viewModel.RunSave(save);
                             break;
                         case "Paused":
-                            MessageBox.Show("02");
                             _viewModel.ResumeSave(save);
                             break;
                     }

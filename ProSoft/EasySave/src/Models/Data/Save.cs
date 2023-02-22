@@ -8,8 +8,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using System.Windows;
-using Microsoft.WindowsAPICodePack.Shell.Interop;
 
 namespace EasySave.src.Models.Data
 {
@@ -71,7 +69,7 @@ namespace EasySave.src.Models.Data
         private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(0);
 
         public long length;
-        
+
         public int ProgressBar
         {
             get => (int)(_sizeCopied / length * 100);
@@ -144,52 +142,35 @@ namespace EasySave.src.Models.Data
         /// <summary>
         /// Method to pause a save
         /// </summary>
-        public string Pause()
+        public void Pause()
         {
             Status = JobStatus.Paused;
-            Stopwatch sw = new Stopwatch();
-            _semaphore.Wait();
-            sw.Stop();
-            return ProcessResult(sw);
+            //TODO
         }
 
         /// <summary>
         /// Method to resume a save
         /// </summary>
-        public string Resume()
+        public void Resume()
         {
-            Stopwatch sw = new Stopwatch();
             Status = JobStatus.Running;
-            sw.Start();
-            Thread thread = new Thread(() => DirectoryUtils.CopyFilesAndFolders(this));
-            thread.Start();
-            sw.Stop();
-            Status = JobStatus.Finished;
-            return ProcessResult(sw);
+            //TODO
         }
 
         /// <summary>
         /// Method to cancel a save
         /// </summary>
-        public string Cancel()
+        public void Cancel()
         {
-            Stopwatch sw = new Stopwatch();
-            _semaphore.Release();
-            sw.Stop();
             Status = JobStatus.Canceled;
-            return ProcessResult(sw);
         }
 
         /// <summary>
         /// Method to stop a save
         /// </summary>
-        public string Stop()
+        public void Stop()
         {
-            Stopwatch sw = new Stopwatch();
-            _semaphore.Release();
-            sw.Stop();
-            Status = JobStatus.Finished;
-            return ProcessResult(sw);
+            Status = JobStatus.Waiting;
         }
 
         /// <summary>
@@ -211,15 +192,10 @@ namespace EasySave.src.Models.Data
         public string Run()
         {
             Status = JobStatus.Running;
-            MessageBox.Show("Running");
             Stopwatch sw = new Stopwatch();
-            MessageBox.Show("Sw started");
             sw.Start();
-            MessageBox.Show("sw go");
             DirectoryUtils.CopyFilesAndFolders(this);
-            MessageBox.Show("sw stop");
             sw.Stop();
-            MessageBox.Show("Finished");
             Status = JobStatus.Finished;
             return ProcessResult(sw);
         }
