@@ -1,18 +1,13 @@
 ﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
-using EasySave.src.Render;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Notification.Wpf;
 using ProSoft.CryptoSoft;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading;
-using System.Windows;
 
 namespace EasySave.src.Utils
 {
@@ -23,11 +18,11 @@ namespace EasySave.src.Utils
     {
 
         private static readonly JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
-            
+
         private static string key = data["key"].ToString();
 
         private static HashSet<string> extensions = data["extensions"].Select(t => t.ToString()).ToHashSet();
-        
+
         private static HashSet<string> process = data["process"].Select(t => t.ToString()).ToHashSet();
 
         private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
@@ -46,14 +41,10 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
-            MessageBox.Show(JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json")).ToString());
             CryptoSoft cs = CryptoSoft.Init(key);
-            MessageBox.Show("002");
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
-            MessageBox.Show("003");
             CopyAll(cs, s, sourceDirectory, destinationDirectory, s.GetSaveType());
-            MessageBox.Show("004");
         }
 
         /// <summary>
@@ -104,14 +95,14 @@ namespace EasySave.src.Utils
                     catch
                     {
                         fileCopied = false;
-                        //TODO Notification View.WriteError($"{Path.Combine(dest.FullName, file.Name)} | {Resource.AccesDenied}");
+                        NotificationUtils.SendNotification(Resource.AccesDenied, Path.Combine(dest.FullName, file.Name), time: 3);
                     }
                     watch.Stop();
                     //Log transfer in json
                     _mutex.WaitOne();
                     LogUtils.LogTransfer(s, Path.Combine(src.FullName, file.Name), Path.Combine(dest.FullName, file.Name), file.Length, watch.ElapsedMilliseconds, encryptionTime);
                     _mutex.ReleaseMutex();
-                    
+
                 }
                 if (fileCopied)
                     s.AddFileCopied();
