@@ -1,4 +1,5 @@
 ﻿
+using System;
 using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
@@ -22,6 +23,7 @@ namespace EasySave.src.Render.Views
         JobStatus? _saveStatus = null;
         readonly SaveViewModel _viewModel;
         private ObservableCollection<Save> _saves;
+        string _editText;
 
 
         private void UpdateSaves()
@@ -48,9 +50,6 @@ namespace EasySave.src.Render.Views
             if (((sender as ListBox).SelectedItems.Count > 0) && (_selectedItem != null))
             {
                 PauseBtn.Visibility = Visibility.Visible;
-                /*
-                ResumeBtn.Visibility = Visibility.Visible;
-                */
                 CancelBtn.Visibility = Visibility.Visible;
                 SaveProgressBar.Visibility = Visibility.Visible;
 
@@ -73,9 +72,6 @@ namespace EasySave.src.Render.Views
                 SaveProgressBar.Visibility = Visibility.Collapsed;
 
                 PauseBtn.Visibility = Visibility.Collapsed;
-                /*
-                ResumeBtn.Visibility = Visibility.Collapsed;
-                */
                 CancelBtn.Visibility = Visibility.Collapsed;
             }
         }
@@ -98,26 +94,17 @@ namespace EasySave.src.Render.Views
                 case JobStatus.Running:
                     RunBtn.IsEnabled = false;
                     PauseBtn.IsEnabled = true;
-                    /*
-                    ResumeBtn.IsEnabled = true;
-                    */
                     CancelBtn.IsEnabled = true;
                     break;
                 case JobStatus.Paused:
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
-                    /*
-                    ResumeBtn.IsEnabled = true;
-                    */
                     CancelBtn.IsEnabled = true;
                     break;
                 case JobStatus.Canceled:
                 case JobStatus.Waiting:
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
-                    /*
-                    ResumeBtn.IsEnabled = false;
-                    */
                     CancelBtn.IsEnabled = false;
                     break;
             }
@@ -185,6 +172,58 @@ namespace EasySave.src.Render.Views
             SaveProgressBar.Value = value;
         }
 
+        private void EditButton_Click(Object sender, RoutedEventArgs e)
+        {
+            if (SaveListBox.SelectedItems.Count > 0)
+            {
+                HashSet<string> keys = new HashSet<string>();
+                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = SaveListBox.SelectedItems[i];
+                    if (selectedItem != null) keys.Add(selectedItem.ToString());
+                }
+
+                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+                EditPopup.IsOpen = true;
+            }
+            else
+            {
+                NotificationUtils.SendNotification(
+                    title: $"EasySave - {Resource.Error}",
+                    message: Resource.NoSelected,
+                    type: NotificationType.Error,
+                    time: 15);
+            }
+        }
+
+        private void EnregisterEdit(Object sender, RoutedEventArgs e)
+        {
+            _editText = EditTextBox.Text;
+            
+            HashSet<string> keys = new HashSet<string>();
+            for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
+            {
+                var selectedItem = SaveListBox.SelectedItems[i];
+                if (selectedItem != null) keys.Add(selectedItem.ToString());
+            }
+
+            HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+            Parallel.ForEach(saves, save =>
+            {
+                _viewModel.EditSave(save, _editText);
+            });
+            EditTextBox.Text = "";
+            EditPopup.IsOpen = false;
+            UpdateSaves();
+
+        }
+        
+        private void CancelEdit(Object sender, RoutedEventArgs e)
+        {
+            EditTextBox.Text = "";
+            EditPopup.IsOpen = false;
+        }
+
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -214,38 +253,7 @@ namespace EasySave.src.Render.Views
                     time: 15);
             }
         }
-
-        /*
-        private void ResumeButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (SaveListBox.SelectedItems.Count > 0)
-            {
-                HashSet<string> keys = new HashSet<string>();
-                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
-                {
-                    var selectedItem = SaveListBox.SelectedItems[i];
-                    if (selectedItem != null) keys.Add(selectedItem.ToString());
-                }
-
-                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-                foreach (Save s in saves)
-                {
-                    ((SaveViewModel)DataContext).ResumeSave(s);
-                    s.PropertyChanged += Save_PropertyChanged;
-                }
-                UpdateSaves();
-            }
-            else
-            {
-                NotificationUtils.SendNotification(
-                    title: $"EasySave - {Resource.Error}",
-                    message: Resource.ErrorMsg,
-                    type: NotificationType.Error,
-                    time: 15);
-            }
-        }
-        */
-
+        
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
