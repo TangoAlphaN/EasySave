@@ -1,13 +1,11 @@
 ﻿using EasySave.src.Models.Data;
 using EasySave.src.ViewModels;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Windows;
 
 namespace EasySave.src.Utils
 {
@@ -62,10 +60,7 @@ namespace EasySave.src.Utils
                                 else if (action.Contains("[ACTION]STOP"))
                                     saveViewModel.StopSave(s);
                                 else if (action.Contains("[ACTION]PLAY"))
-                                    new Thread(() =>
-                                    {
-                                        saveViewModel.RunSave(s);
-                                    }).Start();
+                                    saveViewModel.RunSave(s);
                             }
                         }
                     }).Start();

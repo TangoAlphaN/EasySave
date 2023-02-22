@@ -47,7 +47,6 @@ namespace EasySave.src.Render.Views
             _selectedItem = (sender as ListBox)?.SelectedItem as string;
             if (((sender as ListBox).SelectedItems.Count > 0) && (_selectedItem != null))
             {
-                MessageBox.Show(_saveStatus.ToString()+" "+"1");
                 PauseBtn.Visibility = Visibility.Visible;
                 /*
                 ResumeBtn.Visibility = Visibility.Visible;
@@ -65,11 +64,9 @@ namespace EasySave.src.Render.Views
                 foreach (Save s in _saves)
                 {
                     _saveStatus = _viewModel.GetSaveStatus(s);
-                    MessageBox.Show(_saveStatus.ToString());
                     s.PropertyChanged += Save_PropertyChanged;
                 }
                 UpdateButtonStatus();
-                MessageBox.Show(_saveStatus.ToString()+" "+"6");
             }
             else
             {
@@ -99,7 +96,6 @@ namespace EasySave.src.Render.Views
             switch (_saveStatus)
             {
                 case JobStatus.Running:
-                    MessageBox.Show(_saveStatus.ToString()+" "+"3");
                     RunBtn.IsEnabled = false;
                     PauseBtn.IsEnabled = true;
                     /*
@@ -117,7 +113,6 @@ namespace EasySave.src.Render.Views
                     break;
                 case JobStatus.Canceled:
                 case JobStatus.Waiting:
-                    MessageBox.Show(_saveStatus.ToString()+" "+"4");
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
                     /*
@@ -148,20 +143,33 @@ namespace EasySave.src.Render.Views
                     {
                         case "Waiting":
                             _viewModel.RunSave(save);
+                            NotificationUtils.SendNotification(
+                                title: $"{save.GetName()} - {save.uuid}",
+                                message: Resource.Header_SaveLaunched,
+                                type: NotificationType.Success,
+                                time: 15
+                            );
                             break;
                         case "Paused":
                             _viewModel.ResumeSave(save);
+                            NotificationUtils.SendNotification(
+                                title: $"{save.GetName()} - {save.uuid}",
+                                message: Resource.Header_SavePaused,
+                                type: NotificationType.Success,
+                                time: 15
+                            );
                             break;
                     }
+
                     save.PropertyChanged += Save_PropertyChanged;
-                    UpdateProgressBar(save.CalculateProgress());
+                    /*Dispatcher.Invoke(() =>
+                    {
+                        UpdateProgressBar(save.CalculateProgress());
+
+                    });*/
                 });
                 UpdateSaves();
-                NotificationUtils.SendNotification(
-                    title: "EasySave",
-                    message: Resource.Success,
-                    type: NotificationType.Success,
-                    time: 15);
+
             }
             else
             {
@@ -172,13 +180,10 @@ namespace EasySave.src.Render.Views
                     time: 15);
             }
         }
-        
+
         public void UpdateProgressBar(int value)
         {
-            Dispatcher.Invoke(() =>
-            {
-                SaveProgressBar.Value = value;
-            });
+            SaveProgressBar.Value = value;
         }
 
 

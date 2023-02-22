@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using EasySave.Properties;
 using System.Windows.Data;
-
+using Notification.Wpf;
 
 namespace EasySave.src.ViewModels
 {
@@ -106,7 +106,16 @@ namespace EasySave.src.ViewModels
 
         public string RunSave(Save save)
         {
-            return save.Run();
+            new Thread(() =>
+            {
+                save.Run();
+                NotificationUtils.SendNotification(
+                    title: $"{save.GetName()} - {save.uuid}",
+                    message: Resource.Header_SaveFinished,
+                    type: NotificationType.Success,
+                    time: 15);
+            }).Start();
+            return "";
         }
 
         /// <summary>
