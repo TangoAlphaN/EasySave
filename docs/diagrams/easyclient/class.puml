@@ -1,0 +1,155 @@
+@startuml ProSoft - EasyClient 1.0.0 - Class Diagram
+
+title "ProSoft - EasyClient 1.0.0 - Class Diagram"
+
+class ViewModel <<partial>> {
+    - isInitialized : bool
+    - applicationTitle : string
+    - appVersion : string
+    - {static} saves : Dictionary<string, SaveInfo>
+    - navigationItems : ObservableCollection<INavigationControl>
+    - navigationFooter : ObservableCollection<INavigationControl>
+    - trayMenuItems : ObservableCollection<MenuItem>
+    + {static} Ip : string
+    + {static} Port : int
+    - {static} path : string
+    
+    + ViewModel(navigationService : INavigationService)
+
+    - InitializeViewModel() : void
+    + SaveSettings(ip : string, port : string) : void
+    + {static} Connect() : bool
+    + {static} PlaySave(uuid : string) : void
+    + {static} PauseSave(uuid : string) : void
+    + {static} StopSave(uuid : string) : void
+    + {static} CancelSave(uuid : string) : void
+    + UpdateSaves() : void
+    + {static} Disconnect() : void
+    + GetStatusByUuid(uuid : string) : string
+}
+
+class SaveInfo <<partial>> {
+    + SaveName : string
+    - guid : Guid
+    - status : string
+    - progress : int
+    - navigationItems : ObservableCollection<INavigationControl>
+    - {static} dictionnaryInstance : Dictionary<string, SaveInfo>
+    
+    + SaveInfo(saveName : string, status : string, progress : int, guid : Guid)
+
+    + {static} FromSave(save : dynamic) : SaveInfo
+    + {static} Create(jsonData : JObject) : object
+    - Update(name : string, status : string, progress : int) : SaveInfo
+    + Equals(obj : object) : bool
+    + GetHashCode() : int
+}
+
+class App <<partial>> {
+    - {static} host : IHost
+
+    + {static} GetService<T>() : T
+    - {async} OnStartup(sender : object, e : StartupEventArgs) : void
+    - {async} OnExit(sender : object, e : ExitEventArgs) : void
+    - OnDispatcherUnhandledException(sender : object, e : DispatcherUnhandledExceptionEventArgs) : void
+}
+
+package Enums <<Folder>> {
+    
+    enum SocketRequest {
+        GetData
+        Pause
+        Play
+        Stop
+        Cancel
+    }
+
+}
+
+package Services <<Folder>> {
+    
+    class SocketUtils <<static>> {
+        - {static} socket : Socket
+
+        + {static} Connect(ip : string, port : int) : bool
+        + {static} Disconnect() : void
+        + {static} SendRequest(action : SocketRequest, parameter : string) : object
+    }
+
+    class PageService {
+        - serviceProvider : IServiceProvider
+
+        + PageService(serviceProvider : IServiceProvider)
+
+        + GetPage<T>() : T
+        + GetPage(pageType : Type) : FrameworkElement
+    }
+
+    class ApplicationHostService {
+        - serviceProvider : IServiceProvider
+        - navigationWindow : INavigationWindow
+
+        + ApplicationHostService(serviceProvider : IServiceProvider)
+
+        + {async} StartAsync(cancellationToken : CancellationToken) : Task
+        + {async} StopAsync(cancellationToken : CancellationToken) : Task
+        - {async} HanleActivationAsync() : Task
+    }
+
+}
+
+package Views <<Folder>> {
+    
+    class HomePage <<partial>> {
+        + ViewModel : ViewModel
+        - t : Thread
+        + ConnectState : string
+        - logged : bool
+        - PropertyChanged : PropertyChangedEventHandler
+
+        + HomePage(viewModel : ViewModel)
+
+        - UpdateInterface() : void
+        - UpdateButtonVisibility(tag : string, status : string) : bool
+        - Connect(sender : object, e : RoutedEventArgs) : void
+        - FetchData() : void
+        - PlaySave(sender : object, e : RoutedEventArgs) : void
+        - PauseSave(sender : object, e : RoutedEventArgs) : void
+        - StopSave(sender : object, e : RoutedEventArgs) : void
+        - {static} FindVisualChildren<T>(depObj : DependencyObject) : List<T>
+    }
+
+    class MainWindow <<partial>> {
+        + ViewModel : ViewModel
+
+        + MainWindow(viewModel : ViewModel, pageService : IPagesService, navigationService : INavigationService)
+
+        # OnClosed(e : EventArgs) : void
+    }
+
+    class SettingsPage <<partial>> {
+        + ViewModel : ViewModel
+
+        + SettingsPage(viewModel : ViewModel)
+
+        - SaveSettings(object sender, RoutedEventArgs e) : void
+    }
+
+}
+
+ViewModel -up-|> ObservableObject
+SaveInfo -up-|> ObservableObject
+PageService -up-|> IPagesService
+ApplicationHostService -up-|> IHostedService
+MainWindow -up-|> INavigationWindow
+SettingsPage -up-|> INavigableView
+HomePage -up-|> INavigableView
+HomePage -up-|> INotifyPropertyChanged 
+
+'Hidden
+SocketUtils -up[hidden]-|> ViewModel
+SocketRequest -up[hidden]-|> SettingsPage
+IPagesService -up[hidden]-|> SaveInfo
+App -up[hidden]-|> SettingsPage
+
+@enduml
