@@ -37,7 +37,7 @@
                 Width="850"
                 MouseDown="Window_MouseDown">
 
-            <TextBlock Text="EasySave V2.1"
+            <TextBlock Text="EasySave V3.0"
                        Style="{StaticResource HeaderStyle}"/>
 
         </Border>
