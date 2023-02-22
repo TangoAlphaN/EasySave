@@ -97,38 +97,44 @@ namespace EasySave.src.Utils
         /// <param name="files">list of files</param>
         private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files, ManualResetEvent mre)
         {
-            foreach (var p in process)
-            {
-                Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToLower());
-                if (processes.Length > 0 && s.GetStatus() == JobStatus.Running)
-                {
-                    NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_Title.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p));
-                    s.Pause();
-                    Process first = processes[0];
-                    if (first != null)
-                    {
-                        first.EnableRaisingEvents = true;
-                        first.Exited += (sender, e) =>
-                        {
-                            if (s.GetStatus() == JobStatus.Paused)
-                            {
-                                NotificationUtils.SendNotification(title: $"Reprise de {s.GetName()}", message: $"{p} est maintenant fermé, reprise de la sauvegarde");
-                                s.Resume();
-                            }
-                        };
-                    }
-                    return JobStatus.Paused;
-                }
-            }
+
             foreach (KeyValuePair<FileInfo, FileInfo> data in files)
             {
                 LogUtils.LogSaves();
-                mre.WaitOne();
+
                 FileInfo source = data.Key;
                 FileInfo dest = data.Value;
                 //Check if save is running
-                if (s.GetStatus() != JobStatus.Running)
+                //TODO FAIRE ATTENTION
+                if (s.GetStatus() == JobStatus.Canceled)
                     return JobStatus.Canceled;
+                
+                foreach (var p in process)
+                {
+                    Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToUpper());
+                    if (processes.Length > 0 && s.GetStatus() == JobStatus.Running)
+                    {
+                        NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_Title.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p));
+                        s.Pause();
+                        LogUtils.LogSaves();
+                        PauseTransfer();
+                        Process first = processes[0];
+                        if (first != null)
+                        {
+                            first.EnableRaisingEvents = true;
+                            first.Exited += (sender, e) =>
+                            {
+                                if (s.GetStatus() == JobStatus.Paused)
+                                {
+                                    NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_TitleOK.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_PackageOK.Replace("[PROCESS]", p), type: NotificationType.Success);
+                                    s.Resume();
+                                    ResumeTransfer();
+                                }
+                            };
+                        }
+                    }
+                }
+                mre.WaitOne();
                 //Update json data
                 bool fileCopied = true;
                 bool fileExists = File.Exists(dest.FullName);

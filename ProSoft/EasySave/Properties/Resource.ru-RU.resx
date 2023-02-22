@@ -345,4 +345,13 @@
   <data name="Header.SaveResumed" xml:space="preserve">
     <value>Охрана возобновилась</value>
   </data>
+  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>Резервное копирование было отменено</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>Программа "[PROCESS]" закрыта</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>[NAME] — Резервное копирование перезапущено</value>
+  </data>
 </root>

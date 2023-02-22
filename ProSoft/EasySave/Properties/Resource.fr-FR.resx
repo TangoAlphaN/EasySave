@@ -345,4 +345,10 @@
   <data name="Header.SaveResumed" xml:space="preserve">
     <value>La sauvegarde a repris</value>
   </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" à été fermé</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>Sauvegarde [NAME] reprise</value>
+  </data>
 </root>

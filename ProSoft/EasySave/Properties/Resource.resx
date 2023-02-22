@@ -310,7 +310,7 @@
     <value>The software "[PROCESS]" is running</value>
   </data>
   <data name="Exception.Run-SP-Title" xml:space="preserve">
-    <value>[NAME] backup stopped</value>
+    <value>[NAME] - Backup Stopped</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -344,5 +344,11 @@
   </data>
   <data name="Header.SaveResumed" xml:space="preserve">
     <value>The backup has resumed</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>The software "[PROCESS]" is not running anymore</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>[NAME] - Backup Restarted</value>
   </data>
 </root>
