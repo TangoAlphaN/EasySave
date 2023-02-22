@@ -32,7 +32,7 @@ namespace EasySave.src.Utils
 
         private static readonly Mutex _mutex = new Mutex();
 
-        private static CryptoSoft cs = CryptoSoft.Init(key);
+        private static CryptoSoft cs;
 
         private static ManualResetEvent mre = new ManualResetEvent(true);
 
@@ -48,6 +48,14 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
+            try
+            {
+                cs = CryptoSoft.Init(key, extensions.ToArray());
+            }
+            catch
+            {
+                cs = CryptoSoft.Init(key);
+            }
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory);
@@ -70,6 +78,7 @@ namespace EasySave.src.Utils
                     s.MarkAsFinished();
                     break;
             }
+            LogUtils.LogSaves();
         }
 
         private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest)
@@ -149,7 +158,7 @@ namespace EasySave.src.Utils
                     try
                     {
                         if (extensions.Contains(source.Extension))
-                            encryptionTime = cs.ProcessFile(source.FullName, Path.Combine(dest.FullName, ".enc"));
+                            encryptionTime = cs.ProcessFile(source.FullName, $"{dest.FullName}.enc");
                         else
                             source.CopyTo(dest.FullName, true);
                     }
