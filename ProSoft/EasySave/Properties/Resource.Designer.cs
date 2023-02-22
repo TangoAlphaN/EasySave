@@ -340,6 +340,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The backup has been cancelled.
+        /// </summary>
+        public static string Header_SaveCanceled {
+            get {
+                return ResourceManager.GetString("Header.SaveCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save deleted successfully.
         /// </summary>
         public static string Header_SaveDeleted {
@@ -381,6 +390,15 @@ namespace EasySave.Properties {
         public static string Header_SaveRenamed {
             get {
                 return ResourceManager.GetString("Header.SaveRenamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The backup has resumed.
+        /// </summary>
+        public static string Header_SaveResumed {
+            get {
+                return ResourceManager.GetString("Header.SaveResumed", resourceCulture);
             }
         }
         
@@ -606,15 +624,6 @@ namespace EasySave.Properties {
         public static string Rename {
             get {
                 return ResourceManager.GetString("Rename", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The backup has been cancelled.
-        /// </summary>
-        public static string Resource_Header_SaveCanceled {
-            get {
-                return ResourceManager.GetString("Resource.Header_SaveCanceled", resourceCulture);
             }
         }
         
