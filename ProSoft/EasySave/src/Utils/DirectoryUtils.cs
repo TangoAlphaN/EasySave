@@ -46,7 +46,7 @@ namespace EasySave.src.Utils
         /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
-            MessageBox.Show(JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json")).ToString());
+            MessageBox.Show(key);
             CryptoSoft cs = CryptoSoft.Init(key);
             MessageBox.Show("002");
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);

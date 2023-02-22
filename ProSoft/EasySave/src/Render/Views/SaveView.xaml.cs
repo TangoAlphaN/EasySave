@@ -53,6 +53,8 @@ namespace EasySave.src.Render.Views
                 ResumeBtn.Visibility = Visibility.Visible;
                 */
                 CancelBtn.Visibility = Visibility.Visible;
+                SaveProgressBar.Visibility = Visibility.Visible;
+
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
                 {
@@ -71,6 +73,7 @@ namespace EasySave.src.Render.Views
             }
             else
             {
+                SaveProgressBar.Visibility = Visibility.Collapsed;
 
                 PauseBtn.Visibility = Visibility.Collapsed;
                 /*
