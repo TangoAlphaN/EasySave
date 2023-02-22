@@ -70,7 +70,7 @@ namespace EasySave.src.Utils
             }
             if (!File.Exists($"{path}config.json")){
                 HashSet<string> empty = new HashSet<string>();
-                LogConfig("CHANGETHISKEY", empty, empty, empty);
+                LogConfig("CHANGETHISKEY", empty, empty, empty, empty);
             }
         }
 
@@ -265,13 +265,14 @@ namespace EasySave.src.Utils
             return _format;
         }
 
-        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process, HashSet<string> priorityFiles)
+        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process, HashSet<string> priorityFiles, HashSet<string> limitSize)
         {
             JObject data = new JObject(
                 new JProperty("key", key),
                 new JProperty("extensions", new JArray(extensions.Where(k => k.Length > 0))),
                 new JProperty("process", new JArray(process.Where(k => k.Length > 0))),
-                new JProperty("priorityFiles", new JArray(priorityFiles.Where(k => k.Length > 0)))
+                new JProperty("priorityFiles", new JArray(priorityFiles.Where(k => k.Length > 0))),
+                new JProperty("limitSize", new JArray(priorityFiles.Where(k => k.Length > 0)))
             );
             string json = JsonConvert.SerializeObject(data);
             File.WriteAllText($"{path}config.json", json);

@@ -475,6 +475,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File size limit.
+        /// </summary>
+        public static string HomeMenu_Settings_LimitSize {
+            get {
+                return ResourceManager.GetString("HomeMenu.Settings.LimitSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other Settings.
         /// </summary>
         public static string HomeMenu_Settings_Others {
@@ -651,6 +660,15 @@ namespace EasySave.Properties {
         public static string Settings_Extensions {
             get {
                 return ResourceManager.GetString("Settings.Extensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size limit of a backup file (kB).
+        /// </summary>
+        public static string Settings_LimitSize {
+            get {
+                return ResourceManager.GetString("Settings.LimitSize", resourceCulture);
             }
         }
         

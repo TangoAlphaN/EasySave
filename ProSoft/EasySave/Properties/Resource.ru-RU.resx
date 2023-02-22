@@ -330,4 +330,10 @@
   <data name="Header.SavePaused" xml:space="preserve">
     <value>Резервное копирование приостановлено</value>
   </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Ограничение размера файла</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Ограничение размера файла резервной копии (кБ)</value>
+  </data>
 </root>

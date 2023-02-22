@@ -330,4 +330,10 @@
   <data name="Header.SavePaused" xml:space="preserve">
     <value>Sauvegarde en attente</value>
   </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Limite de la taille des fichiers</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Taille limite d'un fichier de sauvegarde (kO)</value>
+  </data>
 </root>

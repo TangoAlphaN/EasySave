@@ -330,4 +330,10 @@
   <data name="Header.SavePaused" xml:space="preserve">
     <value>Backup in pausa</value>
   </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Limite di dimensione dei file</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Limite di dimensione di un file di backup (kB)</value>
+  </data>
 </root>
