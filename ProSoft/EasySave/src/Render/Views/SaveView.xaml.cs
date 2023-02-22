@@ -142,12 +142,12 @@ namespace EasySave.src.Render.Views
                     switch (_saveStatus.ToString())
                     {
                         case "Waiting":
+                        case "Finished":
                             _viewModel.RunSave(save);
                             NotificationUtils.SendNotification(
                                 title: $"{save.GetName()} - {save.uuid}",
                                 message: Resource.Header_SaveLaunched,
-                                type: NotificationType.Success,
-                                time: 15
+                                type: NotificationType.Success
                             );
                             break;
                         case "Paused":
@@ -155,8 +155,7 @@ namespace EasySave.src.Render.Views
                             NotificationUtils.SendNotification(
                                 title: $"{save.GetName()} - {save.uuid}",
                                 message: Resource.Header_SavePaused,
-                                type: NotificationType.Success,
-                                time: 15
+                                type: NotificationType.Success
                             );
                             break;
                     }
