@@ -50,6 +50,7 @@ namespace EasySave.src.Render.Views
             _selectedItem = (sender as ListBox)?.SelectedItem as string;
             if (((sender as ListBox).SelectedItems.Count > 0) && (_selectedItem != null))
             {
+                MessageBox.Show(_saveStatus.ToString()+" "+"1");
                 PauseBtn.Visibility = Visibility.Visible;
                 ResumeBtn.Visibility = Visibility.Visible;
                 CancelBtn.Visibility = Visibility.Visible;
@@ -64,9 +65,11 @@ namespace EasySave.src.Render.Views
                 foreach (Save s in _saves)
                 {
                     _saveStatus = _viewModel.GetSaveStatus(s);
+                    MessageBox.Show(_saveStatus.ToString());
                     s.PropertyChanged += Save_PropertyChanged;
                 }
                 UpdateButtonStatus();
+                MessageBox.Show(_saveStatus.ToString()+" "+"6");
             }
             else
             {
@@ -93,6 +96,7 @@ namespace EasySave.src.Render.Views
             switch (_saveStatus)
             {
                 case JobStatus.Running:
+                    MessageBox.Show(_saveStatus.ToString()+" "+"3");
                     RunBtn.IsEnabled = false;
                     PauseBtn.IsEnabled = true;
                     ResumeBtn.IsEnabled = true;
@@ -106,6 +110,7 @@ namespace EasySave.src.Render.Views
                     break;
                 case JobStatus.Canceled:
                 case JobStatus.Waiting:
+                    MessageBox.Show(_saveStatus.ToString()+" "+"4");
                     RunBtn.IsEnabled = true;
                     PauseBtn.IsEnabled = false;
                     ResumeBtn.IsEnabled = false;
@@ -172,7 +177,7 @@ namespace EasySave.src.Render.Views
             {
                 NotificationUtils.SendNotification(
                     title: $"EasySave - {Resource.Error}",
-                    message: Resource.ErrorMsg,
+                    message: Resource.NoSelected,
                     type: NotificationType.Error,
                     time: 15);
             }
