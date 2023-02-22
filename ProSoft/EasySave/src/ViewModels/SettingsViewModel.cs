@@ -51,7 +51,7 @@ namespace EasySave.src.ViewModels
             };
             ObservableCollection<SettingsItem> limitSize = new ObservableCollection<SettingsItem>
             {
-                new SettingsItem { SettingsName = $"{Resource.Settings_LimitSize}", SettingsValue = DirectoryUtils.GetLimitSize(), SettingsCommand = new RelayCommand(ChangeLimitSize) },
+                new SettingsItem { SettingsName = $"{Resource.Settings_LimitSize}", SettingsValue = DirectoryUtils.GetLimitSize().ToString(), SettingsCommand = new RelayCommand(ChangeLimitSize) },
             };
 
             _cryptoSoftSettingsItemsCollection = new CollectionViewSource { Source = cryptoSoftItems };
@@ -124,7 +124,7 @@ namespace EasySave.src.ViewModels
 
         public static void ChangeLimitSize(object obj)
         {
-            DirectoryUtils.ChangeLimitSize(((string)obj).Split("\r\n").ToHashSet());
+            DirectoryUtils.ChangeLimitSize(((int)obj));
         }
     }
 }
