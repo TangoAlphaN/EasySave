@@ -104,38 +104,10 @@ namespace ProSoft.CryptoSoft
                     else
                         outputFile += ".enc";
                 }
-                //create filestrams
-                _stopwatch.Start();
+                //create filestreams
+                _stopwatch.Restart();
                 using var fin = new FileStream(inputFile, FileMode.Open);
                 using var fout = new FileStream(outputFile, FileMode.Create);
-                //TODO Not Working
-                /*//if file is larger than 500mb
-                if (largeFile)
-                {
-                    //file is cutted depending of thread numbers
-                    var fileLength = fin.Length;
-                    var numberOfThreads = Environment.ProcessorCount;
-                    var partLength = (int)(fileLength / numberOfThreads);
-                    //each part is crypted in parallel
-                    var tasks = new List<Task>();
-                    for (var i = 0; i < numberOfThreads; i++)
-                    {
-                        var buffer = new byte[partLength];
-                        fin.Read(buffer, 0, partLength);
-                        tasks.Add(Task.Run(() =>
-                        {
-                            for (var j = 0; j < buffer.Length; j++)
-                                buffer[j] = (byte)(buffer[j] ^ _key[j % _key.Length]);
-                            fout.Write(buffer, 0, buffer.Length);
-                        }));
-                    }
-                    //total time is returned
-                    Task.WaitAll(tasks.ToArray());
-                    _stopwatch.Stop();
-                    return _stopwatch.ElapsedMilliseconds;
-                }
-                else
-                {*/
                 var buffer = new byte[4096];
                 while (true)
                 {
@@ -148,7 +120,6 @@ namespace ProSoft.CryptoSoft
                 }
                 _stopwatch.Stop();
                 return _stopwatch.ElapsedMilliseconds;
-                //}
             }
             catch
             {
