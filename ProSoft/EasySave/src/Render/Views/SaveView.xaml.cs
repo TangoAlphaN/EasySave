@@ -260,10 +260,8 @@ namespace EasySave.src.Render.Views
             }
 
             HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
-            Parallel.ForEach(saves, save =>
-            {
-                _viewModel.EditSave(save, EditTextBox.Text);
-            });
+            foreach (Save s in saves)
+                _viewModel.EditSave(s, EditTextBox.Text);
             EditTextBox.Text = "";
             EditPopup.IsOpen = false;
             UpdateSaves();
