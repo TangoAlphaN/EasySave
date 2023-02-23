@@ -154,8 +154,9 @@ namespace EasySave.src.Render.Views
                     var selectedItem = SaveListBox.SelectedItems[i];
                     if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
-
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
+                UpdateProgressBar(_viewModel.GetSavesByUuid(keys).First().CalculateProgress());
+
                 Parallel.ForEach(saves, save =>
                 {
                     JobStatus saveStatus = save.GetStatus();
