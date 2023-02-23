@@ -120,7 +120,14 @@ namespace EasySave.src.ViewModels
 
         public static void ChangeLimitSize(object obj)
         {
-            DirectoryUtils.ChangeLimitSize(((int)obj));
+            try
+            {
+                DirectoryUtils.ChangeLimitSize(int.Parse((string)obj));
+            }
+            catch
+            {
+                DirectoryUtils.ChangeLimitSize(0);
+            }
         }
     }
 }
