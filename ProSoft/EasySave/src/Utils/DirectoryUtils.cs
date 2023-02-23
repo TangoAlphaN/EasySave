@@ -30,7 +30,9 @@ namespace EasySave.src.Utils
 
         private static int limitSize = int.Parse(data["limitSize"].ToString());
 
-        private static readonly Mutex _mutex = new Mutex();
+        private static readonly Mutex _filesMutex = new Mutex();
+
+        private static readonly Mutex _logMutex = new Mutex();
 
         private static CryptoSoft cs;
 
@@ -106,7 +108,6 @@ namespace EasySave.src.Utils
         /// <param name="files">list of files</param>
         private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files, ManualResetEvent mre)
         {
-
             foreach (KeyValuePair<FileInfo, FileInfo> data in files)
             {
                 LogUtils.LogSaves();
@@ -116,7 +117,6 @@ namespace EasySave.src.Utils
                 //Check if save is running
                 if (s.GetStatus() == JobStatus.Canceled)
                     return JobStatus.Canceled;
-                
                 foreach (var p in process)
                 {
                     Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToUpper());
@@ -149,6 +149,8 @@ namespace EasySave.src.Utils
                 //Proceed differential mode by comparing files data
                 if (s.GetSaveType() == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0))
                 {
+                    if (limitSize > 0 && source.Length / 1024 > limitSize)
+                        _filesMutex.WaitOne();
                     actualFile[0] = source.FullName;
                     actualFile[1] = dest.FullName;
                     //Stopwatch to mesure transfer time
@@ -167,11 +169,13 @@ namespace EasySave.src.Utils
                         fileCopied = false;
                         NotificationUtils.SendNotification(dest.FullName, Resource.AccesDenied);
                     }
+                    if (limitSize > 0 && source.Length / 1024 > limitSize)
+                        _filesMutex.ReleaseMutex();
                     watch.Stop();
                     //Log transfer in json
-                    _mutex.WaitOne();
+                    _logMutex.WaitOne();
                     LogUtils.LogTransfer(s, source.FullName, dest.FullName, source.Length, watch.ElapsedMilliseconds, encryptionTime);
-                    _mutex.ReleaseMutex();
+                    _logMutex.ReleaseMutex();
 
                 }
                 if (fileCopied)
