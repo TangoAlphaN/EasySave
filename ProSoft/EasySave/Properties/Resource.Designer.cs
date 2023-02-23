@@ -718,7 +718,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Priority files:.
+        ///   Looks up a localized string similar to Priority extensions:.
         /// </summary>
         public static string Settings_Priority_Files {
             get {

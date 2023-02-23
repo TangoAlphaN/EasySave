@@ -319,7 +319,7 @@
     <value>Произошла ошибка</value>
   </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
-    <value>Приоритетные файлы:</value>
+    <value>Приоритетные расширения:</value>
   </data>
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Другие параметры</value>

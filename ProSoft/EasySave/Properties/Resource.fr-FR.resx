@@ -319,7 +319,7 @@
     <value>Une erreur est survenue</value>
   </data>
   <data name="Settings.Priority-Files" xml:space="preserve">
-    <value>Fichiers prioritaires :</value>
+    <value>Extensions prioritaires :</value>
   </data>
   <data name="HomeMenu.Settings.Others" xml:space="preserve">
     <value>Autres paramètres</value>
