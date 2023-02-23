@@ -242,6 +242,7 @@ namespace EasySave.src.Models.Data
         /// <param name="length">size of copied file to add</param>
         public void AddSizeCopied(long length)
         {
+            OnPropertyChanged("SizeCopied");
             _sizeCopied += length;
         }
 

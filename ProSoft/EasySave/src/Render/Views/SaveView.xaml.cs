@@ -102,10 +102,17 @@ namespace EasySave.src.Render.Views
         /// <param name="e">args</param>
         private void Save_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "Status")
+            Save save = (Save)sender;
+            switch (e.PropertyName)
             {
-                Save save = (Save)sender;
-                UpdateButtonStatus(save.GetStatus());
+                case "Status":
+                    UpdateButtonStatus(save.GetStatus());
+                    break;
+                case "SizeCopied":
+                    UpdateProgressBar(save.CalculateProgress());
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -204,7 +211,10 @@ namespace EasySave.src.Render.Views
         /// <param name="value">progression of save</param>
         public void UpdateProgressBar(int value)
         {
-            SaveProgressBar.Value = value;
+            Dispatcher.Invoke(() =>
+            {
+                SaveProgressBar.Value = value;
+            });
         }
 
         /// <summary>
