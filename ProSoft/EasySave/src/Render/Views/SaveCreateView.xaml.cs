@@ -6,6 +6,7 @@ using EasySave.src.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Notification.Wpf;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using static EasySave.src.Models.Data.SaveType;
@@ -56,6 +57,22 @@ namespace EasySave.src.Render.Views
 
         private void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
+            if(CreatSaveName.Text == null || CreatSaveName.Text.Length < 1)
+            {
+                NotificationUtils.SendNotification(
+                title: "EasySave",
+                message: Resource.Error,
+                time: 3);
+                return;
+            }
+            if (TxtSrc.Text == null || TxtSrc.Text.Length < 1 || !Directory.Exists(TxtSrc.Text) || TxtDest.Text == null || TxtDest.Text.Length < 1)
+            {
+                NotificationUtils.SendNotification(
+                title: "EasySave",
+                message: Resource.Path_Invalid,
+                time: 3);
+                return;
+            }
             SaveViewModel.CreateSave(CreatSaveName.Text, TxtSrc.Text, TxtDest.Text, _type);
             NotificationUtils.SendNotification(
                 title: "EasySave",
