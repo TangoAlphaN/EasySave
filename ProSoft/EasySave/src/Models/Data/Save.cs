@@ -1,13 +1,10 @@
 ﻿using EasySave.src.Models.Exceptions;
 using EasySave.src.Utils;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading;
 
 namespace EasySave.src.Models.Data
 {
@@ -26,7 +23,6 @@ namespace EasySave.src.Models.Data
         /// List of saves
         /// </summary>
         private static readonly HashSet<Save> saves = new HashSet<Save>();
-
 
         /// <summary>
         /// Save uuid
@@ -62,6 +58,8 @@ namespace EasySave.src.Models.Data
         /// Destination directory
         /// </summary>
         public readonly DestDir DestDir;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Save constructor. Constructor is protected to prevent direct instantiation
@@ -169,9 +167,8 @@ namespace EasySave.src.Models.Data
 
         /// <summary>
         /// Abstract method to run a save
-        /// A stopwatch is created, save is launched and stopwatch is stopped
+        /// File copy is called remotely by Utils
         /// </summary>
-        /// <returns>result of the save job</returns>
         public void Run()
         {
             Status = JobStatus.Running;
@@ -228,7 +225,6 @@ namespace EasySave.src.Models.Data
             {
                 save.Status = JobStatus.Waiting;
             }
-
         }
 
         /// <summary>
@@ -315,13 +311,19 @@ namespace EasySave.src.Models.Data
         /// <returns>save type</returns>
         public abstract SaveType GetSaveType();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Method to notify a property change
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Method to set a field and notify a property change
+        /// </summary>
+        /// <returns>true</returns>
         protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(field, value)) return false;
@@ -330,6 +332,10 @@ namespace EasySave.src.Models.Data
             return true;
         }
 
+        /// <summary>
+        /// Method to mark a save job as finished
+        /// It automatically triggers data udpate
+        /// </summary>
         public void MarkAsFinished()
         {
             Status = JobStatus.Finished;

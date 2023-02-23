@@ -12,8 +12,12 @@ using System.Windows.Data;
 
 namespace EasySave.src.ViewModels
 {
+    /// <summary>
+    /// Settings view model
+    /// </summary>
     public class SettingsViewModel
     {
+        //Collections of items
         private readonly CollectionViewSource _cryptoSoftSettingsItemsCollection, _langItemsCollection, _logItemsCollection, _filesItemsCollection, _sizeLimitItemsCollection;
         public ICollectionView CryptoSoftSourceCollection => _cryptoSoftSettingsItemsCollection.View;
         public ICollectionView LangSourceCollection => _langItemsCollection.View;
@@ -21,12 +25,15 @@ namespace EasySave.src.ViewModels
         public ICollectionView FilesSourceCollection => _filesItemsCollection.View;
         public ICollectionView SizeLimitSourceCollection => _sizeLimitItemsCollection.View;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SettingsViewModel()
         {
             ObservableCollection<SettingsItem> cryptoSoftItems = new ObservableCollection<SettingsItem>
             {
                 new SettingsItem { SettingsName = $"{Resource.Settings_Secret}", SettingsValue = DirectoryUtils.GetSecret(), SettingsCommand = new RelayCommand(ChangeKey) },
-                new SettingsItem { SettingsName = $"{Resource.Settings_Extensions}", SettingsValue = DirectoryUtils.GetExtensions(), SettingsCommand = new RelayCommand(ChangeExtensions) },
+                new SettingsItem { SettingsName = $"{Resource.Settings_Extensions}", SettingsValue = DirectoryUtils.GetExtensionsToEncrypt(), SettingsCommand = new RelayCommand(ChangeExtensionsToEncrypt) },
             };
             ObservableCollection<SettingsItem> langItems = new ObservableCollection<SettingsItem>
             {
@@ -43,7 +50,7 @@ namespace EasySave.src.ViewModels
             ObservableCollection<SettingsItem> fileSettings = new ObservableCollection<SettingsItem>
             {
                 new SettingsItem { SettingsName = $"{Resource.Settings_Software_Package}", SettingsValue = DirectoryUtils.GetProcess(), SettingsCommand = new RelayCommand(ChangeProcess) },
-                new SettingsItem { SettingsName = $"{Resource.Settings_Priority_Files}", SettingsValue = DirectoryUtils.GetPriorityFiles(), SettingsCommand = new RelayCommand(ChangePriorityFiles) },
+                new SettingsItem { SettingsName = $"{Resource.Settings_Priority_Files}", SettingsValue = DirectoryUtils.GetPriorityExtensions(), SettingsCommand = new RelayCommand(ChangePriorityExtensions) },
             };
             ObservableCollection<SettingsItem> limitSize = new ObservableCollection<SettingsItem>
             {
@@ -57,6 +64,10 @@ namespace EasySave.src.ViewModels
             _sizeLimitItemsCollection = new CollectionViewSource { Source = limitSize };
         }
 
+        /// <summary>
+        /// Change language method
+        /// </summary>
+        /// <param name="culture">new culture</param>
         private static void ChangeLanguage(object culture)
         {
             var cultureData = "";
@@ -85,6 +96,10 @@ namespace EasySave.src.ViewModels
             Application.Current.MainWindow.Show();
         }
 
+        /// <summary>
+        /// Change logs format method
+        /// </summary>
+        /// <param name="format">new logs format</param>
         private static void ChangeLogsFormat(object format)
         {
             switch ((string)format)
@@ -98,26 +113,46 @@ namespace EasySave.src.ViewModels
             }
         }
 
+        /// <summary>
+        /// Change secret key method
+        /// </summary>
+        /// <param name="obj">new key</param>
         public static void ChangeKey(object obj)
         {
             DirectoryUtils.ChangeKey((string)obj);
         }
 
-        public static void ChangeExtensions(object obj)
+        /// <summary>
+        /// Change extensions to encrypt method
+        /// </summary>
+        /// <param name="obj">new list</param>
+        public static void ChangeExtensionsToEncrypt(object obj)
         {
-            DirectoryUtils.ChangeExtensions(((string)obj).Split("\r\n").ToHashSet());
+            DirectoryUtils.ChangeExtensionsToEncrypt(((string)obj).Split("\r\n").ToHashSet());
         }
 
+        /// <summary>
+        /// Change processes to detect method
+        /// </summary>
+        /// <param name="obj">new list</param>
         public static void ChangeProcess(object obj)
         {
             DirectoryUtils.ChangeProcess(((string)obj).Split("\r\n").ToHashSet());
         }
 
-        public static void ChangePriorityFiles(object obj)
+        /// <summary>
+        /// Change priority extensions method
+        /// </summary>
+        /// <param name="obj">new list</param>
+        public static void ChangePriorityExtensions(object obj)
         {
-            DirectoryUtils.ChangePriorityFiles(((string)obj).Split("\r\n").ToHashSet());
+            DirectoryUtils.ChangePriorityExtensions(((string)obj).Split("\r\n").ToHashSet());
         }
 
+        /// <summary>
+        /// Change limit size method
+        /// </summary>
+        /// <param name="obj">size limit</param>
         public static void ChangeLimitSize(object obj)
         {
             try
@@ -129,5 +164,7 @@ namespace EasySave.src.ViewModels
                 DirectoryUtils.ChangeLimitSize(0);
             }
         }
+
     }
+
 }

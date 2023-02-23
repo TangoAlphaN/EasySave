@@ -32,6 +32,9 @@ namespace EasySave.src.Utils
         /// </summary>
         private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
 
+        /// <summary>
+        /// Mutex to avoid multiple threads to write at the same time
+        /// </summary>
         private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
@@ -59,13 +62,17 @@ namespace EasySave.src.Utils
                     _format = LogsFormat.JSON;
                     data = JObject.Parse(File.ReadAllText($"{path}saves.json"));
                 }
+#pragma warning disable S2486 // Generic exceptions should not be ignored
                 try
                 {
                     Save.Init(data);
                 }
                 catch
+#pragma warning disable S108 // Nested blocks of code should not be left empty
                 {
                 }
+#pragma warning restore S2486 // Generic exceptions should not be ignored
+#pragma warning restore S108 // Nested blocks of code should not be left empty
                 LogSaves();
             }
             if (!File.Exists($"{path}config.json"))
@@ -266,17 +273,27 @@ namespace EasySave.src.Utils
             return _format;
         }
 
-        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process, HashSet<string> priorityFiles, int limitSize)
+        /// <summary>
+        /// Log config file
+        /// </summary>
+        /// <param name="key">secret key</param>
+        /// <param name="extensions">extensions to encrypt</param>
+        /// <param name="process">processes to detect</param>
+        /// <param name="priorityExtensions">priority extensions</param>
+        /// <param name="limitSize">size limit</param>
+        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process, HashSet<string> priorityExtensions, int limitSize)
         {
             JObject data = new JObject(
                 new JProperty("key", key),
                 new JProperty("extensions", new JArray(extensions.Where(k => k.Length > 0))),
                 new JProperty("process", new JArray(process.Where(k => k.Length > 0))),
-                new JProperty("priorityFiles", new JArray(priorityFiles.Where(k => k.Length > 0))),
+                new JProperty("priorityExtensions", new JArray(priorityExtensions.Where(k => k.Length > 0))),
                 new JProperty("limitSize", limitSize)
             );
             string json = JsonConvert.SerializeObject(data);
             File.WriteAllText($"{path}config.json", json);
         }
+
     }
+
 }

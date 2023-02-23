@@ -9,11 +9,21 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SettingsView : UserControl
     {
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SettingsView()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Text changed event handler
+        /// Update settings
+        /// </summary>
+        /// <param name="senderObj">sender</param>
+        /// <param name="args">args</param>
         private void TextChangedEventHandler(object senderObj, TextChangedEventArgs args)
         {
             TextBox sender = (TextBox)senderObj;
@@ -23,18 +33,20 @@ namespace EasySave.src.Render.Views
                     SettingsViewModel.ChangeKey(sender.Text);
                     break;
                 case var value when value == Resource.Settings_Extensions:
-                    SettingsViewModel.ChangeExtensions(sender.Text);
+                    SettingsViewModel.ChangeExtensionsToEncrypt(sender.Text);
                     break;
                 case var value when value == Resource.Settings_Software_Package:
                     SettingsViewModel.ChangeProcess(sender.Text);
                     break;
                 case var value when value == Resource.Settings_Priority_Files:
-                    SettingsViewModel.ChangePriorityFiles(sender.Text);
+                    SettingsViewModel.ChangePriorityExtensions(sender.Text);
                     break;
                 case var value when value == Resource.Settings_LimitSize:
                     SettingsViewModel.ChangeLimitSize(sender.Text);
                     break;
             }
         }
+
     }
+
 }

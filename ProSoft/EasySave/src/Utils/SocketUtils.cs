@@ -12,13 +12,19 @@ using System.Threading;
 namespace EasySave.src.Utils
 {
     /// <summary>
-    /// Static class to manage directory actions
+    /// Static class to manage socket actions
     /// </summary>
     public static class SocketUtils
     {
 
+        /// <summary>
+        /// Instance of socket
+        /// </summary>
         private static Socket socket;
 
+        /// <summary>
+        /// Instance of save view model
+        /// </summary>
         private readonly static SaveViewModel saveViewModel = new SaveViewModel();
 
         /// <summary>
@@ -33,18 +39,23 @@ namespace EasySave.src.Utils
             new Thread(HandleConnect).Start();
         }
 
+        /// <summary>
+        /// Handle the connection
+        /// </summary>
         private static void HandleConnect()
         {
             try
             {
                 while (true)
                 {
+                    //Accept new connection
                     Socket client = socket.Accept();
                     new Thread(() =>
                     {
                         string action = "";
                         while (action != "exit")
                         {
+                            //read action from client
                             byte[] buffer = new byte[4096];
                             int received = client.Receive(buffer);
                             if (received == 0) break;
@@ -57,7 +68,6 @@ namespace EasySave.src.Utils
                                 Save s = saveViewModel.GetSavesByUuid(new HashSet<string>() { uuid }).Single();
                                 if (action.Contains("[ACTION]PAUSE"))
                                 {
-                                    
                                     saveViewModel.PauseSave(s);
                                     NotificationUtils.SendNotification(
                                         title: $"{s.GetName()} - {s.uuid}",
@@ -104,5 +114,7 @@ namespace EasySave.src.Utils
                 HandleConnect();
             }
         }
+
     }
+
 }

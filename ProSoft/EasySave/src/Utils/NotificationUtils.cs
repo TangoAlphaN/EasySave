@@ -5,12 +5,20 @@ using System.Runtime.InteropServices;
 
 namespace EasySave.src.Utils
 {
+    /// <summary>
+    /// Static notification utils class
+    /// </summary>
     public static class NotificationUtils
     {
 
         /// <summary>
-        /// Send a notification with multiple parameters
+        /// Display a notification
         /// </summary>
+        /// <param name="title">title</param>
+        /// <param name="message">message</param>
+        /// <param name="type">type of notification</param>
+        /// <param name="url">url to open</param>
+        /// <param name="time">time to show popup</param>
         public static void SendNotification(string title, string message, NotificationType type = NotificationType.Error, string url = "", int time = 5)
         {
             new NotificationManager().Show(new NotificationContent
@@ -24,6 +32,11 @@ namespace EasySave.src.Utils
             );
         }
 
+        /// <summary>
+        /// Open an url
+        /// </summary>
+        /// <param name="url">url</param>
+        /// <param name="open">need to open</param>
         private static void OpenUrl(string url, bool open = false)
         {
             if (!open) return;
@@ -53,5 +66,7 @@ namespace EasySave.src.Utils
                 }
             }
         }
+
     }
+
 }

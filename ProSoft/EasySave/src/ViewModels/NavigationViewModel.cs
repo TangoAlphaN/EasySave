@@ -14,9 +14,15 @@ namespace EasySave.src.ViewModels
     class NavigationViewModel : INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// Navigation items collection
+        /// </summary>
         private readonly CollectionViewSource _navigationItemsCollection;
         public ICollectionView NavigationSourceCollection => _navigationItemsCollection.View;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public NavigationViewModel()
         {
             // ObservableCollection represents a dynamic data collection that provides notifications when items
@@ -119,4 +125,5 @@ namespace EasySave.src.ViewModels
         }
 
     }
+
 }

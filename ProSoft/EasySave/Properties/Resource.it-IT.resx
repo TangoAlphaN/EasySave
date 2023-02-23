@@ -250,7 +250,7 @@
     <value>Selezionare il percorso di origine</value>
   </data>
   <data name="HomePresentation" xml:space="preserve">
-    <value>Benvenuti in EasySave, l'applicazione di backup più semplice da usare. Per salvare i dati è sufficiente accedere alla selezione "Crea salvataggio". In caso di problemi, contattateci all'indirizzo easysave.help@outlook.com</value>
+    <value>Benvenuti in EasySave, l'applicazione di backup più semplice da usare. Per salvare i dati è sufficiente accedere alla selezione "Backup". In caso di problemi, contattateci all'indirizzo easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>L'applicazione di backup più pratica</value>
@@ -338,16 +338,12 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>Indietro</value>
-  </data>>  <data name="Header.SaveCanceled" xml:space="preserve">
+  </data>&gt;  <data name="Header.SaveCanceled" xml:space="preserve">
     <value>Il backup è stato annullato</value>
-  </data>
-  <data name="Header.SaveResumed" xml:space="preserve">
+  </data><data name="Header.SaveResumed" xml:space="preserve">
     <value>La salvaguardia è ripresa</value>
-  </data>
-  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+  </data><data name="Exception.Running-Software-PackageOK" xml:space="preserve">
     <value>Il software "[PROCESS]" è stato chiuso</value>
-  </data>
-  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+  </data><data name="Exception.Run-SP-TitleOK" xml:space="preserve">
     <value>[NAME] - Backup Restarted</value>
-  </data>
-</root>
+  </data></root>

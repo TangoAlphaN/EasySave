@@ -1,5 +1,4 @@
-﻿
-using EasySave.Properties;
+﻿using EasySave.Properties;
 using EasySave.src.Models.Data;
 using EasySave.src.Utils;
 using EasySave.src.ViewModels;
@@ -18,13 +17,25 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveCreateView : UserControl
     {
+
+        /// <summary>
+        /// Type of save
+        /// </summary>
         private SaveType _type;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SaveCreateView()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Select file path command for source
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void SelectFilePathCommandSrc(object sender, RoutedEventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog
@@ -36,6 +47,11 @@ namespace EasySave.src.Render.Views
                 TxtSrc.Text = dialog.FileName;
         }
 
+        /// <summary>
+        /// Select file path command for dest
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void SelectFilePathCommandDest(object sender, RoutedEventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog
@@ -47,6 +63,11 @@ namespace EasySave.src.Render.Views
                 TxtDest.Text = dialog.FileName;
         }
 
+        /// <summary>
+        /// Check radio button
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void RadioCheck(Object sender, EventArgs e)
         {
             if (btnFull.IsChecked == true)
@@ -55,9 +76,14 @@ namespace EasySave.src.Render.Views
                 _type = Differential;
         }
 
+        /// <summary>
+        /// Create new save
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="routedEventArgs">args</param>
         private void CreateNewSave(Object sender, RoutedEventArgs routedEventArgs)
         {
-            if(CreatSaveName.Text == null || CreatSaveName.Text.Length < 1)
+            if (CreatSaveName.Text == null || CreatSaveName.Text.Length < 1)
             {
                 NotificationUtils.SendNotification(
                 title: "EasySave",
@@ -85,8 +111,12 @@ namespace EasySave.src.Render.Views
             btnFull.IsChecked = false;
             btnDiff.IsChecked = false;
         }
-        
 
+        /// <summary>
+        /// Back to save view
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void BackBtnClick(Object sender, RoutedEventArgs e)
         {
             CreatSaveName.Text = "";
@@ -96,5 +126,7 @@ namespace EasySave.src.Render.Views
             btnDiff.IsChecked = false;
             CreateFrame.NavigationService.Navigate(new SaveView());
         }
+
     }
+
 }

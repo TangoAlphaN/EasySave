@@ -33,7 +33,7 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Get the local version
         /// </summary>
-        /// <returns>version</returns>
+        /// <returns>local version</returns>
         public static Version GetVersionFromLocal()
         {
             return Assembly.GetExecutingAssembly().GetName().Version;

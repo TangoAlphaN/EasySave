@@ -14,17 +14,26 @@ namespace EasySave.src.ViewModels
     /// </summary>
     public class SaveViewModel : INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// Save items collection
+        /// </summary>
         private readonly CollectionViewSource _saveItemsCollection;
         public ICollectionView SaveSourceCollection => _saveItemsCollection.View;
 
+        /// <summary>
+        /// is view visible
+        /// </summary>
         public static bool IsVisible { get; set; }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SaveViewModel()
         {
             ObservableCollection<Save> menuItems = new ObservableCollection<Save>(Save.GetSaves());
             _saveItemsCollection = new CollectionViewSource { Source = menuItems };
         }
-
 
         /// <summary>
         /// Get all saves names
@@ -70,23 +79,39 @@ namespace EasySave.src.ViewModels
             Save.Delete(s.uuid);
         }
 
+        /// <summary>
+        /// Pause save method
+        /// </summary>
+        /// <param name="s">save</param>
         public void PauseSave(Save s)
         {
             s.Pause();
             DirectoryUtils.PauseTransfer();
         }
 
+        /// <summary>
+        /// Resume save method
+        /// </summary>
+        /// <param name="s">save</param>
         public void ResumeSave(Save s)
         {
             s.Resume();
             DirectoryUtils.ResumeTransfer();
         }
 
+        /// <summary>
+        /// Cancel save method
+        /// </summary>
+        /// <param name="s">save</param>
         public void CancelSave(Save s)
         {
             s.Cancel();
         }
 
+        /// <summary>
+        /// Stop save method
+        /// </summary>
+        /// <param name="s">save</param>
         public void StopSave(Save s)
         {
             s.Stop();
@@ -96,8 +121,6 @@ namespace EasySave.src.ViewModels
         /// Run save method
         /// </summary>
         /// <param name="save">save to run</param>
-        /// <returns>save job result</returns>
-
         public void RunSave(Save save)
         {
             new Thread(() =>
@@ -132,11 +155,6 @@ namespace EasySave.src.ViewModels
                                   select new { })
                     result.Add(s);
             return result;
-        }
-
-        public JobStatus GetSaveStatus(Save s)
-        {
-            return s.GetStatus();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

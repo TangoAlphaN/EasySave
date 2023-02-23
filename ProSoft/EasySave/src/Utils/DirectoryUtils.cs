@@ -17,27 +17,61 @@ namespace EasySave.src.Utils
     /// </summary>
     public static class DirectoryUtils
     {
-        private static SemaphoreSlim PrioritarySaveSemaphore = new SemaphoreSlim(1, 1);
 
+        /// <summary>
+        /// Semaphore to ensure that only one save can be prioritary at a time
+        /// </summary>
+        private static readonly SemaphoreSlim prioritarySaveSemaphore = new SemaphoreSlim(1, 1);
+
+        /// <summary>
+        /// Data read from config
+        /// </summary>
         private static readonly JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
 
+        /// <summary>
+        /// Key to encrypt files
+        /// </summary>
         private static string key = data["key"].ToString();
 
-        private static HashSet<string> extensions = data["extensions"].Select(t => t.ToString()).ToHashSet();
+        /// <summary>
+        /// Extensions to encrypt
+        /// </summary>
+        private static HashSet<string> extensionsToEncrypt = data["extensions"].Select(t => t.ToString()).ToHashSet();
 
+        /// <summary>
+        /// Process to observe (detect processes)
+        /// </summary>
         private static HashSet<string> process = data["process"].Select(t => t.ToString()).ToHashSet();
 
-        private static HashSet<string> priorityFiles = data["priorityFiles"].Select(t => t.ToString()).ToHashSet();
+        /// <summary>
+        /// List of priority extensions
+        /// </summary>
+        private static HashSet<string> priorityExtensions = data["priorityExtensions"].Select(t => t.ToString()).ToHashSet();
 
+        /// <summary>
+        /// Size limit for voluminous files
+        /// </summary>
         private static int limitSize = int.Parse(data["limitSize"].ToString());
 
+        /// <summary>
+        /// Mutex to ensure that only one large file is being copied at a time
+        /// </summary>
         private static readonly Mutex _filesMutex = new Mutex();
 
+        /// <summary>
+        /// Mutex to ensure that only one log is being written at a time
+        /// </summary>
         private static readonly Mutex _logMutex = new Mutex();
 
+        /// <summary>
+        /// CryptoSoft instance
+        /// </summary>
         private static CryptoSoft cs;
 
-        private static ManualResetEvent mre = new ManualResetEvent(true);
+        /// <summary>
+        /// Manual reset event to pause and resume the copy
+        /// </summary>
+        private static readonly ManualResetEvent mre = new ManualResetEvent(true);
 
         /// <summary>
         /// Array to store the actual file being copied
@@ -48,12 +82,12 @@ namespace EasySave.src.Utils
         /// Copy all files and folders from a source directory to a destination directory
         /// </summary>
         /// <param name="s">save concerned</param>
-        /// <returns></returns>
         public static void CopyFilesAndFolders(Save s)
         {
+            //Init cryptosoft instance
             try
             {
-                cs = CryptoSoft.Init(key, extensions.ToArray());
+                cs = CryptoSoft.Init(key, extensionsToEncrypt.ToArray());
             }
             catch
             {
@@ -61,7 +95,9 @@ namespace EasySave.src.Utils
             }
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
-            Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory,s );
+            //Get all files and priority files
+            Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory, s);
+            //Run copy and process result
             switch (CopyAll(s, files, mre))
             {
                 case JobStatus.Canceled:
@@ -84,12 +120,20 @@ namespace EasySave.src.Utils
             LogUtils.LogSaves();
         }
 
+        /// <summary>
+        /// Method to get all files from a directory
+        /// </summary>
+        /// <param name="src">source dir</param>
+        /// <param name="dest">destination dir</param>
+        /// <param name="s">save</param>
+        /// <returns>key value pair with source files and dest files</returns>
         private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest, Save s)
         {
             Dictionary<FileInfo, FileInfo> files = new Dictionary<FileInfo, FileInfo>();
             foreach (FileInfo file in src.GetFiles())
             {
-                if (priorityFiles.Contains(file.Name))
+                //If file is priority, add it to the beginning of the list
+                if (priorityExtensions.Contains(file.Name))
                 {
                     files = (new Dictionary<FileInfo, FileInfo> { { file, new FileInfo(Path.Combine(dest.FullName, file.Name)) } }).Concat(files).ToDictionary(k => k.Key, v => v.Value);
                 }
@@ -113,25 +157,26 @@ namespace EasySave.src.Utils
         /// Method to copy all files and folders from a source directory to a destination directory
         /// </summary>
         /// <param name="s">concerned save</param>
-        /// <param name="files">list of files</param>
+        /// <param name="files">dictionnary of files</param>
+        /// <param name="mre">manual reset event to control transfer</param>
+        /// <returns></returns>
         private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files, ManualResetEvent mre)
         {
-            foreach (KeyValuePair<FileInfo, FileInfo> data in files)
+            foreach (KeyValuePair<FileInfo, FileInfo> fileInfo in files)
             {
-                if (priorityFiles.Contains(data.Key.Name))
-                {
-                    NotificationUtils.SendNotification("Passage prioritaire", data.Key.Name + " passe en " + s.GetFilesCopied(), NotificationType.Notification);
-                    PrioritarySaveSemaphore.Wait();
-                }
+                //Process priority files first
+                if (priorityExtensions.Contains(fileInfo.Key.Name))
+                    prioritarySaveSemaphore.Wait();
                 try
                 {
                     LogUtils.LogSaves();
 
-                    FileInfo source = data.Key;
-                    FileInfo dest = data.Value;
+                    FileInfo source = fileInfo.Key;
+                    FileInfo dest = fileInfo.Value;
                     //Check if save is running
                     if (s.GetStatus() == JobStatus.Canceled)
                         return JobStatus.Canceled;
+                    //Detect processes and wait if opened
                     foreach (var p in process)
                     {
                         Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToUpper());
@@ -157,13 +202,15 @@ namespace EasySave.src.Utils
                             }
                         }
                     }
+                    //Wait for transfer to be resumed
                     mre.WaitOne();
                     //Update json data
                     bool fileCopied = true;
                     bool fileExists = File.Exists(dest.FullName);
                     //Proceed differential mode by comparing files data
-                    if (s.GetSaveType() == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0))
+                    if (s.GetSaveType() == SaveType.Full || !fileExists || DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0 || DateTime.Compare(File.GetLastWriteTime($"{dest.FullName}.enc"), File.GetLastWriteTime(source.FullName)) < 0)
                     {
+                        //If size limit is reached, block other large files
                         if (limitSize > 0 && source.Length / 1024 > limitSize)
                             _filesMutex.WaitOne();
                         actualFile[0] = source.FullName;
@@ -174,7 +221,8 @@ namespace EasySave.src.Utils
                         watch.Start();
                         try
                         {
-                            if (extensions.Contains(source.Extension))
+                            //Crypt file if extension is in the list
+                            if (extensionsToEncrypt.Contains(source.Extension))
                                 encryptionTime = cs.ProcessFile(source.FullName, $"{dest.FullName}.enc");
                             else
                                 source.CopyTo(dest.FullName, true);
@@ -184,6 +232,7 @@ namespace EasySave.src.Utils
                             fileCopied = false;
                             NotificationUtils.SendNotification(dest.FullName, Resource.AccesDenied);
                         }
+                        //Release mutex
                         if (limitSize > 0 && source.Length / 1024 > limitSize)
                             _filesMutex.ReleaseMutex();
                         watch.Stop();
@@ -196,13 +245,12 @@ namespace EasySave.src.Utils
                     if (fileCopied)
                         s.AddFileCopied();
                     s.AddSizeCopied(source.Length);
-                    //s.ProgressBar = s.CalculateProgress();
                 }
                 finally
                 {
-                    if (priorityFiles.Contains(data.Key.Name))
+                    if (priorityExtensions.Contains(fileInfo.Key.Name))
                     {
-                        PrioritarySaveSemaphore.Release();
+                        prioritarySaveSemaphore.Release();
                     }
                 }
             }
@@ -267,11 +315,17 @@ namespace EasySave.src.Utils
             return actualFile;
         }
 
+        /// <summary>
+        /// pause transfer
+        /// </summary>
         public static void PauseTransfer()
         {
             mre.Reset();
         }
 
+        /// <summary>
+        /// resume transfer
+        /// </summary>
         public static void ResumeTransfer()
         {
             mre.Set();
@@ -287,35 +341,58 @@ namespace EasySave.src.Utils
             UpdateConfig();
         }
 
-        public static void ChangeExtensions(HashSet<string> newExtensions)
+        /// <summary>
+        /// methode to update extensions
+        /// </summary>
+        /// <param name="newExtensions">new extensions</param>
+        public static void ChangeExtensionsToEncrypt(HashSet<string> newExtensions)
         {
-            extensions = newExtensions;
+            extensionsToEncrypt = newExtensions;
             UpdateConfig();
         }
 
+        /// <summary>
+        /// methode to update process
+        /// </summary>
+        /// <param name="newProcess">process list</param>
         public static void ChangeProcess(HashSet<string> newProcess)
         {
             process = newProcess;
             UpdateConfig();
         }
 
-        public static void ChangePriorityFiles(HashSet<string> newPriorityFiles)
+        /// <summary>
+        /// methode to update priority files
+        /// </summary>
+        /// <param name="newPriorityExtensions">priority extensions</param>
+        public static void ChangePriorityExtensions(HashSet<string> newPriorityExtensions)
         {
-            priorityFiles = newPriorityFiles;
+            priorityExtensions = newPriorityExtensions;
             UpdateConfig();
         }
+
+        /// <summary>
+        /// methode to update limit size
+        /// </summary>
+        /// <param name="newLimitSize">new size limit</param>
         public static void ChangeLimitSize(int newLimitSize)
         {
             limitSize = newLimitSize;
             UpdateConfig();
         }
 
-
+        /// <summary>
+        /// Save config in json file
+        /// </summary>
         private static void UpdateConfig()
         {
-            LogUtils.LogConfig(key, extensions, process, priorityFiles, limitSize);
+            LogUtils.LogConfig(key, extensionsToEncrypt, process, priorityExtensions, limitSize);
         }
 
+        /// <summary>
+        /// get secret key
+        /// </summary>
+        /// <returns>secret key</returns>
         public static string GetSecret()
         {
             try
@@ -328,24 +405,42 @@ namespace EasySave.src.Utils
             }
         }
 
-        public static string GetExtensions()
+        /// <summary>
+        /// get extensions to encrypt
+        /// </summary>
+        /// <returns>extensions to encrypt</returns>
+        public static string GetExtensionsToEncrypt()
         {
-            return string.Join("\r\n", extensions);
+            return string.Join("\r\n", extensionsToEncrypt);
         }
 
+        /// <summary>
+        /// get processes to detect
+        /// </summary>
+        /// <returns>processes to detect</returns>
         public static string GetProcess()
         {
             return string.Join("\r\n", process);
         }
 
-        public static string GetPriorityFiles()
+        /// <summary>
+        /// get priority extensions
+        /// </summary>
+        /// <returns>priority extensions</returns>
+        public static string GetPriorityExtensions()
         {
-            return string.Join("\r\n", priorityFiles);
+            return string.Join("\r\n", priorityExtensions);
         }
 
+        /// <summary>
+        /// get limit size
+        /// </summary>
+        /// <returns>limit size for large file</returns>
         public static int GetLimitSize()
         {
             return limitSize;
         }
+
     }
+
 }

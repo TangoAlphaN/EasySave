@@ -10,6 +10,7 @@
         /// Path of the directory
         /// </summary>
         string Path { get; }
+
     }
 
 }

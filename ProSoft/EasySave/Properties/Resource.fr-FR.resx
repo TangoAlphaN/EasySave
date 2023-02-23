@@ -250,7 +250,7 @@
     <value>Sélectionner le chemin source</value>
   </data>
   <data name="HomePresentation" xml:space="preserve">
-    <value>Bienvenue sur EasySave, l'application de sauvegarde la plus facile à utiliser. Pour sauvegarder des données, il suffit d'aller dans la sélection "Créer une sauvegarde". Si vous rencontrez des problèmes, veuillez nous contacter à l'adresse easysave.help@outlook.com</value>
+    <value>Bienvenue sur EasySave, l'application de sauvegarde la plus facile à utiliser. Pour sauvegarder des données, il suffit d'aller dans la sélection "Sauvegardes". Si vous rencontrez des problèmes, veuillez nous contacter à l'adresse easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>L'application de sauvegarde la plus pratique</value>

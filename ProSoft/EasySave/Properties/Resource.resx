@@ -250,7 +250,7 @@
     <value>Select destination path</value>
   </data>
   <data name="HomePresentation" xml:space="preserve">
-    <value>Welcome to EasySave, the easiest to use backup application. To save data, simply go to the "Create Save" selection. If you have any problems please contact us at easysave.help@outlook.com</value>
+    <value>Welcome to EasySave, the easiest to use backup application. To save data, simply go to the "Save" selection. If you have any problems please contact us at easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>The most practical backup application</value>

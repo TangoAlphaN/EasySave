@@ -12,6 +12,9 @@ namespace EasySave.src
     static class Program
     {
 
+        /// <summary>
+        /// Mutex to prevent multi instances
+        /// </summary>
         private static Mutex _mutex;
 
         /// <summary>

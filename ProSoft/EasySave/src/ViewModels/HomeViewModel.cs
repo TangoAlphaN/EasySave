@@ -8,6 +8,9 @@ namespace EasySave.src.ViewModels
     public class HomeViewModel
     {
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public HomeViewModel()
         {
         }

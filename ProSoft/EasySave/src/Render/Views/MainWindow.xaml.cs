@@ -2,9 +2,6 @@
 using EasySave.src.Utils;
 using EasySave.src.ViewModels;
 using Notification.Wpf;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -15,18 +12,32 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             CheckUpdate();
         }
 
+        /// <summary>
+        /// Event on mouse down
+        /// Moves the window
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">args</param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
         }
 
+        /// <summary>
+        /// Check updates at startup
+        /// Display a notification
+        /// </summary>
         private void CheckUpdate()
         {
             bool upToDate = HomeViewModel.IsUpToDate();
@@ -38,5 +49,7 @@ namespace EasySave.src.Render.Views
                 time: upToDate ? 5 : 15
             );
         }
+
     }
+
 }

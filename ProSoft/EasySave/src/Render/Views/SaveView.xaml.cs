@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,11 +18,31 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class SaveView : UserControl
     {
+
+        /// <summary>
+        /// Selected item
+        /// </summary>
         private string _selectedItem;
+
+        /// <summary>
+        /// View model
+        /// </summary>
         private readonly SaveViewModel _viewModel;
-        private string _editText;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public SaveView()
+        {
+            InitializeComponent();
+            UpdateSaves();
+            _viewModel = new SaveViewModel();
+            DataContext = _viewModel;
+        }
 
+        /// <summary>
+        /// Update saves method
+        /// </summary>
         private void UpdateSaves()
         {
             var selectedItems = SaveListBox.SelectedItems.Cast<object>().ToList();
@@ -40,14 +59,11 @@ namespace EasySave.src.Render.Views
             }
         }
 
-        public SaveView()
-        {
-            InitializeComponent();
-            UpdateSaves();
-            _viewModel = new SaveViewModel();
-            DataContext = _viewModel;
-        }
-
+        /// <summary>
+        /// On selection changed method
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="selectionChangedEventArgs">args</param>
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
             _selectedItem = (sender as ListBox)?.SelectedItem as string;
@@ -79,6 +95,11 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /// <summary>
+        /// Delegate triggered when a save property changes
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void Save_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Status")
@@ -88,6 +109,10 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /// <summary>
+        /// Update action buttons
+        /// </summary>
+        /// <param name="status">status of the save</param>
         private void UpdateButtonStatus(JobStatus status)
         {
             switch (status)
@@ -114,6 +139,11 @@ namespace EasySave.src.Render.Views
 
         }
 
+        /// <summary>
+        /// Click on run button
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void RunButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -128,7 +158,7 @@ namespace EasySave.src.Render.Views
                 HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 Parallel.ForEach(saves, save =>
                 {
-                    JobStatus saveStatus = _viewModel.GetSaveStatus(save);
+                    JobStatus saveStatus = save.GetStatus();
 
                     switch (saveStatus)
                     {
@@ -167,11 +197,20 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /// <summary>
+        /// Update progress bar
+        /// </summary>
+        /// <param name="value">progression of save</param>
         public void UpdateProgressBar(int value)
         {
             SaveProgressBar.Value = value;
         }
 
+        /// <summary>
+        /// Click on edit button
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void EditButton_Click(Object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -195,10 +234,13 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /// <summary>
+        /// Edit save name
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void EnregisterEdit(Object sender, RoutedEventArgs e)
         {
-            _editText = EditTextBox.Text;
-
             HashSet<string> keys = new HashSet<string>();
             for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
             {
@@ -209,7 +251,7 @@ namespace EasySave.src.Render.Views
             HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
             Parallel.ForEach(saves, save =>
             {
-                _viewModel.EditSave(save, _editText);
+                _viewModel.EditSave(save, EditTextBox.Text);
             });
             EditTextBox.Text = "";
             EditPopup.IsOpen = false;
@@ -217,13 +259,22 @@ namespace EasySave.src.Render.Views
 
         }
 
+        /// <summary>
+        /// Cancel edition
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void CancelEdit(Object sender, RoutedEventArgs e)
         {
             EditTextBox.Text = "";
             EditPopup.IsOpen = false;
         }
 
-
+        /// <summary>
+        /// Click on pause button
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -258,6 +309,11 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /// <summary>
+        /// Click on cancel button
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -288,6 +344,11 @@ namespace EasySave.src.Render.Views
 
         }
 
+        /// <summary>
+        /// Click on delete button
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (SaveListBox.SelectedItems.Count > 0)
@@ -316,6 +377,11 @@ namespace EasySave.src.Render.Views
             }
         }
 
+        /// <summary>
+        /// Internal method GoTo Object
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         private void GoTo(object sender, RoutedEventArgs e)
         {
             if (Application.Current.MainWindow != null)
@@ -324,5 +390,7 @@ namespace EasySave.src.Render.Views
                 SaveFrame.NavigationService.Navigate(createSave);
             }
         }
+
     }
+
 }
