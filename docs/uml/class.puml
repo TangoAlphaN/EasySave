@@ -1,0 +1,420 @@
+@startuml ProSoft - EasySave 3.0.0 - Class Diagram
+
+title "ProSoft - EasySave 3.0.0 - Class Diagram"
+
+class Program <<static>> {
+    - {static} Main() : void
+}
+
+class NavigationItem {
+    + NavigationName : string
+    + NavigationImage : string
+}
+
+class HomeItem {
+    + HomeName : string
+    + HomeImage : string
+}
+
+class SettingsItem {
+    + SettingsName : string
+    + SettingsValue : string
+    + SettingsImage : string
+    + SettingsCommand : ICommand
+}
+
+package ViewModels <<Folder>> {
+
+    class HomeViewModel {
+        + HomeViewModel()
+
+        + {static} IsUpToDate() : bool
+    }
+
+    class NavigationViewModel {
+        - navigationItemsCollection : CollectionViewSource
+        + NavigationSourceCollection : ICollectionView
+        + SelectedViewModel : object
+        + CloseAppCommand : ICommand
+        + BackHome : ICommand
+        + MenuCommand : ICommand
+        + CloseAppCommand : ICommand
+
+        + NavigationViewModel()
+        
+        - ShowHome() : void
+        + CloseApp(obj : object) : void
+        + SwitchViews(parameter : string) : void
+        - OnPropertyChanged(propName : string) : void
+    }
+
+    class SaveViewModel {
+        - saveItemsCollection : CollectionViewSource
+        + SaveSourceCollection : ICollectionView
+        + {static} isVisible : bool
+
+        + SaveViewModel()
+
+        + GetSaves() : HashSet<string>
+        + CreateSave(name : string, src : string, dest : string, type : SaveType) : Save
+        + EditSave(s : Save, newName : string) : void
+        + DeleteSave(s : Save) : void
+        + PauseSave(s : Save) : void
+        + ResumeSave(s : Save) : void
+        + CancelSave(s : Save) : void
+        + StopSave(s : Save) : void
+        + RunSave(s : Save) : void
+        # {static} StopAllSaves() : void
+        + GetSavesByUuid(names : HashSet<String>) : HashSet<Save>
+        + GetSaveStatus(s : Save) : JobStatus
+        + OnPropertyChanged(propName : string) : void
+    }
+
+    class SettingsViewModel {
+        - cryptoSoftSettingsItemsCollection : CollectionViewSource
+        + CryptoSoftSettingsSourceCollection : ICollectionView
+        - langItemsCollection : CollectionViewSource
+        + LangSourceCollection : ICollectionView
+        - logsItemsCollection : CollectionViewSource
+        + LogsSourceCollection : ICollectionView
+        - priorityFileItemsCollection : CollectionViewSource
+        + PriorityFileSourceCollection : ICollectionView
+        - sizeLimitItemsCollection : CollectionViewSource
+        + SizeLimitSourceCollection : ICollectionView
+
+        + SettingsViewModel()
+
+        - {static} ChangeLanguage(culture : object) : void
+        - {static} ChangeLogsFormat(format : object) : void
+        + {static} ChangeKey(key : object) : void
+        + {static} ChangeExtensions(extensions : object) : void
+        + {static} ChangeSizeLimit(size : object) : void
+        + {static} ChangePriorityFile(priority : object) : void
+        + {static} ChangeProcess(process : object) : void
+    }
+
+}
+
+package Render <<Folder>> {
+
+    class View {
+        + View()
+
+        + Start() : void
+        # Exit(code : int) : void
+    }
+
+    class RelayCommand {
+        - execute : Action<object>
+        - canExecute : Func<object, bool>
+
+        + RelayCommand(execute : Action<object>, canExecute : Func<object, bool>)
+
+        + CanExecute(parameter : object) : bool
+        + Execute(parameter : object) : void
+    }
+
+    package Views <<Folder>> {
+
+        class HomeView {
+            + HomeView()
+        }
+
+        class MainWindow {
+            + MainWindow()
+
+            - Window_MouseDown(sender : object, e : MouseButtonEventArgs) : void
+            - CheckUpdate() : void
+        }
+
+        class SaveCreateView {
+            - type : SaveType
+            - sv : SaveView
+
+            + SaveCreateView(sv : SaveView)
+
+            - SelectFilePathCommandSrc(sender : object, e : RoutedEventArgs) : void
+            - SelectFilePathCommandDest(sender : object, e : RoutedEventArgs) : void
+            - RadioCheck(sender : object, e : RoutedEventArgs) : void
+            - CreateNewSave(sender : object, e : RoutedEventArgs) : void
+            - BackBtnClick(sender : object, e : RoutedEventArgs) : void
+        }
+
+        class SaveView {
+            - selectedItem : string
+            - viewModel SaveViewModel
+            - saves : ObservableCollection<Save>
+            - editText : string
+
+            + SaveView()
+
+            - UpdateSaves() : void
+            - OnSelectionChanged(sender : object, e : SelectionChangedEventArgs) : void
+            - Save_PropertyChanged(sender : object, e : PropertyChangedEventArgs) : void
+            - UpdateButtonStatus(status : JobStatus) : void
+            - UpdateButtonsStatus(status : JobStatus) : void
+            - RunButton_Click(sender : object, e : RoutedEventArgs) : void
+            + UpdateProgressBar(value : int) : void
+            - EditButton_Click(sender : object, e : RoutedEventArgs) : void
+            - EnregistrerEdit(sender : object, e : RoutedEventArgs) : void
+            - CancelEdit(sender : object, e : RoutedEventArgs) : void
+            - DeleteButton_Click(sender : object, e : RoutedEventArgs) : void
+            - PauseButton_Click(sender : object, e : RoutedEventArgs) : void
+            - CancelButton_Click(sender : object, e : RoutedEventArgs) : void
+            - GoTo(sender : object, e : RoutedEventArgs) : void
+        }
+
+        class SettingsView {
+            + SettingsView()
+
+            - TextChangedEventHandler(sender : object, e : TextChangedEventArgs) : void
+        }
+
+    }
+
+}
+
+
+package Models <<Folder>> {
+
+    Interface Dir {
+        + Path : string
+    }
+
+    class SrcDir {
+        - size : double
+        + nbFiles : long
+
+        + SrcDir(path : string)
+
+        + GetSize() : double
+    }
+
+    class DestDir {
+        + DestDir(path : string)
+    }
+
+    package Exceptions <<Folder>> {
+    
+        class Exception {
+
+        }
+
+        class UnknownLogFormatException {
+
+            + UnknownLogFormatException()
+            + UnknownLogFormatException(message : string)
+            + UnknownLogFormatException(message : string, inner : Exception)
+            + UnknownLogFormatException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class CantCheckUpdateException {
+
+            + CantCheckUpdateException()
+            + CantCheckUpdateException(message : string)
+            + CantCheckUpdateException(message : string, inner : Exception)
+            + CantCheckUpdateException(info : SerializationInfo, context : StreamingContext)
+        } 
+
+        class TooMuchSavesException {
+
+            + TooMuchSavesException()
+            + TooMuchSavesException(message : string)
+            + TooMuchSavesException(message : string, inner : Exception)
+            + TooMuchSavesException(info : SerializationInfo, context : StreamingContext)
+        }
+
+    }
+    
+    package Data <<Folder>> {
+
+        abstract class Save {
+            + {const} MAX_SAVES : int
+            - {static} saves : HashSet<Save>
+            + uuid : Guid
+            - name : string
+            - filesCopied : long
+            - sizeCopied : long
+            # status : JobStatus
+            + SrcDir : SrcDir
+            + DestDir : DestDir
+            'TODO AUSSI
+
+            # Save(name: string, src : string, dest : string, guid : Guid, status : JobStatus)
+
+            + {static} CreateSave(name : string, src: Dir, dest : Dir, type : SaveType) : Save
+            + CalculateProgress() : int
+            + Rename(newName : string) : void
+            + Pause() : void
+            + Resume() : void
+            + Cancel() : void
+            + Stop() : void
+            + {static} Delete(uuid : Guid) : void
+            + Run() : void
+            - UpdateState() : void
+            + AddFileCopied(nb : int) : void
+            + {static} Init(data : dynamic) : void
+            + GetSizeCopied() : long
+            + AddSizeCopied(length : long) : void
+            + {static} GetSaves() : HashSet<save>
+            + GetName() : string
+            + GetFilesCopied() : long
+            + GetStatus() : JobStatus
+            + {static} GetStatus(status : String) : JobStatus
+            + {abstract} ToString() : string
+            + {abstract} GetSaveType() : SaveType
+            # OnPropertyChanged(propName : string) : void
+            + MarkAsFinished() : void
+        }            
+
+        class DifferentialSave {
+            # DifferentialSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        class FullSave {
+            # FullSave(name : string, src: string, dest : string, guid : Guid, status : JobStatus)
+
+            + GetSaveType() : SaveType
+            + ToString() : string
+        }
+
+        enum SaveType {
+            Full
+            Differential
+        }
+
+        enum JobStatus {
+            Running
+            Paused
+            Finished
+            Cancelled
+            Error
+            Waiting
+        }
+        
+    }
+
+}
+
+package Utils <<Folder>> {
+
+    enum LogsFormat {
+        JSON
+        XML
+    }
+
+    class DirectoryUtils <<static>> {
+        - {static} data : JObject 
+        - {static} key : string
+        - {static} extension : HashSet<string>
+        - {static} process : HashSet<string>
+        - {static} priorityFiles : HashSet<string>
+        - {static} limitSize : int
+        - {static} mutex : Mutex
+        - {static} cs : CryptoSoft
+        - {static} mre : ManualResetEvent
+        - {static} actualFile : string[]
+
+        + {static} CopyFilesAndFolders(s : Save) : void
+        - {static} GetAllFiles(src : DirectoryInfo, dest : DirectoryInfo) : Dictionary<FileInfo, FileInfo>
+        - {static} CopyAll(s : Save, files : Dictionary<FileInfo, FileInfo>, mre : ManualResetEvent) : JobStatus
+        + {static} IsValidPath(path : string) : bool
+        + {static} CreatePath(path : string) : void
+        + {static} GetDirectorySize(dir : DirectoryInfo) : double
+        + {static} GetDirectoryFiles(dir : DirectoryInfo) : long
+        + {static} GetActualFile() : string[]
+        + {static} PauseTransfer() : void
+        + {static} ResumeTransfer() : void
+        + {static} ChangeKey(newSecret : string) : void
+        + {static} ChangeExtensions(newExtensions : HashSet<string>) : void
+        + {static} ChangeProcess(newProcess : HashSet<string>) : void
+        + {static} ChangePriorityFiles(newPriorityFiles : HashSet<string>) : void
+        + {static} ChangeLimitSize(newLimitSize : int) : void
+        - {static} UpdateConfig() : void
+        + {static} GetSecret() : string
+        + {static} GetExtensions() : HashSet<string>
+        + {static} GetProcess() : HashSet<string>
+        + {static} GetPriorityFiles() : HashSet<string>
+        + {static} GetLimitSize() : int
+    }
+
+    class LogUtils <<static>> {
+        - {static} path : string
+        - {static} date : string
+        - {static} format : LogsFormat
+        - {static} mutex : Mutex
+
+        + {static} Init() : void
+        + {static} LogSaves() : void
+        - {static} SavesToJson() : JObject
+        - {static} SavesToXml() : XElement
+        + {static} SaveToJson(s : Save) : JObject
+        + {static} SaveToXml(s : Save) : XElement
+        + {static} LogTransfer(s : Save, sourcePath : stirng, destPath : String, fileSize : long, fileTransferTime : float, encryptionTime : float) : void
+        + {static} ChangeFormat(format : LogsFormat) : void
+        + {static} LogConfig(key : string, extensions : HashSet<string>) : void
+        + {static} GetFormat() : LogsFormat
+    }
+
+    class VersionUtils <<static>> {
+        + {static} GetVersionFromGit() : string
+        + {static} GetVersionFromLocal() : Version
+        + {static} VersionFromStr(version : string) : int[]
+        + {static} CompareVersions() : bool
+    }
+
+    class NotificationUtils <<static>> {
+        + {static} SendNotification(title : string, message : string, type : NotificationType, url : string, time : int) : void
+        + {static} OpenUrl(url : string, open : bool) : void
+    }
+
+    class SocketUtils <<static>> {
+        - {static} socket : Socket
+        - {static} svm : SaveViewModel
+
+        + {static} Init() : void
+        - {static} HandleConnect() : void
+    }
+
+}
+
+'View "1..*" o------ "1" ViewModel
+Save "*" *-- "1" SrcDir
+Save "*" *-- "1" DestDir
+Save "*" o------ "1" JobStatus
+
+Dir <|.. SrcDir
+Dir <|.. DestDir
+
+Save <|.. FullSave
+Save <|.. DifferentialSave
+
+SaveCreateView -up-|> UserControl
+SaveView -up-|> UserControl
+SettingsView -up-|> UserControl
+HomeView -up-|> UserControl
+
+CantCheckUpdateException -up-|> Exception
+TooMuchSavesException -up-|> Exception
+UnknownLogFormatException -up-|> Exception
+
+NavigationViewModel -up-|> INotifyPropertyChanged
+SaveViewModel -up-|> INotifyPropertyChanged
+SettingsViewModel -up-|> INotifyPropertyChanged
+
+View -up-|> Application
+MainWindow -up-|> Window
+RelayCommand -up-|> ICommand
+
+/'Hidden links for organization'/
+SaveCreateView -down[hidden]-> Exception
+INotifyPropertyChanged --up[hidden]-> LogUtils
+NotificationUtils --down[hidden]-> HomeItem
+NotificationUtils --down[hidden]-> SettingsItem
+NotificationUtils --down[hidden]-> NavigationItem
+
+
+@enduml
