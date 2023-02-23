@@ -1,5 +1,7 @@
-﻿using EasySave.src.Models.Data;
+﻿using EasySave.Properties;
+using EasySave.src.Models.Data;
 using EasySave.src.ViewModels;
+using Notification.Wpf;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -54,13 +56,44 @@ namespace EasySave.src.Utils
                                 string uuid = action.Split("|")[1];
                                 Save s = saveViewModel.GetSavesByUuid(new HashSet<string>() { uuid }).Single();
                                 if (action.Contains("[ACTION]PAUSE"))
+                                {
+                                    
                                     saveViewModel.PauseSave(s);
-                                else if (action.Contains("[ACTION]CANCEL"))
+                                    NotificationUtils.SendNotification(
+                                        title: $"{s.GetName()} - {s.uuid}",
+                                        message: Resource.Header_SavePaused,
+                                        type: NotificationType.Success
+                                    );
+                                }
+                                else if (action.Contains("[ACTION]STOP") || action.Contains("[ACTION]CANCEL"))
                                     saveViewModel.CancelSave(s);
-                                else if (action.Contains("[ACTION]STOP"))
-                                    saveViewModel.StopSave(s);
                                 else if (action.Contains("[ACTION]PLAY"))
-                                    saveViewModel.RunSave(s);
+                                {
+                                    switch (s.GetStatus())
+                                    {
+                                        case JobStatus.Finished:
+                                        case JobStatus.Waiting:
+                                        case JobStatus.Canceled:
+                                            if (s.GetStatus() != JobStatus.Waiting)
+                                                s.Stop();
+                                            saveViewModel.RunSave(s);
+                                            NotificationUtils.SendNotification(
+                                                title: $"{s.GetName()} - {s.uuid}",
+                                                message: Resource.Header_SaveLaunched,
+                                                type: NotificationType.Success
+                                            );
+                                            break;
+                                        case JobStatus.Paused:
+                                            saveViewModel.ResumeSave(s);
+                                            NotificationUtils.SendNotification(
+                                                title: $"{s.GetName()} - {s.uuid}",
+                                                message: Resource.Header_SaveResumed,
+                                                type: NotificationType.Success
+                                            );
+                                            break;
+                                    }
+                                }
+                                LogUtils.LogSaves();
                             }
                         }
                     }).Start();
