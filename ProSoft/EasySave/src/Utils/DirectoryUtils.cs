@@ -36,7 +36,7 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Extensions to encrypt
         /// </summary>
-        private static HashSet<string> extensionsToEncrypt = data["extensions"].Select(t => t.ToString()).ToHashSet();
+        private static HashSet<string> cryptoSoftExtensions = data["cryptoSoftExtensions"].Select(t => t.ToString()).ToHashSet();
 
         /// <summary>
         /// Process to observe (detect processes)
@@ -87,7 +87,7 @@ namespace EasySave.src.Utils
             //Init cryptosoft instance
             try
             {
-                cs = CryptoSoft.Init(key, extensionsToEncrypt.ToArray());
+                cs = CryptoSoft.Init(key, cryptoSoftExtensions.ToArray());
             }
             catch
             {
@@ -222,7 +222,7 @@ namespace EasySave.src.Utils
                         try
                         {
                             //Crypt file if extension is in the list
-                            if (extensionsToEncrypt.Contains(source.Extension))
+                            if (cryptoSoftExtensions.Contains(source.Extension))
                                 encryptionTime = cs.ProcessFile(source.FullName, $"{dest.FullName}.enc");
                             else
                                 source.CopyTo(dest.FullName, true);
@@ -347,7 +347,7 @@ namespace EasySave.src.Utils
         /// <param name="newExtensions">new extensions</param>
         public static void ChangeExtensionsToEncrypt(HashSet<string> newExtensions)
         {
-            extensionsToEncrypt = newExtensions;
+            cryptoSoftExtensions = newExtensions;
             UpdateConfig();
         }
 
@@ -386,7 +386,7 @@ namespace EasySave.src.Utils
         /// </summary>
         private static void UpdateConfig()
         {
-            LogUtils.LogConfig(key, extensionsToEncrypt, process, priorityExtensions, limitSize);
+            LogUtils.LogConfig(key, cryptoSoftExtensions, process, priorityExtensions, limitSize);
         }
 
         /// <summary>
@@ -411,7 +411,7 @@ namespace EasySave.src.Utils
         /// <returns>extensions to encrypt</returns>
         public static string GetExtensionsToEncrypt()
         {
-            return string.Join("\r\n", extensionsToEncrypt);
+            return string.Join("\r\n", cryptoSoftExtensions);
         }
 
         /// <summary>

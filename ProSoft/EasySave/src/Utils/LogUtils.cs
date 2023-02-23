@@ -277,15 +277,15 @@ namespace EasySave.src.Utils
         /// Log config file
         /// </summary>
         /// <param name="key">secret key</param>
-        /// <param name="extensions">extensions to encrypt</param>
+        /// <param name="extensionsToEncrypt">extensions to encrypt</param>
         /// <param name="process">processes to detect</param>
         /// <param name="priorityExtensions">priority extensions</param>
         /// <param name="limitSize">size limit</param>
-        public static void LogConfig(string key, HashSet<string> extensions, HashSet<string> process, HashSet<string> priorityExtensions, int limitSize)
+        public static void LogConfig(string key, HashSet<string> extensionsToEncrypt, HashSet<string> process, HashSet<string> priorityExtensions, int limitSize)
         {
             JObject data = new JObject(
                 new JProperty("key", key),
-                new JProperty("extensions", new JArray(extensions.Where(k => k.Length > 0))),
+                new JProperty("cryptoSoftExtensions", new JArray(extensionsToEncrypt.Where(k => k.Length > 0))),
                 new JProperty("process", new JArray(process.Where(k => k.Length > 0))),
                 new JProperty("priorityExtensions", new JArray(priorityExtensions.Where(k => k.Length > 0))),
                 new JProperty("limitSize", limitSize)
