@@ -17,6 +17,7 @@ namespace EasySave.src.Utils
     /// </summary>
     public static class DirectoryUtils
     {
+        private static SemaphoreSlim PrioritarySaveSemaphore = new SemaphoreSlim(1, 1);
 
         private static readonly JObject data = JObject.Parse(File.ReadAllText($"{LogUtils.path}config.json"));
 
@@ -60,7 +61,7 @@ namespace EasySave.src.Utils
             }
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
-            Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory);
+            Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory,s );
             switch (CopyAll(s, files, mre))
             {
                 case JobStatus.Canceled:
@@ -83,18 +84,25 @@ namespace EasySave.src.Utils
             LogUtils.LogSaves();
         }
 
-        private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest)
+        private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest, Save s)
         {
             Dictionary<FileInfo, FileInfo> files = new Dictionary<FileInfo, FileInfo>();
             foreach (FileInfo file in src.GetFiles())
             {
-                files.Add(file, new FileInfo(Path.Combine(dest.FullName, file.Name)));
+                if (priorityFiles.Contains(file.Name))
+                {
+                    files = (new Dictionary<FileInfo, FileInfo> { { file, new FileInfo(Path.Combine(dest.FullName, file.Name)) } }).Concat(files).ToDictionary(k => k.Key, v => v.Value);
+                }
+                else
+                {
+                    files.Add(file, new FileInfo(Path.Combine(dest.FullName, file.Name)));
+                }
             }
             //Recursive call for subdirectories
             foreach (DirectoryInfo directory in src.GetDirectories())
             {
                 DirectoryInfo nextTarget = dest.CreateSubdirectory(directory.Name);
-                Dictionary<FileInfo, FileInfo> subFiles = GetAllFiles(directory, nextTarget);
+                Dictionary<FileInfo, FileInfo> subFiles = GetAllFiles(directory, nextTarget, s);
                 foreach (KeyValuePair<FileInfo, FileInfo> file in subFiles)
                     files.Add(file.Key, file.Value);
             }
@@ -110,78 +118,93 @@ namespace EasySave.src.Utils
         {
             foreach (KeyValuePair<FileInfo, FileInfo> data in files)
             {
-                LogUtils.LogSaves();
-
-                FileInfo source = data.Key;
-                FileInfo dest = data.Value;
-                //Check if save is running
-                if (s.GetStatus() == JobStatus.Canceled)
-                    return JobStatus.Canceled;
-                foreach (var p in process)
+                if (priorityFiles.Contains(data.Key.Name))
                 {
-                    Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToUpper());
-                    if (processes.Length > 0 && s.GetStatus() == JobStatus.Running)
+                    NotificationUtils.SendNotification("Passage prioritaire", data.Key.Name + " passe en " + s.GetFilesCopied(), NotificationType.Notification);
+                    PrioritarySaveSemaphore.Wait();
+                }
+                try
+                {
+                    LogUtils.LogSaves();
+
+                    FileInfo source = data.Key;
+                    FileInfo dest = data.Value;
+                    //Check if save is running
+                    if (s.GetStatus() == JobStatus.Canceled)
+                        return JobStatus.Canceled;
+                    foreach (var p in process)
                     {
-                        NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_Title.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p));
-                        s.Pause();
-                        LogUtils.LogSaves();
-                        PauseTransfer();
-                        Process first = processes[0];
-                        if (first != null)
+                        Process[] processes = Process.GetProcessesByName(p.Split(".exe")[0].ToUpper());
+                        if (processes.Length > 0 && s.GetStatus() == JobStatus.Running)
                         {
-                            first.EnableRaisingEvents = true;
-                            first.Exited += (sender, e) =>
+                            NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_Title.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_Package.Replace("[PROCESS]", p));
+                            s.Pause();
+                            LogUtils.LogSaves();
+                            PauseTransfer();
+                            Process first = processes[0];
+                            if (first != null)
                             {
-                                if (s.GetStatus() == JobStatus.Paused)
+                                first.EnableRaisingEvents = true;
+                                first.Exited += (sender, e) =>
                                 {
-                                    NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_TitleOK.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_PackageOK.Replace("[PROCESS]", p), type: NotificationType.Success);
-                                    s.Resume();
-                                    ResumeTransfer();
-                                }
-                            };
+                                    if (s.GetStatus() == JobStatus.Paused)
+                                    {
+                                        NotificationUtils.SendNotification(title: Resource.Exception_Run_SP_TitleOK.Replace("[NAME]", s.GetName()), message: Resource.Exception_Running_Software_PackageOK.Replace("[PROCESS]", p), type: NotificationType.Success);
+                                        s.Resume();
+                                        ResumeTransfer();
+                                    }
+                                };
+                            }
                         }
                     }
-                }
-                mre.WaitOne();
-                //Update json data
-                bool fileCopied = true;
-                bool fileExists = File.Exists(dest.FullName);
-                //Proceed differential mode by comparing files data
-                if (s.GetSaveType() == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0))
-                {
-                    if (limitSize > 0 && source.Length / 1024 > limitSize)
-                        _filesMutex.WaitOne();
-                    actualFile[0] = source.FullName;
-                    actualFile[1] = dest.FullName;
-                    //Stopwatch to mesure transfer time
-                    var watch = new Stopwatch();
-                    long encryptionTime = -2;
-                    watch.Start();
-                    try
+                    mre.WaitOne();
+                    //Update json data
+                    bool fileCopied = true;
+                    bool fileExists = File.Exists(dest.FullName);
+                    //Proceed differential mode by comparing files data
+                    if (s.GetSaveType() == SaveType.Full || !fileExists || (DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0))
                     {
-                        if (extensions.Contains(source.Extension))
-                            encryptionTime = cs.ProcessFile(source.FullName, $"{dest.FullName}.enc");
-                        else
-                            source.CopyTo(dest.FullName, true);
-                    }
-                    catch
-                    {
-                        fileCopied = false;
-                        NotificationUtils.SendNotification(dest.FullName, Resource.AccesDenied);
-                    }
-                    if (limitSize > 0 && source.Length / 1024 > limitSize)
-                        _filesMutex.ReleaseMutex();
-                    watch.Stop();
-                    //Log transfer in json
-                    _logMutex.WaitOne();
-                    LogUtils.LogTransfer(s, source.FullName, dest.FullName, source.Length, watch.ElapsedMilliseconds, encryptionTime);
-                    _logMutex.ReleaseMutex();
+                        if (limitSize > 0 && source.Length / 1024 > limitSize)
+                            _filesMutex.WaitOne();
+                        actualFile[0] = source.FullName;
+                        actualFile[1] = dest.FullName;
+                        //Stopwatch to mesure transfer time
+                        var watch = new Stopwatch();
+                        long encryptionTime = -2;
+                        watch.Start();
+                        try
+                        {
+                            if (extensions.Contains(source.Extension))
+                                encryptionTime = cs.ProcessFile(source.FullName, $"{dest.FullName}.enc");
+                            else
+                                source.CopyTo(dest.FullName, true);
+                        }
+                        catch
+                        {
+                            fileCopied = false;
+                            NotificationUtils.SendNotification(dest.FullName, Resource.AccesDenied);
+                        }
+                        if (limitSize > 0 && source.Length / 1024 > limitSize)
+                            _filesMutex.ReleaseMutex();
+                        watch.Stop();
+                        //Log transfer in json
+                        _logMutex.WaitOne();
+                        LogUtils.LogTransfer(s, source.FullName, dest.FullName, source.Length, watch.ElapsedMilliseconds, encryptionTime);
+                        _logMutex.ReleaseMutex();
 
+                    }
+                    if (fileCopied)
+                        s.AddFileCopied();
+                    s.AddSizeCopied(source.Length);
+                    //s.ProgressBar = s.CalculateProgress();
                 }
-                if (fileCopied)
-                    s.AddFileCopied();
-                s.AddSizeCopied(source.Length);
-                //s.ProgressBar = s.CalculateProgress();
+                finally
+                {
+                    if (priorityFiles.Contains(data.Key.Name))
+                    {
+                        PrioritarySaveSemaphore.Release();
+                    }
+                }
             }
             return JobStatus.Finished;
         }
