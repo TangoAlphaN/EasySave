@@ -62,7 +62,7 @@ namespace EasySave.src.Render.Views
                 }
                 if (count == 1)
                 {
-                    
+                    UpdateProgressBar(_viewModel.GetSavesByUuid(saves).First().CalculateProgress());
                     SaveProgressBar.Visibility = Visibility.Visible;
                 }
                 else
