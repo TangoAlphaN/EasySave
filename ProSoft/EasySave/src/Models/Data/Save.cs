@@ -220,7 +220,7 @@ namespace EasySave.src.Models.Data
         public static void Init(dynamic data)
         {
             //Data is read from json file and then saves are created
-            if(LogUtils.GetFormat() == LogsFormat.XML)
+            if (LogUtils.GetFormat() == LogsFormat.XML)
             {
                 foreach (var save in data.Root.Elements())
                 {
@@ -233,7 +233,8 @@ namespace EasySave.src.Models.Data
             }
             else
             {
-                foreach (var save in data) {
+                foreach (var save in data)
+                {
                     if (!DirectoryUtils.IsValidPath(save.Value["src"].ToString())) return;
                     if (save.Value["type"].ToString() == "Full")
                         saves.Add(new FullSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString()), Save.GetStatus(save.Value["state"].ToString())));
@@ -241,7 +242,7 @@ namespace EasySave.src.Models.Data
                         saves.Add(new DifferentialSave(save.Value["name"].ToString(), save.Value["src"].ToString(), save.Value["dest"].ToString(), Guid.Parse(save.Key.ToString())));
                 }
             }
-           
+
         }
 
         /// <summary>

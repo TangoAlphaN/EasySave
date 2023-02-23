@@ -69,7 +69,7 @@ namespace EasySave.src.Utils
         /// </summary>
         public static void LogSaves()
         {
-            if(_format == LogsFormat.XML)
+            if (_format == LogsFormat.XML)
                 new XDocument(SavesToXml()).Save($"{_path}saves.xml");
             else
                 File.WriteAllText($"{_path}saves.json", SavesToJson().ToString());
@@ -194,7 +194,8 @@ namespace EasySave.src.Utils
                 data.Element("transfers").Add(transferInfo);
                 data.Save($"{_path}data-{_date}.xml");
             }
-            else {
+            else
+            {
                 transferInfo = new JObject();
                 transferInfo.name = $"{s.GetName()} ({s.uuid})";
                 transferInfo.fileSource = sourcePath;

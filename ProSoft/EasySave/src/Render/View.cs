@@ -90,7 +90,7 @@ namespace EasySave.src.Render
             if (message != null)
                 AnsiConsole.MarkupLine(message);
             //Ask user for an action
-            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete, Resource.HomeMenu_Settings}, Resource.Forms_Exit);
+            string action = ConsoleUtils.ChooseAction(Resource.HomeMenu_Title, new HashSet<string>() { Resource.HomeMenu_Create, Resource.HomeMenu_Load, Resource.HomeMenu_Edit, Resource.HomeMenu_Delete, Resource.HomeMenu_Settings }, Resource.Forms_Exit);
             switch (action)
             {
                 case var value when value == Resource.HomeMenu_Create:
