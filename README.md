@@ -26,21 +26,22 @@ Libraries used :
 
 <h2 id="docs">Documentation</h2>
 
-User documentations are available in the [docs](docs/UserDocs) folder.
+User documentations are available in the [docs](docs/manuals) folder.
 
 <h2 id="img">Preview</h2>
 
 <h3 id="img-v1.1">Version 1.1</h3>
 
-![EasySave 1.1](docs/Img/v1_1.png)
+![EasySave 1.1](docs/imgs/v1_1.png)
 
 <h3 id="img-v2">Version 2.0</h3>
 
-![EasySave 2.0](docs/Img/V2_0.png)
+![EasySave 2.0](docs/imgs/V2_0.png)
 
 <h3 id="img-v3">Version 3.0</h3>
 
-![EasySave 3.0](docs/Img/V3_0.png)
+![EasySave 3.0](docs/imgs/V3_0.png)
 
 <h3 id="img-vClient">EasyClient</h3>
-![EasyClient](docs/Img/EasyClient.png)
+
+![EasyClient](docs/imgs/EasyClient.png)
