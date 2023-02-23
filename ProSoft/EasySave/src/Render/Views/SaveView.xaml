@@ -87,15 +87,15 @@
         <ListBox x:Name="SaveListBox" Margin="10 65 10 250" Grid.RowSpan="2" SelectionMode="multiple" Background="#303030" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding }" Foreground="#DDDDDD" FontSize="14"/>
+                    <TextBlock Text="{Binding}" Foreground="#DDDDDD" FontSize="14"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <Grid Margin="0 20">
-            <ProgressBar    x:Name="SaveProgressBar" 
+            <ProgressBar x:Name="SaveProgressBar" 
                             Minimum="0" Maximum="100" 
-                            Value="{Binding UpdateProgressBar}" 
+                            Value="0" 
                             Background="#DDDDDDDD" 
                             BorderBrush="Gray" 
                             Visibility="Collapsed"

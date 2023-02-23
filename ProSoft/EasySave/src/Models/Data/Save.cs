@@ -63,18 +63,6 @@ namespace EasySave.src.Models.Data
         /// </summary>
         public readonly DestDir DestDir;
 
-        /*public long length;
-
-        public int ProgressBar
-        {
-            get => (int)(_sizeCopied / length * 100);
-            set
-            {
-                _sizeCopied = value;
-                OnPropertyChanged();
-            }
-        }*/
-
         /// <summary>
         /// Save constructor. Constructor is protected to prevent direct instantiation
         /// </summary>

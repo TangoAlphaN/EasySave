@@ -5,12 +5,12 @@ using EasySave.src.ViewModels;
 using Notification.Wpf;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Linq;
 
 namespace EasySave.src.Render.Views
 {
@@ -21,7 +21,6 @@ namespace EasySave.src.Render.Views
     {
         private string _selectedItem;
         private readonly SaveViewModel _viewModel;
-        private ObservableCollection<Save> _saves;
         private string _editText;
 
 
@@ -47,7 +46,6 @@ namespace EasySave.src.Render.Views
             UpdateSaves();
             _viewModel = new SaveViewModel();
             DataContext = _viewModel;
-
         }
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
@@ -56,18 +54,22 @@ namespace EasySave.src.Render.Views
             int count = (sender as ListBox).SelectedItems.Count;
             if (count > 0 && _selectedItem != null)
             {
+                HashSet<string> saves = new HashSet<string>();
+                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
+                {
+                    var selectedItem = SaveListBox.SelectedItems[i];
+                    if (selectedItem != null) saves.Add(selectedItem.ToString());
+                }
                 if (count == 1)
+                {
+                    
                     SaveProgressBar.Visibility = Visibility.Visible;
+                }
                 else
                     SaveProgressBar.Visibility = Visibility.Collapsed;
                 PauseBtn.Visibility = Visibility.Visible;
                 CancelBtn.Visibility = Visibility.Visible;
-                HashSet<string> keys = new HashSet<string>();
-                for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)
-                {
-                    var selectedItem = SaveListBox.SelectedItems[i];
-                    if (selectedItem != null) keys.Add(selectedItem.ToString());
-                }
+
             }
             else
             {
@@ -151,16 +153,9 @@ namespace EasySave.src.Render.Views
                             );
                             break;
                     }
-
                     save.PropertyChanged += Save_PropertyChanged;
-                    /*Dispatcher.Invoke(() =>
-                    {
-                        UpdateProgressBar(save.CalculateProgress());
-
-                    });*/
                 });
                 UpdateSaves();
-
             }
             else
             {
@@ -188,7 +183,6 @@ namespace EasySave.src.Render.Views
                     if (selectedItem != null) keys.Add(selectedItem.ToString());
                 }
 
-                HashSet<Save> saves = ((SaveViewModel)DataContext).GetSavesByUuid(keys);
                 EditPopup.IsOpen = true;
             }
             else
@@ -299,9 +293,6 @@ namespace EasySave.src.Render.Views
             if (SaveListBox.SelectedItems.Count > 0)
             {
                 PauseBtn.Visibility = Visibility.Collapsed;
-                /*
-                ResumeBtn.Visibility = Visibility.Collapsed;
-                */
                 CancelBtn.Visibility = Visibility.Collapsed;
                 HashSet<string> keys = new HashSet<string>();
                 for (int i = 0; i < SaveListBox.SelectedItems.Count; i++)

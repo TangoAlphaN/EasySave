@@ -22,7 +22,7 @@ namespace EasySave.src.Utils
             try
             {
                 var client = new GitHubClient(new ProductHeaderValue("EasySave"));
-                return client.Repository.Release.GetAll("arnoux23u-CESI", "EasySave").GetAwaiter().GetResult().Where(release => release.TagName.StartsWith("V")).First().TagName;
+                return client.Repository.Release.GetAll("arnoux23u-CESI", "EasySave").GetAwaiter().GetResult().First(release => release.TagName.StartsWith("V")).TagName;
             }
             catch
             {
