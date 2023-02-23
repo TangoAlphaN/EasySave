@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+	<ApplicationIcon>LogoSoloEasySavev2.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="wpf-ui" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Remove="Assets\applicationIcon-1024.png" />
+	<None Remove="Assets\applicationIcon-256.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Resource Include="Assets\applicationIcon-1024.png" />
+	<Resource Include="Assets\applicationIcon-256.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Content Include="LogoSoloEasySavev2.ico" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Compile Update="Properties\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
