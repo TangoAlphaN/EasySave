@@ -96,7 +96,7 @@ namespace EasySave.src.Utils
             DirectoryInfo sourceDirectory = new DirectoryInfo(s.SrcDir.Path);
             DirectoryInfo destinationDirectory = new DirectoryInfo(s.DestDir.Path);
             //Get all files and priority files
-            Dictionary<FileInfo, FileInfo> files = GetAllFiles(sourceDirectory, destinationDirectory, s);
+            List<KeyValuePair<FileInfo, FileInfo>> files = GetAllFiles(sourceDirectory, destinationDirectory, s);
             //Run copy and process result
             switch (CopyAll(s, files, mre))
             {
@@ -127,29 +127,20 @@ namespace EasySave.src.Utils
         /// <param name="dest">destination dir</param>
         /// <param name="s">save</param>
         /// <returns>key value pair with source files and dest files</returns>
-        private static Dictionary<FileInfo, FileInfo> GetAllFiles(DirectoryInfo src, DirectoryInfo dest, Save s)
+        private static List<KeyValuePair<FileInfo, FileInfo>> GetAllFiles(DirectoryInfo src, DirectoryInfo dest, Save s)
         {
-            Dictionary<FileInfo, FileInfo> files = new Dictionary<FileInfo, FileInfo>();
+            List<KeyValuePair<FileInfo, FileInfo>> files = new List<KeyValuePair<FileInfo, FileInfo>>();
             foreach (FileInfo file in src.GetFiles())
             {
                 //If file is priority, add it to the beginning of the list
-                if (priorityExtensions.Contains(file.Name))
-                {
-                    files = (new Dictionary<FileInfo, FileInfo> { { file, new FileInfo(Path.Combine(dest.FullName, file.Name)) } }).Concat(files).ToDictionary(k => k.Key, v => v.Value);
-                }
+                if (priorityExtensions.Contains(file.Extension))
+                    files.Insert(0, new KeyValuePair<FileInfo, FileInfo>(file, new FileInfo(Path.Combine(dest.FullName, file.Name))));
                 else
-                {
-                    files.Add(file, new FileInfo(Path.Combine(dest.FullName, file.Name)));
-                }
+                    files.Add(new KeyValuePair<FileInfo, FileInfo>(file, new FileInfo(Path.Combine(dest.FullName, file.Name))));
             }
             //Recursive call for subdirectories
             foreach (DirectoryInfo directory in src.GetDirectories())
-            {
-                DirectoryInfo nextTarget = dest.CreateSubdirectory(directory.Name);
-                Dictionary<FileInfo, FileInfo> subFiles = GetAllFiles(directory, nextTarget, s);
-                foreach (KeyValuePair<FileInfo, FileInfo> file in subFiles)
-                    files.Add(file.Key, file.Value);
-            }
+                files.AddRange(GetAllFiles(directory, dest.CreateSubdirectory(directory.Name), s));
             return files;
         }
 
@@ -160,17 +151,13 @@ namespace EasySave.src.Utils
         /// <param name="files">dictionnary of files</param>
         /// <param name="mre">manual reset event to control transfer</param>
         /// <returns></returns>
-        private static JobStatus CopyAll(Save s, Dictionary<FileInfo, FileInfo> files, ManualResetEvent mre)
+        private static JobStatus CopyAll(Save s, List<KeyValuePair<FileInfo, FileInfo>> files, ManualResetEvent mre)
         {
             foreach (KeyValuePair<FileInfo, FileInfo> fileInfo in files)
             {
-                //Process priority files first
-                if (priorityExtensions.Contains(fileInfo.Key.Name))
-                    prioritarySaveSemaphore.Wait();
                 try
                 {
                     LogUtils.LogSaves();
-
                     FileInfo source = fileInfo.Key;
                     FileInfo dest = fileInfo.Value;
                     //Check if save is running
@@ -207,6 +194,9 @@ namespace EasySave.src.Utils
                     //Update json data
                     bool fileCopied = true;
                     bool fileExists = File.Exists(dest.FullName);
+                    //Process priority files first
+                    if (priorityExtensions.Contains(fileInfo.Key.Name))
+                        prioritarySaveSemaphore.Wait();
                     //Proceed differential mode by comparing files data
                     if (s.GetSaveType() == SaveType.Full || !fileExists || DateTime.Compare(File.GetLastWriteTime(dest.FullName), File.GetLastWriteTime(source.FullName)) < 0 || DateTime.Compare(File.GetLastWriteTime($"{dest.FullName}.enc"), File.GetLastWriteTime(source.FullName)) < 0)
                     {
@@ -232,14 +222,14 @@ namespace EasySave.src.Utils
                             fileCopied = false;
                             NotificationUtils.SendNotification(dest.FullName, Resource.AccesDenied);
                         }
-                        //Release mutex
-                        if (limitSize > 0 && source.Length / 1024 > limitSize)
-                            _filesMutex.ReleaseMutex();
                         watch.Stop();
                         //Log transfer in json
                         _logMutex.WaitOne();
                         LogUtils.LogTransfer(s, source.FullName, dest.FullName, source.Length, watch.ElapsedMilliseconds, encryptionTime);
                         _logMutex.ReleaseMutex();
+                        //Release mutex
+                        if (limitSize > 0 && source.Length / 1024 > limitSize)
+                            _filesMutex.ReleaseMutex();
 
                     }
                     if (fileCopied)
