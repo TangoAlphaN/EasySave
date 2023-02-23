@@ -250,7 +250,7 @@
     <value>Select destination path</value>
   </data>
   <data name="HomePresentation" xml:space="preserve">
-    <value>Welcome to EasySave, the easiest to use backup application. To save data, simply go to the "Create Save" selection. If you have any problems please contact us at easysave.help@outlook.com</value>
+    <value>Welcome to EasySave, the easiest to use backup application. To save data, simply go to the "Save" selection. If you have any problems please contact us at easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>The most practical backup application</value>
@@ -278,5 +278,77 @@
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Rename</value>
+  </data>
+  <data name="HomeMenu.Saves" xml:space="preserve">
+    <value>Saves</value>
+  </data>
+  <data name="HomeMenu.Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NoSelected" xml:space="preserve">
+    <value>No item selected</value>
+  </data>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Backup started</value>
+  </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>Software packages:</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>The software "[PROCESS]" is running</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>[NAME] - Backup Stopped</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>An error occured</value>
+  </data>
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>Priority extensions:</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Other Settings</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Backup finished</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Backup paused</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Size limit of a backup file (kB)</value>
+  </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>File size limit</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>The backup has been cancelled</value>
+  </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>The backup has resumed</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>The software "[PROCESS]" is not running anymore</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>[NAME] - Backup Restarted</value>
   </data>
 </root>

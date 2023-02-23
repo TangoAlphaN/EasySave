@@ -1,6 +1,7 @@
 ﻿using EasySave.src.Models.Exceptions;
 using Octokit;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace EasySave.src.Utils
@@ -21,12 +22,21 @@ namespace EasySave.src.Utils
             try
             {
                 var client = new GitHubClient(new ProductHeaderValue("EasySave"));
-                return client.Repository.Release.GetAll("arnoux23u-CESI", "EasySave").GetAwaiter().GetResult()[0].TagName;
+                return client.Repository.Release.GetAll("arnoux23u-CESI", "EasySave").GetAwaiter().GetResult().First(release => release.TagName.StartsWith("V")).TagName;
             }
             catch
             {
                 throw new CantCheckUpdateException();
             }
+        }
+
+        /// <summary>
+        /// Get the local version
+        /// </summary>
+        /// <returns>local version</returns>
+        public static Version GetVersionFromLocal()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version;
         }
 
         /// <summary>
@@ -50,7 +60,7 @@ namespace EasySave.src.Utils
         public static bool CompareVersions()
         {
             //Get version from project info
-            Version versionData = Assembly.GetExecutingAssembly().GetName().Version;
+            Version versionData = GetVersionFromLocal();
             int[] current = VersionFromStr($"V{versionData.Major}.{versionData.Minor}.{versionData.Build}");
             int[] latest = VersionFromStr(GetVersionFromGit());
             return (latest[0] > current[0]) || (latest[0] == current[0] && latest[1] > current[1]) || (latest[0] == current[0] && latest[1] == current[1] && latest[2] > current[2]);

@@ -1,5 +1,4 @@
-﻿
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace EasySave.src.Render.Views
 {
@@ -8,9 +7,15 @@ namespace EasySave.src.Render.Views
     /// </summary>
     public partial class HomeView : UserControl
     {
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public HomeView()
         {
             InitializeComponent();
         }
+
     }
+
 }

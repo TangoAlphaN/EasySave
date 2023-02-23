@@ -2,15 +2,21 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <AssemblyVersion>3.0.0</AssemblyVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>EasySave.src.Program</StartupObject>
+    <ApplicationIcon>LogoSoloEasySavev1.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="LogoSoloEasySavev1.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.WindowsAPICodePack-Shell" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Notification.Wpf" Version="7.0.0" />
     <PackageReference Include="Octokit" Version="5.0.0" />
   </ItemGroup>
 
@@ -69,8 +75,16 @@
     <Resource Include="src\Render\Assets\ru_RU.png" />
     <Resource Include="src\Render\Assets\json.png" />
     <Resource Include="src\Render\Assets\xml.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Render\Views\" />
+    <Resource Include="src\Render\Assets\validate.png" />
+    <Resource Include="src\Render\Assets\Trash.png" />
+    <Resource Include="src\Render\Assets\Cancel.png" />
+    <Resource Include="src\Render\Assets\Resume.png" />
+    <Resource Include="src\Render\Assets\Play.png" />
+    <Resource Include="src\Render\Assets\Pause.png" />
+    <Resource Include="src\Render\Assets\Add.png" />
+    <Resource Include="src\Render\Assets\Edit.png" />
+    <Resource Include="src\Render\Assets\Ok.png" />
+    <Resource Include="src\Render\Assets\Back.png" />
+    <Resource Include="src\Render\Assets\Folder.png" />
   </ItemGroup>
 </Project>

@@ -250,7 +250,7 @@
     <value>Sélectionner le chemin source</value>
   </data>
   <data name="HomePresentation" xml:space="preserve">
-    <value>Bienvenue sur EasySave, l'application de sauvegarde la plus facile à utiliser. Pour sauvegarder des données, il suffit d'aller dans la sélection "Créer une sauvegarde". Si vous rencontrez des problèmes, veuillez nous contacter à l'adresse easysave.help@outlook.com</value>
+    <value>Bienvenue sur EasySave, l'application de sauvegarde la plus facile à utiliser. Pour sauvegarder des données, il suffit d'aller dans la sélection "Sauvegardes". Si vous rencontrez des problèmes, veuillez nous contacter à l'adresse easysave.help@outlook.com</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>L'application de sauvegarde la plus pratique</value>
@@ -278,5 +278,77 @@
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Renomer</value>
+  </data>
+  <data name="HomeMenu.Saves" xml:space="preserve">
+    <value>Sauvegardes</value>
+  </data>
+  <data name="HomeMenu.Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Reprendre</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="NoSelected" xml:space="preserve">
+    <value>Aucun item sélectionné</value>
+  </data>
+  <data name="Header.SaveLaunched" xml:space="preserve">
+    <value>Sauvegarde débutée</value>
+  </data>
+  <data name="Settings.Software-Package" xml:space="preserve">
+    <value>Logiciels métier :</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Lancer</value>
+  </data>
+  <data name="Exception.Running-Software-Package" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" est en cours de fonctionnement</value>
+  </data>
+  <data name="Exception.Run-SP-Title" xml:space="preserve">
+    <value>Sauvegarde [NAME] stoppée</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Une erreur est survenue</value>
+  </data>
+  <data name="Settings.Priority-Files" xml:space="preserve">
+    <value>Extensions prioritaires :</value>
+  </data>
+  <data name="HomeMenu.Settings.Others" xml:space="preserve">
+    <value>Autres paramètres</value>
+  </data>
+  <data name="Header.SaveFinished" xml:space="preserve">
+    <value>Sauvegarde terminée</value>
+  </data>
+  <data name="Header.SavePaused" xml:space="preserve">
+    <value>Sauvegarde en attente</value>
+  </data>
+  <data name="HomeMenu.Settings.LimitSize" xml:space="preserve">
+    <value>Limite de la taille des fichiers</value>
+  </data>
+  <data name="Settings.LimitSize" xml:space="preserve">
+    <value>Taille limite d'un fichier de sauvegarde (kO)</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="Header.SaveCanceled" xml:space="preserve">
+    <value>La sauvegarde a été annulée</value>
+  </data>
+  <data name="Header.SaveResumed" xml:space="preserve">
+    <value>La sauvegarde a repris</value>
+  </data>
+  <data name="Exception.Running-Software-PackageOK" xml:space="preserve">
+    <value>Le logiciel "[PROCESS]" à été fermé</value>
+  </data>
+  <data name="Exception.Run-SP-TitleOK" xml:space="preserve">
+    <value>Sauvegarde [NAME] reprise</value>
   </data>
 </root>

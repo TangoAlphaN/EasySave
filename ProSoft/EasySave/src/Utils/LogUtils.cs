@@ -3,7 +3,10 @@ using EasySave.src.Models.Exceptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Xml.Linq;
 
 namespace EasySave.src.Utils
@@ -17,16 +20,22 @@ namespace EasySave.src.Utils
         /// <summary>
         /// Path to the log file
         /// </summary>
-        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\EasySave\";
+        public static readonly string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\ProSoft\EasySave\";
 
-        private static LogsFormat _format;
-
+        /// <summary>
+        /// Format of the logs
+        /// </summary>
         private static LogsFormat _format;
 
         /// <summary>
         /// Date of the day
         /// </summary>
         private static readonly string _date = DateTime.Now.ToString("yyyyMMdd");
+
+        /// <summary>
+        /// Mutex to avoid multiple threads to write at the same time
+        /// </summary>
+        private static readonly Mutex _mutex = new Mutex();
 
         /// <summary>
         /// Init logs util
@@ -36,7 +45,6 @@ namespace EasySave.src.Utils
             //Create easysave dir if not exists
             if (!DirectoryUtils.IsValidPath(path))
             {
-                //AnsiConsole.Clear();
                 Directory.CreateDirectory(path);
             }
             //If XML file exists, load saves and set XML as default
@@ -54,14 +62,23 @@ namespace EasySave.src.Utils
                     _format = LogsFormat.JSON;
                     data = JObject.Parse(File.ReadAllText($"{path}saves.json"));
                 }
+#pragma warning disable S2486 // Generic exceptions should not be ignored
                 try
                 {
                     Save.Init(data);
                 }
                 catch
+#pragma warning disable S108 // Nested blocks of code should not be left empty
                 {
-                    LogSaves();
                 }
+#pragma warning restore S2486 // Generic exceptions should not be ignored
+#pragma warning restore S108 // Nested blocks of code should not be left empty
+                LogSaves();
+            }
+            if (!File.Exists($"{path}config.json"))
+            {
+                HashSet<string> empty = new HashSet<string>();
+                LogConfig("CHANGETHISKEY", empty, empty, empty, -1);
             }
         }
 
@@ -70,17 +87,19 @@ namespace EasySave.src.Utils
         /// </summary>
         public static void LogSaves()
         {
-            if(_format == LogsFormat.XML)
+            _mutex.WaitOne();
+            if (_format == LogsFormat.XML)
                 new XDocument(SavesToXml()).Save($"{path}saves.xml");
             else
                 File.WriteAllText($"{path}saves.json", SavesToJson().ToString());
+            _mutex.ReleaseMutex();
         }
 
         /// <summary>
         /// Convert saves into json
         /// </summary>
         /// <returns>json object</returns>
-        private static JObject SavesToJson()
+        public static JObject SavesToJson()
         {
             JObject data = new JObject();
             foreach (Save s in Save.GetSaves())
@@ -197,7 +216,8 @@ namespace EasySave.src.Utils
                 data.Element("transfers").Add(transferInfo);
                 data.Save($"{path}data-{_date}.xml");
             }
-            else {
+            else
+            {
                 transferInfo = new JObject();
                 transferInfo.name = $"{s.GetName()} ({s.uuid})";
                 transferInfo.fileSource = sourcePath;
@@ -253,5 +273,27 @@ namespace EasySave.src.Utils
             return _format;
         }
 
+        /// <summary>
+        /// Log config file
+        /// </summary>
+        /// <param name="key">secret key</param>
+        /// <param name="extensionsToEncrypt">extensions to encrypt</param>
+        /// <param name="process">processes to detect</param>
+        /// <param name="priorityExtensions">priority extensions</param>
+        /// <param name="limitSize">size limit</param>
+        public static void LogConfig(string key, HashSet<string> extensionsToEncrypt, HashSet<string> process, HashSet<string> priorityExtensions, int limitSize)
+        {
+            JObject data = new JObject(
+                new JProperty("key", key),
+                new JProperty("cryptoSoftExtensions", new JArray(extensionsToEncrypt.Where(k => k.Length > 0))),
+                new JProperty("process", new JArray(process.Where(k => k.Length > 0))),
+                new JProperty("priorityExtensions", new JArray(priorityExtensions.Where(k => k.Length > 0))),
+                new JProperty("limitSize", limitSize)
+            );
+            string json = JsonConvert.SerializeObject(data);
+            File.WriteAllText($"{path}config.json", json);
+        }
+
     }
+
 }

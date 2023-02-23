@@ -1,6 +1,6 @@
 ﻿using EasySave.src.Models.Data;
+using EasySave.src.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 
 namespace EasySave.src.Render
@@ -11,99 +11,30 @@ namespace EasySave.src.Render
     partial class View : Application
     {
 
-        private readonly ViewModel vm;
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public View()
         {
-            vm = new ViewModel();
         }
 
+        /// <summary>
+        /// Start the view
+        /// </summary>
         public void Start()
         {
             InitializeComponent();
             Run();
-            //RenderHome(CheckUpdate());
         }
 
-        private void Render(RenderMethod method = RenderMethod.Home)
-        {
-            switch (method)
-            {
-                case RenderMethod.CreateSave:
-                    RenderCreateSave();
-                    break;
-                case RenderMethod.LoadSave:
-                    RenderLoadSave(PromptSave(true));
-                    break;
-                case RenderMethod.EditSave:
-                    RenderEditSave(PromptSave());
-                    break;
-                case RenderMethod.DeleteSave:
-                    RenderDeleteSave(PromptSave());
-                    break;
-                case RenderMethod.ChangeLanguage:
-                    RenderChangeLanguage();
-                    break;
-                default:
-                    RenderHome();
-                    break;
-            }
-        }
-
-        private void RenderHome(string message = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RenderCreateSave()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RenderLoadSave(HashSet<Save> saves)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RenderEditSave(HashSet<Save> saves)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RenderDeleteSave(HashSet<Save> saves)
-        {
-            throw new NotImplementedException();
-        }
-
-        private HashSet<Save> PromptSave(bool multi = false)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Exit the view
+        /// </summary>
+        /// <param name="code"></param>
         internal void Exit(int code = 0)
         {
-            vm.StopAllSaves();
+            SaveViewModel.StopAllSaves();
             Environment.Exit(code);
-        }
-
-        private string CheckUpdate()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RenderChangeLanguage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static object CreateProgressBar(Save s)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void WriteError(string v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

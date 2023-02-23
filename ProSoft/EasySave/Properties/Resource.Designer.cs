@@ -79,6 +79,24 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose your language:.
         /// </summary>
         public static string ChangeLang {
@@ -241,11 +259,65 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured.
+        /// </summary>
+        public static string ErrorMsg {
+            get {
+                return ResourceManager.GetString("ErrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error occured, please restart app..
         /// </summary>
         public static string Exception {
             get {
                 return ResourceManager.GetString("Exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [NAME] - Backup Stopped.
+        /// </summary>
+        public static string Exception_Run_SP_Title {
+            get {
+                return ResourceManager.GetString("Exception.Run-SP-Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [NAME] - Backup Restarted.
+        /// </summary>
+        public static string Exception_Run_SP_TitleOK {
+            get {
+                return ResourceManager.GetString("Exception.Run-SP-TitleOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The software &quot;[PROCESS]&quot; is running.
+        /// </summary>
+        public static string Exception_Running_Software_Package {
+            get {
+                return ResourceManager.GetString("Exception.Running-Software-Package", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The software &quot;[PROCESS]&quot; is not running anymore.
+        /// </summary>
+        public static string Exception_Running_Software_PackageOK {
+            get {
+                return ResourceManager.GetString("Exception.Running-Software-PackageOK", resourceCulture);
             }
         }
         
@@ -295,6 +367,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The backup has been cancelled.
+        /// </summary>
+        public static string Header_SaveCanceled {
+            get {
+                return ResourceManager.GetString("Header.SaveCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save deleted successfully.
         /// </summary>
         public static string Header_SaveDeleted {
@@ -304,11 +385,47 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backup finished.
+        /// </summary>
+        public static string Header_SaveFinished {
+            get {
+                return ResourceManager.GetString("Header.SaveFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup started.
+        /// </summary>
+        public static string Header_SaveLaunched {
+            get {
+                return ResourceManager.GetString("Header.SaveLaunched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup paused.
+        /// </summary>
+        public static string Header_SavePaused {
+            get {
+                return ResourceManager.GetString("Header.SavePaused", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save successfully renamed.
         /// </summary>
         public static string Header_SaveRenamed {
             get {
                 return ResourceManager.GetString("Header.SaveRenamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The backup has resumed.
+        /// </summary>
+        public static string Header_SaveResumed {
+            get {
+                return ResourceManager.GetString("Header.SaveResumed", resourceCulture);
             }
         }
         
@@ -358,11 +475,29 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string HomeMenu_Home {
+            get {
+                return ResourceManager.GetString("HomeMenu.Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load a save.
         /// </summary>
         public static string HomeMenu_Load {
             get {
                 return ResourceManager.GetString("HomeMenu.Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saves.
+        /// </summary>
+        public static string HomeMenu_Saves {
+            get {
+                return ResourceManager.GetString("HomeMenu.Saves", resourceCulture);
             }
         }
         
@@ -385,6 +520,24 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File size limit.
+        /// </summary>
+        public static string HomeMenu_Settings_LimitSize {
+            get {
+                return ResourceManager.GetString("HomeMenu.Settings.LimitSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Settings.
+        /// </summary>
+        public static string HomeMenu_Settings_Others {
+            get {
+                return ResourceManager.GetString("HomeMenu.Settings.Others", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose an action:.
         /// </summary>
         public static string HomeMenu_Title {
@@ -394,7 +547,7 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to EasySave, the easiest to use backup application. To save data, simply go to the &quot;Create Save&quot; selection. If you have any problems please contact us at easysave.help@outlook.com.
+        ///   Looks up a localized string similar to Welcome to EasySave, the easiest to use backup application. To save data, simply go to the &quot;Save&quot; selection. If you have any problems please contact us at easysave.help@outlook.com.
         /// </summary>
         public static string HomePresentation {
             get {
@@ -466,6 +619,15 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No item selected.
+        /// </summary>
+        public static string NoSelected {
+            get {
+                return ResourceManager.GetString("NoSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect Path | .
         /// </summary>
         public static string Path_Invalid {
@@ -475,11 +637,38 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pause.
+        /// </summary>
+        public static string Pause {
+            get {
+                return ResourceManager.GetString("Pause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rename.
         /// </summary>
         public static string Rename {
             get {
                 return ResourceManager.GetString("Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resume.
+        /// </summary>
+        public static string Resume {
+            get {
+                return ResourceManager.GetString("Resume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run.
+        /// </summary>
+        public static string Run {
+            get {
+                return ResourceManager.GetString("Run", resourceCulture);
             }
         }
         
@@ -520,11 +709,38 @@ namespace EasySave.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Size limit of a backup file (kB).
+        /// </summary>
+        public static string Settings_LimitSize {
+            get {
+                return ResourceManager.GetString("Settings.LimitSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority extensions:.
+        /// </summary>
+        public static string Settings_Priority_Files {
+            get {
+                return ResourceManager.GetString("Settings.Priority-Files", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CryptoSoft Secret:.
         /// </summary>
         public static string Settings_Secret {
             get {
                 return ResourceManager.GetString("Settings.Secret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software packages:.
+        /// </summary>
+        public static string Settings_Software_Package {
+            get {
+                return ResourceManager.GetString("Settings.Software-Package", resourceCulture);
             }
         }
         
